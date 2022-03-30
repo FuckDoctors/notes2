@@ -18,7 +18,10 @@
     "test:unit": "vitest",
     "typecheck": "vue-tsc --noEmit --skipLibCheck",
     "prepare": "husky install",
-    "cm": "cz"
+    "cm": "cz",
+    "docs:build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache",
+    "docs:dev": "vuepress dev docs"
   },
   "dependencies": {
     "@vueuse/core": "^7.6.2",
@@ -106,6 +109,8 @@
     "vite-plugin-windicss": "^1.7.0",
     "vite-ssg": "^0.17.10",
     "vitest": "^0.3.6",
-    "vue-tsc": "^0.31.4"
+    "vue-tsc": "^0.31.4",
+    "vuepress": "^2.0.0-beta.36",
+    "vuepress-theme-hope": "^2.0.0-beta.28"
   }
 }
