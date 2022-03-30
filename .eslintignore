@@ -1,2 +1,5 @@
 dist
 public
+
+docs/.vuepress/.cache/
+docs/.vuepress/.temp/
