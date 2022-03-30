@@ -19,13 +19,13 @@ export default defineHopeConfig({
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'Theme Demo',
-      description: 'A demo for vuepress-theme-hope',
+      title: "ZhaoBin's site",
+      description: "ZhaoBin 's blogs and notes",
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: '主题演示',
-      description: 'vuepress-theme-hope 的演示',
+      title: '赵斌的小站',
+      description: '赵斌的随笔和笔记',
     },
   },
 

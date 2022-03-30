@@ -7,6 +7,7 @@ heroImage: /logo.svg
 heroText: 你博客的名称
 heroFullScreen: true
 tagline: 你可以在这里放置你的口号与标语
+bgImage: /bg.jpg
 projects:
   - icon: project
     name: 项目名称

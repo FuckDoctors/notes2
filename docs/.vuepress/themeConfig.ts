@@ -6,7 +6,7 @@ export default defineThemeConfig({
   hostname: 'https://zhaobc.site',
 
   author: {
-    name: 'Mr.Hope',
+    name: 'Zhao Bin',
     url: 'https://zhaobc.site',
   },
 
@@ -35,12 +35,12 @@ export default defineThemeConfig({
       // sidebar
       sidebar: sidebar.en,
 
-      footer: 'Default footer',
+      footer: "Welcome to ZhaoBin's site",
 
       displayFooter: true,
 
       blog: {
-        description: 'A FrontEnd programmer',
+        description: 'A programmer, Vue/Java lover.',
         intro: '/intro.html',
       },
     },
@@ -60,7 +60,7 @@ export default defineThemeConfig({
       displayFooter: true,
 
       blog: {
-        description: '一个前端开发者',
+        description: '一个码农，热爱Vue/Java',
         intro: '/zh/intro.html',
       },
     },
@@ -68,8 +68,8 @@ export default defineThemeConfig({
 
   encrypt: {
     config: {
-      '/guide/encrypt.html': ['1234'],
-      '/zh/guide/encrypt.html': ['1234'],
+      '/guide/encrypt.html': ['12345'],
+      '/zh/guide/encrypt.html': ['12345'],
     },
   },
 
