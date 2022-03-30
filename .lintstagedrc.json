@@ -1,0 +1,9 @@
+{
+  "*.{js,jsx,ts,tsx}": ["pnpm lint:js", "pnpm lint:format"],
+  "*.vue": ["pnpm lint:css", "pnpm lint:js", "pnpm lint:format"],
+  "*.(s)?css": ["pnpm lint:css", "pnpm lint:format"],
+  "*.md": ["pnpm lint:md", "pnpm lint:remark"],
+  "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
+    "pnpm prettier --write --loglevel warn --parser json"
+  ]
+}
