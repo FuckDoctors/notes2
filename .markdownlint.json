@@ -13,7 +13,9 @@
       "Badge",
       "script",
       "IconDisplay",
-      "Icon"
+      "Icon",
+      "div",
+      "iframe"
     ]
   }
 }

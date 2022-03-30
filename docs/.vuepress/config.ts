@@ -18,14 +18,14 @@ export default defineHopeConfig({
 
   locales: {
     '/': {
-      lang: 'en-US',
-      title: "ZhaoBin's site",
-      description: "ZhaoBin 's blogs and notes",
-    },
-    '/zh/': {
       lang: 'zh-CN',
       title: '赵斌的小站',
       description: '赵斌的随笔和笔记',
+    },
+    '/en/': {
+      lang: 'en-US',
+      title: "ZhaoBin's site",
+      description: "ZhaoBin 's blogs and notes",
     },
   },
 

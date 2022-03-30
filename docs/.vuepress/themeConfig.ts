@@ -28,7 +28,30 @@ export default defineThemeConfig({
   },
 
   locales: {
+    /**
+     * Chinese locale config
+     */
     '/': {
+      // navbar
+      navbar: navbar.zh,
+
+      // sidebar
+      sidebar: sidebar.zh,
+
+      footer: '欢迎来到赵斌的小站',
+
+      displayFooter: true,
+
+      blog: {
+        description: '一个码农，热爱Vue/Java',
+        intro: '/about.html',
+      },
+    },
+
+    /**
+     * English locale config
+     */
+    '/en/': {
       // navbar
       navbar: navbar.en,
 
@@ -41,27 +64,7 @@ export default defineThemeConfig({
 
       blog: {
         description: 'A programmer, Vue/Java lover.',
-        intro: '/intro.html',
-      },
-    },
-
-    /**
-     * Chinese locale config
-     */
-    '/zh/': {
-      // navbar
-      navbar: navbar.zh,
-
-      // sidebar
-      sidebar: sidebar.zh,
-
-      footer: '默认页脚',
-
-      displayFooter: true,
-
-      blog: {
-        description: '一个码农，热爱Vue/Java',
-        intro: '/zh/intro.html',
+        intro: '/en/about.html',
       },
     },
   },
@@ -69,7 +72,7 @@ export default defineThemeConfig({
   encrypt: {
     config: {
       '/guide/encrypt.html': ['12345'],
-      '/zh/guide/encrypt.html': ['12345'],
+      '/en/guide/encrypt.html': ['12345'],
     },
   },
 

@@ -1,52 +1,41 @@
 import { defineNavbarConfig } from 'vuepress-theme-hope'
 
 export const en = defineNavbarConfig([
-  '/',
-  '/home',
-  { text: 'Guide', icon: 'creative', link: '/guide/' },
+  '/en/',
+  '/en/home',
   {
-    text: 'Posts',
+    text: 'Notes',
     icon: 'edit',
-    prefix: '/posts/',
+    prefix: '/en/notes/',
     children: [
       {
-        text: 'Articles 1-4',
+        text: 'Frontend',
         icon: 'edit',
-        prefix: 'article/',
+        prefix: 'frontend/',
         children: [
-          { text: 'Article 1', icon: 'edit', link: 'article1' },
-          { text: 'Article 2', icon: 'edit', link: 'article2' },
-          'article3',
-          'article4',
+          { text: 'JavaScript', icon: 'edit', link: 'js' },
+          { text: 'TypeScript', icon: 'edit', link: 'ts' },
+          { text: 'Vue', icon: 'edit', link: 'vue' },
         ],
       },
       {
-        text: 'Articles 5-12',
+        text: 'Backend',
         icon: 'edit',
+        prefix: 'backend/',
         children: [
           {
-            text: 'Article 5',
+            text: 'Java',
             icon: 'edit',
-            link: 'article/article5',
+            link: 'java',
           },
           {
-            text: 'Article 6',
+            text: 'Spring',
             icon: 'edit',
-            link: 'article/article6',
+            link: 'spring',
           },
-          'article/article7',
-          'article/article8',
         ],
       },
-      { text: 'Article 9', icon: 'edit', link: 'article9' },
-      { text: 'Article 10', icon: 'edit', link: 'article10' },
-      'article11',
-      'article12',
     ],
   },
-  {
-    text: 'Theme Docs',
-    icon: 'note',
-    link: 'https://vuepress-theme-hope.github.io/v2/',
-  },
+  { text: 'About me', icon: 'creative', link: '/en/about' },
 ])
