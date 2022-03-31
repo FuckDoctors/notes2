@@ -2,40 +2,39 @@ import { defineNavbarConfig } from 'vuepress-theme-hope'
 
 export const en = defineNavbarConfig([
   '/en/',
-  '/en/home',
   {
     text: 'Notes',
-    icon: 'edit',
+    icon: 'note',
     prefix: '/en/notes/',
     children: [
       {
         text: 'Frontend',
-        icon: 'edit',
+        icon: 'template',
         prefix: 'frontend/',
         children: [
-          { text: 'JavaScript', icon: 'edit', link: 'js' },
-          { text: 'TypeScript', icon: 'edit', link: 'ts' },
-          { text: 'Vue', icon: 'edit', link: 'vue' },
+          { text: 'JavaScript', link: 'js' },
+          { text: 'TypeScript', link: 'ts' },
+          { text: 'Vue', link: 'vue' },
         ],
       },
       {
         text: 'Backend',
-        icon: 'edit',
+        icon: 'back-stage',
         prefix: 'backend/',
         children: [
           {
             text: 'Java',
-            icon: 'edit',
             link: 'java',
           },
           {
             text: 'Spring',
-            icon: 'edit',
             link: 'spring',
           },
         ],
       },
     ],
   },
-  { text: 'About me', icon: 'creative', link: '/en/about' },
+  '/en/projects',
+  { text: 'Link', icon: 'link', link: '/en/links' },
+  { text: 'About Me', icon: 'people', link: '/en/about' },
 ])
