@@ -8,6 +8,11 @@ export const en = defineNavbarConfig([
     prefix: '/en/notes/',
     children: [
       {
+        text: 'Notes',
+        icon: 'note',
+        link: '',
+      },
+      {
         text: 'Frontend',
         icon: 'template',
         prefix: 'frontend/',
@@ -15,6 +20,7 @@ export const en = defineNavbarConfig([
           { text: 'JavaScript', link: 'js' },
           { text: 'TypeScript', link: 'ts' },
           { text: 'Vue', link: 'vue' },
+          { text: 'more', link: '' },
         ],
       },
       {
@@ -29,6 +35,10 @@ export const en = defineNavbarConfig([
           {
             text: 'Spring',
             link: 'spring',
+          },
+          {
+            text: 'more',
+            link: '',
           },
         ],
       },

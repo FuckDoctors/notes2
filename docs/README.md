@@ -2,7 +2,7 @@
 home: true
 layout: Blog
 icon: home
-title: 博客
+title: 主页
 heroImage: /logo.svg
 heroText: 赵斌的小站
 heroFullScreen: true

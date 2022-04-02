@@ -8,6 +8,11 @@ export const zh = defineNavbarConfig([
     prefix: '/notes/',
     children: [
       {
+        text: '笔记',
+        icon: 'note',
+        link: '',
+      },
+      {
         text: '前端',
         icon: 'template',
         prefix: 'frontend/',
@@ -15,6 +20,7 @@ export const zh = defineNavbarConfig([
           { text: 'JavaScript', link: 'js' },
           { text: 'TypeScript', link: 'ts' },
           { text: 'Vue', link: 'vue' },
+          { text: '更多', link: '' },
         ],
       },
       {
@@ -29,6 +35,10 @@ export const zh = defineNavbarConfig([
           {
             text: 'Spring',
             link: 'spring',
+          },
+          {
+            text: '更多',
+            link: '',
           },
         ],
       },
