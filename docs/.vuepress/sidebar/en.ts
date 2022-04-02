@@ -1,13 +1,14 @@
 import { defineSidebarConfig } from 'vuepress-theme-hope'
 
 export const en = defineSidebarConfig({
-  '/en/': [
+  '/en/notes/': [
     {
       text: 'Notes',
       icon: 'note',
-      prefix: '/en/notes/',
-      link: '/en/notes/',
+      prefix: '',
+      link: '',
       children: 'structure',
     },
   ],
+  '/en/': ['', 'notes', 'projects', 'links', 'about'],
 })
