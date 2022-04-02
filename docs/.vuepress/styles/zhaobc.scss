@@ -1,0 +1,32 @@
+.fancy-hero-text {
+  .blog-hero {
+    h1 {
+      // background: -webkit-linear-gradient(315deg,#42d392 25%,#647eff);
+      background: -webkit-linear-gradient(315deg, #647eff 25%, #42d392);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      &.description {
+        background: -webkit-linear-gradient(315deg, #647eff 25%, #42d392);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+.theme-container {
+  main {
+    &.home {
+      header {
+        &.hero {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
