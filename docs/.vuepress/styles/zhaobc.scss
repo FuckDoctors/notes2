@@ -31,11 +31,24 @@
       }
     }
   }
+
+  .page {
+    .giscus-wrapper {
+      // 修复评论框重叠问题
+      margin-bottom: 20px;
+    }
+  }
 }
 
 // 调整主体内容最小高度，避免出纵向滚动条
 .home {
   &.project {
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  }
+}
+// 带侧边栏时
+.theme-container {
+  #main-content {
     min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
   }
 }
