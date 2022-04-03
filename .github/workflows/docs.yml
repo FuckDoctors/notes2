@@ -46,4 +46,6 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Deploy to coding pages
-        run: docs/coding-pages.sh
+        run: |
+          chmod +x ocs/coding-pages.sh
+          docs/coding-pages.sh
