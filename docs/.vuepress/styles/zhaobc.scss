@@ -32,3 +32,10 @@
     }
   }
 }
+
+// 调整主体内容最小高度，避免出纵向滚动条
+.home {
+  &.project {
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  }
+}
