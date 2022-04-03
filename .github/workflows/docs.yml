@@ -47,5 +47,5 @@ jobs:
 
       - name: Deploy to coding pages
         run: |
-          chmod +x ocs/coding-pages.sh
+          chmod +x docs/coding-pages.sh
           docs/coding-pages.sh
