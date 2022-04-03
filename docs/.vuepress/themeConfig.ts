@@ -2,8 +2,10 @@ import { defineThemeConfig } from 'vuepress-theme-hope'
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
 
+const hostname = process.env.HOSTNAME || 'https://zhaobc.site'
+
 export default defineThemeConfig({
-  hostname: 'https://zhaobc.site',
+  hostname,
 
   author: {
     name: 'Zhao Bin',
