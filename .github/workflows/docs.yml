@@ -46,6 +46,9 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Deploy to coding pages
+        env:
+          CODING_USERNAME: ${{ secrets.CODING_USERNAME }}
+          CODING_TOKEN: ${{ secrets.CODING_TOKEN }}
         run: |
           chmod +x docs/coding-pages.sh
           docs/coding-pages.sh
