@@ -32,23 +32,30 @@
     }
   }
 
-  .page {
-    .giscus-wrapper {
-      // 修复评论框重叠问题
-      margin-bottom: 20px;
-    }
+  // 调整giscus下余白
+  .page .giscus-wrapper.input-top {
+    padding-bottom: 0;
+  }
+
+  .page .giscus-wrapper.input-top .giscus {
+    margin-bottom: auto;
+  }
+
+  .page:not(.not-found) + .footer-wrapper {
+    margin-top: auto;
   }
 }
 
 // 调整主体内容最小高度，避免出纵向滚动条
-.home {
-  &.project {
-    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
-  }
+#main-content {
+  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
 }
-// 带侧边栏时
+
 .theme-container {
-  #main-content {
-    min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  main.page {
+    // page: padding-bottom: 2rem;
+    min-height: calc(
+      100vh - var(--navbar-height) - var(--footer-height) - 2rem
+    ) !important;
   }
 }
