@@ -1,6 +1,7 @@
 import { defineThemeConfig } from 'vuepress-theme-hope'
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
+import { docsearch, pwa } from './plugin-config'
 
 const hostname = process.env.HOSTNAME || 'https://zhaobc.site'
 
@@ -98,5 +99,11 @@ export default defineThemeConfig({
         plugins: ['highlight', 'math', 'search', 'notes', 'zoom'],
       },
     },
+
+    // 全网检索
+    docsearch,
+
+    // PWA
+    pwa,
   },
 })
