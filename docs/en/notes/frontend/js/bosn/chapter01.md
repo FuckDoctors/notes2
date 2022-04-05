@@ -1,7 +1,7 @@
 ---
-index: false
+index: 1
 category:
-  - 笔记
+  - notes
   - frontend
 tag:
   - js
