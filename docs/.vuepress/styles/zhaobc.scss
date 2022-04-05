@@ -1,3 +1,5 @@
+@use '@sass-palette/hope-config';
+
 // 使用vuejs.org的彩色文字样式
 .fancy-hero-text {
   .blog-hero {
@@ -48,14 +50,21 @@
 
 // 调整主体内容最小高度，避免出纵向滚动条
 #main-content {
-  min-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--footer-height));
 }
 
+// 调整blog-info-wrapper跟navbar的距离
 .theme-container {
-  main.page {
-    // page: padding-bottom: 2rem;
-    min-height: calc(
-      100vh - var(--navbar-height) - var(--footer-height) - 2rem
-    ) !important;
+  // vuepress-theme-hope/packages/theme/src/client/module/blog/styles/info-panel.scss
+  .page {
+    .blog-info-wrapper {
+      margin-top: 0;
+      top: calc(var(--navbar-height) + 0.75rem);
+
+      @media (max-width: hope-config.$pad) {
+        top: calc(var(--navbar-mobile-height) + 0.75rem);
+      }
+    }
   }
 }
