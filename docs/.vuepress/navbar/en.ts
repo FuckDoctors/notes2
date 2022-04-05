@@ -17,9 +17,9 @@ export const en = defineNavbarConfig([
         icon: 'template',
         prefix: 'frontend/',
         children: [
-          { text: 'JavaScript', link: 'js' },
-          { text: 'TypeScript', link: 'ts' },
-          { text: 'Vue', link: 'vue' },
+          { text: 'JavaScript', link: 'js/' },
+          { text: 'TypeScript', link: 'ts/' },
+          { text: 'Vue', link: 'vue/' },
           { text: 'more', link: '' },
         ],
       },
@@ -30,11 +30,11 @@ export const en = defineNavbarConfig([
         children: [
           {
             text: 'Java',
-            link: 'java',
+            link: 'java/',
           },
           {
             text: 'Spring',
-            link: 'spring',
+            link: 'spring/',
           },
           {
             text: 'more',
@@ -43,6 +43,7 @@ export const en = defineNavbarConfig([
         ],
       },
     ],
+    activeMatch: '^/en/notes',
   },
   '/en/projects',
   { text: 'Link', icon: 'link', link: '/en/links' },

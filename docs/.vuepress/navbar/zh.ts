@@ -17,9 +17,9 @@ export const zh = defineNavbarConfig([
         icon: 'template',
         prefix: 'frontend/',
         children: [
-          { text: 'JavaScript', link: 'js' },
-          { text: 'TypeScript', link: 'ts' },
-          { text: 'Vue', link: 'vue' },
+          { text: 'JavaScript', link: 'js/' },
+          { text: 'TypeScript', link: 'ts/' },
+          { text: 'Vue', link: 'vue/' },
           { text: '更多', link: '' },
         ],
       },
@@ -30,11 +30,11 @@ export const zh = defineNavbarConfig([
         children: [
           {
             text: 'Java',
-            link: 'java',
+            link: 'java/',
           },
           {
             text: 'Spring',
-            link: 'spring',
+            link: 'spring/',
           },
           {
             text: '更多',
@@ -43,6 +43,7 @@ export const zh = defineNavbarConfig([
         ],
       },
     ],
+    activeMatch: '^/notes',
   },
   '/projects',
   { text: '链接', icon: 'link', link: '/links' },
