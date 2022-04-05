@@ -1,5 +1,5 @@
 ---
-index: false
+index: true
 category:
   - 笔记
   - frontend

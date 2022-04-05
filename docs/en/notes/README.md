@@ -1,5 +1,6 @@
 ---
-index: false
+index: true
+sticky: 100
 icon: note
 category:
   - notes

@@ -1,5 +1,5 @@
 ---
-index: false
+index: true
 icon: typescript
 category:
   - 笔记

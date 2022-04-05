@@ -1,5 +1,5 @@
 ---
-index: false
+index: true
 icon: vue
 category:
   - notes
