@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD041 -->
 <p align='center'>
-<sup><em>Vitesse</em></sup> + VuePress
+Vitesse<sup><em>快速</em></sup> + VuePress
 <br>
 </p>
 
