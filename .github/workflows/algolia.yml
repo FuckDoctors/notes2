@@ -11,7 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: crawling
-        uses: darrenjennings/algolia-docsearch-action
+        # the `uses' attribute must be a path, a Docker image, or owner/repo@ref
+        uses: darrenjennings/algolia-docsearch-action@master
         with:
           algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
           algolia_application_id: ${{ secrets.ALGOLIA_APPLICATION_ID }}
