@@ -1,4 +1,4 @@
-name: Test the Action
+name: Algolia Docsearch Action
 
 on:
   schedule:
@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     name: algolia-crawler
     steps:
-      - name: crawling
       - uses: actions/checkout@v2
-      - uses: darrenjennings/algolia-docsearch-action
+      - name: crawling
+        uses: darrenjennings/algolia-docsearch-action
         with:
           algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
           algolia_application_id: ${{ secrets.ALGOLIA_APPLICATION_ID }}
