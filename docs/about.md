@@ -5,6 +5,14 @@ title: 关于我
 heroImage: /logo.svg
 heroText: 关于我
 tagline: 爱瞎折腾的码农
+
+head:
+  - - meta
+    - name: keywords
+      content: zhbchwin, ujn-bin, zhaobc, zhao bin, fuckdoctors
+  - - meta
+    - name: description
+      content: 关于赵斌
 ---
 
 ## 个人介绍

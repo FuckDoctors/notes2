@@ -26,4 +26,12 @@ features:
     icon: vue
     details: 基于 vue2 + vuex 构建一个具有 45 个页面的大型单页面应用（抄写学习）
     link: https://github.com/FuckDoctors/my-vue2-elm
+
+head:
+  - - meta
+    - name: keywords
+      content: fuckdoctors, rdm, rdm-builder, resp, 720s, hackintosh, 黑苹果
+  - - meta
+    - name: description
+      content: 赵斌的项目
 ---

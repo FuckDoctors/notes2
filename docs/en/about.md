@@ -5,6 +5,14 @@ title: About Me
 heroImage: /logo.svg
 heroText: About Me
 tagline: A programmer
+
+head:
+  - - meta
+    - name: keywords
+      content: zhbchwin, ujn-bin, zhaobc, zhao bin, fuckdoctors
+  - - meta
+    - name: description
+      content: About ZhaoBin
 ---
 
 ## Intro

@@ -26,4 +26,12 @@ features:
     icon: vue
     details: vue2 + vuex based single-page application, up to 45 pages (re-typing for study purpose)
     link: https://github.com/FuckDoctors/my-vue2-elm
+
+head:
+  - - meta
+    - name: keywords
+      content: fuckdoctors, rdm, rdm-builder, resp, 720s, hackintosh
+  - - meta
+    - name: description
+      content: ZhaoBin's projects
 ---

@@ -10,4 +10,12 @@ heroFullScreen: true
 bgImage: /bg.jpg
 
 containerClass: fancy-hero-text
+
+head:
+  - - meta
+    - name: keywords
+      content: zhaobc, zhao bin, 赵斌
+  - - meta
+    - name: description
+      content: ZhaoBin's blog and notes
 ---

@@ -7,6 +7,11 @@ tag:
   - wifi
   - n1
   - padavan
+
+head:
+  - - meta
+    - name: description
+      content: newifi3 路由器折腾笔记
 ---
 
 # 路由器折腾笔记

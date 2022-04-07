@@ -5,6 +5,11 @@ star: 100
 icon: note
 category:
   - 笔记
+
+head:
+  - - meta
+    - name: description
+      content: 赵斌的笔记
 ---
 
 # 笔记内容
