@@ -9,7 +9,7 @@ tag:
   - vue3
 ---
 
-# 第1章 权衡的艺术
+# 第 1 章 权衡的艺术
 
 ## 1.1 命令式和声明式
 
@@ -18,7 +18,7 @@ tag:
 - 命令式**关注过程**
 - 声明式**关注结果**
 
-早年流行的jQuery是典型的命令式框架，Vue.js是声明式框架。
+早年流行的 jQuery 是典型的命令式框架，Vue.js 是声明式框架。
 
 例如，我们把下面的这段话翻译成对应的代码：
 
@@ -34,15 +34,19 @@ jQuery 代码：
 ```js
 $('#app')
   .text('hello world')
-  .on('click', () => { alert('ok') })
+  .on('click', () => {
+    alert('ok')
+  })
 ```
 
-原生JavaScript 代码：
+原生 JavaScript 代码：
 
 ```js
 const div = document.querySelector('#app')
 div.innerText = 'hello world'
-div.addEventListener('click', () => { alert('ok') })
+div.addEventListener('click', () => {
+  alert('ok')
+})
 ```
 
 以上代码本身是在描述“做事的过程”。
@@ -50,10 +54,16 @@ div.addEventListener('click', () => { alert('ok') })
 Vue.js 代码：
 
 ```vue
-<div @click="() => { alert('ok') }">hello world</div>
+<div
+  @click="
+    () => {
+      alert('ok')
+    }
+  "
+>hello world</div>
 ```
 
-可以看到，我们提供的是一个“结果”，至于如何实现这个“结果”，我们并不关心。实现这个“结果”，是Vue.js帮我们实现的，它内部是**命令式**的，而暴露给用户的却更加**声明式**。
+可以看到，我们提供的是一个“结果”，至于如何实现这个“结果”，我们并不关心。实现这个“结果”，是 Vue.js 帮我们实现的，它内部是**命令式**的，而暴露给用户的却更加**声明式**。
 
 ## 1.2 性能与可维护性的权衡
 
