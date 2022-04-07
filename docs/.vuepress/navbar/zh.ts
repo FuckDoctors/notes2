@@ -45,6 +45,27 @@ export const zh = defineNavbarConfig([
     ],
     activeMatch: '^/notes',
   },
+  {
+    text: '分类',
+    icon: 'type',
+    children: [
+      {
+        text: '分类',
+        icon: 'categoryselected',
+        link: '/category/',
+      },
+      {
+        text: '标签',
+        icon: 'tag',
+        link: '/tag/',
+      },
+      {
+        text: '时间线',
+        icon: 'time',
+        link: '/timeline/',
+      },
+    ],
+  },
   '/projects',
   { text: '链接', icon: 'link', link: '/links' },
   { text: '关于我', icon: 'people', link: '/about' },

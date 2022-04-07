@@ -45,6 +45,27 @@ export const en = defineNavbarConfig([
     ],
     activeMatch: '^/en/notes',
   },
+  {
+    text: 'Category',
+    icon: 'type',
+    children: [
+      {
+        text: 'Category',
+        icon: 'categoryselected',
+        link: '/en/category/',
+      },
+      {
+        text: 'Tag',
+        icon: 'tag',
+        link: '/en/tag/',
+      },
+      {
+        text: 'Timeline',
+        icon: 'time',
+        link: '/en/timeline/',
+      },
+    ],
+  },
   '/en/projects',
   { text: 'Link', icon: 'link', link: '/en/links' },
   { text: 'About Me', icon: 'people', link: '/en/about' },
