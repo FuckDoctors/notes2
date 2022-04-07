@@ -1,6 +1,6 @@
 ---
 index: true
-icon: note
+icon: backend
 category:
   - notes
   - backend

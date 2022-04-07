@@ -16,6 +16,14 @@ export default defineHopeConfig({
         href: '//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css',
       },
     ],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        // zhaobc挑选的图标
+        href: '//at.alicdn.com/t/font_3294373_hn0mhs70c2o.css',
+      },
+    ],
   ],
 
   locales: {

@@ -8,17 +8,17 @@ tagline: 折腾过的项目
 
 features:
   - title: rdm-builder
-    icon: stack
+    icon: redis
     details: 一个编译Windows版和macOS版Redis Desktop Manager的Github Action。
     link: https://github.com/FuckDoctors/rdm-builder
 
   - title: ideapad-720s-13ikb-oc
-    icon: anonymous
+    icon: macOS
     details: ideapad-720s-13ikb 黑苹果 OpenCore引导版
     link: https://github.com/FuckDoctors/ideapad-720s-13ikb-oc
 
   - title: ideapad-720s-13IKB
-    icon: anonymous
+    icon: macOS
     details: ideapad-720s-13ikb 黑苹果 Clover引导版
     link: https://github.com/FuckDoctors/ideapad-720s-13IKB
 

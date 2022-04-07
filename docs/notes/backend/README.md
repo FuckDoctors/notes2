@@ -1,6 +1,6 @@
 ---
 index: true
-icon: note
+icon: backend
 category:
   - 笔记
   - backend

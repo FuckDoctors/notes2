@@ -1,6 +1,6 @@
 ---
 index: true
-icon: note
+icon: spring
 category:
   - notes
   - backend

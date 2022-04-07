@@ -8,17 +8,17 @@ tagline: Created Projects.
 
 features:
   - title: rdm-builder
-    icon: stack
+    icon: redis
     details: Redis Desktop Manager Builder for windows and macOS
     link: https://github.com/FuckDoctors/rdm-builder
 
   - title: ideapad-720s-13ikb-oc
-    icon: anonymous
+    icon: macOS
     details: ideapad-720s-13ikb Hackintosh OpenCore
     link: https://github.com/FuckDoctors/ideapad-720s-13ikb-oc
 
   - title: ideapad-720s-13IKB
-    icon: anonymous
+    icon: macOS
     details: ideapad-720s-13ikb Hackintosh Clover
     link: https://github.com/FuckDoctors/ideapad-720s-13IKB
 
