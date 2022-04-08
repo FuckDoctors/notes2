@@ -1,8 +1,9 @@
 {
-  "index_name": "zhaobc-legacy",
+  "index_name": "prod_zhaobc",
   "start_urls": ["https://zhaobc.site/"],
   "stop_urls": [],
   "sitemap_urls": ["https://zhaobc.site/sitemap.xml"],
+  "sitemap_alternate_links": true,
   "selectors": {
     "lvl0": {
       "selector": ".sidebar-heading.active",
@@ -21,6 +22,8 @@
       "global": true
     }
   },
+  "scrape_start_urls": false,
+  "strip_chars": " .,;:#",
   "custom_settings": {
     "attributesForFaceting": ["type", "lang"]
   }
