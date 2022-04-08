@@ -63,7 +63,7 @@ tag:
 
 1. Markdown 插入图片的方式，不能显示图片
 2. HTML 插入图片的方式会报错。
-:::
+   :::
 
 ## 1-5 类型检查
 
@@ -123,15 +123,15 @@ JavaScript 中检查类型的方法有很多，比如：
 ```js
 function Person() {}
 function Student() {}
-Student.prototype = new Person();
-Student.prototype.constructor = Student;
-var bosn = new Student();
-console.log(bosn instanceof Student);
-var one = new Person();
-console.log(one instanceof Person);
+Student.prototype = new Person()
+Student.prototype.constructor = Student
+var bosn = new Student()
+console.log(bosn instanceof Student)
+var one = new Person()
+console.log(one instanceof Person)
 
-console.log(one instanceof Student);
-console.log(bosn instanceof Person);
+console.log(one instanceof Student)
+console.log(bosn instanceof Person)
 ```
 
 :::
