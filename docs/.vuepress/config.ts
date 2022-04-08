@@ -1,9 +1,13 @@
 import { defineHopeConfig } from 'vuepress-theme-hope'
 import themeConfig from './themeConfig'
 
+const { path } = require('@vuepress/utils')
+
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
 
 export default defineHopeConfig({
+  // 使用自定义主题
+  theme: path.resolve(__dirname, './theme'),
   base,
 
   dest: 'docs/.vuepress/dist',
