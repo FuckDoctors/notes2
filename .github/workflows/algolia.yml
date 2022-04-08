@@ -1,6 +1,12 @@
 name: Algolia Docsearch Action
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/algolia-config-hope.json'
+
   schedule:
     - cron: '0 18 * * *' # Runs at 18:00 UTC every day, 02:00 UTC+8
 
