@@ -14,12 +14,6 @@ const themeZhaobc: ThemeObject = {
       __dirname,
       './module/blog/components/ArticleItem.ts'
     ),
-
-    // 侧边栏链接子项
-    '@theme-hope/module/sidebar/components/SidebarChild': path.resolve(
-      __dirname,
-      './module/sidebar/components/SidebarChild.ts'
-    ),
   },
   layouts: {
     // 你可以在这里覆盖或新增布局
