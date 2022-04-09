@@ -135,3 +135,65 @@ function Render(obj, root) {
 ```js
 Render(obj, document.body)
 ```
+
+::: note 下面内容为代码演示结果
+<div id="code-demo-render-basic"></div>
+:::
+
+::: demo 运行时 Render 函数示例
+
+```html
+<div id="code-demo-render-basic"></div>
+```
+
+```js
+const obj = {
+  tag: 'div',
+  children: [
+    {
+      tag: 'span',
+      children: 'hello world',
+    },
+  ],
+}
+
+function Render(obj, root) {
+  const el = window.document.createElement(obj.tag)
+  if (typeof obj.children === 'string') {
+    const text = window.document.createTextNode(obj.children)
+    el.appendChild(text)
+  } else if (obj.children) {
+    // 数组，递归调用Render，使用el作为root参数
+    obj.children.forEach((child) => Render(child, el))
+  }
+
+  //  将元素添加到root
+  root.appendChild(el)
+}
+
+Render(obj, window.document.querySelector("#code-demo-render-basic"))
+```
+
+:::
+
+::: warning
+本主题的代码演示采用了 `ShadowRoot` 方式，将代码演示和文档的主 DOM 树分开渲染。
+所以，代码中的 `document` 会被定义为 演示代码块的一个 `ShadowRoot`，
+`document.createElement` 会报错，没法直接显示代码演示的结果。
+
+本例直接使用了 `window.document` 来强制使用文档的主 DOM ，
+为了能看到输出结果，在代码演示的外面，加了一个 id 为 `code-demo-render-basic` 的 `div`。
+:::
+
+上面的 Render 函数虽然可以根据树形结构数据渲染内容，但是手写树形结构数据太麻烦，而且不直观，能够用 HTML 标签的方式来描述就好了。
+
+为了满足这个需求，考虑加入编译手段，把 HTML 标签编译成树形结构就可以继续使用 Render 函数了。
+
+于是，可以考虑写一个 Compiler 函数，配合 Render 函数使用。这样我们的框架就编程了**运行时 + 编译时**。
+
+## 1.5 总结
+
+- 讨论了声明式和命令式的区别
+- 讨论了虚拟 DOM 的性能
+  声明式的更新性能消耗 = 找出差异的性能消耗 + 直接修改的性能消耗
+- 介绍了运行时和编译时，并且可以看出 Vue.js 3 是一个编译时 + 运行时的框架
