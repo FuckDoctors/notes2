@@ -1,6 +1,7 @@
 ---
 index: true
 icon: backend
+sidebarText: 目录
 category:
   - 笔记
   - backend
