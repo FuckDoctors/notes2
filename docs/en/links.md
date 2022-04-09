@@ -8,7 +8,7 @@ tagline: Hyperlinks
 
 features:
   - title: vuepress-theme-hope
-    icon: markdown
+    icon: palette
     details: A vuepress theme with tons of features✨
     link: https://vuepress-theme-hope.github.io/v2/zh/
 
