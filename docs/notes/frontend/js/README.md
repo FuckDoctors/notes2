@@ -12,3 +12,5 @@ tag:
 # Javascript 笔记
 
 - [JavaScript 深入浅出](./bosn/)
+
+<!-- more -->

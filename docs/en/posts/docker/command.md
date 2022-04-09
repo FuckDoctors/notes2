@@ -17,6 +17,7 @@ head:
 
 官方文档：[https://docs.docker.com/engine/reference/commandline](https://docs.docker.com/engine/reference/commandline)
 
+<!-- more -->
 ## docker info
 
 Display system-wide information
