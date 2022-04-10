@@ -151,4 +151,145 @@ const Vue = require('vue')
 这样会带来很多好处：
 
 - 对于用户关闭的特性，利用 Tree-Shaking 减小打包体积
-- 该机制为框架设计带来了灵活性
+- 该机制为框架设计带来了灵活性，通过特性开关任意为框架添加新的特性，而不担心资源体积变大。
+  同时，当框架升级时，也可以通过特性开关来支持遗留 API 。
+
+怎么实现特性开关呢？原理和上文提到的`__DEV__`常量一样，本质上是利用 rollup.js 的预定义常量插件来实现。
+
+## 2.6 错误处理
+
+框架错误处理机制的好坏，直接决定了用户应用程序的健壮性，还决定了用户开发时处理错误的心智负担。
+
+异常处理，可以通过 `try...catch` 来让用户自己处理，但这样会增加用户的负担，那么我们可以做统一异常处理。
+
+例如下面的代码：
+
+```js
+export default {
+  foo(fn) {
+    try {
+      fn && fn()
+    } catch(e) {
+      // ...
+    }
+  },
+  bar(fn) {
+    try {
+      fn && fn()
+    } catch(e) {
+      // ...
+    }
+  }
+}
+```
+
+上面的每个函数都加了 `try...catch` ,实际上，我们可以更进一步将错误处理封装为一个函数，假设叫它 callWithErrorHandling:
+
+```js
+export default {
+  foo(fn) {
+    callWithErrorHandling(fn)
+  },
+  bar(fn) {
+    callWithErrorHandling(fn)
+  }
+}
+
+function callWithErrorHandling(fn) {
+  try {
+    fn && fn()
+  } catch(e) {
+    console.log(e)
+  }
+}
+```
+
+可以看到，代码变得简洁多了。但简洁不是目的，这么做真正的好处是，我们能为用户提供统一的错误处理接口，如下所示：
+
+```js
+let handleError = null
+export default {
+  foo(fn) {
+    callWithErrorHandling(fn)
+  },
+  // 用户可以调用改函数注册统一的错误处理函数
+  registerErrorHandler(fn) {
+    handleError = fn
+  }
+}
+function callWithErrorHandling(fn) {
+  try {
+    fn && fn()
+  } catch(e) {
+    // 将捕获的错误传递给用户的错误处理程序
+    handleError(e)
+  }
+}
+```
+
+我们提供了registerErrorHandler函数，用户可以用它来注册错误处理程序。
+
+这样用户侧的代码就会变的非常简洁且健壮：
+
+```js
+import utils from 'utils'
+// 注册错误处理程序
+utils.registerErrorHandler((e) => {
+  console.log(e)
+})
+utils.foo(() => {
+  // ...
+})
+utils.bar(() => {
+  // ...
+})
+```
+
+这时，错误处理的能力完全由用户控制，用户可以选择忽略错误，也可以调用上报程序，将错误上报给监控系统。
+
+实际上，这就是 Vue.js 的原理，可以在源码中搜索到 callWithErrorHandling 函数。
+另外，在 Vue.js 中，我们也可以注册统一的错误处理函数：
+
+```js
+import App from 'App.vue'
+const app = createApp(App)
+app.config.errorHandler = () => {
+  // 错误处理程序
+}
+```
+
+## 2.7 良好的 TypeScript 类型支持
+
+框架使用TS编写，不等于对TS类型友好，其实这是两件完全不同的事。示例如下：
+
+```ts
+function foo(val: any) {
+  return val
+}
+const res = foo('str')
+```
+
+当调用foo函数时，如果传递了参数'str'，按照之前的分析，得到的结果res也应该是字符串类型，然而并不是。
+为了达到理想状态，我们只需要对foo函数做简单的修改即可：
+
+```ts
+function foo<T extends any>(val: T): T {
+  return val
+}
+```
+
+在写框架时，为了做到完善的TS类型支持很不容易，许岙付出相当大的努力。
+
+## 2.8 总结
+
+- 框架设计需要提供友好的警告信息至关重要
+- 利用 Tree-Shaking 和 构建工具预定义常量的能力，实现代码体积的可控性
+- 可以利用 `/*#__PURE__*/`来辅助构建工具进行 Tree-Shaking
+- 框架需要提供多种输出产物
+  - IIFE 格式 立即执行的函数表达式
+  - ESM 格式
+    - esm-browser.js 用于浏览器
+    - esm-bundler.js 用于打包工具
+- 框架会提供多种能力或功能，处于灵活性和兼容性的考虑，可以通过特性开关来实现
+- 框架需要为用户提供统一的错误处理接口
+- 做到完事的类型支持，需要花费很多的时间和精力
