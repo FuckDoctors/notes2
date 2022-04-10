@@ -178,7 +178,7 @@ Render(obj, window.document.querySelector("#code-demo-render-basic"))
 
 ::: warning
 本主题的代码演示采用了 `ShadowRoot` 方式，将代码演示和文档的主 DOM 树分开渲染。
-所以，代码中的 `document` 会被定义为 演示代码块的一个 `ShadowRoot`，
+所以，代码中的 `document` 会被定义为 演示代码块的一个 `ShadowRoot` [^ShadowRoot]，
 `document.createElement` 会报错，没法直接显示代码演示的结果。
 
 本例直接使用了 `window.document` 来强制使用文档的主 DOM ，
@@ -197,3 +197,5 @@ Render(obj, window.document.querySelector("#code-demo-render-basic"))
 - 讨论了虚拟 DOM 的性能
   声明式的更新性能消耗 = 找出差异的性能消耗 + 直接修改的性能消耗
 - 介绍了运行时和编译时，并且可以看出 Vue.js 3 是一个编译时 + 运行时的框架
+
+[^ShadowRoot]: Shadow DOM API 的 [ShadowRoot](https://developer.mozilla.org/zh-CN/docs/Web/API/ShadowRoot) 接口是一个 DOM 子树的根节点, 它与文档的主 DOM 树分开渲染。
