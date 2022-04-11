@@ -52,7 +52,7 @@ Vue.js 使用 rollup.js 对项目进行构建，这里的 `__DEV__` 常量实际
 npx rollup input.js -f esm -o bundle.js
 ```
 
-这句命令的意思是，以 input.js文件为入口，输出ESM，输出的文件叫 bundle.js。
+这句命令的意思是，以 input.js 文件为入口，输出 ESM，输出的文件叫 bundle.js。
 
 Tree-Shaking 的第二个关键点 —— 副作用。如果一个函数调用会产生副作用，那么就不能将其移除。
 
@@ -71,9 +71,9 @@ import { foo } from './utils'
 /*#__PURE__*/ foo()
 ```
 
-注意注释代码 `/*#__PURE__*/`，其作用就是告诉 rollup.js，对应foo函数的调用不会产生副作用，你可以放心地对其进行 Tree-Shaking。
+注意注释代码 `/*#__PURE__*/`，其作用就是告诉 rollup.js，对应 foo 函数的调用不会产生副作用，你可以放心地对其进行 Tree-Shaking。
 
-因此，在编写框架时，合理使用`/*#__PURE__*/`注释，可以做到更好的Tree-Shaking，Vue.js 3中大量使用了该注释。
+因此，在编写框架时，合理使用`/*#__PURE__*/`注释，可以做到更好的 Tree-Shaking，Vue.js 3 中大量使用了该注释。
 
 例如：
 
@@ -112,23 +112,23 @@ function bar() {
 IIFE 的全称是 Immediately Invoked Function Expression，即“立即调用的函数表达式”，例如：
 
 ```js
-(function () {
+;(function () {
   // ...
-}())
+})()
 ```
 
-实际上，vue.global.js文件就是 IIFE 格式的资源，它的代码结构如下所示：
+实际上，vue.global.js 文件就是 IIFE 格式的资源，它的代码结构如下所示：
 
 ```js
-var Vue = (function(exports){
+var Vue = (function (exports) {
   // ...
-  exports.createApp = createApp;
+  exports.createApp = createApp
   // ...
   return exports
-}({}))
+})({})
 ```
 
-这样当我们使用 &lt;script&gt; 标签直接引入 vue.global.js文件后，全局变量 Vue 就是可用的了。
+这样当我们使用 &lt;script&gt; 标签直接引入 vue.global.js 文件后，全局变量 Vue 就是可用的了。
 
 现在主流浏览器对原生 ESM 支持也都不错，所以，可以直接用&lt;script type="module"&gt;标签引入 ESM 资源。
 
@@ -136,7 +136,7 @@ var Vue = (function(exports){
 <script type="module" src="/path/to/vue.esm-browser.js"></script>
 ```
 
-除了可以直接使用&lt;script&gt;标签引入外，还可以在Node.js中通过require语句引用：
+除了可以直接使用&lt;script&gt;标签引入外，还可以在 Node.js 中通过 require 语句引用：
 
 ```js
 const Vue = require('vue')
@@ -145,8 +145,8 @@ const Vue = require('vue')
 ## 2.5 特性开关
 
 在设计框架时，框架会给用户提供诸多特性或功能。
-比如，我们提供了A, B, C 三个特性给用户，同时还提供了a, b, c 三个对应的特性开关，
-用户可以通过设置a, b, c 为true或false来开启或关闭对应的特性。
+比如，我们提供了 A, B, C 三个特性给用户，同时还提供了 a, b, c 三个对应的特性开关，
+用户可以通过设置 a, b, c 为 true 或 false 来开启或关闭对应的特性。
 
 这样会带来很多好处：
 
@@ -169,17 +169,17 @@ export default {
   foo(fn) {
     try {
       fn && fn()
-    } catch(e) {
+    } catch (e) {
       // ...
     }
   },
   bar(fn) {
     try {
       fn && fn()
-    } catch(e) {
+    } catch (e) {
       // ...
     }
-  }
+  },
 }
 ```
 
@@ -192,13 +192,13 @@ export default {
   },
   bar(fn) {
     callWithErrorHandling(fn)
-  }
+  },
 }
 
 function callWithErrorHandling(fn) {
   try {
     fn && fn()
-  } catch(e) {
+  } catch (e) {
     console.log(e)
   }
 }
@@ -215,19 +215,19 @@ export default {
   // 用户可以调用改函数注册统一的错误处理函数
   registerErrorHandler(fn) {
     handleError = fn
-  }
+  },
 }
 function callWithErrorHandling(fn) {
   try {
     fn && fn()
-  } catch(e) {
+  } catch (e) {
     // 将捕获的错误传递给用户的错误处理程序
     handleError(e)
   }
 }
 ```
 
-我们提供了registerErrorHandler函数，用户可以用它来注册错误处理程序。
+我们提供了 registerErrorHandler 函数，用户可以用它来注册错误处理程序。
 
 这样用户侧的代码就会变的非常简洁且健壮：
 
@@ -260,7 +260,7 @@ app.config.errorHandler = () => {
 
 ## 2.7 良好的 TypeScript 类型支持
 
-框架使用TS编写，不等于对TS类型友好，其实这是两件完全不同的事。示例如下：
+框架使用 TS 编写，不等于对 TS 类型友好，其实这是两件完全不同的事。示例如下：
 
 ```ts
 function foo(val: any) {
@@ -269,8 +269,8 @@ function foo(val: any) {
 const res = foo('str')
 ```
 
-当调用foo函数时，如果传递了参数'str'，按照之前的分析，得到的结果res也应该是字符串类型，然而并不是。
-为了达到理想状态，我们只需要对foo函数做简单的修改即可：
+当调用 foo 函数时，如果传递了参数'str'，按照之前的分析，得到的结果 res 也应该是字符串类型，然而并不是。
+为了达到理想状态，我们只需要对 foo 函数做简单的修改即可：
 
 ```ts
 function foo<T extends any>(val: T): T {
@@ -278,7 +278,7 @@ function foo<T extends any>(val: T): T {
 }
 ```
 
-在写框架时，为了做到完善的TS类型支持很不容易，许岙付出相当大的努力。
+在写框架时，为了做到完善的 TS 类型支持很不容易，许岙付出相当大的努力。
 
 ## 2.8 总结
 
