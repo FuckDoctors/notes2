@@ -10,11 +10,11 @@ export const docsearch: DocSearchPluginOptions = {
 
   locales: {
     '/': {
-      placeholder: '搜索文档',
+      placeholder: '搜索',
       translations: {
         button: {
-          buttonText: '搜索文档',
-          buttonAriaLabel: '搜索文档',
+          buttonText: '搜索',
+          buttonAriaLabel: '搜索',
         },
         modal: {
           searchBox: {
