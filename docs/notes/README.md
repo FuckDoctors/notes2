@@ -14,6 +14,8 @@ head:
 
 # 笔记内容
 
+## 初衷
+
 > 纸上得来终觉浅，绝知此事要躬行。
 
 有些事情看过，感觉自己知道，但是要用的时候又不记得了，所以，学习不能只看，还要动手，加深印象。
@@ -45,11 +47,11 @@ head:
 
 目录结构如下：
 
-- Java
+- [Java](backend/java/)
   - 待定
 - .Net
   - 待定
-- Spring
+- [Spring](backend/spring/)
   - 待定
 - SpringBoot
   - 待定

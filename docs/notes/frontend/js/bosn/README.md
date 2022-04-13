@@ -13,7 +13,7 @@ tag:
 
 原视频链接：[慕课网上 Bosn 老师的《JavaScript 深入浅出》](https://www.imooc.com/learn/277)
 
-目录：
+## 目录
 
 - [第 1 章 数据类型](./chapter01.md)
 - [第 2 章 表达式和运算符](./chapter02.md)

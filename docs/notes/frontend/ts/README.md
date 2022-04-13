@@ -10,4 +10,8 @@ tag:
   - typescript
 ---
 
-# Typescript 笔记
+# TypeScript 笔记
+
+## 概述
+
+TypeScript 学习笔记

@@ -10,7 +10,11 @@ tag:
   - javascript
 ---
 
-# Javascript 笔记
+# JavaScript 笔记
+
+## 概述
+
+JavaScript 学习笔记
 
 - [JavaScript 深入浅出](./bosn/)
 
