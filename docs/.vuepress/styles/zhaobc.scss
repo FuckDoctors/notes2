@@ -54,17 +54,18 @@
   min-height: calc(100vh - var(--footer-height));
 }
 
+// 下面需求已提交PR，无需再自定义
 // 调整blog-info-wrapper跟navbar的距离
-.theme-container {
-  // vuepress-theme-hope/packages/theme/src/client/module/blog/styles/info-panel.scss
-  .page {
-    .blog-info-wrapper {
-      margin-top: 0;
-      top: calc(var(--navbar-height) + 0.75rem);
+// .theme-container {
+//   // vuepress-theme-hope/packages/theme/src/client/module/blog/styles/info-panel.scss
+//   .page {
+//     .blog-info-wrapper {
+//       margin-top: 0;
+//       top: calc(var(--navbar-height) + 0.75rem);
 
-      @media (max-width: hope-config.$pad) {
-        top: calc(var(--navbar-mobile-height) + 0.75rem);
-      }
-    }
-  }
-}
+//       @media (max-width: hope-config.$pad) {
+//         top: calc(var(--navbar-mobile-height) + 0.75rem);
+//       }
+//     }
+//   }
+// }
