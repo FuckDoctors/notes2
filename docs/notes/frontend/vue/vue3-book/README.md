@@ -19,3 +19,5 @@ tag:
 - [第 1 章 权衡的艺术](./chapter01.md)
 - [第 2 章 框架设计的核心要素](./chapter02.md)
 - [第 3 章 Vue.js 3 的设计思路](./chapter02.md)
+
+<!-- more -->
