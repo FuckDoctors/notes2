@@ -2,9 +2,9 @@
 article: true
 date: 2022-04-13
 category:
-  - vercel
+  - devops
 tag:
-  - vercel
+  - devops
   - ci/cd
 
 head:
