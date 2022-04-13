@@ -1,5 +1,6 @@
 ---
 index: true
+sidebarText: 概述
 icon: spring
 category:
   - 笔记

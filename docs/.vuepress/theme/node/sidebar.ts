@@ -94,16 +94,16 @@ const getInfo = async (
                       path.join(rootDir, fileRelativePath, 'README.md')
                   )!
 
-                  // get sidebar text
-                  const sidebarText = page.frontmatter.sidebarText as
-                    | string
-                    | undefined
-                  const readme = result.find(
-                    (subDirFilePath) =>
-                      subDirFilePath.type === 'file' &&
-                      subDirFilePath.path === 'README.md'
-                  ) as FileInfo | undefined
-                  readme.title = sidebarText || readme.title
+                  // // get sidebar text
+                  // const sidebarText = page.frontmatter.sidebarText as
+                  //   | string
+                  //   | undefined
+                  // const readme = result.find(
+                  //   (subDirFilePath) =>
+                  //     subDirFilePath.type === 'file' &&
+                  //     subDirFilePath.path === 'README.md'
+                  // ) as FileInfo | undefined
+                  // readme.title = sidebarText || readme.title
 
                   // get dir information
                   const dirInfo = (page.frontmatter.dir || {}) as {

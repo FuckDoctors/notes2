@@ -1,5 +1,6 @@
 ---
 index: true
+sidebarText: 概述
 icon: note
 category:
   - 笔记

@@ -1,5 +1,6 @@
 ---
 index: true
+sidebarText: 目录
 icon: vue
 category:
   - 笔记
