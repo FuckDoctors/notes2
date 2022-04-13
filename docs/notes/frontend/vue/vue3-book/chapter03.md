@@ -198,7 +198,7 @@ const MyComponent = function () {
   return {
     tag: 'div',
     props: {
-      onClick: = () => alert('hello')
+      onClick: () => alert('hello')
     },
     children: 'click me'
   }
@@ -225,4 +225,246 @@ function renderer(vnode, container) {
     mountComponent(vnode, container)
   }
 }
+
+function mountElement(vnode, container) {
+  // 使用vnode.tag作为标签名称创建 DOM
+  const el = document.createElement(vnode.tag)
+  // 遍历 vnode.props，将属性，事件添加到 DOM 元素
+  for (const key in vnode.props) {
+    if (/^on/.test(key)) {
+      // 如果 key 以 on 开头，说明是事件
+      el.addEventListener(
+        key.substr(2).toLowerCase(), // 事件名称 onClick -> click
+        vnode.props[key] // 事件处理函数
+      )
+    }
+  }
+
+  // 处理 children
+  if (typeof vnode.children === 'string') {
+    // 如果 children 是 字符串，说明它是文本子节点
+    el.appendChild(document.createTextNode(vnode.children))
+  } else if (Array.isArray(vnode.children)) {
+    // 递归调用 renderer 函数，渲染子节点
+    node.children.forEach((child) => renderer(child, el))
+  }
+
+  // 将元素添加到挂载点下
+  container.appendChild(el)
+}
+
+function mountComponent(vnode, container) {
+  //调用组件函数，获取组件要渲染的内容（虚拟DOM）
+  const subtree = vnode.tag()
+  // 递归调用 renderer 渲染 虚拟 DOM
+  renderer(subtree, container)
+}
 ```
+
+组件也不一定是函数，也可以是对象：
+
+```js
+const MyComponent2 = {
+  render() {
+    return {
+      tag: 'div',
+      props: {
+        onClick: () => alert('hello')
+      },
+      children: 'click me'
+    }
+  }
+}
+```
+
+对应的 renderer 函数修改：
+
+```js
+function renderer(vnode, container) {
+  if (typeof vnode.tag === 'string') {
+    // 说明 vnode 描述的是元素
+    mountElement(vnode, container)
+  } else if (typeof vnode.tag === 'object') {
+    // 说明 vnode 描述的是组件
+    mountComponent(vnode, container)
+  }
+}
+```
+
+接着修改 mountComponent 函数：
+
+```js
+function mountComponent(vnode, container) {
+  //调用组件函数，获取组件要渲染的内容（虚拟DOM）
+  const subtree = vnode.tag.render()
+  // 递归调用 renderer 渲染 虚拟 DOM
+  renderer(subtree, container)
+}
+```
+
+下面为改造后的示例：
+
+::: note 示例运行结果
+<div id="component-function-demo"></div>
+<div id="component-object-demo"></div>
+:::
+
+::: demo 组件示例
+
+```html
+<div id="component-function-demo"></div>
+<div id="component-object-demo"></div>
+```
+
+```js
+// 函数组件
+const MyComponent = function () {
+  return {
+    tag: 'div',
+    props: {
+      onClick: () => alert('hello')
+    },
+    children: 'click me'
+  }
+}
+
+// 对象组件
+const MyComponent2 = {
+  render() {
+    return {
+      tag: 'div',
+      props: {
+        onClick: () => alert('hello')
+      },
+      children: 'click me'
+    }
+  }
+}
+
+const vnode1 = {
+  tag: MyComponent
+}
+
+const vnode2 = {
+  tag: MyComponent2
+}
+
+
+// 渲染函数
+function renderer(vnode, container) {
+  if (typeof vnode.tag === 'string') {
+    // 说明 vnode 描述的是元素
+    mountElement(vnode, container)
+  } else if (typeof vnode.tag === 'function') {
+    // 说明 vnode 描述的是组件
+    mountFunctionalComponent(vnode, container)
+  } else if (typeof vnode.tag === 'object') {
+    // 说明 vnode 描述的是组件
+    mountObjectComponent(vnode, container)
+  }
+}
+
+function mountElement(vnode, container) {
+  // 使用vnode.tag作为标签名称创建 DOM
+  const el = window.document.createElement(vnode.tag)
+  // 遍历 vnode.props，将属性，事件添加到 DOM 元素
+  for (const key in vnode.props) {
+    if (/^on/.test(key)) {
+      // 如果 key 以 on 开头，说明是事件
+      el.addEventListener(
+        key.substr(2).toLowerCase(), // 事件名称 onClick -> click
+        vnode.props[key] // 事件处理函数
+      )
+    }
+  }
+
+  // 处理 children
+  if (typeof vnode.children === 'string') {
+    // 如果 children 是 字符串，说明它是文本子节点
+    el.appendChild(window.document.createTextNode(vnode.children))
+  } else if (Array.isArray(vnode.children)) {
+    // 递归调用 renderer 函数，渲染子节点
+    node.children.forEach((child) => renderer(child, el))
+  }
+
+  // 将元素添加到挂载点下
+  container.appendChild(el)
+}
+
+function mountFunctionalComponent(vnode, container) {
+  //调用组件函数，获取组件要渲染的内容（虚拟DOM）
+  const subtree = vnode.tag()
+  // 递归调用 renderer 渲染 虚拟 DOM
+  renderer(subtree, container)
+}
+
+function mountObjectComponent(vnode, container) {
+  //调用组件函数，获取组件要渲染的内容（虚拟DOM）
+  const subtree = vnode.tag.render()
+  // 递归调用 renderer 渲染 虚拟 DOM
+  renderer(subtree, container)
+}
+
+// 使用
+renderer(vnode1, window.document.querySelector('#component-function-demo'))
+renderer(vnode2, window.document.querySelector('#component-object-demo'))
+```
+
+:::
+
+## 3.4 模板的工作原理
+
+无论是手续虚拟 DOM （渲染函数）还是使用模板，都属于声明式地描述 UI，Vue.js 同时支持 ，这是因为 Vue.js 框架中有**编译器**。
+
+编译器的作用就是将模板编译为渲染函数，比如：
+
+```vue
+<div @click="handler">
+  click me
+</div>
+```
+
+编译器生成的渲染函数：
+
+```js
+render() {
+  return h('div', { onClick: handler }, 'click me')
+}
+```
+
+对应 .vue 文件来说：
+
+```vue
+<template>
+  <div @click="handler">
+    click me
+  </div>
+</template>
+
+<script>
+export default {
+  data() { /* ... */ },
+  methods: {
+    handler: () => { /* ... */ }
+  }
+}
+</script>
+```
+
+将被编译为：
+
+```js
+export default {
+  data() { /* ... */ },
+  methods: {
+    handler: () => { /* ... */ }
+  },
+  render() {
+    return h('div', { onClick: handler }, 'click me')
+  }
+}
+```
+
+无论是使用模板还是直接手写渲染函数，对于一个组件来说，它要渲染的内容最终都是通过渲染函数产生的。
+
+## 3.5 Vue.js 是各个模块组成的有机整体
