@@ -1,5 +1,12 @@
 {
-  "cSpell.words": ["docsearch", "typeof", "Vitesse", "vnode", "zhaobc"],
+  "cSpell.words": [
+    "docsearch",
+    "typeof",
+    "Vitesse",
+    "vnode",
+    "weakmap",
+    "zhaobc"
+  ],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": "locales",
   "i18n-ally.sortKeys": true,
