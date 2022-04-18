@@ -1,5 +1,8 @@
 ---
-index: true
+index: 10
+dir:
+  text: Frontend
+  index: 10
 icon: template
 category:
   - notes

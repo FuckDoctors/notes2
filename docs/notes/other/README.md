@@ -1,5 +1,8 @@
 ---
-index: true
+index: 90
+dir:
+  text: 其他内容
+  index: 90
 sidebarText: 概述
 icon: note
 category:

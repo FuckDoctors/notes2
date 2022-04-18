@@ -1,6 +1,9 @@
 ---
-index: true
+index: 10
 sidebarText: 概述
+dir:
+  text: 前端笔记
+  index: 10
 icon: template
 category:
   - 笔记
