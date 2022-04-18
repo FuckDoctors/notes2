@@ -285,7 +285,8 @@ function changeText() {
 
 那么，WeakMap 跟 Map 有什么区别呢？
 
-WeakMap 对 key 是弱引用，不影响垃圾回收器的工作。
+WeakMap 对 key 是弱引用，WeakMap 的 key 是不可枚举的，不影响垃圾回收器的工作。
+参考资料：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 
 ::: demo Map 和 WeakMap
 
@@ -300,12 +301,11 @@ const weakmap = new WeakMap();
   const bar = { bar: 2 };
 
   map.set(foo, 1);
-  // 这句报错 Uncaught ReferenceError: set is not defined 
-  // weakmap,set(bar, 2);
+  weakmap.set(bar, 2);
 })();
 
 // 可以打印出 foo，说明 foo 没有被回收
-console.log('map.keys', map.keys.next().value);
+console.log('map.keys', map.keys().next().value);
 // WeakMap 无法获取 key，也就无法获取对象 bar
 console.log('weakmap', weakmap);
 ```
@@ -313,3 +313,254 @@ console.log('weakmap', weakmap);
 :::
 
 ## 4.4 分支切换与 cleanup
+
+什么是分支定义？先看下面的代码：
+
+```js
+const data = { ok: true, text: 'hello world' }
+const obj = new Proxy(data, { /* ... */ })
+
+effect(() => {
+  document.body.innerText = obj.ok ? obj.text : 'not'
+})
+```
+
+上面的三元表达式中，当字段 obj.ok 发送变化时，代码执行的分支就会跟着变化，这就是分支切换。
+
+分支切换可能会产生遗留的副作用函数。上面的代码中，会触发 obj.ok 和 obj.text 的读取操作，所以会收集它们俩对应的副作用函数。
+
+当 obj.ok 修改为 false 时，会触发副作用函数重新执行后，由于此时字段 obj.text 不会被读取，只会执行 obj.ok 的读取操作。
+所以，理想情况下，副作用函数不应该被字段 obj.text 所对应的依赖集合收集。
+
+遗留的副作用会导致不必要的更新。
+
+但是上例中，obj.ok 改为 false 时，无论 obj.text 如何变，document.body.innerText 的值始终是 'not' 。
+所以，最好的结果是，无论 obj.text 如何变，都不需要重新执行副作用函数。
+
+解决这个问题的思路很简单，就是每次副作用执行时，我们可以先把它从所有与之关联的依赖集合中删除。
+
+当副作用函数执行完毕后，会重新建立联系，但在新的联系中不会包含遗留的副作用函数。
+
+要将一个副作用函数从所有与之关联的依赖集合中移除，需要明确有哪些依赖集合中包含它，因此，我们要重新设计副作用函数。
+
+```js
+// 用一个全局变量存储被注册的副作用函数
+let activeEffect
+function effect(fn) {
+  const effectFn = () => {
+    // 调用 cleanup 函数完成清除工作
+    cleanup(effectFn)
+    // 当 effectFn 执行时，将其设为当前激活的副作用函数
+    activeEffect = effectFn
+    fn()
+  }
+  // effectFn.deps 用来存储所有与该副作用函数相关联的依赖集合
+  effectFn.deps = []
+  // 执行副作用函数
+  effectFn()
+}
+
+function track(target, key) {
+  // 没有 activeEffect 直接返回
+  if (!activeEffect) return
+  // 根据 target 从桶中取得 depsMap，它也是一个 Map 类型，key: effects
+  let depsMap = bucket.get(target)
+  // 如果不存在 depsMap，则新建一个 Map 与 target 关联
+  if (!depsMap) {
+    bucket.set(target, (depsMap = new Map()))
+  }
+  // 再根据 key 从 depsMap 中取得 deps，它是一个 Set 类型
+  // 里面存储着所有与当前 key 关联的副作用函数：effects
+  let deps = depsMap.get(key)
+  // 如果 deps 不存在，则同样新建一个 Set 与 key 关联
+  if (!deps) {
+    depsMap.set(key, (deps = new Set()))
+  }
+  // 把当前激活的副作用函数添加到依赖集合 deps 中
+  deps.add(activeEffect)
+  // deps 就是一个与当前副作用函数存在联系的依赖集合
+  // 将其添加到 activeEffect.deps 数组中
+  activeEffect.deps.push(deps)
+}
+
+function cleanup(effectFn) {
+  // 遍历 effectFn 的 deps 数组
+  for (let i = 0; i < effectFn.deps.length; i++) {
+    // deps 是依赖集合
+    const deps = effectFn.deps[i]
+    // 将 effectFn 从依赖集合中移除
+    deps.delete(effectFn)
+  }
+  // 最后需要重置 effectFn.deps 数组
+  effectFn.deps.length = 0
+}
+
+function trigger(target, key) {
+  const depsMap = bucket.get(target)
+  if (!depsMap) {
+    return
+  }
+  const effects = depsMap.get(key)
+  // effects && effects.forEach(fn => fn()) // 删除，这个会导致死循环
+
+  // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
+  const effectToRun = new Set(effects)
+  effectToRun.forEach(effectFn => effectFn())
+}
+```
+
+在 trigger 中我们遍历 effects 集合，它是一个 Set 集合，当执行副作用函数时，会调用 cleanup 进行清除，实际上是从 effects 中将当前副作用函数剔除。
+但是副作用函数的执行会导致其重新被收集，此时对于 effects 的遍历仍在进行，会引起死循环。
+
+剪短的代码来表达：
+
+```js
+const set = new Set([1])
+
+set.forEach(item => {
+  set.delete(1)
+  set.add(1)
+  console.log('遍历中')
+})
+```
+
+语言规范中对此有明确的说明：在调用 forEach 遍历 Set 集合时，如果一个值已经被访问过了，但该值被删除并重新添加到集合，
+如果此时 forEach 遍历没有结束，那么该值会重新被访问。
+
+因此，上面的代码会无限循环。解决办法也很简单，构造领一个 Set 集合并遍历它：
+
+```js
+const set = new Set([1])
+
+const newSet = new Set(set)
+newSet.forEach(item => {
+  set.delete(1)
+  set.add(1)
+  console.log('遍历中')
+})
+```
+
+::: note 分支切换与 cleanup demo 运行结果
+<div id="effect-branch-cleanup"></div>
+:::
+
+::: demo 分支切换与 cleanup demo
+
+```html
+<div id="effect-branch-cleanup"></div>
+<button onclick="changeText()">Change Text</button>
+<input type="checkbox" checked="obj.ok" onclick="changeOk(event.target.checked)" />Change OK
+```
+
+```js
+// 存储副作用的桶
+const bucket = new WeakMap()
+// 用一个全局变量存储被注册的副作用函数
+let activeEffect
+
+function effect(fn) {
+  const effectFn = () => {
+    // 调用 cleanup 函数完成清除工作
+    cleanup(effectFn)
+    // 当 effectFn 执行时，将其设为当前激活的副作用函数
+    activeEffect = effectFn
+    fn()
+  }
+  // effectFn.deps 用来存储所有与该副作用函数相关联的依赖集合
+  effectFn.deps = []
+  // 执行副作用函数
+  effectFn()
+}
+
+function track(target, key) {
+  // 没有 activeEffect 直接返回
+  if (!activeEffect) return
+  // 根据 target 从桶中取得 depsMap，它也是一个 Map 类型，key: effects
+  let depsMap = bucket.get(target)
+  // 如果不存在 depsMap，则新建一个 Map 与 target 关联
+  if (!depsMap) {
+    bucket.set(target, (depsMap = new Map()))
+  }
+  // 再根据 key 从 depsMap 中取得 deps，它是一个 Set 类型
+  // 里面存储着所有与当前 key 关联的副作用函数：effects
+  let deps = depsMap.get(key)
+  // 如果 deps 不存在，则同样新建一个 Set 与 key 关联
+  if (!deps) {
+    depsMap.set(key, (deps = new Set()))
+  }
+  // 把当前激活的副作用函数添加到依赖集合 deps 中
+  deps.add(activeEffect)
+  // deps 就是一个与当前副作用函数存在联系的依赖集合
+  // 将其添加到 activeEffect.deps 数组中
+  activeEffect.deps.push(deps)
+}
+
+function cleanup(effectFn) {
+  // 遍历 effectFn 的 deps 数组
+  for (let i = 0; i < effectFn.deps.length; i++) {
+    // deps 是依赖集合
+    const deps = effectFn.deps[i]
+    // 将 effectFn 从依赖集合中移除
+    deps.delete(effectFn)
+  }
+  // 最后需要重置 effectFn.deps 数组
+  effectFn.deps.length = 0
+}
+
+function trigger(target, key) {
+  const depsMap = bucket.get(target)
+  if (!depsMap) {
+    return
+  }
+  const effects = depsMap.get(key)
+  // effects && effects.forEach(fn => fn()) // 删除，这个会导致死循环
+
+  // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
+  const effectToRun = new Set(effects)
+  effectToRun.forEach(effectFn => effectFn())
+}
+
+// 元素数据
+const data = {
+  ok: true,
+  text: 'hello world'
+}
+
+const obj = new Proxy(data, {
+  // 拦截读取操作
+  get(target, key) {
+    // 将副作用函数 添加到桶中
+    track(target, key)
+    // 返回属性值
+    return target[key]
+  },
+  // 拦截设置操作
+  set(target, key, newVal) {
+    // 设置属性值
+    target[key] = newVal
+    // 把副作用函数从桶中取出并执行
+    trigger(target, key)
+    return true
+  }
+})
+
+// 使用 effect 注册副作用函数
+effect(() => {
+  // 匿名副作用函数
+  console.log('effect run - branch-cleanup')
+  window.document.querySelector('#effect-branch-cleanup').innerText = obj.ok ? obj.text : 'not'
+})
+
+function changeText() {
+  obj.text = 'hello vue3'
+  obj.notExist = 'hello vue3'
+}
+
+function changeOk(val) {
+  obj.ok = val
+}
+```
+
+:::
+
+## 4.5 嵌套的 effect 与 effect 栈
