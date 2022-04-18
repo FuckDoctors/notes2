@@ -1,4 +1,11 @@
-import { defineComponent, h, onMounted, onUnmounted, ref, markRaw } from 'vue'
+import {
+  defineComponent,
+  h,
+  onMounted,
+  onBeforeUnmount,
+  ref,
+  markRaw,
+} from 'vue'
 import { loadingSvgString } from './icons'
 
 // import * as echarts from "echarts";
@@ -7,6 +14,8 @@ import type { EChartsOption } from 'echarts/export/option'
 import type { VNode } from 'vue'
 
 import '../styles/echarts.scss'
+
+import { useDebounceFn, useResizeObserver } from '@vueuse/core'
 
 declare const MARKDOWN_ENHANCE_DELAY: number
 
@@ -44,9 +53,12 @@ export default defineComponent({
 
     const loading = ref(true)
 
-    const resizeChart = () => {
+    // const resizeChart = () => {
+    //   chart.value?.resize()
+    // }
+    const resizeChart = useDebounceFn(() => {
       chart.value?.resize()
-    }
+    }, 10)
 
     onMounted(() => {
       void Promise.all([
@@ -66,15 +78,18 @@ export default defineComponent({
         loading.value = false
       })
 
-      // TODO: watch sidebar and resize
-      // 貌似无法监听到sidebar状态，除非自己处理一下
+      // // TODO: watch sidebar and resize
+      // // 貌似无法监听到sidebar状态，除非自己处理一下
+      // // resize
+      // window.addEventListener('resize', resizeChart)
 
-      // resize
-      window.addEventListener('resize', resizeChart)
+      useResizeObserver(echartsWrapper, (entries) => {
+        resizeChart()
+      })
     })
 
-    onUnmounted(() => {
-      window.removeEventListener('resize', resizeChart)
+    onBeforeUnmount(() => {
+      // window.removeEventListener('resize', resizeChart)
 
       chart.value?.dispose()
     })
