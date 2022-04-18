@@ -41,9 +41,10 @@ effect 执行会读取 obj，并设置 state，以及更改 DOM 元素，这个�
 
 如果我们能拦截一个对象的读取和设置操作，那么就能做一些额外的操作。
 
-在ES2015之前只能通过 Object.defineProperty 函数实现，这也是 Vue.js 2 所采用的方式。在 ES2015+ 中，可以使用代理对象 Proxy 来实现，这也是 Vue.js 3 所采用的方式。
+在 ES2015 之前只能通过 Object.defineProperty 函数实现，这也是 Vue.js 2 所采用的方式。在 ES2015+ 中，可以使用代理对象 Proxy 来实现，这也是 Vue.js 3 所采用的方式。
 
 ::: note Proxy 示例
+
 <div id="effect-proxy-demo"></div>
 :::
 
@@ -74,10 +75,10 @@ const obj = new Proxy(data, {
     // 设置属性值
     target[key] = newVal
     // 把副作用函数从桶中取出来并执行
-    bucket.forEach(fn => fn())
+    bucket.forEach((fn) => fn())
     // 返回 true 代表 设置成功
     return true
-  }
+  },
 })
 
 // 副作用函数
@@ -91,7 +92,6 @@ effect()
 function changeText() {
   obj.text = 'hello vue3'
 }
-
 ```
 
 :::
