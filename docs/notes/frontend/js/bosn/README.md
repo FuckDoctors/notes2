@@ -1,6 +1,6 @@
 ---
 index: true
-sidebarText: 目录
+sidebarText: 前言
 category:
   - 笔记
   - frontend
@@ -10,6 +10,8 @@ tag:
 ---
 
 # JavaScript 深入浅出
+
+## 前言
 
 原视频链接：[慕课网上 Bosn 老师的《JavaScript 深入浅出》](https://www.imooc.com/learn/277)
 
