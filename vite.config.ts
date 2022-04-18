@@ -184,7 +184,11 @@ export default defineConfig({
 
   // https://github.com/vitest-dev/vitest
   test: {
-    include: ['test/**/*.test.ts'],
+    include: [
+      'test/**/*.test.ts',
+      '**/__tests__/**/*.{test,spec,specs}.{ts,js}',
+      'docs/.vuepress/**/__tests__/**/*.{test,spec,specs}.{ts,js}',
+    ],
     environment: 'jsdom',
     deps: {
       inline: ['@vue', '@vueuse', 'vue-demi'],
