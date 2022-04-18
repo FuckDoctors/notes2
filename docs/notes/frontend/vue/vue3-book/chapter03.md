@@ -198,9 +198,9 @@ const MyComponent = function () {
   return {
     tag: 'div',
     props: {
-      onClick: () => alert('hello')
+      onClick: () => alert('hello'),
     },
-    children: 'click me'
+    children: 'click me',
   }
 }
 ```
@@ -269,11 +269,11 @@ const MyComponent2 = {
     return {
       tag: 'div',
       props: {
-        onClick: () => alert('hello')
+        onClick: () => alert('hello'),
       },
-      children: 'click me'
+      children: 'click me',
     }
-  }
+  },
 }
 ```
 
@@ -305,6 +305,7 @@ function mountComponent(vnode, container) {
 下面为改造后的示例：
 
 ::: note 示例运行结果
+
 <div id="component-function-demo"></div>
 <div id="component-object-demo"></div>
 :::
@@ -322,9 +323,9 @@ const MyComponent = function () {
   return {
     tag: 'div',
     props: {
-      onClick: () => alert('hello')
+      onClick: () => alert('hello'),
     },
-    children: 'click me'
+    children: 'click me',
   }
 }
 
@@ -334,21 +335,20 @@ const MyComponent2 = {
     return {
       tag: 'div',
       props: {
-        onClick: () => alert('hello')
+        onClick: () => alert('hello'),
       },
-      children: 'click me'
+      children: 'click me',
     }
-  }
+  },
 }
 
 const vnode1 = {
-  tag: MyComponent
+  tag: MyComponent,
 }
 
 const vnode2 = {
-  tag: MyComponent2
+  tag: MyComponent2,
 }
-
 
 // 渲染函数
 function renderer(vnode, container) {
@@ -436,17 +436,19 @@ render() {
 
 ```vue
 <template>
-  <div @click="handler">
-    click me
-  </div>
+  <div @click="handler">click me</div>
 </template>
 
 <script>
 export default {
-  data() { /* ... */ },
+  data() {
+    /* ... */
+  },
   methods: {
-    handler: () => { /* ... */ }
-  }
+    handler: () => {
+      /* ... */
+    },
+  },
 }
 </script>
 ```
@@ -455,13 +457,17 @@ export default {
 
 ```js
 export default {
-  data() { /* ... */ },
+  data() {
+    /* ... */
+  },
   methods: {
-    handler: () => { /* ... */ }
+    handler: () => {
+      /* ... */
+    },
   },
   render() {
     return h('div', { onClick: handler }, 'click me')
-  }
+  },
 }
 ```
 
