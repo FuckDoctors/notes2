@@ -109,10 +109,11 @@ function changeText() {
 为了实现这一点，我们需要提供一个用来注册副作用函数的机制，如下所示：
 
 ::: note 改进后的示例
+
 <div id="effect-proxy-demo2"></div>
 :::
 
-::: demo  改进后的示例
+::: demo 改进后的示例
 
 ```html
 <div id="effect-proxy-demo2"></div>
@@ -121,7 +122,7 @@ function changeText() {
 
 ```js
 // 用一个全局变量存储被注册的副作用函数
-let activeEffect;
+let activeEffect
 
 // effect 函数用于注册副作用函数
 function effect(fn) {
@@ -153,10 +154,10 @@ const obj = new Proxy(data, {
     // 设置属性值
     target[key] = newVal
     // 把副作用函数从桶中取出来并执行
-    bucket.forEach(fn => fn())
+    bucket.forEach((fn) => fn())
     // 返回 true 代表 设置成功
     return true
-  }
+  },
 })
 
 // 使用 effect 注册副作用函数
@@ -169,7 +170,6 @@ effect(() => {
 function changeText() {
   obj.notExist = 'hello vue3'
 }
-
 ```
 
 :::
@@ -184,10 +184,11 @@ function changeText() {
 Set 类型的桶，不能实现这个目的，需要使用 WeakMap 代替 Set 作为桶的数据结构。
 
 ::: note WeakMap 类型的桶
+
 <div id="effect-proxy-weakmap"></div>
 :::
 
-::: demo  WeakMap 类型的桶
+::: demo WeakMap 类型的桶
 
 ```html
 <div id="effect-proxy-weakmap"></div>
@@ -198,12 +199,12 @@ Set 类型的桶，不能实现这个目的，需要使用 WeakMap 代替 Set �
 // 元素数据
 const data = {
   ok: true,
-  text: 'hello world'
+  text: 'hello world',
 }
 
 // 存储副作用的桶
 const bucket = new WeakMap()
-let activeEffect;
+let activeEffect
 
 const obj = new Proxy(data, {
   // 拦截读取操作
@@ -220,7 +221,7 @@ const obj = new Proxy(data, {
     // 把副作用函数从桶中取出并执行
     trigger(target, key)
     return true
-  }
+  },
 })
 
 // 在 get 拦截函数内调用 track 函数追踪变化
@@ -252,7 +253,7 @@ function trigger(target, key) {
   // 根据 key 取得所有副作用函数
   const effects = depsMap.get(key)
   // 执行副作用函数
-  effects && effects.forEach(fn => fn())
+  effects && effects.forEach((fn) => fn())
 }
 
 // effect 函数用于注册副作用函数
@@ -278,7 +279,7 @@ function changeText() {
 
 :::
 
-从上述代码中可以看出构建数据的方式，分别使用了WeakMap, Map 和 Set:
+从上述代码中可以看出构建数据的方式，分别使用了 WeakMap, Map 和 Set:
 
 - WeakMap 是 target: Map 键值对
 - Map 是 target.key: effects （副作用） 键值对
@@ -293,21 +294,21 @@ WeakMap 对 key 是弱引用，WeakMap 的 key 是不可枚举的，不影响垃
 请打开控制台查看：
 
 ```js
-const map = new Map();
-const weakmap = new WeakMap();
+const map = new Map()
+const weakmap = new WeakMap()
 
-(function(){
-  const foo = { foo: 1 };
-  const bar = { bar: 2 };
+;(function () {
+  const foo = { foo: 1 }
+  const bar = { bar: 2 }
 
-  map.set(foo, 1);
-  weakmap.set(bar, 2);
-})();
+  map.set(foo, 1)
+  weakmap.set(bar, 2)
+})()
 
 // 可以打印出 foo，说明 foo 没有被回收
-console.log('map.keys', map.keys().next().value);
+console.log('map.keys', map.keys().next().value)
 // WeakMap 无法获取 key，也就无法获取对象 bar
-console.log('weakmap', weakmap);
+console.log('weakmap', weakmap)
 ```
 
 :::
@@ -318,7 +319,9 @@ console.log('weakmap', weakmap);
 
 ```js
 const data = { ok: true, text: 'hello world' }
-const obj = new Proxy(data, { /* ... */ })
+const obj = new Proxy(data, {
+  /* ... */
+})
 
 effect(() => {
   document.body.innerText = obj.ok ? obj.text : 'not'
@@ -405,7 +408,7 @@ function trigger(target, key) {
 
   // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
   const effectToRun = new Set(effects)
-  effectToRun.forEach(effectFn => effectFn())
+  effectToRun.forEach((effectFn) => effectFn())
 }
 ```
 
@@ -417,7 +420,7 @@ function trigger(target, key) {
 ```js
 const set = new Set([1])
 
-set.forEach(item => {
+set.forEach((item) => {
   set.delete(1)
   set.add(1)
   console.log('遍历中')
@@ -433,7 +436,7 @@ set.forEach(item => {
 const set = new Set([1])
 
 const newSet = new Set(set)
-newSet.forEach(item => {
+newSet.forEach((item) => {
   set.delete(1)
   set.add(1)
   console.log('遍历中')
@@ -441,6 +444,7 @@ newSet.forEach(item => {
 ```
 
 ::: note 分支切换与 cleanup demo 运行结果
+
 <div id="effect-branch-cleanup"></div>
 :::
 
@@ -449,7 +453,11 @@ newSet.forEach(item => {
 ```html
 <div id="effect-branch-cleanup"></div>
 <button onclick="changeText()">Change Text</button>
-<input type="checkbox" checked="obj.ok" onclick="changeOk(event.target.checked)" />Change OK
+<input
+  type="checkbox"
+  checked="obj.ok"
+  onclick="changeOk(event.target.checked)"
+/>Change OK
 ```
 
 ```js
@@ -517,13 +525,13 @@ function trigger(target, key) {
 
   // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
   const effectToRun = new Set(effects)
-  effectToRun.forEach(effectFn => effectFn())
+  effectToRun.forEach((effectFn) => effectFn())
 }
 
 // 元素数据
 const data = {
   ok: true,
-  text: 'hello world'
+  text: 'hello world',
 }
 
 const obj = new Proxy(data, {
@@ -541,14 +549,16 @@ const obj = new Proxy(data, {
     // 把副作用函数从桶中取出并执行
     trigger(target, key)
     return true
-  }
+  },
 })
 
 // 使用 effect 注册副作用函数
 effect(() => {
   // 匿名副作用函数
   console.log('effect run - branch-cleanup')
-  window.document.querySelector('#effect-branch-cleanup').innerText = obj.ok ? obj.text : 'not'
+  window.document.querySelector('#effect-branch-cleanup').innerText = obj.ok
+    ? obj.text
+    : 'not'
 })
 
 function changeText() {
@@ -564,3 +574,49 @@ function changeOk(val) {
 :::
 
 ## 4.5 嵌套的 effect 与 effect 栈
+
+effect 是可以发生嵌套的，例如：
+
+```js
+effect(function effectFn1() {
+  effect(function effectFn2() {
+    /* ... */
+  })
+})
+```
+
+effectFn1 里嵌套了 effectFn2，什么场景会有呢？比如，Foo 组件有 effect，Foo 组件里调用了 Bar 组件， Bar 里有 effect 的话，就会发送 effect 嵌套。
+
+但是，前面的代码中，全局变量 activeEffect 只能存储一个，有嵌套时不能正确的恢复外层的副作用函数。
+
+为了解决这个问题，我们需要一个副作用栈 effectStack，在副作用函数执行时，将当前副作用函数压入栈中，待副作用函数执行完毕后将其从栈中弹出，并始终让 activeEffect 指向栈顶的副作用函数。
+代码如下：
+
+```js
+// 用一个全局变量存储被注册的副作用函数
+let activeEffect
+// effect 栈
+let effectStack = []
+
+function effect(fn) {
+  const effectFn = () => {
+    // 调用 cleanup 函数完成清除工作
+    cleanup(effectFn)
+    // 当调用 effect 注册副作用函数时，将副作用函数复制给 activeEffect
+    activeEffect = effectFn
+    // 在调用副作用函数之前，将当前副作用函数压入栈中
+    effectStack.push(effectFn)
+    fn()
+    // 在当前副作用函数执行完毕后，将当前副作用函数弹出栈，
+    // 并把 activeEffect 还原为之前的值
+    effectStack.pop()
+    activeEffect = effectStack[effectStack.length - 1]
+  }
+  // effectFn.deps 用来存储所有与该副作用函数相关联的依赖集合
+  effectFn.deps = []
+  // 执行副作用函数
+  effectFn()
+}
+```
+
+## 4.6 避免无限递归循环
