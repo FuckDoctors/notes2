@@ -23,6 +23,7 @@ specifiers:
   cross-env: ^7.0.3
   cypress: ^9.5.4
   cz-conventional-changelog: 3.3.0
+  echarts: ^5.3.2
   eslint: ^8.13.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-cypress: ^2.12.1
@@ -31,6 +32,8 @@ specifiers:
   husky: ^7.0.4
   inquirer: ^8.2.2
   lint-staged: ^12.3.7
+  markdown-it: ^12.3.2
+  markdown-it-container: ^3.0.0
   markdown-it-link-attributes: ^4.0.0
   markdown-it-prism: ^2.2.3
   markdownlint: ^0.25.1
@@ -92,6 +95,7 @@ specifiers:
 dependencies:
   '@vueuse/core': 8.2.5_vue@3.2.32
   '@vueuse/head': 0.7.6_vue@3.2.32
+  echarts: 5.3.2
   nprogress: 0.2.0
   pinia: 2.0.13_typescript@4.6.3+vue@3.2.32
   prism-theme-vars: 0.2.2
@@ -129,6 +133,8 @@ devDependencies:
   husky: 7.0.4
   inquirer: 8.2.2
   lint-staged: 12.3.7
+  markdown-it: 12.3.2
+  markdown-it-container: 3.0.0
   markdown-it-link-attributes: 4.0.0
   markdown-it-prism: 2.2.3
   markdownlint: 0.25.1
@@ -5216,6 +5222,13 @@ packages:
       jsbn: 0.1.1
       safer-buffer: 2.1.2
     dev: true
+
+  /echarts/5.3.2:
+    resolution: {integrity: sha512-LWCt7ohOKdJqyiBJ0OGBmE9szLdfA9sGcsMEi+GGoc6+Xo75C+BkcT/6NNGRHAWtnQl2fNow05AQjznpap28TQ==}
+    dependencies:
+      tslib: 2.3.0
+      zrender: 5.3.1
+    dev: false
 
   /ee-first/1.1.1:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
@@ -11624,6 +11637,10 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
+  /tslib/2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
+    dev: false
+
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
     dev: true
@@ -13233,6 +13250,12 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zrender/5.3.1:
+    resolution: {integrity: sha512-7olqIjy0gWfznKr6vgfnGBk7y4UtdMvdwFmK92vVQsQeDPyzkHW1OlrLEKg6GHz1W5ePf0FeN1q2vkl/HFqhXw==}
+    dependencies:
+      tslib: 2.3.0
+    dev: false
 
   /zwitch/1.0.5:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}

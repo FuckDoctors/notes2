@@ -15,7 +15,7 @@ head:
 
 # 取消 Vercel 发布
 
-在Github Actions 中，我们可以选择性地 取消 workflow 的执行，比如 在 git message 中 填写 [skip ci] 或者 [ci skip] 即可达到目的。
+在 Github Actions 中，我们可以选择性地 取消 workflow 的执行，比如 在 git message 中 填写 [skip ci] 或者 [ci skip] 即可达到目的。
 但是，在 vercel 中，这种方法不起作用。
 
 搜索了一下资料，发现 vercel 中也可以自定义来实现。
