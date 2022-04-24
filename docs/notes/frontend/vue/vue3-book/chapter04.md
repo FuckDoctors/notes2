@@ -620,3 +620,45 @@ function effect(fn) {
 ```
 
 ## 4.6 避免无限递归循环
+
+当有如下的代码时，会发生无限递归循环：
+
+```js
+const data = { foo: 1 }
+const obj = new Proxy(data, { /* ... */ })
+
+effect(() => obj.foo++)
+// 上句相当于
+effect(() => {
+  obj.foo = obj.foo + 1
+})
+```
+
+在副作用中，既读取 obj.foo，又设置 obj.foo，读取会触发 track 操作，将副作用函数放入桶中；设置会触发 trigger，从桶中取出副作用函数并执行。
+
+但问题是该副作用函数正在执行中，还没执行完毕，就要开始下一次的执行。这将会导致无限递归调用自己，产生栈溢出。
+
+通过分析发现，读取和设置操作是在同一个副作用函数内进行的。不管是 track 收集的副作用函数，还是 trigger 执行的副作用函数都是 activeEffect。
+基于此，我们可以加个条件，**如果 trigger 执行的副作用函数与当前正在执行的副作用函数相同，则不触发执行**，如下所示：
+
+```js
+function trigger(target, key) {
+  const depsMap = bucket.get(target)
+  if (!depsMap) {
+    return
+  }
+  const effects = depsMap.get(key)
+
+  // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
+  const effectsToRun = new Set()
+  effects && effects.forEach(effectFn => {
+    if (effectFn !== activeEffectFn) {
+      // 如果 trigger 执行的副作用函数与当前正在执行的副作用函数相同，则不触发执行
+      effectsToRun.add(effectFn)
+    }
+  })
+  effectsToRun.forEach((effectFn) => effectFn())
+}
+```
+
+## 4.7 调度执行
