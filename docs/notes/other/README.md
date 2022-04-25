@@ -34,3 +34,33 @@ category:
 ```
 
 :::
+
+:::: playground playground demo
+
+::: file App.vue
+
+```js
+const foo = 'foo'
+```
+
+:::
+
+::: file Comp.vue
+
+```vue
+const bar = 'bar'
+```
+
+:::
+
+::: imports
+
+```json
+{
+  "vue": "vue.js"
+}
+```
+
+:::
+
+::::
