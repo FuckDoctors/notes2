@@ -1,5 +1,8 @@
 ---
-index: true
+index: 20
+dir:
+  text: Backend
+  index: 20
 icon: backend
 category:
   - notes

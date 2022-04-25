@@ -232,6 +232,7 @@ const getSidebarItems = (
         text: info.title,
         icon: info.icon,
         link: info.path,
+        index: info.index,
         children: undefined,
       }
 
