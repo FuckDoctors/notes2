@@ -9,6 +9,8 @@ export default defineHopeConfig({
   // 使用自定义主题
   theme: path.resolve(__dirname, './theme'),
 
+  // debug: true,
+
   base,
 
   dest: 'docs/.vuepress/dist',

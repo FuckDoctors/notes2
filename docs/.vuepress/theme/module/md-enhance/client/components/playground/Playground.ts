@@ -14,6 +14,7 @@ import type { VNode } from 'vue'
 import '../../styles/playground.scss'
 import { loadingSvgString } from '../icons'
 
+import { usePlayground } from '../../composables/use-playground2'
 interface SourceConfig {
   lang?: string
   content?: string
@@ -56,7 +57,10 @@ export default defineComponent({
       return fileConfigs
     })
 
-    const previewLink: Ref<string> = computed(() => {})
+    const previewLink: Ref<string> = computed(() => {
+      const { link } = usePlayground(props.config)
+      return link
+    })
 
     onMounted(() => {})
 

@@ -38,44 +38,23 @@ category:
 
 :::
 
-:::: playground playground demo
-
-::: file App.vue
-
-```js
-const foo = 'foo'
-```
-
-:::
-
-::: file Comp.vue
-
-```vue
-const bar = 'bar'
-```
-
-:::
-
-::: imports
-
-```json
-{
-  "vue": "vue.js"
-}
-```
-
-:::
-
-::::
-
 ::::: playground playground demo2
 
 :::: code-group
 
 ::: code-group-item App.vue
 
-```js
-const foo = 'foo'
+```vue
+<script setup>
+import { ref } from 'vue'
+
+const msg = ref('Hello World!')
+</script>
+
+<template>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg" />
+</template>
 ```
 
 :::
@@ -83,7 +62,9 @@ const foo = 'foo'
 ::: code-group-item Comp.vue
 
 ```vue
-const bar = 'bar'
+<template>
+  <div>Comp</div>
+</template>
 ```
 
 :::
@@ -92,7 +73,7 @@ const bar = 'bar'
 
 ```json
 {
-  "vue": "vue.js"
+  "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
 }
 ```
 

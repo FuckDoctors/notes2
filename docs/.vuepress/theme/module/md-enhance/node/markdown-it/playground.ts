@@ -2,6 +2,7 @@ import { hash } from '@vuepress/utils'
 import type Token from 'markdown-it/lib/token'
 
 const extensions = ['js', 'ts', 'vue', 'jsx', 'tsx', 'json']
+const importKey = 'import-map.json'
 
 export const playgroundRender = (tokens: Token[], index: number): string => {
   const { nesting, info } = tokens[index]
@@ -18,31 +19,40 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
     const { type, content, info } = tokens[i]
 
     if (type === 'container_playground_close') break
-    if (!content) continue
 
-    if (type === 'inline') {
-      const fileTitleReg = /^\s*::: *code-group-item\s*(.*)\s*$/u.exec(content)
-      // const fileTitleReg = /^ *(?:file|imports)\s*(.*)\s*$/u.exec(info)
-      const isImports = /^\s*::: *imports\s*$/u.test(content)
-
-      if (!fileTitleReg && !isImports) {
+    if (type === 'container_code-group-item_open') {
+      const fileTitleReg = /^ *code-group-item\s*(.*)\s*$/u.exec(info)
+      if (!fileTitleReg) {
         continue
       }
-
-      if (isImports) {
-        configKey = 'imports'
-      } else {
-        configKey = fileTitleReg[1]
+      configKey = fileTitleReg[1]
+    } else if (type === 'inline') {
+      const isImports = /^\s*::: *imports\s*$/u.test(content)
+      if (!isImports) {
+        configKey = null
+        continue
       }
+      configKey = importKey
     }
 
+    if (!content) continue
+
     if (type === 'fence' && extensions.includes(info) && configKey) {
-      codeConfigs[configKey] = {
-        lang: info,
-        content: content,
+      if (importKey === configKey) {
+        codeConfigs[configKey] = {
+          lang: info,
+          content: `{\n  "imports": ${content}\n  }`,
+        }
+      } else {
+        codeConfigs[configKey] = {
+          lang: info,
+          content: content,
+        }
       }
     }
   }
+
+  console.log(codeConfigs)
 
   const config = encodeURIComponent(JSON.stringify(codeConfigs))
 
