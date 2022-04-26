@@ -625,7 +625,9 @@ function effect(fn) {
 
 ```js
 const data = { foo: 1 }
-const obj = new Proxy(data, { /* ... */ })
+const obj = new Proxy(data, {
+  /* ... */
+})
 
 effect(() => obj.foo++)
 // 上句相当于
@@ -651,12 +653,13 @@ function trigger(target, key) {
 
   // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
   const effectsToRun = new Set()
-  effects && effects.forEach(effectFn => {
-    if (effectFn !== activeEffectFn) {
-      // 如果 trigger 执行的副作用函数与当前正在执行的副作用函数相同，则不触发执行
-      effectsToRun.add(effectFn)
-    }
-  })
+  effects &&
+    effects.forEach((effectFn) => {
+      if (effectFn !== activeEffectFn) {
+        // 如果 trigger 执行的副作用函数与当前正在执行的副作用函数相同，则不触发执行
+        effectsToRun.add(effectFn)
+      }
+    })
   effectsToRun.forEach((effectFn) => effectFn())
 }
 ```
