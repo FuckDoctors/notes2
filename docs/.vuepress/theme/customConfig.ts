@@ -7,6 +7,8 @@ export interface CustomConfig {
 export const customConfig: CustomConfig = {
   mdEnhance: {
     echarts: true,
+    example: true,
+    playground: true,
   },
 }
 

@@ -1,4 +1,4 @@
-import { echartsRender } from './node/markdown-it'
+import { echartsRender, playgroundRender } from './node/markdown-it'
 
 import type { ContainerPluginOptions } from '@vuepress/plugin-container'
 import type { App } from '@vuepress/core'
@@ -12,6 +12,12 @@ export const usePlugins = (
     app.use('@vuepress/container', {
       type: 'echarts',
       render: echartsRender,
+    })
+  }
+  if (markdownOptions.playground) {
+    app.use('@vuepress/container', {
+      type: 'playground',
+      render: playgroundRender,
     })
   }
 }

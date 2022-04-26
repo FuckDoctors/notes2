@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`playground > Should resolve playground info 1`] = `
+"<Playground title=\\"playground demo\\" id=\\"playground-1a96284a\\" config=\\"%7B%22App.vue%22%3A%7B%22lang%22%3A%22js%22%2C%22content%22%3A%22const%20foo%20%3D%20'foo'%5Cn%22%7D%2C%22Comp.vue%22%3A%7B%22lang%22%3A%22vue%22%2C%22content%22%3A%22const%20bar%20%3D%20'bar'%5Cn%22%7D%2C%22imports%22%3A%7B%22lang%22%3A%22json%22%2C%22content%22%3A%22%7B%5Cn%20%20%5C%22vue%5C%22%3A%20%5C%22vue.js%5C%22%5Cn%7D%5Cn%22%7D%7D\\"><p>::: file App.vue</p>
+<pre><code class=\\"language-js\\">const foo = 'foo'
+</code></pre>
+<p>:::</p>
+<p>::: file Comp.vue</p>
+<pre><code class=\\"language-vue\\">const bar = 'bar'
+</code></pre>
+<p>:::</p>
+<p>::: imports</p>
+<pre><code class=\\"language-json\\">{
+  &quot;vue&quot;: &quot;vue.js&quot;
+}
+</code></pre>
+<p>:::</p>
+</Playground>"
+`;
