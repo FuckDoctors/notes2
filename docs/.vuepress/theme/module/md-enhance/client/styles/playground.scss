@@ -1,0 +1,24 @@
+@import './code-group.scss';
+
+.playground-container {
+  .playground-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .preview-container {
+    max-height: 300px;
+    // overflow: scroll;
+
+    iframe {
+      border: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .source-container {
+  }
+}
