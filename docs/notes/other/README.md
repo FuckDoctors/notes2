@@ -67,3 +67,37 @@ const bar = 'bar'
 :::
 
 ::::
+
+::::: playground playground demo2
+
+:::: code-group
+
+::: code-group-item App.vue
+
+```js
+const foo = 'foo'
+```
+
+:::
+
+::: code-group-item Comp.vue
+
+```vue
+const bar = 'bar'
+```
+
+:::
+
+::: imports
+
+```json
+{
+  "vue": "vue.js"
+}
+```
+
+:::
+
+::::
+
+:::::

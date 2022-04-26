@@ -11,6 +11,9 @@ import {
 
 import type { VNode } from 'vue'
 
+import CodeGroup from '@vuepress/theme-default/lib/client/components/global/CodeGroup'
+import CodeGroupItem from '@vuepress/theme-default/lib/client/components/global/CodeGroupItem.vue'
+
 import '../../styles/playground.scss'
 import { loadingSvgString } from '../icons'
 
@@ -32,7 +35,7 @@ export default defineComponent({
     id: { type: String, required: true },
   },
 
-  setup(props, { slots }) {
+  setup(props) {
     const playgroundContainer = ref<HTMLElement | null>(null)
     const iframe = ref<HTMLElement | null>(null)
 
@@ -96,7 +99,43 @@ export default defineComponent({
             {
               class: 'source-container',
             },
-            [slots.default ? slots.default() : null]
+            [
+              h(
+                CodeGroup,
+                {
+                  class: 'playground-tab',
+                },
+                {
+                  default: () => {
+                    const items: (VNode | null)[] = []
+
+                    // render CodeGroupItem
+                    files.value
+                      .filter((file) => file.name !== 'imports')
+                      .forEach((file) => {
+                        items.push(
+                          h(
+                            CodeGroupItem,
+                            {
+                              title: file.name,
+                              class: 'playground-file',
+                            },
+                            {
+                              default: () => `
+                        \`\`\`${file.lang}\n
+                        ${file.content}
+                        \`\`\`
+                      `,
+                            }
+                          )
+                        )
+                      })
+
+                    return items
+                  },
+                }
+              ),
+            ]
           ),
         ]
       ),

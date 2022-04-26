@@ -21,7 +21,7 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
     if (!content) continue
 
     if (type === 'inline') {
-      const fileTitleReg = /^\s*::: *code-group-item\s*(.*)\s*$/u.exec(content)
+      const fileTitleReg = /^\s*::: *file\s*(.*)\s*$/u.exec(content)
       // const fileTitleReg = /^ *(?:file|imports)\s*(.*)\s*$/u.exec(info)
       const isImports = /^\s*::: *imports\s*$/u.test(content)
 
