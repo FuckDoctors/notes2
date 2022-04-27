@@ -1,13 +1,22 @@
 .playground-container {
+  border: 1px solid;
+  border-color: var(--code-border-color);
+  border-radius: 6px;
+  background-color: var(--code-group-nav-bg-color, #3a404c);
+
   .playground-title {
-    font-size: 1.25rem;
+    // font-size: 1.25rem;
     font-weight: 600;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding: 10px 0;
+    padding: 8px 10px;
   }
 
   .preview-container {
+    border-top: 1px solid;
+    // border-bottom: 1px solid;
+    border-color: var(--code-border-color);
     height: 300px;
     max-height: 500px;
     // overflow: scroll;
@@ -20,5 +29,21 @@
     }
   }
   .source-container {
+    // reset code-group
+    .theme-hope-content & {
+      pre,
+      pre[class*='language-'] {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .code-group {
+      .code-group-nav {
+        margin: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
   }
 }
