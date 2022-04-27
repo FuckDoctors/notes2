@@ -3,6 +3,27 @@
   border-color: var(--code-border-color);
   border-radius: 6px;
 
+  .op-btns {
+    display: flex;
+    align-items: center;
+
+    .op-btn {
+      display: inline-flex;
+      margin-left: 5px;
+
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &:hover {
+        .icon {
+          fill: red;
+        }
+      }
+    }
+  }
+
   .title-container {
     display: flex;
     flex-direction: row;
@@ -12,14 +33,11 @@
     background-color: var(--code-group-nav-bg-color, #3a404c);
 
     .playground-title {
+      font-size: 1.25rem;
       flex: 1;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-    }
-    .op-btn {
-      display: inline-block;
-      margin-left: 10px;
     }
   }
 
@@ -59,6 +77,12 @@
     }
   }
   .source-container {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
     // reset code-group
     .theme-hope-content & {
       pre,

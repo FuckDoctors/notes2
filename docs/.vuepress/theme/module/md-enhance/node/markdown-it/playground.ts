@@ -52,8 +52,6 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
     }
   }
 
-  console.log(codeConfigs)
-
   const config = encodeURIComponent(JSON.stringify(codeConfigs))
 
   return `<Playground title="${

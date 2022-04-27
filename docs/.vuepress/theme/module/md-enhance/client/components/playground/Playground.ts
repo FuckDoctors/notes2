@@ -12,7 +12,7 @@ import {
 import type { VNode } from 'vue'
 
 import '../../styles/playground.scss'
-import { loadingSvgString } from '../icons'
+import { loadingSvgString, playSvgString, codeSvgString } from '../icons'
 
 import { usePlayground } from '../../composables/use-playground2'
 interface SourceConfig {
@@ -38,6 +38,7 @@ export default defineComponent({
     const iframe = ref<HTMLElement | null>(null)
 
     const loading = ref(true)
+    const showCode = ref(false)
 
     const files: Ref<Array<FileConfig>> = computed(() => {
       const fileConfigs: Array<FileConfig> = []
@@ -61,6 +62,10 @@ export default defineComponent({
       const { link } = usePlayground(props.config)
       return link
     })
+
+    const toggleCode = () => {
+      showCode.value = !showCode.value
+    }
 
     const hideLoading = () => {
       loading.value = false
@@ -87,15 +92,18 @@ export default defineComponent({
                 ? h('div', { class: 'playground-title' }, props.title)
                 : null,
               h('div', { class: 'op-btns' }, [
-                h(
-                  'a',
-                  {
-                    class: 'op-btn',
-                    href: previewLink.value,
-                    target: '_blank',
-                  },
-                  'Play'
-                ),
+                h('a', {
+                  class: 'op-btn',
+                  href: 'javascript:;',
+                  innerHTML: codeSvgString,
+                  onclick: () => toggleCode(),
+                }),
+                h('a', {
+                  class: 'op-btn',
+                  href: previewLink.value,
+                  target: '_blank',
+                  innerHTML: playSvgString,
+                }),
               ]),
             ]
           ),
@@ -124,7 +132,7 @@ export default defineComponent({
           h(
             'div',
             {
-              class: 'source-container',
+              class: `source-container ${showCode.value ? 'show' : ''}`,
             },
             [slots.default ? slots.default() : null]
           ),
