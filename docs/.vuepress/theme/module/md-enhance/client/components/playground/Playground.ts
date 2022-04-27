@@ -13,8 +13,9 @@ import type { VNode } from 'vue'
 
 import '../../styles/playground.scss'
 import { loadingSvgString, playSvgString, codeSvgString } from '../icons'
-
 import { usePlayground } from '../../composables/use-playground2'
+import customConfig from '../../../../../customConfig'
+
 interface SourceConfig {
   lang?: string
   content?: string
@@ -59,7 +60,10 @@ export default defineComponent({
     })
 
     const previewLink: Ref<string> = computed(() => {
-      const { link } = usePlayground(props.config)
+      const { link } = usePlayground(
+        props.config,
+        customConfig.mdEnhance?.playground
+      )
       return link
     })
 
@@ -132,7 +136,7 @@ export default defineComponent({
           h(
             'div',
             {
-              class: `source-container ${showCode.value ? 'show' : ''}`,
+              class: `source-container ${showCode.value ? 'show' : 'hide'}`,
             },
             [slots.default ? slots.default() : null]
           ),

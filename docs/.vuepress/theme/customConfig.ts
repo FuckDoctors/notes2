@@ -9,6 +9,12 @@ export const customConfig: CustomConfig = {
     echarts: true,
     example: true,
     playground: true,
+    // playground: {
+    //   base: 'https://element-plus.run/',
+    //   option: {
+    //     showOutput: true
+    //   }
+    // }
   },
 }
 

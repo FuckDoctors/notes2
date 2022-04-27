@@ -4,7 +4,14 @@ interface SourceConfig {
   [key: string]: string
 }
 
-export const usePlayground = (config: string) => {
+import type { PlaygroundOptions } from '../../shared'
+
+const playgroundBase = 'https://sfc.vuejs.org/'
+
+export const usePlayground = (
+  config: string,
+  options: PlaygroundOptions = null
+) => {
   const configObj = JSON.parse(decodeURIComponent(config))
 
   const sourceConfig: SourceConfig = {}
@@ -16,7 +23,28 @@ export const usePlayground = (config: string) => {
   }
 
   const encoded = utoa(JSON.stringify(sourceConfig))
-  const link = `https://sfc.vuejs.org/#${encoded}`
+  let link
+  if (options) {
+    const { base, option } = options
+    let baseUrl = base
+    if (baseUrl) {
+      baseUrl = baseUrl.replace(/\/+$/g, '')
+    } else {
+      baseUrl = playgroundBase
+    }
+
+    let optionString
+    if (option) {
+      optionString = new URLSearchParams(option).toString()
+    }
+
+    link = optionString
+      ? `${baseUrl}?${optionString}#${encoded}`
+      : `${baseUrl}#${encoded}`
+  } else {
+    link = `${playgroundBase}#${encoded}`
+  }
+  console.log(link)
 
   return {
     encoded,

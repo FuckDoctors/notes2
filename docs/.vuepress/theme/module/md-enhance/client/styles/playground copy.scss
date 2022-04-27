@@ -1,0 +1,135 @@
+.playground-container {
+  border: 1px solid;
+  border-color: var(--code-border-color);
+  border-radius: 6px;
+
+  .op-btns {
+    display: flex;
+    align-items: center;
+
+    .op-btn {
+      display: inline-flex;
+      margin-left: 5px;
+
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &:hover {
+        .icon {
+          transition: transform 0.15s cubic-bezier(0.2, 0, 0.13, 2);
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-weight: 600;
+    padding: 8px 10px;
+    background-color: var(--code-group-nav-bg-color, #3a404c);
+
+    .playground-title {
+      font-size: 1.25rem;
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .preview-container {
+    position: relative;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: var(--code-border-color);
+    height: 300px;
+    overflow: hidden;
+    background-color: var(--code-bg-color, #282c34);
+
+    .preview-loading-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      background: var(--grey15);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .loading-icon {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+
+    iframe {
+      border: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .source-container {
+    // display: none;
+    // 下面的方法可以实现height动画，但是使用了overflow: hidden，复制代码的图标没了
+    // 而且收起时，动画有延迟，max-height太长了，前面的部分看不到但是在消耗时间
+    overflow: hidden;
+    transition: max-height 1s linear;
+    // height: 0;
+    max-height: 0;
+
+    &.show {
+      max-height: 1000px;
+    }
+    &.hide {
+      max-height: 0;
+    }
+
+    // reset code-group
+    .theme-hope-content & {
+      pre,
+      pre[class*='language-'] {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .code-group {
+      .code-group-nav {
+        margin: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    // opacity: 0;
+    height: 0;
+  }
+  to {
+    // opacity: 1;
+    height: 100%;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    // opacity: 1;
+    height: 100%;
+  }
+  to {
+    // opacity: 0;
+    height: 0;
+  }
+}
