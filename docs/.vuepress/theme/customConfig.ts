@@ -7,6 +7,13 @@ export interface CustomConfig {
 export const customConfig: CustomConfig = {
   mdEnhance: {
     echarts: true,
+    playground: true,
+    // playground: {
+    //   base: 'https://element-plus.run/',
+    //   option: {
+    //     showOutput: true
+    //   }
+    // }
   },
 }
 

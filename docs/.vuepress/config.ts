@@ -9,6 +9,8 @@ export default defineHopeConfig({
   // 使用自定义主题
   theme: path.resolve(__dirname, './theme'),
 
+  // debug: true,
+
   base,
 
   dest: 'docs/.vuepress/dist',
@@ -26,7 +28,7 @@ export default defineHopeConfig({
       {
         rel: 'stylesheet',
         // zhaobc挑选的图标
-        href: '//at.alicdn.com/t/font_3294373_hn0mhs70c2o.css',
+        href: '//at.alicdn.com/t/font_3294373_aaebeoej8c7.css',
       },
     ],
   ],

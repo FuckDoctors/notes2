@@ -3,7 +3,7 @@ index: 90
 dir:
   text: 其他内容
   index: 90
-sidebarText: 概述
+sidebarText: 其他
 icon: note
 category:
   - 笔记
@@ -11,9 +11,7 @@ category:
 
 # 其他内容
 
-## 概述
-
-其他内容
+## ECharts 示例
 
 ::: echarts echarts demo
 
@@ -38,20 +36,35 @@ category:
 
 :::
 
-:::: playground playground demo
+## Playground 示例
 
-::: file App.vue
+::::: playground playground demo2
 
-```js
-const foo = 'foo'
+:::: code-group
+
+::: code-group-item App.vue
+
+```vue
+<script setup>
+import { ref } from 'vue'
+
+const msg = ref('Hello World!')
+</script>
+
+<template>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg" />
+</template>
 ```
 
 :::
 
-::: file Comp.vue
+::: code-group-item Comp.vue
 
 ```vue
-const bar = 'bar'
+<template>
+  <div>Comp</div>
+</template>
 ```
 
 :::
@@ -60,10 +73,12 @@ const bar = 'bar'
 
 ```json
 {
-  "vue": "vue.js"
+  "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
 }
 ```
 
 :::
 
 ::::
+
+:::::

@@ -28,7 +28,7 @@ head:
 
 ## 遇到的问题和解决办法
 
-### omv源
+### omv 源
 
 omv 比较慢，可以更换清华源：<https://mirrors.tuna.tsinghua.edu.cn/help/openmediavault/>
 
@@ -49,7 +49,7 @@ omv 比较慢，可以更换清华源：<https://mirrors.tuna.tsinghua.edu.cn/he
 升级完 omv 后，登录进去提示要重启系统，悲催的是重启完后连不上 N1 了，插拔了几次电源后也不行。
 以为是卡在启动了，然后给 N1 插上键盘，插上显示器看了一下，启动正常，可以本机登录，但有个错误写着网络有问题。
 
-看路由器上也没显示 N1 连接Wifi，执行 armbian-config 看了一下，发现居然没有了 Wifi 选项，试了 nmtui 添加 Wifi 但是还是不行。
+看路由器上也没显示 N1 连接 Wifi，执行 armbian-config 看了一下，发现居然没有了 Wifi 选项，试了 nmtui 添加 Wifi 但是还是不行。
 按网上资料准备手动填写 /etc/network/interfaces 时，发现上面写着不要手动修改， omv 会覆盖掉，于是准备进 omv 设置网络。
 
 接着给 N1 插上 网线，然后看到 路由器上 N1 上线了，根据 IP 进入了 omv，找到 网络，发现又 WiFi 配置，但是不能点应用，于是修改了下有线网络，点击应用后，稍等一会终于连上 WifFi 了。
@@ -99,7 +99,7 @@ ls -la /usr/bin | grep php
 
 根据以下资料做修改：
 
-- [update-alternatives——linux软件版本管理命令](https://cloud.tencent.com/developer/article/1532283)
+- [update-alternatives——linux 软件版本管理命令](https://cloud.tencent.com/developer/article/1532283)
 - [How to Switch between Multiple PHP Version on Ubuntu](https://tecadmin.net/switch-between-multiple-php-version-on-ubuntu/)
 - [Ubuntu 下轻松实现 PHP 多版本共存](https://www.mf8.biz/ubuntu-multip-php/)
 
@@ -144,7 +144,7 @@ sudo -u www-data php /var/www/html/nextcloud/updater/updater.phar
 chown -R www-data:www-data /var/www/html/
 ```
 
-报找不到相应的 php module，但是这些module已经安装了。。
+报找不到相应的 php module，但是这些 module 已经安装了。。
 
 /etc/php/8.1/mods-available 下 比 /etc/php/7.3/mods-available 下少很多。
 
@@ -194,6 +194,6 @@ phpenmod -s apache2 mbstring
 查看 7.3 开启的模块： php7.3 -v，然后根据需要开启 php8.1 的模块
 
 使用 phpenmod 前，需要先在 /etc/php/8.1/mods-available 下建 对应的 .ini 文件。
-为了省事，把 /etc/php/7.3/mods-available/* 复制到 /etc/php/8.1/mods-available 下。
+为了省事，把 /etc/php/7.3/mods-available/\* 复制到 /etc/php/8.1/mods-available 下。
 
 然后重启 apache2, systemctl restart apache2.

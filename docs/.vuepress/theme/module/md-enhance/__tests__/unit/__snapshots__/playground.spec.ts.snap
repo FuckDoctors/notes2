@@ -1,0 +1,32 @@
+// Vitest Snapshot v1
+
+exports[`playground > Should resolve playground info 1`] = `
+"<Playground title=\\"playground demo2\\" id=\\"playground-1a96284a\\" config=\\"%7B%22import-map.json%22%3A%7B%22lang%22%3A%22json%22%2C%22content%22%3A%22%7B%5Cn%20%20%5C%22imports%5C%22%3A%20%7B%5Cn%20%20%5C%22vue%5C%22%3A%20%5C%22https%3A%2F%2Fsfc.vuejs.org%2Fvue.runtime.esm-browser.js%5C%22%5Cn%7D%5Cn%20%20%7D%22%7D%7D\\"><p>:::: code-group</p>
+<p>::: code-group-item App.vue</p>
+<pre><code class=\\"language-vue\\">&lt;script setup&gt;
+import { ref } from 'vue'
+
+const msg = ref('Hello World!')
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;h1&gt;{{ msg }}&lt;/h1&gt;
+  &lt;input v-model=&quot;msg&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<p>:::</p>
+<p>::: code-group-item Comp.vue</p>
+<pre><code class=\\"language-vue\\">&lt;template&gt;
+  &lt;div&gt;Comp&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>:::</p>
+<p>::: imports</p>
+<pre><code class=\\"language-json\\">{
+  &quot;vue&quot;: &quot;https://sfc.vuejs.org/vue.runtime.esm-browser.js&quot;
+}
+</code></pre>
+<p>:::</p>
+<p>::::</p>
+</Playground>"
+`;
