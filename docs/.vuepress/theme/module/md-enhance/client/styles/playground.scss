@@ -18,7 +18,8 @@
 
       &:hover {
         .icon {
-          fill: red;
+          transition: transform 0.15s cubic-bezier(0.2, 0, 0.13, 2);
+          transform: scale(1.2);
         }
       }
     }
