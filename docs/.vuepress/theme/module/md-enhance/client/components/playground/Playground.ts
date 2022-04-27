@@ -37,7 +37,7 @@ export default defineComponent({
     const playgroundContainer = ref<HTMLElement | null>(null)
     const iframe = ref<HTMLElement | null>(null)
 
-    const loading = ref(false)
+    const loading = ref(true)
 
     const files: Ref<Array<FileConfig>> = computed(() => {
       const fileConfigs: Array<FileConfig> = []
@@ -62,6 +62,10 @@ export default defineComponent({
       return link
     })
 
+    const hideLoading = () => {
+      loading.value = false
+    }
+
     onMounted(() => {})
 
     return (): (VNode | null)[] => [
@@ -73,9 +77,28 @@ export default defineComponent({
           id: props.id,
         },
         [
-          props.title
-            ? h('div', { class: 'playground-title' }, props.title)
-            : null,
+          h(
+            'div',
+            {
+              class: 'title-container',
+            },
+            [
+              props.title
+                ? h('div', { class: 'playground-title' }, props.title)
+                : null,
+              h('div', { class: 'op-btns' }, [
+                h(
+                  'a',
+                  {
+                    class: 'op-btn',
+                    href: previewLink.value,
+                    target: '_blank',
+                  },
+                  'Play'
+                ),
+              ]),
+            ]
+          ),
           h(
             'div',
             {
@@ -92,6 +115,9 @@ export default defineComponent({
                 ref: iframe,
                 class: 'iframe-preview',
                 src: previewLink.value,
+                // for iframe, the iframe.onload event triggers when the iframe loading finished,
+                // both load and in case of an error.
+                onload: () => hideLoading(),
               }),
             ]
           ),

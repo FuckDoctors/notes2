@@ -2,24 +2,54 @@
   border: 1px solid;
   border-color: var(--code-border-color);
   border-radius: 6px;
-  background-color: var(--code-group-nav-bg-color, #3a404c);
 
-  .playground-title {
-    // font-size: 1.25rem;
+  .title-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     font-weight: 600;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     padding: 8px 10px;
+    background-color: var(--code-group-nav-bg-color, #3a404c);
+
+    .playground-title {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .op-btn {
+      display: inline-block;
+      margin-left: 10px;
+    }
   }
 
   .preview-container {
+    position: relative;
     border-top: 1px solid;
-    // border-bottom: 1px solid;
+    border-bottom: 1px solid;
     border-color: var(--code-border-color);
     height: 300px;
-    max-height: 500px;
-    // overflow: scroll;
+    overflow: hidden;
+    background-color: var(--code-bg-color, #282c34);
+
+    .preview-loading-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      background: var(--grey15);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .loading-icon {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
 
     iframe {
       border: none;
