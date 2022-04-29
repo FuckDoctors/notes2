@@ -31,6 +31,7 @@ export default defineComponent({
   props: {
     title: { type: String, default: '' },
     config: { type: String, required: true },
+    settings: { type: String, required: false },
     id: { type: String, required: true },
   },
 
@@ -59,8 +60,21 @@ export default defineComponent({
       return fileConfigs
     })
 
+    const settingOptions = JSON.parse(decodeURIComponent(props.settings))
+
     const previewLink: Ref<string> = computed(() => {
-      const playgroundOptions = customConfig.mdEnhance?.playground
+      let playgroundOptions = customConfig.mdEnhance?.playground
+
+      if (settingOptions) {
+        if (typeof playgroundOptions === 'boolean') {
+          playgroundOptions = {}
+        }
+        for (const key in settingOptions) {
+          if (settingOptions.hasOwnProperty(key)) {
+            playgroundOptions[key] = settingOptions[key]
+          }
+        }
+      }
 
       const { link } = usePlayground(
         props.config,
@@ -76,6 +90,12 @@ export default defineComponent({
     const hideLoading = () => {
       loading.value = false
     }
+
+    const items = slots.default ? slots.default() : []
+    // ignore imports and settings, only display the CodeGroup
+    const sourceBlocks = items.filter(
+      (vnode) => (vnode.type as Component).name === 'CodeGroup'
+    )
 
     onMounted(() => {})
 
@@ -140,7 +160,8 @@ export default defineComponent({
             {
               class: `source-container ${showCode.value ? 'show' : 'hide'}`,
             },
-            [slots.default ? slots.default() : null]
+            // [slots.default ? slots.default() : null]
+            sourceBlocks
           ),
         ]
       ),

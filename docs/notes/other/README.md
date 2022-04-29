@@ -38,7 +38,7 @@ category:
 
 ## Playground 示例
 
-::::: playground playground demo2
+::::: playground playground demo
 
 :::: code-group
 
@@ -47,6 +47,7 @@ category:
 ```vue
 <script setup>
 import { ref } from 'vue'
+import Comp from './Comp.vue'
 
 const msg = ref('Hello World!')
 </script>
@@ -54,6 +55,9 @@ const msg = ref('Hello World!')
 <template>
   <h1>{{ msg }}</h1>
   <input v-model="msg" />
+  <div>
+    <Comp />
+  </div>
 </template>
 ```
 
@@ -80,5 +84,62 @@ const msg = ref('Hello World!')
 :::
 
 ::::
+
+:::::
+
+## Element-Plus 示例
+
+::::: playground Element-Plus demo
+
+:::: code-group
+
+::: code-group-item App.vue
+
+```vue
+<template>
+  <el-row class="mb-4">
+    <el-button>Default</el-button>
+    <el-button type="primary">Primary</el-button>
+    <el-button type="success">Success</el-button>
+    <el-button type="info">Info</el-button>
+    <el-button type="warning">Warning</el-button>
+    <el-button type="danger">Danger</el-button>
+    <el-button>中文</el-button>
+  </el-row>
+  <el-row>
+    <el-button :icon="Search" circle />
+    <el-button type="primary" :icon="Edit" circle />
+    <el-button type="success" :icon="Check" circle />
+    <el-button type="info" :icon="Message" circle />
+    <el-button type="warning" :icon="Star" circle />
+    <el-button type="danger" :icon="Delete" circle />
+  </el-row>
+</template>
+
+<script lang="ts" setup>
+import {
+  Check,
+  Delete,
+  Edit,
+  Message,
+  Search,
+  Star,
+} from '@element-plus/icons-vue'
+</script>
+```
+
+:::
+
+::::
+
+::: settings
+
+```json
+{
+  "base": "https://element-plus.run/"
+}
+```
+
+:::
 
 :::::

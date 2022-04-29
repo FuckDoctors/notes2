@@ -12,9 +12,12 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
   if (nesting === -1) return `</Playground>`
 
   const codeConfigs = {}
+  let settings: string = null
 
   let configKey
+  let isSettings
   for (let i = index; i < tokens.length; i++) {
+    // console.log(i, tokens[i])
     const { type, content, info } = tokens[i]
 
     if (type === 'container_playground_close') break
@@ -26,12 +29,18 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
       }
       configKey = fileTitleReg[1]
     } else if (type === 'inline') {
+      configKey = null
       const isImports = /^\s*::: *imports\s*$/u.test(content)
-      if (!isImports) {
-        configKey = null
+
+      isSettings = /^\s*::: *settings\s*$/u.test(content)
+
+      if (isImports) {
+        configKey = importKey
+      } else if (isSettings) {
+        // ...
+      } else {
         continue
       }
-      configKey = importKey
     }
 
     if (!content) continue
@@ -49,11 +58,19 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
         }
       }
     }
+
+    if (type === 'fence' && info === 'json' && isSettings) {
+      settings = content.replace(/^\s+|\s+$/g, '').replace(/\/+$/, '')
+    }
   }
 
   const config = encodeURIComponent(JSON.stringify(codeConfigs))
+  const settingString = settings
+    ? encodeURIComponent(settings)
+    : encodeURIComponent('{}')
 
-  return `<Playground title="${
-    title?.[1] || ''
-  }" id="${key}" config="${config}">`
+  return `<Playground title="${title?.[1] || ''}"
+  id="${key}"
+  settings="${settingString}"
+  config="${config}">`
 }

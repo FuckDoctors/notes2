@@ -7,6 +7,7 @@ import { describe, expect, it } from 'vitest'
 
 describe('playground', () => {
   const markdownIt = MarkdownIt({ linkify: true })
+  // markdownIt.use(MarkdownContainer, 'code-group')
   markdownIt.use(MarkdownContainer, 'playground', {
     render: playgroundRender,
   })
@@ -15,7 +16,7 @@ describe('playground', () => {
     expect(
       markdownIt.render(
         `
-::::: playground playground demo2
+::::: playground playground demo
 
 :::: code-group
 
@@ -57,6 +58,60 @@ const msg = ref('Hello World!')
 :::
 
 ::::
+
+:::::
+`,
+        {}
+      )
+    ).toMatchSnapshot()
+  })
+
+  it('Should resolve playground info with settings', () => {
+    expect(
+      markdownIt.render(
+        `
+::::: playground playground demo2
+
+:::: code-group
+
+::: code-group-item App.vue
+
+\`\`\`vue
+<script setup>
+import { ref } from 'vue'
+
+const msg = ref('Hello World!')
+</script>
+
+<template>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg" />
+</template>
+\`\`\`
+
+:::
+
+::: code-group-item Comp.vue
+
+\`\`\`vue
+<template>
+  <div>Comp</div>
+</template>
+\`\`\`
+
+:::
+
+::::
+
+::: settings
+
+\`\`\`json
+{
+  "base": "https://element-plus.run/"
+}
+\`\`\`
+
+:::
 
 :::::
 `,
