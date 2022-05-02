@@ -132,6 +132,16 @@ import {
 
 ::::
 
+::: imports import_map.json
+
+```json
+{
+  "a": "b"
+}
+```
+
+:::
+
 ::: settings
 
 ```json

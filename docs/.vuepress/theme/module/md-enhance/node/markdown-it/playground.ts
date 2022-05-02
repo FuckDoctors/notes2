@@ -30,12 +30,18 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
       configKey = fileTitleReg[1]
     } else if (type === 'inline') {
       configKey = null
-      const isImports = /^\s*::: *imports\s*$/u.test(content)
+      // const isImports = /^\s*::: *imports\s*$/u.test(content)
+      const imports = /^\s*::: *imports\s*(.*)\s*$/u.exec(content)
 
       isSettings = /^\s*::: *settings\s*$/u.test(content)
 
-      if (isImports) {
-        configKey = importKey
+      if (imports) {
+        const importMap = imports[1]
+        if (importMap.length > 1) {
+          configKey = imports[1]
+        } else {
+          configKey = importKey
+        }
       } else if (isSettings) {
         // ...
       } else {

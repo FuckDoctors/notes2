@@ -6,7 +6,8 @@ interface SourceConfig {
 
 import type { PlaygroundOptions } from '../../shared'
 
-const playgroundBase = 'https://sfc.vuejs.org/'
+// const playgroundBase = 'https://sfc.vuejs.org/'
+const playgroundBase = 'https://vue-sfc-playground.vercel.app/'
 
 export const usePlayground = (
   config: string,
