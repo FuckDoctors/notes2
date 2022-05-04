@@ -12,6 +12,16 @@ features:
     details: Redis Desktop Manager Builder for windows and macOS
     link: https://github.com/FuckDoctors/rdm-builder
 
+  - title: vue-playground
+    icon: vue
+    details: Vue Playground
+    link: https://github.com/FuckDoctors/vue-playground
+
+  - title: hello-vue3
+    icon: vue
+    details: Learn Vue3
+    link: https://github.com/FuckDoctors/hello-vue3
+
   - title: ideapad-720s-13ikb-oc
     icon: macOS
     details: ideapad-720s-13ikb Hackintosh OpenCore

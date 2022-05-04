@@ -12,6 +12,16 @@ features:
     details: 一个编译Windows版和macOS版Redis Desktop Manager的Github Action。
     link: https://github.com/FuckDoctors/rdm-builder
 
+  - title: vue-playground
+    icon: vue
+    details: Vue 演练场
+    link: https://github.com/FuckDoctors/vue-playground
+
+  - title: hello-vue3
+    icon: vue
+    details: 学习 Vue3
+    link: https://github.com/FuckDoctors/hello-vue3
+
   - title: ideapad-720s-13ikb-oc
     icon: macOS
     details: ideapad-720s-13ikb 黑苹果 OpenCore引导版
