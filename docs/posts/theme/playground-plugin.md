@@ -166,7 +166,6 @@ const msg = ref('Hello World!')
 <template>
   <div>Comp</div>
 </template>
-
 ```
 
 :::
@@ -205,7 +204,6 @@ const msg = ref('Hello World!')
 <template>
   <div>Comp</div>
 </template>
-
 ```
 
 :::

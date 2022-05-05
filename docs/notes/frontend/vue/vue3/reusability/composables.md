@@ -33,9 +33,7 @@ import { useMouse } from './mouse.js'
 const { x, y } = useMouse()
 </script>
 
-<template>
-  Mouse position is at {{ x }}, {{ y }}
-</template>
+<template>Mouse position is at {{ x }}, {{ y }}</template>
 ```
 
 :::
@@ -95,9 +93,7 @@ import { useMouse } from './mouse.js'
 const { x, y } = useMouse()
 </script>
 
-<template>
-  Mouse position is at {{ x }}, {{ y }}
-</template>
+<template>Mouse position is at {{ x }}, {{ y }}</template>
 ```
 
 :::
@@ -165,18 +161,18 @@ const { data, error, retry } = useFetch(url)
 </script>
 
 <template>
-Load todo id: 
-<button v-for="i in 5" @click="id = i">{{ i }}</button>
+  Load todo id:
+  <button v-for="i in 5" @click="id = i">{{ i }}</button>
 
-<div v-if="error">
-  <p>Oops! Error encountered: {{ error.message }}</p>
-  <button @click="retry">Retry</button>
-</div>
-<div v-else-if="data">
-  Data Loaded:
-  <pre>{{ data }}</pre>
-</div>
-<div v-else>Loading...</div>
+  <div v-if="error">
+    <p>Oops! Error encountered: {{ error.message }}</p>
+    <button @click="retry">Retry</button>
+  </div>
+  <div v-else-if="data">
+    Data Loaded:
+    <pre>{{ data }}</pre>
+  </div>
+  <div v-else>Loading...</div>
 </template>
 ```
 
@@ -198,9 +194,9 @@ export function useFetch(url) {
 
     // unref() unwraps potential refs
     fetch(unref(url))
-      .then(res => res.json())
-      .then(json => data.value = json)
-      .error(err => error.value = err)
+      .then((res) => res.json())
+      .then((json) => (data.value = json))
+      .error((err) => (error.value = err))
   }
 
   if (isRef(url)) {
@@ -281,7 +277,7 @@ Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
   这些钩子仅会在浏览器中使用，因此可以确保能访问到 DOM。
 - **确保在 onUnmounted() 时清理副作用。**
   举个例子，如果一个组合式函数设置了一个事件监听器，它就应该在 onUnmounted() 中被移除 (就像我们在 useMouse() 示例中看到的一样)。
-  当然也可以像之前的useEventListener() 示例那样，使用一个组合式函数来自动帮你做这些事。
+  当然也可以像之前的 useEventListener() 示例那样，使用一个组合式函数来自动帮你做这些事。
 
 ### 使用限制
 
@@ -303,13 +299,9 @@ Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
 
 ```js
 <script setup>
-import { useFeatureA } from './featureA.js'
-import { useFeatureB } from './featureB.js'
-import { useFeatureC } from './featureC.js'
-
-const { foo, bar } = useFeatureA()
-const { baz } = useFeatureB(foo)
-const { quz } = useFeatureC(baz)
+  import {useFeatureA} from './featureA.js' import {useFeatureB} from
+  './featureB.js' import {useFeatureC} from './featureC.js' const {(foo, bar)} =
+  useFeatureA() const {baz} = useFeatureB(foo) const {quz} = useFeatureC(baz)
 </script>
 ```
 
@@ -325,12 +317,12 @@ export default {
   setup() {
     const { x, y } = useMouse()
     const { data, error } = useFetch('xx')
-    
+
     return { x, y, data, error }
   },
   mounted() {
     // setup 中暴露的 property，可以通过 this 访问
     console.log(this.x)
-  }
+  },
 }
 ```
