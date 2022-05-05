@@ -1,4 +1,5 @@
 .playground-container {
+  margin-top: 1rem;
   border: 1px solid;
   border-color: var(--code-border-color);
   border-radius: 6px;
@@ -115,8 +116,4 @@
       }
     }
   }
-}
-
-.playground-container + .playground-container {
-  margin-top: 10px;
 }

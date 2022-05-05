@@ -89,5 +89,116 @@ app.directive('focus', {
 一个指令的定义对象可以提供几种钩子函数 (都是可选的)：
 
 ```js
-
+const myDirective = {
+  // called before bound element's attributes
+  // or event listeners are applied
+  created(el, binding, vnode, preVnode) {
+    // see below for details on arguments
+  },
+  // called right before the element is inserted into the DOM.
+  beforeCreated() {},
+  // called when the bound element's parent component
+  // and all its children are mounted.
+  mounted() {},
+  // called before the parent component is updated
+  beforeUpdate() {},
+  // called before the parent component is updated
+  // all of its children have updated
+  updated() {},
+  // called before the parent component is unmounted
+  beforeUnmounted() {},
+  // called when the parent component is unmounted
+  unmounted() {},
+}
 ```
+
+### 钩子参数
+
+指令的钩子会传递以下几种参数：
+
+- `el`: 指令绑定到的元素。这可以用于直接操作 DOM。
+- `binding`: 一个对象，包含以下 property。
+  - `value`: 传递给指令的值。例如在 `v-my-directive="1 + 1"` 中，值是 2。
+  - `oldValue`: 之前的值，仅在 `beforeUpdate` 和 `updated` 中可用。无论值是否更改，它都可用。
+  - `arg`: 传递给指令的参数（如果有的话）。例如在 `v-my-directive:foo` 中，参数是 `"foo"`。
+  - `modifiers`：一个包含修饰符的对象 (如果有的话)。例如在 `v-my-directive.foo.bar` 中，修饰符对象是 `{ foo: true, bar: true }`。
+  - `instance`：使用该指令的组件实例
+  - `dir`：指令的定义对象。
+- `vnode`: 代表绑定元素的底层 VNode。
+- `preVnode`: 之前的渲染中代表指令所绑定元素的 VNode。仅在 `beforeUpdate` 和 `updated` 钩子中可用。
+
+举个例子，像下面这样使用指令：
+
+```template
+<div v-example.foo.bar="baz" />
+```
+
+`binding` 参数会是一个这样的对象：
+
+```js
+{
+  arg: 'foo',
+  modifiers: { bar: true },
+  value: // baz 的值
+  oldValue: // 上一次更新时 baz 的值
+}
+```
+
+和内置指令类似，自定义指令的参数也可以是动态的：
+
+```template
+<div v-example:[arg]="value" />
+```
+
+里指令的参数会基于组件状态 `arg` 属性响应式地更新。
+
+::: note
+除了 `el` 外，你应该将这些参数都视为只读的，并一律不更改它们。若你需要在不同的钩子间共享信息，推荐通过元素的 [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset) 实现
+:::
+
+### 简化形式
+
+对于自定义指令来说，需要在 `mounted` 和 `updated` 上实现相同的行为、又并不关心其他钩子的情况很常见。此时我们可以将指令定义成一个下面这样的函数：
+
+```template
+<div v-color="color"></div>
+```
+
+```js
+app.directive('color', (el, binding) => {
+  // this will be called for both `mounted` and `updated`
+  el.style.color = binding.value
+})
+```
+
+### 对象字面量
+
+如果你的指令需要多个值，你可以向它传递一个 JavaScript 对象字面量。请记住，指令也可以接收任何合法的 JavaScript 表达式。
+
+```template
+<div v-demo="{ color: 'white', text: 'hello' }"></div>
+```
+
+```js
+app.directive('demo', (el, binding) => {
+  console.log(binding.value.color) // "white"
+  console.log(binding.value.text) // "hello"
+})
+```
+
+### 在组件上使用
+
+当在组件上使用自定义指令时，它会始终应用于组件的根节点，和[透传 attributes](https://staging-cn.vuejs.org/guide/components/attrs.html) 类似。
+
+```template
+<MyComponent v-demo="test" />
+```
+
+```template
+<!-- MyComponent 模板 -->
+<div> <!-- v-demo 指令会被应用在此处 -->
+  <span>My Component content</span>
+</div>
+```
+
+需要注意的是组件可能含有多个根节点。当应用到一个多根组件时，指令将会被忽略且抛出一个警告。和 attribute 不同，指令不能通过 `v-bind="$attrs"` 来传递给一个不同的元素。总而言之，**不推荐**在组件上使用自定义指令。

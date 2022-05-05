@@ -14,3 +14,4 @@ tag:
 
 - [composables](./composables.md)
 - [custom-directives](./custom-directives.md)
+- [plugins](./plugins.md)
