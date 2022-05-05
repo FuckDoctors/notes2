@@ -233,3 +233,104 @@ export function useFetch(url) {
 ### 命名
 
 组合式函数约定用驼峰命名法命名，并以 `use` 作为开头。
+
+### 输入参数
+
+尽管其响应性不依赖 ref，组合式函数仍可接收 ref 参数。如果编写的组合式函数会被其他开发者使用，你最好在处理输入参数时兼容 ref 而不只是原始的值。unref() 工具函数会对此非常有帮助：
+
+```js
+import { unref } fron 'vue'
+
+function useFeature(maybeRef) {
+  // 若 maybeRef 确实是一个 Ref，则返回它的 value
+  // 否则，maybeRef 原样返回
+  const value = unref(maybeRef)
+}
+```
+
+如果你的组合式函数在接收 ref 为参数时会产生响应式 effect，请确保使用 `watch()` 显示地监听次 ref, 或者在 `watchEffect()` 中调用 `unref()` 来正确地追踪。
+
+### 返回值
+
+你可能已经注意到了，我们一直在组合式函数中使用 ref() 而不是 reactive()。我们推荐的约定是组合式函数始终返回 `ref` 对象，这样该函数在组件中解构之后仍可以保持响应性：
+
+```js
+// x 和 y 是两个 ref 对象
+const { x, y } = useMouse()
+```
+
+从组合式函数返回一个响应式对象会导致在对象解构过程中丢失与组合式函数内状态的响应性连接。与之相反，ref 则可以维持这一响应性连接。
+
+如果你更希望以对象 `property` 的形式从组合式函数中返回状态，你可以将要返回的对象用 `reactive()` 包装，这样其中的 ref 会被自动解包，例如：
+
+```js
+const mouse = reactive(useMouse())
+// mouse.x 链接到了原来的 x ref
+console.log(mouse.x)
+```
+
+```template
+Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
+```
+
+### 副作用
+
+在组合式函数中的确可以执行副作用 (例如：添加 DOM 事件监听器或者请求数据)，但请注意以下规则：
+
+- 如果你在一个应用中使用了服务器端渲染 (SSR)，请确保在后置加载的声明钩子上执行 DOM 相关的副作用，例如：onMounted()。
+  这些钩子仅会在浏览器中使用，因此可以确保能访问到 DOM。
+- **确保在 onUnmounted() 时清理副作用。**
+  举个例子，如果一个组合式函数设置了一个事件监听器，它就应该在 onUnmounted() 中被移除 (就像我们在 useMouse() 示例中看到的一样)。
+  当然也可以像之前的useEventListener() 示例那样，使用一个组合式函数来自动帮你做这些事。
+
+### 使用限制
+
+组合式函数在 `<script setup>` 或 `setup()` 钩子中，应始终被同步地调用。在某些场景下，你也可以在像 `onMounted()` 这样的生命周期钩子中使用他们。
+
+这些是 Vue 得以确定当前活跃的组件实例的条件。有能力对活跃的组件实例进行访问是必要的，以便：
+
+1. 可以在组合式函数中注册生命周期钩子
+2. 计算属性和监听器可以连接到当前组件实例，以便在组件卸载时处理掉。
+
+::: tip
+`<script setup>` 是唯一在调用 `await` 之后仍可调用组合式函数的地方。编译器会在异步操作之后自动为你恢复当前活跃的组件实例。
+:::
+
+### 为更好的代码组织抽取组合式函数
+
+抽取组合式函数不仅是为了复用，也是为了代码组织。随着组件复杂度的增高，你可能会最终发现组件多得难以查询和理解。
+组合式 API 会给予你足够的灵活性，让你可以基于逻辑问题将组件代码拆分成更小的函数：
+
+```js
+<script setup>
+import { useFeatureA } from './featureA.js'
+import { useFeatureB } from './featureB.js'
+import { useFeatureC } from './featureC.js'
+
+const { foo, bar } = useFeatureA()
+const { baz } = useFeatureB(foo)
+const { quz } = useFeatureC(baz)
+</script>
+```
+
+### 在选项式 API 中使用组合式函数
+
+如果你正在使用选项式 API，组合式函数必须在 `setup()` 中调用。且其返回的绑定必须在 `setup()` 中**返回**，以便暴露给 this 及其模板：
+
+```js
+import { useMouse } from './mouse.js'
+import { useFetch } from './fetch.js'
+
+export default {
+  setup() {
+    const { x, y } = useMouse()
+    const { data, error } = useFetch('xx')
+    
+    return { x, y, data, error }
+  },
+  mounted() {
+    // setup 中暴露的 property，可以通过 this 访问
+    console.log(this.x)
+  }
+}
+```
