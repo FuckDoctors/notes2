@@ -116,3 +116,7 @@
     }
   }
 }
+
+.playground-container + .playground-container {
+  margin-top: 10px;
+}
