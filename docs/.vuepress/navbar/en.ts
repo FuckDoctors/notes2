@@ -1,6 +1,6 @@
-import { defineNavbarConfig } from 'vuepress-theme-hope'
+import { navbar } from 'vuepress-theme-hope'
 
-export const en = defineNavbarConfig([
+export const en = navbar([
   '/en/',
   {
     text: 'Notes',

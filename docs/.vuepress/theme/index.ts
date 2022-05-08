@@ -4,19 +4,19 @@
 import type { ThemeObject, App } from '@vuepress/core'
 import { path } from '@vuepress/utils'
 
+import { hopeTheme } from 'vuepress-theme-hope'
+import type { HopeThemeOptions } from 'vuepress-theme-hope'
+
 import { getThemeConfig } from 'vuepress-theme-hope/lib/node/themeConfig'
+import { mdEnhancePlugin } from './module/md-enhance'
 import { prepareSidebarData } from './node/sidebar'
 import { prepareThemeColorScss } from 'vuepress-theme-hope/lib/node/themeColor'
 
-// md-enhance
-import { mdEnhance } from './module/md-enhance'
-
-import themeOptions from '../themeConfig'
 import customConfig from './customConfig'
 
-const themeZhaobc: ThemeObject = {
+const themeZhaobc = (options: HopeThemeOptions) => ({
   name: 'vuepress-theme-zhaobc',
-  extends: 'vuepress-theme-hope',
+  extends: hopeTheme(options),
   alias: {
     // 你可以在这里覆盖或新增别名
     // StickyIcon已提交PR，无需再自定义
@@ -30,21 +30,18 @@ const themeZhaobc: ThemeObject = {
     // 你可以在这里覆盖或新增布局
   },
 
-  plugins: [
-    // mdEnhance(customConfig.mdEnhance)
-    [path.resolve(__dirname, './module/md-enhance'), customConfig.mdEnhance],
-  ],
+  plugins: [mdEnhancePlugin(customConfig.mdEnhance)],
 
   // 覆盖原来的onPrepared，使用自定义的prepareSidebarData
   // 以便自定义sidebarText
   onPrepared: (app: App): Promise<void> => {
-    const themeConfig = getThemeConfig(app, themeOptions)
+    const themeConfig = getThemeConfig(app, options)
 
     return Promise.all([
       prepareSidebarData(app, themeConfig),
       prepareThemeColorScss(app, themeConfig),
     ]).then(() => void 0)
   },
-}
+})
 
 export default themeZhaobc

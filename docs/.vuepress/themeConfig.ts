@@ -1,11 +1,13 @@
-import { defineThemeConfig } from 'vuepress-theme-hope'
+import { hopeTheme } from 'vuepress-theme-hope'
+import type { HopeThemeOptions } from 'vuepress-theme-hope'
+
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
-import { docsearch, pwa } from './plugin-config'
+import { pwa } from './plugin-config'
 
 const hostname = process.env.HOSTNAME || 'https://zhaobc.site'
 
-export default defineThemeConfig({
+export const themeOptions: HopeThemeOptions = {
   hostname,
 
   author: {
@@ -100,10 +102,9 @@ export default defineThemeConfig({
       },
     },
 
-    // 全网检索
-    docsearch,
-
     // PWA
     pwa,
   },
-})
+}
+
+export default hopeTheme(themeOptions)

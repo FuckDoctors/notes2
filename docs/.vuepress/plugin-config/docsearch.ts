@@ -1,6 +1,4 @@
-import { DocSearchPluginOptions } from 'vuepress-theme-hope/lib/shared/options/plugins'
-
-export const docsearch: DocSearchPluginOptions = {
+export const docsearch = {
   // apiKey: '42aa919526e1dad9c0e214772fe71289',
   // indexName: 'prod_zhaobc',
   // appId: '7MMW9TO1EI',
