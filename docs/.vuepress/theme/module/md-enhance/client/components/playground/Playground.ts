@@ -63,7 +63,11 @@ export default defineComponent({
     const settingOptions = JSON.parse(decodeURIComponent(props.settings))
 
     const previewLink: Ref<string> = computed(() => {
-      let playgroundOptions = customConfig.mdEnhance?.playground
+      // 不能直接赋值，应该用 copy, 否则后续的赋值会影响原来的配置，导致 link 不对
+      let playgroundOptions = Object.assign(
+        {},
+        customConfig.mdEnhance?.playground
+      )
 
       if (settingOptions) {
         if (typeof playgroundOptions === 'boolean') {
