@@ -4,12 +4,9 @@
 import { path } from '@vuepress/utils'
 import type { App, PluginFunction } from '@vuepress/core'
 
-// import noopModule from '../../shared/noopModule'
-
 import {
   addViteSsrExternal,
   addViteOptimizeDepsInclude,
-  noopModule,
 } from '@mr-hope/vuepress-shared'
 
 import type { MdEnhanceOptions } from './shared'
@@ -23,12 +20,6 @@ export const mdEnhancePlugin =
 
     return {
       name: 'vuepress-plugin-md-enhance-zhaobc',
-      // 别名
-      alias: {
-        '@MdECharts': options.echarts
-          ? path.resolve(__dirname, './client/components/ECharts.ts')
-          : noopModule,
-      },
 
       define: (): Record<string, unknown> => ({
         MARKDOWN_ENHANCE_DELAY: options.delay || 500,

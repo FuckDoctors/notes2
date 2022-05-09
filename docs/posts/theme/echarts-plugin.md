@@ -79,7 +79,7 @@ export const customConfig: CustomConfig = {
 
 :::
 
-:::: details 对应代码
+:::: details 代码
 
 ````md
 ::: echarts ECharts 折线图
@@ -136,7 +136,7 @@ export const customConfig: CustomConfig = {
 
 :::
 
-:::: details 对应代码
+:::: details 代码
 
 ````md
 ::: echarts ECharts 柱状图
@@ -227,7 +227,7 @@ export const customConfig: CustomConfig = {
 
 :::
 
-:::: details 对应代码
+:::: details 代码
 
 ````md
 ::: echarts ECharts 饼图
