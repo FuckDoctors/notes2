@@ -1,7 +1,7 @@
 ---
 original: true
-sticky: 90
-star: 90
+sticky: 91
+star: 91
 article: true
 date: 2022-05-02
 category:

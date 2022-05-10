@@ -1,4 +1,5 @@
 ---
+star: 90
 article: true
 date: 2022-05-02
 category:
@@ -28,10 +29,10 @@ head:
 ## 自定义侧边栏文字
 
 侧边栏可以使用主题的自动生成功能直接生成，但是目录下的 `README.md` 生成时，目录菜单跟 `README.md` 的侧边栏文字显示是一致的，感官上有些重复。
-另外，笔记记录时，想生成那种跟书本一样，`README.md` 生成**前言**或**目录**的样子。所以自己重写了侧边栏生成的处理。
+另外，记录笔记时，想生成那种跟书本一样，`README.md` 生成**前言**或**目录**的样子。所以自己重写了侧边栏生成的处理。
 
 做法是重写 `theme/node/sidebar.ts`，在生成 `README.md` 的 `title` 时读取自定义的 `frontmatter.sidebarText`。
-由于主题提供的可替换组件里没有这个组件，为了让主题读取自己自定义的处理修，使用了 `onPrepared` 钩子函数。
+由于主题提供的可替换组件里没有这个组件，为了让主题读取自己自定义的处理，使用了 `onPrepared` 钩子函数。
 
 ## 增加自己的 markdown 插件
 
@@ -41,6 +42,6 @@ head:
 - [echarts](./echarts-plugin.md)
   主题内置了 `chart` 图表，使用 `chart.js` 做图表，但是国内 `echarts` 使用的还是挺多的，刚好用过一点，所以仿照 `chart`，编写了一个 `echarts` 图表。
 - [playground](./playground-plugin.md)
-  主题内置的 `demo` 挺好的，对应记录笔记，展示代码片段很方便。
+  主题内置的 `demo` 挺好的，对于记录笔记，展示代码片段很方便。
   但是，只能使用 `export default { // ... }` 形式，不支持 `script setup` 语法糖，
   于是借鉴了 `Vue3` 官方 Playground 以及 Element Plus 的代码示例简单做了一个 markdown 的 `playground`。
