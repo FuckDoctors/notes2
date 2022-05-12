@@ -51,7 +51,9 @@ const msg = ref('Hello World!')
 
 \`\`\`json
 {
-  "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
+  "imports": {
+    "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
+  }
 }
 \`\`\`
 

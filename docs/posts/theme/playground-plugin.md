@@ -114,7 +114,9 @@ export const customConfig: CustomConfig = {
 
 ```json
 {
-  "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
+  "imports": {
+    "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
+  }
 }
 ```
 
@@ -261,7 +263,9 @@ import {
 
 ```json
 {
-  "a": "b"
+  "imports": {
+    "a": "b"
+  }
 }
 ```
 
@@ -322,11 +326,13 @@ import {
 :::
 ::::
 
-::: imports import_map.json
+::: imports user-imports.json
 
 ```json
 {
-  "a": "b"
+  "imports": {
+    "a": "b"
+  }
 }
 ```
 

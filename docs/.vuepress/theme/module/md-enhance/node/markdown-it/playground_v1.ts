@@ -2,8 +2,7 @@ import { hash } from '@vuepress/utils'
 import type Token from 'markdown-it/lib/token'
 
 const extensions = ['js', 'ts', 'vue', 'jsx', 'tsx', 'json']
-export const importKey = 'import-map.json'
-export const userImportKey = 'user-imports.json'
+const importKey = 'import-map.json'
 
 export const playgroundRender = (tokens: Token[], index: number): string => {
   const { nesting, info } = tokens[index]
@@ -41,7 +40,7 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
         if (importMap.length > 1) {
           configKey = imports[1]
         } else {
-          configKey = userImportKey
+          configKey = importKey
         }
       } else if (isSettings) {
         // ...
@@ -53,9 +52,16 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
     if (!content) continue
 
     if (type === 'fence' && extensions.includes(info) && configKey) {
-      codeConfigs[configKey] = {
-        lang: info,
-        content: content,
+      if (importKey === configKey) {
+        codeConfigs[configKey] = {
+          lang: info,
+          content: `{\n  "imports": ${content}  }`,
+        }
+      } else {
+        codeConfigs[configKey] = {
+          lang: info,
+          content: content,
+        }
       }
     }
 
