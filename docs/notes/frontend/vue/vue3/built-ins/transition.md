@@ -580,3 +580,166 @@ function onLeave(el, done) {
 
 :::
 :::::
+
+### 可重用过渡
+
+得益于 Vue 的组件系统，过渡是可以被重用的。要创建一个可被重用的过渡，我们需要为 `<Transition>` 组件创建一个包装组件，并向内传入插槽内容:
+
+```html
+<template>
+  <Transition name="my-transition">
+    <slot></slot>
+  </Transition>
+</template>
+```
+
+现在 `MyTransition` 可以在导入后像内置组件那样使用了：
+
+```html
+<MyTransition>
+  <div v-if="show">hello</div>
+</MyTransition>
+```
+
+### 出现时过渡
+
+如果你想在某个节点初次渲染时应用一个过渡效果，你可以添加 `appear` attribute：
+
+```html
+<Transition appear>
+  <!-- ... -->
+</Transition>
+```
+
+### 元素间过渡
+
+除了通过 `v-if` / `v-show` 切换一个元素，我们也可以通过 `v-if` / `v-else` / `v-else-if` 在几个组件间进行切换过：
+
+```html
+<Transition>
+  <button v-if="docState === 'saved'">Edit</button>
+  <button v-if="docState === 'edited'">Save</button>
+  <button v-if="docState === 'editing'">Cancel</button>
+</Transition>
+```
+
+### 过渡模式
+
+在之前的例子中，进入和离开的元素都是在同时开始动画的，并且我们必须将它们设为 `position: absolute` 以避免二者同时存在时出现的布局问题。
+
+然而，在某些场景中这可能不是个好的方案，或者并不能符合行为预期。
+我们可能想要先执行离开动画，然后在其完成**之后**再执行元素的进入动画。
+手动编排这样的动画是非常复杂的，好在我们可以通过向 `<Transition>` 传入一个 `mode` prop 来实现这个行为：
+
+```html
+<Transition mode="out-in">
+  ...
+</Transition>
+```
+
+### 组件间过渡
+
+`<Transition>` 也可以用在动态组件之间：
+
+```html
+<Transition name="fade" mode="out-in">
+  <component :is="activeComponent"></component>
+</Transition>
+```
+
+::::: playground 组件间过渡 & 动态过渡
+:::: code-group
+
+::: code-group-item App.vue
+
+```vue
+<template>
+  <div>
+    <div class="selector">
+      <label>
+        <input type="radio" name="comp" v-model="activeComponent" :value="CompA" /> A
+      </label>
+      <label>
+        <input type="radio" name="comp" v-model="activeComponent" :value="CompB" /> B
+      </label>
+    </div>
+    <div class="comps">
+      <Transition :name="transitionName" mode="out-in">
+        <component :is="activeComponent" />
+      </Transition>
+    </div>
+    <div class="effect">
+      <label>
+        <input type="radio" name="transition" v-model="transitionName" value="fade" /> fade
+      </label>
+      <label>
+        <input type="radio" name="transition" v-model="transitionName" value="slide" /> slide
+      </label>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, shallowRef } from 'vue'
+
+import CompA from './CompA.vue'
+import CompB from './CompB.vue'
+
+const activeComponent = shallowRef(CompA)
+const transitionName = ref('fade')
+</script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity, transform 0.5s ease;
+}
+
+.slide-enter-from {
+  transform: translateX(100px)
+}
+
+.slide-leave-to {
+  transform: translateX(-100px)
+}
+
+.comps {
+  overflow: hidden;
+}
+</style>
+```
+
+:::
+
+::: code-group-item CompA.vue
+
+```vue
+<template>
+  <div>Component A</div>
+</template>
+```
+
+:::
+
+::: code-group-item CompB.vue
+
+```vue
+<template>
+  <div>Component B</div>
+</template>
+```
+
+:::
+
+::::
+:::::
