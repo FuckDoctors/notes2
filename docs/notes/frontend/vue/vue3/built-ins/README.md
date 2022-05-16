@@ -17,3 +17,4 @@ tag:
 
 - [transition](./transition.md)
 - [transition-group](./transition-group.md)
+- [keep-alive](./keep-alive.md)
