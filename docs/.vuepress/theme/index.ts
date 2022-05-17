@@ -8,6 +8,7 @@ import { hopeTheme } from 'vuepress-theme-hope'
 import type { HopeThemeOptions } from 'vuepress-theme-hope'
 
 import { getThemeConfig } from 'vuepress-theme-hope/lib/node/themeConfig'
+import { getStatus } from 'vuepress-theme-hope/lib/node/status'
 import { mdEnhancePlugin } from './module/md-enhance'
 import { prepareSidebarData } from './node/sidebar'
 import { prepareThemeColorScss } from 'vuepress-theme-hope/lib/node/themeColor'
@@ -35,7 +36,8 @@ const themeZhaobc = (options: HopeThemeOptions) => ({
   // 覆盖原来的onPrepared，使用自定义的prepareSidebarData
   // 以便自定义sidebarText
   onPrepared: (app: App): Promise<void> => {
-    const themeConfig = getThemeConfig(app, options)
+    const themeStatus = getStatus(options)
+    const themeConfig = getThemeConfig(app, options, themeStatus)
 
     return Promise.all([
       prepareSidebarData(app, themeConfig),

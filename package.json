@@ -19,12 +19,12 @@
     "typecheck": "vue-tsc --noEmit --skipLibCheck",
     "prepare": "husky install",
     "cm": "cz",
-    "docs:build": "vuepress build docs",
+    "docs:build": "vuepress build docs --clean-cache",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
     "docs:dev": "vuepress dev docs"
   },
   "dependencies": {
-    "@vueuse/core": "^8.4.2",
+    "@vueuse/core": "^8.5.0",
     "@vueuse/head": "^0.7.6",
     "echarts": "^5.3.2",
     "nprogress": "^0.2.0",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.19.4",
-    "@commitlint/cli": "^16.2.4",
+    "@commitlint/cli": "^16.3.0",
     "@commitlint/config-conventional": "^16.2.4",
     "@commitlint/cz-commitlint": "16.2.3",
     "@iconify-json/carbon": "^1.1.4",
@@ -47,14 +47,14 @@
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/nprogress": "^0.2.0",
     "@types/postcss-import": "^14.0.0",
-    "@vitejs/plugin-vue": "^2.3.2",
+    "@vitejs/plugin-vue": "^2.3.3",
     "@vue/test-utils": "^2.0.0-rc.21",
-    "@vuepress/plugin-docsearch": "^2.0.0-beta.43",
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.45",
     "autoprefixer": "^10.4.7",
     "commitizen": "^4.2.4",
     "critters": "^0.0.16",
     "cross-env": "^7.0.3",
-    "cypress": "^9.6.0",
+    "cypress": "^9.6.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
@@ -71,7 +71,7 @@
     "markdownlint": "^0.25.1",
     "markdownlint-cli": "^0.31.1",
     "pangu": "^4.0.7",
-    "pnpm": "^6.32.12",
+    "pnpm": "^7.1.0",
     "postcss": "^8.4.13",
     "postcss-html": "^1.4.1",
     "postcss-import": "^14.1.0",
@@ -79,7 +79,7 @@
     "prettier": "^2.6.2",
     "remark-cli": "^10.0.1",
     "remark-gfm": "^3.0.1",
-    "remark-github": "^11.2.2",
+    "remark-github": "^11.2.3",
     "remark-preset-lint-consistent": "^5.1.1",
     "remark-preset-lint-recommended": "^6.1.2",
     "remark-validate-links": "^11.0.2",
@@ -104,7 +104,7 @@
     "unplugin-icons": "^0.14.3",
     "unplugin-vue-components": "^0.18.5",
     "vfile-reporter": "^7.0.4",
-    "vite": "^2.9.8",
+    "vite": "^2.9.9",
     "vite-plugin-inspect": "^0.4.3",
     "vite-plugin-md": "^0.12.4",
     "vite-plugin-pages": "^0.22.0",
@@ -114,8 +114,8 @@
     "vite-ssg": "^0.19.2",
     "vitest": "^0.8.5",
     "vue-tsc": "^0.33.9",
-    "vuepress": "^2.0.0-beta.43",
-    "vuepress-theme-hope": "^2.0.0-beta.53"
+    "vuepress": "^2.0.0-beta.45",
+    "vuepress-theme-hope": "^2.0.0-beta.61"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -124,6 +124,7 @@
         "@vuepress/client",
         "react",
         "react-dom",
+        "@types/react",
         "webpack"
       ]
     }

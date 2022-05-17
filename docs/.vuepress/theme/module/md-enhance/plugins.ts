@@ -35,6 +35,6 @@ export const mdEnhancePlugin =
       // 扩展markdown
       extendsMarkdown: (markdownIt): void => {},
       onInitialized: (app: App): void => {},
-      clientAppEnhanceFiles: path.resolve(__dirname, './client/appEnhance.ts'),
+      clientConfigFile: path.resolve(__dirname, './client/appEnhance.ts'),
     }
   }
