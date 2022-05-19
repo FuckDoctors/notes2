@@ -138,7 +138,7 @@ const msg = ref('')
 
 一个持续存在的组件可以通过 `onActivated()` 和 `onDeactivated()` 注册相应的两个状态的生命周期钩子：
 
-```js
+```vue
 <script setup>
 import { onActivated, onDeactivated } from 'vue'
 

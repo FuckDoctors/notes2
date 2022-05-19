@@ -41,7 +41,7 @@ export default {
 
 如果使用 `<script setup>`，那么顶层 `await` 表达式会自动让该组件成为一个异步依赖：
 
-```js
+```vue
 <script setup>
 const res = await fetch(...)
 const posts = await res.json()
@@ -67,7 +67,7 @@ const posts = await res.json()
 
   <!-- 在 #fallback 插槽中显示 “正在加载中”  -->
   <template #fallback>
-    Loading...
+    <div>Loading...</div>
   </template>
 </Suspense>
 ```
@@ -112,7 +112,7 @@ const posts = await res.json()
 
           <!-- 加载中的状态 -->
           <template #fallback>
-            正在加载中...
+            <div>正在加载中...</div>
           </template>
         </Suspense>
       </KeepAlive>

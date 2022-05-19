@@ -52,7 +52,7 @@ tag:
 
 ```html
 <Teleport :disabled="isMobile">
-  ...
+  <!-- ... -->
 </Teleport>
 ```
 

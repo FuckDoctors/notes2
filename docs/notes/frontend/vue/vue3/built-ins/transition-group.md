@@ -28,9 +28,7 @@ tag:
 
 ```html
 <TransitionGroup name="list" tag="ul">
-  <li v-for="item in list" :key="item">
-    {{ item }}
-  </li>
+  <li v-for="item in list" :key="item">{{ item }}</li>
 </TransitionGroup>
 ```
 
@@ -87,13 +85,12 @@ const shuffle = () => {
   items.value = _shuffle(items.value)
 }
 
-const remove = item => {
+const remove = (item) => {
   const i = items.value.indexOf(item)
   if (i > -1) {
     items.value.splice(i, 1)
   }
 }
-
 </script>
 
 <style scoped>
@@ -119,7 +116,7 @@ const remove = item => {
   float: right;
 }
 .container .item::after {
-  content: "";
+  content: '';
   clear: both;
 }
 
@@ -132,7 +129,7 @@ const remove = item => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-  transform: scaleY(0.01) translate(30px, 0)
+  transform: scaleY(0.01) translate(30px, 0);
 }
 /* 确保将离开的元素从布局流中删除
   以便能够正确地计算移动的动画。 */
@@ -171,11 +168,7 @@ const remove = item => {
   @enter="onEnter"
   @leave="onLeave"
 >
-  <li
-    v-for="(item, index) in computedList"
-    :key="item.msg"
-    :data-index="index"
-  >
+  <li v-for="(item, index) in computedList" :key="item.msg" :data-index="index">
     {{ item.msg }}
   </li>
 </TransitionGroup>
@@ -189,7 +182,7 @@ function onEnter(el, done) {
     opacity: 1,
     height: '1.6em',
     delay: el.dataset.index * 0.15,
-    onComplete: done
+    onComplete: done,
   })
 }
 ```
@@ -208,16 +201,16 @@ const list = [
   { msg: 'Jackie Chan' },
   { msg: 'Chuck Norris' },
   { msg: 'Jet Li' },
-  { msg: 'Kung Fury' }
+  { msg: 'Kung Fury' },
 ]
 
 const query = ref('')
 
 const computedList = computed(() => {
-  return list.filter(item => item.msg.toLowerCase().includes(query.value))
+  return list.filter((item) => item.msg.toLowerCase().includes(query.value))
 })
 
-const onBeforeEnter = el => {
+const onBeforeEnter = (el) => {
   el.style.opacity = 0
   el.style.height = 0
 }
@@ -227,7 +220,7 @@ const onEnter = (el, done) => {
     opacity: 1,
     height: '1.6em',
     delay: el.dataset.index * 0.15,
-    onComplete: done
+    onComplete: done,
   })
 }
 
@@ -236,7 +229,7 @@ const onLeave = (el, done) => {
     opacity: 0,
     height: 0,
     delay: el.dataset.index * 0.15,
-    onComplete: done
+    onComplete: done,
   })
 }
 </script>

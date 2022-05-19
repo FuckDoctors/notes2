@@ -633,7 +633,7 @@ function onLeave(el, done) {
 
 ```html
 <Transition mode="out-in">
-  ...
+  <!-- ... -->
 </Transition>
 ```
 
@@ -657,10 +657,22 @@ function onLeave(el, done) {
   <div>
     <div class="selector">
       <label>
-        <input type="radio" name="comp" v-model="activeComponent" :value="CompA" /> A
+        <input
+          type="radio"
+          name="comp"
+          v-model="activeComponent"
+          :value="CompA"
+        />
+        A
       </label>
       <label>
-        <input type="radio" name="comp" v-model="activeComponent" :value="CompB" /> B
+        <input
+          type="radio"
+          name="comp"
+          v-model="activeComponent"
+          :value="CompB"
+        />
+        B
       </label>
     </div>
     <div class="comps">
@@ -670,10 +682,22 @@ function onLeave(el, done) {
     </div>
     <div class="effect">
       <label>
-        <input type="radio" name="transition" v-model="transitionName" value="fade" /> fade
+        <input
+          type="radio"
+          name="transition"
+          v-model="transitionName"
+          value="fade"
+        />
+        fade
       </label>
       <label>
-        <input type="radio" name="transition" v-model="transitionName" value="slide" /> slide
+        <input
+          type="radio"
+          name="transition"
+          v-model="transitionName"
+          value="slide"
+        />
+        slide
       </label>
     </div>
   </div>
@@ -706,11 +730,11 @@ const transitionName = ref('fade')
 }
 
 .slide-enter-from {
-  transform: translateX(100px)
+  transform: translateX(100px);
 }
 
 .slide-leave-to {
-  transform: translateX(-100px)
+  transform: translateX(-100px);
 }
 
 .comps {
