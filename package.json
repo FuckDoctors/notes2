@@ -71,8 +71,8 @@
     "markdownlint": "^0.25.1",
     "markdownlint-cli": "^0.31.1",
     "pangu": "^4.0.7",
-    "pnpm": "^7.1.1",
-    "postcss": "^8.4.13",
+    "pnpm": "^7.1.2",
+    "postcss": "^8.4.14",
     "postcss-html": "^1.4.1",
     "postcss-import": "^14.1.0",
     "postcss-scss": "^4.0.4",
@@ -115,7 +115,7 @@
     "vitest": "^0.8.5",
     "vue-tsc": "^0.33.9",
     "vuepress": "^2.0.0-beta.45",
-    "vuepress-theme-hope": "^2.0.0-beta.62"
+    "vuepress-theme-hope": "^2.0.0-beta.63"
   },
   "pnpm": {
     "peerDependencyRules": {

@@ -140,7 +140,7 @@ renderer(vnode, document.body)
 <div id="renderer-demo1"></div>
 :::
 
-::: demo 渲染器示例
+::: normal-demo 渲染器示例
 
 ```html
 <div id="renderer-demo1"></div>
@@ -310,7 +310,7 @@ function mountComponent(vnode, container) {
 <div id="component-object-demo"></div>
 :::
 
-::: demo 组件示例
+::: normal-demo 组件示例
 
 ```html
 <div id="component-function-demo"></div>

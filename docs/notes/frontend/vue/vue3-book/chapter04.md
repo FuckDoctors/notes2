@@ -48,7 +48,7 @@ effect 执行会读取 obj，并设置 state，以及更改 DOM 元素，这个�
 <div id="effect-proxy-demo"></div>
 :::
 
-::: demo Proxy 示例
+::: normal-demo Proxy 示例
 
 ```html
 <div id="effect-proxy-demo"></div>
@@ -113,7 +113,7 @@ function changeText() {
 <div id="effect-proxy-demo2"></div>
 :::
 
-::: demo 改进后的示例
+::: normal-demo 改进后的示例
 
 ```html
 <div id="effect-proxy-demo2"></div>
@@ -188,7 +188,7 @@ Set 类型的桶，不能实现这个目的，需要使用 WeakMap 代替 Set �
 <div id="effect-proxy-weakmap"></div>
 :::
 
-::: demo WeakMap 类型的桶
+::: normal-demo WeakMap 类型的桶
 
 ```html
 <div id="effect-proxy-weakmap"></div>
@@ -289,7 +289,7 @@ function changeText() {
 WeakMap 对 key 是弱引用，WeakMap 的 key 是不可枚举的，不影响垃圾回收器的工作。
 参考资料：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 
-::: demo Map 和 WeakMap
+::: normal-demo Map 和 WeakMap
 
 请打开控制台查看：
 
@@ -448,7 +448,7 @@ newSet.forEach((item) => {
 <div id="effect-branch-cleanup"></div>
 :::
 
-::: demo 分支切换与 cleanup demo
+::: normal-demo 分支切换与 cleanup demo
 
 ```html
 <div id="effect-branch-cleanup"></div>

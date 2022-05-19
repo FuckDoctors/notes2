@@ -118,7 +118,7 @@ JavaScript 中检查类型的方法有很多，比如：
 
 例子：
 
-::: demo instanceof 示例
+::: normal-demo instanceof 示例
 
 ```js
 function Person() {}

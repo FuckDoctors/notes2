@@ -141,7 +141,7 @@ Render(obj, document.body)
 <div id="code-demo-render-basic"></div>
 :::
 
-::: demo 运行时 Render 函数示例
+::: normal-demo 运行时 Render 函数示例
 
 ```html
 <div id="code-demo-render-basic"></div>
