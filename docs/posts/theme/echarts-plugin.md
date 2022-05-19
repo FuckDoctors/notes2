@@ -27,6 +27,10 @@ head:
 
 <!-- more -->
 
+::: warning
+本插件已经提交 PR，不需要自己实现，使用 `vuepress-theme-hope` 主题内置即可，这里仅保留记录。
+:::
+
 ## 配置
 
 ```ts {4}
