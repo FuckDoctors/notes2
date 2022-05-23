@@ -96,9 +96,9 @@ export default defineComponent({
     }
 
     const items = slots.default ? slots.default() : []
-    // ignore imports and settings, only display the CodeGroup
+    // ignore imports and settings, only display the CodeTabs
     const sourceBlocks = items.filter(
-      (vnode) => (vnode.type as Component).name === 'CodeGroup'
+      (vnode) => (vnode.type as Component).name === 'CodeTabs'
     )
 
     onMounted(() => {})

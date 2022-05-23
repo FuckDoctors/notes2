@@ -28,9 +28,9 @@ Vue 提供了两个内置组件，可以帮助你制作基于状态变化的过�
 
 最基本的示例：
 
-::::: playground transistion 示例
-:::: code-group
-::: code-group-item App.vue
+:::: playground transistion 示例
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -60,7 +60,6 @@ const show = ref(true)
 
 :::
 ::::
-:::::
 
 ::: tip
 `<Transition>` 仅支持单个元素或组件作为其插槽内容。如果内容是一个组件，这个组件必须仅有一个根元素。
@@ -143,9 +142,9 @@ Because semicolons can be used instead of line breaks to define the markup, you 
 
 下面是一个更高级的例子，它使用了不同的持续时间和速度曲线来过渡多个 property：
 
-::::: playground CSS Transition
-:::: code-group
-::: code-group-item App.vue
+:::: playground CSS Transition
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -178,7 +177,6 @@ const show = ref(true)
 
 :::
 ::::
-:::::
 
 ### CSS 的 animation
 
@@ -186,9 +184,9 @@ const show = ref(true)
 
 对于大多数的 CSS 动画，我们可以简单地在 `*-enter-active` 和 `*-leave-active` class 下声明它们。下面是一个示例：
 
-::::: playground CSS animation
-:::: code-group
-::: code-group-item App.vue
+:::: playground CSS animation
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -229,7 +227,6 @@ const show = ref(true)
 
 :::
 ::::
-:::::
 
 ### 自定义过渡 class
 
@@ -244,9 +241,9 @@ const show = ref(true)
 
 你传入的这些 class 会覆盖相应阶段的默认 class 名。这个功能在你想要在 Vue 的动画机制下集成其他的第三方 CSS 动画库时非常有用，比如 [Animate.css](https://daneden.github.io/animate.css/)：
 
-::::: playground 自定义过渡 class
-:::: code-group
-::: code-group-item App.vue
+:::: playground 自定义过渡 class
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -273,7 +270,6 @@ const show = ref(true)
 
 :::
 ::::
-:::::
 
 ### 同时使用 transition 和 animation
 
@@ -340,9 +336,9 @@ Vue 需要附加事件侦听器，以便知道过渡何时结束。可以是 `tr
 <Transition :duration="{ enter: 500, leave: 800 }">...</Transition>
 ```
 
-::::: playground 深层级过渡与显式过渡时间
-:::: code-group
-::: code-group-item App.vue
+:::: playground 深层级过渡与显式过渡时间
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -413,7 +409,6 @@ const show = ref(true)
 
 :::
 ::::
-:::::
 
 ### 性能考量
 
@@ -495,9 +490,9 @@ function leaveCancelled(el) {}
 
 可以使用 [GreenSock](https://greensock.com/), [Anime.js](https://animejs.com/), 或者 [Motion One](https://motion.dev/) 等库来执行动画。
 
-::::: playground JavaScript 钩子
-:::: code-group
-::: code-group-item App.vue
+:::: playground JavaScript 钩子
+::: code-tabs
+@tab App.vue
 
 ```vue
 <script setup>
@@ -567,7 +562,6 @@ function onLeave(el, done) {
 ```
 
 :::
-::::
 ::: imports user-imports.json
 
 ```json
@@ -579,7 +573,7 @@ function onLeave(el, done) {
 ```
 
 :::
-:::::
+::::
 
 ### 可重用过渡
 
@@ -647,10 +641,10 @@ function onLeave(el, done) {
 </Transition>
 ```
 
-::::: playground 组件间过渡 & 动态过渡
-:::: code-group
+:::: playground 组件间过渡 & 动态过渡
+::: code-tabs
 
-::: code-group-item App.vue
+@tab App.vue
 
 ```vue
 <template>
@@ -743,9 +737,7 @@ const transitionName = ref('fade')
 </style>
 ```
 
-:::
-
-::: code-group-item CompA.vue
+@tab CompA.vue
 
 ```vue
 <template>
@@ -753,9 +745,7 @@ const transitionName = ref('fade')
 </template>
 ```
 
-:::
-
-::: code-group-item CompB.vue
+@tab CompB.vue
 
 ```vue
 <template>
@@ -764,6 +754,4 @@ const transitionName = ref('fade')
 ```
 
 :::
-
 ::::
-:::::

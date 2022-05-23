@@ -4,10 +4,7 @@
 import { path } from '@vuepress/utils'
 import type { App, PluginFunction } from '@vuepress/core'
 
-import {
-  addViteSsrExternal,
-  addViteOptimizeDepsInclude,
-} from '@mr-hope/vuepress-shared'
+import { addViteSsrExternal, addViteOptimizeDepsInclude } from 'vuepress-shared'
 
 import type { MdEnhanceOptions } from './shared'
 import { usePlugins } from './usePlugins'

@@ -23,12 +23,12 @@ export const playgroundRender = (tokens: Token[], index: number): string => {
 
     if (type === 'container_playground_close') break
 
-    if (type === 'tab_open') {
-      const fileTitle = info
-      if (!fileTitle || fileTitle.length === 0) {
+    if (type === 'container_code-group-item_open') {
+      const fileTitleReg = /^ *code-group-item\s*(.*)\s*$/u.exec(info)
+      if (!fileTitleReg) {
         continue
       }
-      configKey = fileTitle
+      configKey = fileTitleReg[1]
     } else if (type === 'inline') {
       configKey = null
       // const isImports = /^\s*::: *imports\s*$/u.test(content)

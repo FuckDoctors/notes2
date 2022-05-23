@@ -14,6 +14,7 @@
       margin-left: 10px;
 
       .icon {
+        fill: #777;
         width: 1.5rem;
         height: 1.5rem;
       }
@@ -31,9 +32,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    font-weight: 600;
+    font-weight: 500;
     padding: 8px 10px;
-    background-color: var(--code-group-nav-bg-color, #3a404c);
+    background-color: var(--code-demo-header-bg-color, #eee);
 
     .playground-title {
       font-size: 1.25rem;
@@ -86,7 +87,7 @@
       display: block;
     }
 
-    // reset code-group
+    // reset code-tabs
     .theme-hope-content & {
       pre,
       pre[class*='language-'] {
@@ -95,8 +96,8 @@
       }
     }
 
-    .code-group {
-      .code-group-nav {
+    .code-tabs {
+      .code-tabs-nav {
         margin: 0;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
@@ -109,7 +110,7 @@
       }
 
       @media (max-width: hope-config.$mobile) {
-        .code-group-item {
+        .code-tab {
           div[class*='language-'] {
             margin: 0;
           }

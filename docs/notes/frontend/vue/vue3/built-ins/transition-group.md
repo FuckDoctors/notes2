@@ -44,9 +44,9 @@ tag:
 }
 ```
 
-::::: playground 简单列表过渡
-:::: code-group
-::: code-group-item App.vue
+:::: playground 简单列表过渡
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -140,7 +140,6 @@ const remove = (item) => {
 ```
 
 :::
-::::
 
 ::: imports
 
@@ -153,7 +152,7 @@ const remove = (item) => {
 ```
 
 :::
-:::::
+::::
 
 ## 交错的列表过渡
 
@@ -168,6 +167,7 @@ const remove = (item) => {
   @enter="onEnter"
   @leave="onLeave"
 >
+  <!-- prettier-ignore-attribute -->
   <li v-for="(item, index) in computedList" :key="item.msg" :data-index="index">
     {{ item.msg }}
   </li>
@@ -187,9 +187,9 @@ function onEnter(el, done) {
 }
 ```
 
-::::: playground 交错的列表过渡
-:::: code-group
-::: code-group-item App.vue
+:::: playground 交错的列表过渡
+::: code-tabs
+@tab App.vue
 
 ```vue
 <script setup>
@@ -255,7 +255,6 @@ const onLeave = (el, done) => {
 ```
 
 :::
-::::
 ::: imports user-imports.json
 
 ```json
@@ -267,4 +266,4 @@ const onLeave = (el, done) => {
 ```
 
 :::
-:::::
+::::

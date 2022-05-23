@@ -16,11 +16,11 @@ describe('playground', () => {
     expect(
       markdownIt.render(
         `
-::::: playground playground demo
+:::: playground Playground demo
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item App.vue
+@tab App.vue
 
 \`\`\`vue
 <script setup>
@@ -35,9 +35,7 @@ const msg = ref('Hello World!')
 </template>
 \`\`\`
 
-:::
-
-::: code-group-item Comp.vue
+@tab Comp.vue
 
 \`\`\`vue
 <template>
@@ -60,8 +58,6 @@ const msg = ref('Hello World!')
 :::
 
 ::::
-
-:::::
 `,
         {}
       )
@@ -72,11 +68,11 @@ const msg = ref('Hello World!')
     expect(
       markdownIt.render(
         `
-::::: playground playground demo2
+:::: playground Playground demo2
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item App.vue
+@tab App.vue
 
 \`\`\`vue
 <script setup>
@@ -91,9 +87,7 @@ const msg = ref('Hello World!')
 </template>
 \`\`\`
 
-:::
-
-::: code-group-item Comp.vue
+@tab Comp.vue
 
 \`\`\`vue
 <template>
@@ -102,8 +96,6 @@ const msg = ref('Hello World!')
 \`\`\`
 
 :::
-
-::::
 
 ::: settings
 
@@ -115,7 +107,7 @@ const msg = ref('Hello World!')
 
 :::
 
-:::::
+::::
 `,
         {}
       )

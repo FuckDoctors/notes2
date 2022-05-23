@@ -38,11 +38,11 @@ category:
 
 ## Playground 示例
 
-::::: playground playground demo
+:::: playground Playground demo
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item App.vue
+@tab App.vue
 
 ```vue
 <script setup>
@@ -61,9 +61,7 @@ const msg = ref('Hello World!')
 </template>
 ```
 
-:::
-
-::: code-group-item Comp.vue
+@tab Comp.vue
 
 ```vue
 <template>
@@ -78,7 +76,7 @@ const msg = ref('Hello World!')
 ```json
 {
   "imports": {
-    "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
+    "lodash-es": "https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/lodash.min.js"
   }
 }
 ```
@@ -87,15 +85,13 @@ const msg = ref('Hello World!')
 
 ::::
 
-:::::
-
 ## Element-Plus 示例
 
-::::: playground Element-Plus demo
+:::: playground Element-Plus demo
 
-:::: code-group
+::: code-tabs
 
-::: code-group-item App.vue
+@tab App.vue
 
 ```vue
 <template>
@@ -132,8 +128,6 @@ import {
 
 :::
 
-::::
-
 ::: imports import_map.json
 
 ```json
@@ -156,4 +150,4 @@ import {
 
 :::
 
-:::::
+::::

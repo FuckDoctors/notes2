@@ -47,8 +47,11 @@ export const customConfig: CustomConfig = {
 
 ## 语法
 
-为了简单方便，你只需配合 `CodeGroup` 和 `CodeGroupItem` 即可。
-每一个 `CodeGroupItem` 为一个 `.vue` 文件。
+~~为了简单方便，你只需配合 `CodeGroup` 和 `CodeGroupItem` 即可。
+每一个 `CodeGroupItem` 为一个 `.vue` 文件。~~
+
+为了简单方便，你只需配合 `code-tabs` 和 `@tab` 即可。
+每一个 `@tab` 为一个 `.vue` 或 `.js` 文件。
 
 使用 `imports` 和 `settings` 可为每个 Playground 自定义配置。
 
@@ -57,9 +60,9 @@ export const customConfig: CustomConfig = {
 ### 使用主题默认配置
 
 ````md
-::::: playground playground demo
-:::: code-group
-::: code-group-item App.vue
+:::: playground Playground demo
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -67,9 +70,7 @@ export const customConfig: CustomConfig = {
 </template>
 ```
 
-:::
-
-::: code-group-item Comp.vue
+@tab Comp.vue
 
 ```vue
 <template>
@@ -79,7 +80,6 @@ export const customConfig: CustomConfig = {
 
 :::
 ::::
-:::::
 ````
 
 ### 使用个别配置
@@ -87,9 +87,9 @@ export const customConfig: CustomConfig = {
 使用个别配置的 `base` 和 `imports`，以 Element Plus 为例。
 
 ````md
-::::: playground customize playground demo
-:::: code-group
-::: code-group-item App.vue
+:::: playground Customize playground demo
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -97,9 +97,7 @@ export const customConfig: CustomConfig = {
 </template>
 ```
 
-:::
-
-::: code-group-item Comp.vue
+@tab Comp.vue
 
 ```vue
 <template>
@@ -108,7 +106,6 @@ export const customConfig: CustomConfig = {
 ```
 
 :::
-::::
 
 ::: imports import_map.json
 
@@ -132,16 +129,16 @@ export const customConfig: CustomConfig = {
 
 :::
 
-:::::
+::::
 ````
 
 ## 案例
 
 ### 使用主题默认配置的案例
 
-::::: playground playground demo
-:::: code-group
-::: code-group-item App.vue
+:::: playground Playground demo
+::: code-tabs
+@tab App.vue
 
 ```vue
 <script setup>
@@ -160,9 +157,7 @@ const msg = ref('Hello World!')
 </template>
 ```
 
-:::
-
-::: code-group-item Comp.vue
+@tab Comp.vue
 
 ```vue
 <template>
@@ -172,14 +167,13 @@ const msg = ref('Hello World!')
 
 :::
 ::::
-:::::
 
-:::::: details 代码
+::::: details 代码
 
 ````md
-::::: playground playground demo
-:::: code-group
-::: code-group-item App.vue
+:::: playground Playground demo
+::: code-tabs
+@tab App.vue
 
 ```vue
 <script setup>
@@ -198,9 +192,7 @@ const msg = ref('Hello World!')
 </template>
 ```
 
-:::
-
-::: code-group-item Comp.vue
+@tab Comp.vue
 
 ```vue
 <template>
@@ -210,18 +202,17 @@ const msg = ref('Hello World!')
 
 :::
 ::::
-:::::
 ````
 
-::::::
+:::::
 
 ### 使用个别配置的案例
 
 使用个别配置的 `base` 和 `imports`。
 
-::::: playground Element-Plus demo
-:::: code-group
-::: code-group-item App.vue
+:::: playground Element-Plus demo
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -257,7 +248,6 @@ import {
 ```
 
 :::
-::::
 
 ::: imports import_map.json
 
@@ -281,14 +271,14 @@ import {
 
 :::
 
-:::::
+::::
 
-:::::: details 代码
+::::: details 代码
 
 ````md
-::::: playground Element-Plus demo
-:::: code-group
-::: code-group-item App.vue
+:::: playground Element-Plus demo
+::: code-tabs
+@tab App.vue
 
 ```vue
 <template>
@@ -324,7 +314,6 @@ import {
 ```
 
 :::
-::::
 
 ::: imports user-imports.json
 
@@ -348,7 +337,7 @@ import {
 
 :::
 
-:::::
+::::
 ````
 
-::::::
+:::::
