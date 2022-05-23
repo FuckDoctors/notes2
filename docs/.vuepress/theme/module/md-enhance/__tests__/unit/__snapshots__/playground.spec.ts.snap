@@ -1,7 +1,7 @@
 // Vitest Snapshot v1
 
 exports[`playground > Should resolve playground info 1`] = `
-"<Playground title=\\"playground demo\\"
+"<Playground title=\\"Playground demo\\"
   id=\\"playground-1a96284a\\"
   settings=\\"%7B%7D\\"
   config=\\"%7B%22user-imports.json%22%3A%7B%22lang%22%3A%22json%22%2C%22content%22%3A%22%7B%5Cn%20%20%5C%22imports%5C%22%3A%20%7B%5Cn%20%20%20%20%5C%22vue%5C%22%3A%20%5C%22https%3A%2F%2Fsfc.vuejs.org%2Fvue.runtime.esm-browser.js%5C%22%5Cn%20%20%7D%5Cn%7D%5Cn%22%7D%7D\\"><p>::: code-tabs</p>
@@ -17,7 +17,6 @@ const msg = ref('Hello World!')
   &lt;input v-model=&quot;msg&quot; /&gt;
 &lt;/template&gt;
 </code></pre>
-<p>:::</p>
 <p>@tab Comp.vue</p>
 <pre><code class=\\"language-vue\\">&lt;template&gt;
   &lt;div&gt;Comp&lt;/div&gt;
@@ -32,12 +31,11 @@ const msg = ref('Hello World!')
 }
 </code></pre>
 <p>:::</p>
-<p>::::</p>
 </Playground>"
 `;
 
 exports[`playground > Should resolve playground info with settings 1`] = `
-"<Playground title=\\"playground demo2\\"
+"<Playground title=\\"Playground demo2\\"
   id=\\"playground-1a96284a\\"
   settings=\\"%7B%0A%20%20%22base%22%3A%20%22https%3A%2F%2Felement-plus.run%2F%22%0A%7D\\"
   config=\\"%7B%7D\\"><p>::: code-tabs</p>
@@ -53,14 +51,12 @@ const msg = ref('Hello World!')
   &lt;input v-model=&quot;msg&quot; /&gt;
 &lt;/template&gt;
 </code></pre>
-<p>:::</p>
 <p>@tab Comp.vue</p>
 <pre><code class=\\"language-vue\\">&lt;template&gt;
   &lt;div&gt;Comp&lt;/div&gt;
 &lt;/template&gt;
 </code></pre>
 <p>:::</p>
-<p>::::</p>
 <p>::: settings</p>
 <pre><code class=\\"language-json\\">{
   &quot;base&quot;: &quot;https://element-plus.run/&quot;
