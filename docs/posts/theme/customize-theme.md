@@ -41,7 +41,7 @@ head:
 
 - [echarts](./echarts-plugin.md)
   主题内置了 `chart` 图表，使用 `chart.js` 做图表，但是国内 `echarts` 使用的还是挺多的，刚好用过一点，所以仿照 `chart`，编写了一个 `echarts` 图表。
-- [playground](./playground-plugin.md)
+- [playground](./playground-plugin-v3.md)
   主题内置的 `demo` 挺好的，对于记录笔记，展示代码片段很方便。
   但是，只能使用 `export default { // ... }` 形式，不支持 `script setup` 语法糖，
   于是借鉴了 `Vue3` 官方 Playground 以及 Element Plus 的代码示例简单做了一个 markdown 的 `playground`。

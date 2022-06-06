@@ -88,7 +88,7 @@ export const themeOptions: HopeThemeOptions = {
 
     // you can also use Waline
     comment: {
-      type: 'giscus',
+      provider: 'Giscus',
       repo: 'FuckDoctors/notes2',
       repoId: 'R_kgDOHFsMkw',
       category: 'Announcements',
