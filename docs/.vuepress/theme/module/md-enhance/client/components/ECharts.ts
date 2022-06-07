@@ -6,7 +6,7 @@ import {
   ref,
   markRaw,
 } from 'vue'
-import { loadingSvgString } from './icons'
+import { LOADING_SVG } from './icons'
 
 // import * as echarts from "echarts";
 
@@ -99,7 +99,7 @@ export default defineComponent({
       loading.value
         ? h('div', {
             class: ['echarts-loading-wrapper'],
-            innerHTML: loadingSvgString,
+            innerHTML: LOADING_SVG,
           })
         : null,
       h('div', {

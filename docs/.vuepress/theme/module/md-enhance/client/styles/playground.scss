@@ -1,22 +1,91 @@
+@use 'vuepress-shared/styles/reset';
+
+:root {
+  --playground-header-bg-color: #eee;
+}
+
+#{hope-config.$dark-selector} {
+  --playground-header-bg-color: #333;
+}
+
+// vue-repl dark mode
+
+/**
+ * copied from https://github.com/vuejs/repl/blob/main/src/Repl.vue
+ */
+#{hope-config.$dark-selector} .vue-repl {
+  --bg: #1a1a1a;
+  --bg-soft: #242424;
+  --border: #383838;
+  --text-light: #aaa;
+  --color-branding: #42d392;
+  --color-branding-dark: #89ddff;
+
+  .import-map-wrapper {
+    background: linear-gradient(
+      90deg,
+      rgb(26 26 26 / 0%) 0%,
+      rgb(26 26 26 / 100%) 25%
+    ) !important;
+  }
+
+  /**
+  * copied from https://github.com/vuejs/repl/blob/main/src/codemirror/codemirror.css
+  */
+  // stylelint-disable selector-class-pattern
+  .CodeMirror {
+    --symbols: #89ddff;
+    --base: #a6accd;
+    --comment: #6d6d6d;
+    --keyword: #89ddff;
+    --string: #c3e88d;
+    --variable: #82aaff;
+    --number: #f78c6c;
+    --tags: #f07178;
+    --brackets: var(--symbols);
+    --property: #f07178;
+    --attribute: #c792ea;
+    --cursor: #fff;
+    --selected-bg: rgb(255 255 255 / 10%);
+    --selected-bg-non-focus: rgb(255 255 255 / 15%);
+    // stylelint-enable selector-class-pattern
+    color: var(--symbols);
+  }
+}
+
 .playground-container {
+  overflow: hidden;
+
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 1px solid;
   border-color: var(--code-border-color);
   border-radius: 6px;
 
+  // stylelint-disable max-nesting-depth
+  @media (max-width: hope-config.$tablet) {
+    &.internal {
+      .op-btns {
+        .op-btn.code {
+          display: none;
+        }
+      }
+    }
+  }
+
   .op-btns {
     display: flex;
     align-items: center;
 
+    // stylelint-disable selector-max-compound-selectors
     .op-btn {
       display: inline-flex;
       margin-left: 10px;
 
       .icon {
-        fill: #777;
         width: 1.5rem;
         height: 1.5rem;
+        fill: #777;
       }
 
       &:hover {
@@ -26,96 +95,157 @@
         }
       }
     }
+    // stylelint-enable selector-max-compound-selectors
   }
+  // stylelint-enable max-nesting-depth
 
   .title-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    font-weight: 500;
+    flex-flow: row wrap;
+
     padding: 8px 10px;
-    background-color: var(--code-demo-header-bg-color, #eee);
+    border-bottom: 1px solid;
+    border-bottom-color: var(--code-border-color);
+
+    background-color: var(--playground-header-bg-color, #eee);
+
+    font-weight: 500;
 
     .playground-title {
-      font-size: 1.25rem;
       flex: 1;
+
       overflow: hidden;
-      white-space: nowrap;
+
+      font-size: 1.25rem;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
   .preview-container {
     position: relative;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    border-color: var(--code-border-color);
-    height: 300px;
     overflow: hidden;
-    background-color: var(--code-bg-color, #282c34);
+    height: 300px;
+    background-color: var(--c-bg);
 
     .preview-loading-wrapper {
       position: absolute;
       top: 0;
-      left: 0;
       right: 0;
       bottom: 0;
+      left: 0;
       z-index: 5;
-      background: var(--grey15);
 
       display: flex;
       align-items: center;
       justify-content: center;
 
+      background: var(--grey15);
+
+      // stylelint-disable selector-max-compound-selectors
       .loading-icon {
         width: 4rem;
         height: 4rem;
       }
+      // stylelint-enable selector-max-compound-selectors
     }
 
     iframe {
-      border: none;
       display: block;
       width: 100%;
       height: 100%;
+      border: none;
     }
   }
+
   .source-container {
     display: none;
 
     &.show {
       display: block;
     }
+  }
 
-    // reset code-tabs
-    .theme-hope-content & {
-      pre,
-      pre[class*='language-'] {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-    }
+  // internal styles
+  // stylelint-disable selector-max-compound-selectors
+  // stylelint-disable max-nesting-depth
+  .repl-container {
+    height: auto !important;
 
-    .code-tabs {
-      .code-tabs-nav {
-        margin: 0;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+    @media (max-width: hope-config.$tablet) {
+      &.show-code {
+        .vue-repl {
+          .split-pane.show-output {
+            .left {
+              display: none !important;
+            }
+          }
 
-        @media (max-width: hope-config.$mobile) {
-          margin: 0;
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
+          .split-pane:not(.show-output) {
+            .left {
+              display: block !important;
+            }
+          }
         }
       }
 
-      @media (max-width: hope-config.$mobile) {
-        .code-tab {
-          div[class*='language-'] {
-            margin: 0;
+      &.hide-code {
+        .vue-repl {
+          .split-pane.show-output {
+            .left {
+              display: none !important;
+            }
+          }
+
+          .split-pane:not(.show-output) {
+            .left {
+              display: block !important;
+            }
           }
         }
       }
     }
+
+    .vue-repl {
+      .split-pane {
+        .left {
+          .editor-container {
+            height: 100% !important;
+          }
+        }
+      }
+    }
+
+    &.show-code {
+      .vue-repl {
+        .split-pane {
+          .left {
+            display: block !important;
+          }
+        }
+      }
+    }
+
+    &.hide-code {
+      .vue-repl {
+        .split-pane {
+          .left {
+            display: none !important;
+          }
+        }
+      }
+    }
+
+    // reset .theme-hope-content pre
+    .theme-hope-content & {
+      pre,
+      pre[class*='language-'] {
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+      }
+    }
   }
+  // stylelint-enable max-nesting-depth
+  // stylelint-enable selector-max-compound-selectors
 }

@@ -16,7 +16,7 @@ describe('playground', () => {
     expect(
       markdownIt.render(
         `
-:::: playground Playground demo
+::: playground Playground demo
 
 ::: code-tabs
 
@@ -68,7 +68,7 @@ const msg = ref('Hello World!')
     expect(
       markdownIt.render(
         `
-:::: playground Playground demo2
+::: playground Playground demo2
 
 ::: code-tabs
 

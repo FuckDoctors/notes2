@@ -24,6 +24,7 @@
     "docs:dev": "vuepress dev docs"
   },
   "dependencies": {
+    "@vue/repl": "^1.2.4",
     "@vueuse/core": "^8.6.0",
     "@vueuse/head": "^0.7.6",
     "echarts": "^5.3.2",

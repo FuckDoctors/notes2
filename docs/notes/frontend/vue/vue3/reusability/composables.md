@@ -21,10 +21,8 @@ tag:
 
 如果我们想在多个组件中复用这个相同的逻辑，我们可以把这个逻辑以一个组合式函数的形式提取到外部文件中。
 
-:::: playground 鼠标跟踪器示例
-::: code-tabs
-
-@tab App.vue
+::: playground 鼠标跟踪器示例
+@file App.vue
 
 ```vue
 <script setup>
@@ -36,7 +34,7 @@ const { x, y } = useMouse()
 <template>Mouse position is at {{ x }}, {{ y }}</template>
 ```
 
-@tab mouse.js
+@file mouse.js
 
 ```js
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -68,7 +66,6 @@ export function useMouse() {
 ```
 
 :::
-::::
 
 如你所见，核心逻辑一点都没有被改变，我们做的只是把它移到一个外部函数中去，并返回需要暴露的状态。
 然而更酷的一点是，你还可以嵌套多个组合式函数：一个组合式函数可以调用一个或多个其他的组合式函数。
@@ -77,10 +74,8 @@ export function useMouse() {
 
 举个例子，我们可以将添加和清除 DOM 事件监听器的逻辑放入一个组合式函数中：
 
-:::: playground 鼠标跟踪器示例 嵌套调用
-::: code-tabs
-
-@tab App.vue
+::: playground 鼠标跟踪器示例 嵌套调用
+@file App.vue
 
 ```vue
 <script setup>
@@ -92,7 +87,7 @@ const { x, y } = useMouse()
 <template>Mouse position is at {{ x }}, {{ y }}</template>
 ```
 
-@tab mouse.js
+@file mouse.js
 
 ```js
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -114,7 +109,7 @@ export function useMouse() {
 }
 ```
 
-@tab event.js
+@file event.js
 
 ```js
 import { onMounted, onUnmounted } from 'vue'
@@ -126,17 +121,14 @@ export function useEventListener(target, event, callback) {
 ```
 
 :::
-::::
 
 ## 异步状态示例
 
 `useMouse()` 组合式函数没有接收任何参数，因此让我们再来看一个需要接收一个参数的组合式函数示例。
 在做异步数据请求时，我们常常需要处理不同的状态：加载中、加载成功和加载失败。
 
-:::: playground 异步状态示例
-::: code-tabs
-
-@tab App.vue
+::: playground 异步状态示例
+@file App.vue
 
 ```vue
 <script setup>
@@ -166,7 +158,7 @@ const { data, error, retry } = useFetch(url)
 </template>
 ```
 
-@tab useFetch.js
+@file useFetch.js
 
 ```js
 import { ref, isRef, unref, watchEffect } from 'vue'
@@ -203,7 +195,6 @@ export function useFetch(url) {
 ```
 
 :::
-::::
 
 这个版本的 useFetch() 现在同时可以接收静态的 URL 字符串和 URL 字符串的 ref。
 当通过 isRef() 检测到 URL 是一个动态 ref 时，它会使用 watchEffect() 启动一个响应式的 effect。
