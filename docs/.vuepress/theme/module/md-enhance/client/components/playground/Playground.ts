@@ -1,174 +1,42 @@
-import {
-  defineComponent,
-  h,
-  computed,
-  onMounted,
-  onBeforeUnmount,
-  ref,
-  Ref,
-  markRaw,
-} from 'vue'
+import { defineComponent, h } from 'vue'
+import { ClientOnly } from '@vuepress/client'
 
 import type { VNode } from 'vue'
 
-import '../../styles/playground.scss'
-import { loadingSvgString, playSvgString, codeSvgString } from '../icons'
-import { usePlayground } from '../../composables/use-playground'
-import customConfig from '../../../../../customConfig'
-
-interface SourceConfig {
-  lang?: string
-  content?: string
-}
-
-interface FileConfig extends SourceConfig {
-  name: string
-}
+import ExternalPlayground from './ExternalPlayground'
+import InternalPlayground from './InternalPlayground'
+import { parsePlaygroundSettings } from '../../utils/playground'
+import { IMPORT_MAP_KEY } from '../../../shared/playground'
 
 export default defineComponent({
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Playground',
 
   props: {
-    title: { type: String, default: '' },
-    config: { type: String, required: true },
-    settings: { type: String, required: false },
     id: { type: String, required: true },
+    title: { type: String, default: '' },
+    config: { type: String, default: '{}' },
+    settings: { type: String, default: '{}' },
   },
 
-  setup(props, { slots }) {
-    const playgroundContainer = ref<HTMLElement | null>(null)
-    const iframe = ref<HTMLElement | null>(null)
+  setup(props) {
+    const settings = parsePlaygroundSettings(props.settings)
+    const mode = settings.mode
 
-    const loading = ref(true)
-    const showCode = ref(false)
-
-    const files: Ref<Array<FileConfig>> = computed(() => {
-      const fileConfigs: Array<FileConfig> = []
-      const orgConfig = props.config
-      const configObj = JSON.parse(decodeURIComponent(orgConfig))
-
-      for (const key in configObj) {
-        if (configObj.hasOwnProperty(key)) {
-          fileConfigs.push({
-            name: key,
-            lang: configObj[key].lang,
-            content: configObj[key].content,
-          })
-        }
-      }
-
-      return fileConfigs
-    })
-
-    const settingOptions = JSON.parse(decodeURIComponent(props.settings))
-
-    const previewLink: Ref<string> = computed(() => {
-      // 不能直接赋值，应该用 copy, 否则后续的赋值会影响原来的配置，导致 link 不对
-      let playgroundOptions = Object.assign(
-        {},
-        customConfig.mdEnhance?.playground
-      )
-
-      if (settingOptions) {
-        if (typeof playgroundOptions === 'boolean') {
-          playgroundOptions = {}
-        }
-        for (const key in settingOptions) {
-          if (settingOptions.hasOwnProperty(key)) {
-            playgroundOptions[key] = settingOptions[key]
-          }
-        }
-      }
-
-      const { link } = usePlayground(
-        props.config,
-        typeof playgroundOptions === 'boolean' ? null : playgroundOptions
-      )
-      return link
-    })
-
-    const toggleCode = () => {
-      showCode.value = !showCode.value
-    }
-
-    const hideLoading = () => {
-      loading.value = false
-    }
-
-    const items = slots.default ? slots.default() : []
-    // ignore imports and settings, only display the CodeTabs
-    const sourceBlocks = items.filter(
-      (vnode) => (vnode.type as Component).name === 'CodeTabs'
-    )
-
-    onMounted(() => {})
+    const encodedKey = encodeURIComponent(IMPORT_MAP_KEY)
 
     return (): (VNode | null)[] => [
-      h(
-        'div',
-        {
-          ref: playgroundContainer,
-          class: 'playground-container',
+      h(ClientOnly, null, [
+        h(mode === 'internal' ? InternalPlayground : ExternalPlayground, {
           id: props.id,
-        },
-        [
-          h(
-            'div',
-            {
-              class: 'title-container',
-            },
-            [
-              props.title
-                ? h('div', { class: 'playground-title' }, props.title)
-                : null,
-              h('div', { class: 'op-btns' }, [
-                h('a', {
-                  class: 'op-btn',
-                  href: 'javascript:;',
-                  innerHTML: codeSvgString,
-                  onclick: () => toggleCode(),
-                }),
-                h('a', {
-                  class: 'op-btn',
-                  href: previewLink.value,
-                  target: '_blank',
-                  innerHTML: playSvgString,
-                }),
-              ]),
-            ]
+          title: props.title,
+          settings: props.settings,
+          config: props.config.replace(
+            encodedKey,
+            settings[mode as string]?.defaultImportsMap || ''
           ),
-          h(
-            'div',
-            {
-              class: 'preview-container',
-            },
-            [
-              loading.value
-                ? h('div', {
-                    class: ['preview-loading-wrapper'],
-                    innerHTML: loadingSvgString,
-                  })
-                : null,
-              h('iframe', {
-                ref: iframe,
-                class: 'iframe-preview',
-                src: previewLink.value,
-                // for iframe, the iframe.onload event triggers when the iframe loading finished,
-                // both load and in case of an error.
-                onload: () => hideLoading(),
-              }),
-            ]
-          ),
-          h(
-            'div',
-            {
-              class: `source-container ${showCode.value ? 'show' : 'hide'}`,
-            },
-            // [slots.default ? slots.default() : null]
-            sourceBlocks
-          ),
-        ]
-      ),
+        }),
+      ]),
     ]
   },
 })

@@ -44,9 +44,8 @@ tag:
 }
 ```
 
-:::: playground 简单列表过渡
-::: code-tabs
-@tab App.vue
+::: playground 简单列表过渡
+@file App.vue
 
 ```vue
 <template>
@@ -139,9 +138,7 @@ const remove = (item) => {
 </style>
 ```
 
-:::
-
-::: imports
+@imports
 
 ```json
 {
@@ -152,7 +149,6 @@ const remove = (item) => {
 ```
 
 :::
-::::
 
 ## 交错的列表过渡
 
@@ -187,9 +183,8 @@ function onEnter(el, done) {
 }
 ```
 
-:::: playground 交错的列表过渡
-::: code-tabs
-@tab App.vue
+::: playground 交错的列表过渡
+@file App.vue
 
 ```vue
 <script setup>
@@ -254,8 +249,7 @@ const onLeave = (el, done) => {
 </template>
 ```
 
-:::
-::: imports user-imports.json
+@imports user-imports.json
 
 ```json
 {
@@ -266,4 +260,3 @@ const onLeave = (el, done) => {
 ```
 
 :::
-::::

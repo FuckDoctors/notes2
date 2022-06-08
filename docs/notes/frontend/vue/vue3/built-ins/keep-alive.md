@@ -32,9 +32,8 @@ tag:
 </KeepAlive>
 ```
 
-:::: playground KeepAlive 基本用法
-::: code-tabs
-@tab App.vue
+::: playground KeepAlive 基本用法
+@file App.vue
 
 ```vue
 <script setup>
@@ -56,7 +55,7 @@ const current = shallowRef(CompA)
 </template>
 ```
 
-@tab CompA.vue
+@file CompA.vue
 
 ```vue
 <script setup>
@@ -72,7 +71,7 @@ const counter = ref(0)
 </template>
 ```
 
-@tab CompB.vue
+@file CompB.vue
 
 ```vue
 <script setup>
@@ -89,7 +88,6 @@ const msg = ref('')
 ```
 
 :::
-::::
 
 ## 包含 / 排除
 

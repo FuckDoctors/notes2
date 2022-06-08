@@ -8,6 +8,8 @@ import { addViteSsrExternal, addViteOptimizeDepsInclude } from 'vuepress-shared'
 
 import type { MdEnhanceOptions } from './shared'
 import { usePlugins } from './usePlugins'
+import { playground } from './node/markdown-it'
+import { PLAYGROUND_DEFAULT_SETTING } from './shared'
 
 export const mdEnhancePlugin =
   (options: MdEnhanceOptions): PluginFunction =>
@@ -20,17 +22,31 @@ export const mdEnhancePlugin =
 
       define: (): Record<string, unknown> => ({
         MARKDOWN_ENHANCE_DELAY: options.delay || 500,
+
+        PLAYGROUND_OPTIONS: {
+          ...PLAYGROUND_DEFAULT_SETTING,
+          ...(typeof options.playground === 'object' ? options.playground : {}),
+        },
       }),
 
       extendsBundlerOptions: (config: unknown, app: App): void => {
-        if (options.echarts) {
-          addViteOptimizeDepsInclude({ app, config }, ['echarts'])
-          addViteSsrExternal({ app, config }, 'echarts')
+        // if (options.echarts) {
+        //   addViteOptimizeDepsInclude({ app, config }, ['echarts'])
+        //   addViteSsrExternal({ app, config }, 'echarts')
+        // }
+
+        if (options.playground) {
+          addViteOptimizeDepsInclude({ app, config }, '@vue/repl')
+          addViteSsrExternal({ app, config }, '@vue/repl')
         }
       },
 
       // 扩展markdown
-      extendsMarkdown: (markdownIt): void => {},
+      extendsMarkdown: (md): void => {
+        if (options.playground) {
+          md.use(playground)
+        }
+      },
       onInitialized: (app: App): void => {},
       clientConfigFile: path.resolve(__dirname, './client/appEnhance.ts'),
     }

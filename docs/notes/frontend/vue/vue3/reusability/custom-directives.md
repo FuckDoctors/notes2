@@ -19,9 +19,8 @@ tag:
 
 一个自定义指令被定义为一个包含类似于组件的生命周期钩子的对象。钩子接收指令绑定到的元素。下面是一个自定义指令的例子，当一个 input 元素被 Vue 插入到 DOM 中后，它将被聚焦：
 
-:::: playground v-focus 指令
-::: code-tabs
-@tab App.vue
+::: playground v-focus 指令
+@file App.vue
 
 ```vue
 <script>
@@ -43,11 +42,9 @@ export default {
 ```
 
 :::
-::::
 
-:::: playground 组合式 API v-focus 指令
-::: code-tabs
-@tab App.vue
+::: playground 组合式 API v-focus 指令
+@file App.vue
 
 ```vue
 <script setup>
@@ -63,7 +60,6 @@ const vFocus = {
 ```
 
 :::
-::::
 
 和组件类似，自定义指令在模板中使用前必须先注册。在上面的例子中，我们使用 directives 选项完成了指令的局部注册。
 

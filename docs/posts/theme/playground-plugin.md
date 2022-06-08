@@ -134,40 +134,6 @@ export const customConfig: CustomConfig = {
 
 ### 使用主题默认配置的案例
 
-:::: playground Playground demo
-::: code-tabs
-@tab App.vue
-
-```vue
-<script setup>
-import { ref } from 'vue'
-import Comp from './Comp.vue'
-
-const msg = ref('Hello World!')
-</script>
-
-<template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg" />
-  <div>
-    <Comp />
-  </div>
-</template>
-```
-
-@tab Comp.vue
-
-```vue
-<template>
-  <div>Comp</div>
-</template>
-```
-
-:::
-::::
-
-::::: details 代码
-
 ````md
 :::: playground Playground demo
 ::: code-tabs
@@ -202,76 +168,9 @@ const msg = ref('Hello World!')
 ::::
 ````
 
-:::::
-
 ### 使用个别配置的案例
 
 使用个别配置的 `base` 和 `imports`。
-
-:::: playground Element-Plus demo
-::: code-tabs
-@tab App.vue
-
-```vue
-<template>
-  <el-row class="mb-4">
-    <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
-    <el-button>中文</el-button>
-  </el-row>
-  <el-row>
-    <el-button :icon="Search" circle />
-    <el-button type="primary" :icon="Edit" circle />
-    <el-button type="success" :icon="Check" circle />
-    <el-button type="info" :icon="Message" circle />
-    <el-button type="warning" :icon="Star" circle />
-    <el-button type="danger" :icon="Delete" circle />
-  </el-row>
-</template>
-
-<script lang="ts" setup>
-import {
-  Check,
-  Delete,
-  Edit,
-  Message,
-  Search,
-  Star,
-} from '@element-plus/icons-vue'
-</script>
-```
-
-:::
-
-::: imports import_map.json
-
-```json
-{
-  "imports": {
-    "a": "b"
-  }
-}
-```
-
-:::
-
-::: settings
-
-```json
-{
-  "base": "https://element-plus.run/"
-}
-```
-
-:::
-
-::::
-
-::::: details 代码
 
 ````md
 :::: playground Element-Plus demo
@@ -337,5 +236,3 @@ import {
 
 ::::
 ````
-
-:::::

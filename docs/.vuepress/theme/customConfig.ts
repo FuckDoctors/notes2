@@ -10,9 +10,19 @@ export const customConfig: CustomConfig = {
     echarts: false,
     // playground: true,
     playground: {
-      base: 'https://vue-sfc-playground.vercel.app/',
-      option: {
-        showOutput: true,
+      mode: 'external', // 使用外置模式
+      external: {
+        // base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
+        // defaultImportsMap: 'import-map.json',
+        base: 'https://vue-sfc-playground.vercel.app/', // 使用 vue sfc playground.
+        defaultImportsMap: 'user-imports.json',
+      },
+      internal: {
+        defaultImportsMap: 'import-map.json',
+        showCode: false, // 不显示代码
+        showCompileOutput: false, // 不显示 js, css, ssr 面板
+        showImportMap: true, // 显示 import map
+        clearConsole: false, // 不清空控制台
       },
     },
   },

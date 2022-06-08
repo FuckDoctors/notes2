@@ -38,11 +38,9 @@ category:
 
 ## Playground 示例
 
-:::: playground Playground demo
+::: playground Playground demo
 
-::: code-tabs
-
-@tab App.vue
+@file App.vue
 
 ```vue
 <script setup>
@@ -61,7 +59,7 @@ const msg = ref('Hello World!')
 </template>
 ```
 
-@tab Comp.vue
+@file Comp.vue
 
 ```vue
 <template>
@@ -69,9 +67,7 @@ const msg = ref('Hello World!')
 </template>
 ```
 
-:::
-
-::: imports
+@imports
 
 ```json
 {
@@ -83,15 +79,11 @@ const msg = ref('Hello World!')
 
 :::
 
-::::
-
 ## Element-Plus 示例
 
-:::: playground Element-Plus demo
+::: playground Element-Plus demo
 
-::: code-tabs
-
-@tab App.vue
+@file App.vue
 
 ```vue
 <template>
@@ -126,9 +118,7 @@ import {
 </script>
 ```
 
-:::
-
-::: imports import_map.json
+@imports import_map.json
 
 ```json
 {
@@ -138,9 +128,7 @@ import {
 }
 ```
 
-:::
-
-::: settings
+@settings
 
 ```json
 {
@@ -149,5 +137,3 @@ import {
 ```
 
 :::
-
-::::
