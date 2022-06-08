@@ -138,9 +138,7 @@ const remove = (item) => {
 </style>
 ```
 
-:::
-
-::: imports
+@imports
 
 ```json
 {
@@ -251,7 +249,6 @@ const onLeave = (el, done) => {
 </template>
 ```
 
-:::
 @imports user-imports.json
 
 ```json

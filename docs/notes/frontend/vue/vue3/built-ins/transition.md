@@ -550,8 +550,7 @@ function onLeave(el, done) {
 </style>
 ```
 
-:::
-::: imports user-imports.json
+@imports user-imports.json
 
 ```json
 {
@@ -731,7 +730,7 @@ const transitionName = ref('fade')
 </template>
 ```
 
-@tab CompB.vue
+@file CompB.vue
 
 ```vue
 <template>
