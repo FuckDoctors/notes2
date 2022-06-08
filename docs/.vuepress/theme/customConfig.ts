@@ -12,8 +12,10 @@ export const customConfig: CustomConfig = {
     playground: {
       mode: 'external', // 使用外置模式
       external: {
-        base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
-        defaultImportsMap: 'import-map.json',
+        // base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.
+        // defaultImportsMap: 'import-map.json',
+        base: 'https://vue-sfc-playground.vercel.app/', // 使用 vue sfc playground.
+        defaultImportsMap: 'user-imports.json',
       },
       internal: {
         defaultImportsMap: 'import-map.json',

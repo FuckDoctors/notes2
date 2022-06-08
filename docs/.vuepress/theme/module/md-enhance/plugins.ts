@@ -30,10 +30,10 @@ export const mdEnhancePlugin =
       }),
 
       extendsBundlerOptions: (config: unknown, app: App): void => {
-        if (options.echarts) {
-          addViteOptimizeDepsInclude({ app, config }, ['echarts'])
-          addViteSsrExternal({ app, config }, 'echarts')
-        }
+        // if (options.echarts) {
+        //   addViteOptimizeDepsInclude({ app, config }, ['echarts'])
+        //   addViteSsrExternal({ app, config }, 'echarts')
+        // }
 
         if (options.playground) {
           addViteOptimizeDepsInclude({ app, config }, '@vue/repl')

@@ -33,7 +33,7 @@ export default defineComponent({
           settings: props.settings,
           config: props.config.replace(
             encodedKey,
-            settings.internal?.defaultImportsMap || ''
+            settings[mode as string]?.defaultImportsMap || ''
           ),
         }),
       ]),

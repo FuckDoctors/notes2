@@ -138,6 +138,27 @@ module.exports = {
 
 #### 基本用法
 
+::: playground 基础用法
+
+@file App.vue
+
+```vue
+<script setup>
+import { ref } from 'vue'
+
+const msg = ref('Hello World!')
+</script>
+
+<template>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg" />
+</template>
+```
+
+:::
+
+:::: details 代码
+
 ````md
 ::: playground 基础用法
 
@@ -158,6 +179,8 @@ const msg = ref('Hello World!')
 
 :::
 ````
+
+::::
 
 #### 高级用法
 
