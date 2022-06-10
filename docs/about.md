@@ -32,5 +32,5 @@ head:
 
 ## 联系方式
 
-- 邮件：[zhbchwin@163.com](mailto:zhbchwin@163.com)
+- 邮件：[hi@zhaobc.site](mailto:hi@zhaobc.site)
 - GitHub: [FuckDoctors](http://github.com/FuckDoctors)

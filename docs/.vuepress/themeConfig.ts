@@ -27,7 +27,7 @@ export const themeOptions: HopeThemeOptions = {
 
   blog: {
     medias: {
-      Email: 'mailto:zhbchwin@163.com',
+      Email: 'mailto:hi@zhaobc.site',
       GitHub: 'https://github.com/FuckDoctors',
     },
   },

@@ -31,5 +31,5 @@ With no hobbies, but indeed, having interests in something.
 
 ## Contact
 
-- Mail: [zhbchwin@163.com](mailto:zhbchwin@163.com)
+- Mail: [hi@zhaobc.site](mailto:hi@zhaobc.site)
 - GitHub: [FuckDoctors](http://github.com/FuckDoctors)
