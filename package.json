@@ -31,10 +31,10 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.0.14",
     "prism-theme-vars": "^0.2.3",
-    "vue": "^3.2.36",
+    "vue": "^3.2.37",
     "vue-demi": "^0.12.5",
     "vue-i18n": "^9.1.10",
-    "vue-router": "^4.0.15"
+    "vue-router": "^4.0.16"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.19.4",
@@ -50,7 +50,7 @@
     "@types/postcss-import": "^14.0.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/test-utils": "^2.0.0",
-    "@vuepress/plugin-docsearch": "^2.0.0-beta.46",
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.48",
     "autoprefixer": "^10.4.7",
     "commitizen": "^4.2.4",
     "critters": "^0.0.16",
@@ -72,7 +72,7 @@
     "markdownlint": "^0.25.1",
     "markdownlint-cli": "^0.31.1",
     "pangu": "^4.0.7",
-    "pnpm": "^7.1.9",
+    "pnpm": "^7.2.1",
     "postcss": "^8.4.14",
     "postcss-html": "^1.4.1",
     "postcss-import": "^14.1.0",
@@ -84,8 +84,8 @@
     "remark-preset-lint-consistent": "^5.1.1",
     "remark-preset-lint-recommended": "^6.1.2",
     "remark-validate-links": "^11.0.2",
-    "sass": "^1.52.2",
-    "stylelint": "^14.8.5",
+    "sass": "^1.52.3",
+    "stylelint": "^14.9.1",
     "stylelint-config-html": "^1.0.0",
     "stylelint-config-hudochenkov": "^6.0.1",
     "stylelint-config-prettier": "^9.0.3",
@@ -94,7 +94,7 @@
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.2.0",
-    "tailwindcss": "^3.0.24",
+    "tailwindcss": "^3.1.2",
     "textlint": "^12.1.1",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-no-todo": "^2.0.1",
@@ -105,7 +105,7 @@
     "unplugin-icons": "^0.14.3",
     "unplugin-vue-components": "^0.18.5",
     "vfile-reporter": "^7.0.4",
-    "vite": "^2.9.9",
+    "vite": "^2.9.12",
     "vite-plugin-inspect": "^0.4.3",
     "vite-plugin-md": "^0.12.4",
     "vite-plugin-pages": "^0.22.0",
@@ -115,8 +115,8 @@
     "vite-ssg": "^0.19.2",
     "vitest": "^0.8.5",
     "vue-tsc": "^0.33.9",
-    "vuepress": "^2.0.0-beta.46",
-    "vuepress-theme-hope": "^2.0.0-beta.79"
+    "vuepress": "^2.0.0-beta.48",
+    "vuepress-theme-hope": "^2.0.0-beta.82"
   },
   "pnpm": {
     "peerDependencyRules": {
