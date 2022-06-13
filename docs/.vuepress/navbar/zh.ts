@@ -42,6 +42,7 @@ export const zh = navbar([
           },
         ],
       },
+      { text: '其他', link: 'other/' },
     ],
     activeMatch: '^/notes',
   },

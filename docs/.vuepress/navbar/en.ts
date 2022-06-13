@@ -42,6 +42,7 @@ export const en = navbar([
           },
         ],
       },
+      { text: 'Other', link: 'other/' },
     ],
     activeMatch: '^/en/notes',
   },
