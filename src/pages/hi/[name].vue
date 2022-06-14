@@ -38,6 +38,13 @@ watchEffect(() => {
     </template>
 
     <div>
+      <Counter :initial="35" />
+    </div>
+    <div>
+      <CounterRefSugar :initial="35" />
+    </div>
+
+    <div>
       <button class="btn m-3 text-sm mt-6" @click="router.back()">
         {{ t('button.back') }}
       </button>

@@ -3,7 +3,10 @@ const props = defineProps<{
   initial: number
 }>()
 
-const { count, inc, dec } = useCounter(props.initial)
+let count = $ref(props.initial)
+
+const inc = () => count++
+const dec = () => count--
 </script>
 
 <template>
