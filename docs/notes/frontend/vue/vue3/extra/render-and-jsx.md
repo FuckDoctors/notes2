@@ -76,12 +76,11 @@ export default {
     // props
   },
   setup(props) {
-
     const count = ref(0)
 
     // 返回渲染函数
     return () => h('div', props.msg + count.value)
-  }
+  },
 }
 ```
 
@@ -93,12 +92,8 @@ import { h } from 'vue'
 export default {
   setup() {
     // 使用数组返回多个根节点
-    return () => [
-      h('div'),
-      h('div'),
-      h('div')
-    ]
-  }
+    return () => [h('div'), h('div'), h('div')]
+  },
 }
 ```
 
@@ -114,7 +109,7 @@ function render() {
   return h('div', [
     // 啊哦，重复的 vnodes 是无效的
     p,
-    p
+    p,
   ])
 }
 ```
@@ -167,7 +162,7 @@ h('div', [ok.value ? h('div', 'yes') : h('span', 'no')])
 ```
 
 ```jsx
-<div>{ ok.value ? <div>yes</div> : <span>no</span> }</div>
+<div>{ok.value ? <div>yes</div> : <span>no</span>}</div>
 ```
 
 #### `v-for`
@@ -176,9 +171,7 @@ h('div', [ok.value ? h('div', 'yes') : h('span', 'no')])
 
 ```html
 <ul>
-  <li v-for="{ id, text } in items" :key="id">
-    {{ text }}
-  </li>
+  <li v-for="{ id, text } in items" :key="id">{{ text }}</li>
 </ul>
 ```
 
@@ -195,11 +188,9 @@ h(
 
 ```jsx
 <ul>
-  {
-    items.value.map(({ id, text }) => {
-      return <li id={ id }>{ text }</li>
-    })
-  }
+  {items.value.map(({ id, text }) => {
+    return <li id={id}>{text}</li>
+  })}
 </ul>
 ```
 
@@ -213,7 +204,7 @@ h(
   {
     onClick(event) {
       // ...
-    }
+    },
   },
   'click me'
 )
@@ -221,11 +212,9 @@ h(
 
 ```jsx
 <button
-  onClick={
-    (event) => {
-      // ...
-    }
-  }
+  onClick={(event) => {
+    // ...
+  }}
 >
   click me
 </button>
@@ -247,7 +236,7 @@ h('input', {
   },
   onMouseoverOnceCapture() {
     // 单次 + 捕捉
-  }
+  },
 })
 ```
 
@@ -270,9 +259,7 @@ h('div', {
 ```
 
 ```jsx
-<div
-  onClick={ withModifiers(() => {}, ['self']) }
-></div>
+<div onClick={withModifiers(() => {}, ['self'])}></div>
 ```
 
 ### 组件
@@ -309,7 +296,7 @@ import Foo from './Foo.vue'
 import Bar from './Bar.jsx'
 
 function render() {
-    return ok.value ? h(Foo) : h(Bar)
+  return ok.value ? h(Foo) : h(Bar)
 }
 ```
 
@@ -339,11 +326,11 @@ export default {
       h(
         'div',
         slots.footer({
-          text: props.message
+          text: props.message,
         })
-      )
+      ),
     ]
-  }
+  },
 }
 ```
 
@@ -373,7 +360,7 @@ h(MyComponent, () => 'hello')
 h(MyComponent, null, {
   default: () => 'default slot',
   foo: () => h('div', 'foo'),
-  bar: () => [h('span', 'one'), h('span', 'two')]
+  bar: () => [h('span', 'one'), h('span', 'two')],
 })
 ```
 
@@ -408,9 +395,9 @@ h(MyComponent, null, {
 import { h, KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
 
 export default {
-  setup () {
-    return () => h(Transition, { mode: 'out-in' }, /* ... */)
-  }
+  setup() {
+    return () => h(Transition, { mode: 'out-in' } /* ... */)
+  },
 }
 ```
 
@@ -423,11 +410,12 @@ export default {
   props: ['modelValue'],
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    return () => h(SomeComponent, {
-      modelValue: props.modelValue,
-      'onUpdate:modelValue': (value) => emit('update:modelValue', value)
-    })
-  }
+    return () =>
+      h(SomeComponent, {
+        modelValue: props.modelValue,
+        'onUpdate:modelValue': (value) => emit('update:modelValue', value),
+      })
+  },
 }
 ```
 
@@ -449,9 +437,7 @@ const pin = {
 }
 
 // <div v-pin:top.animate="200"></div>
-const vnode = withDirectives(h('div'), [
-  [pin, 200, 'top', { animate: true }]
-])
+const vnode = withDirectives(h('div'), [[pin, 200, 'top', { animate: true }]])
 ```
 
 当一个指令是以名称注册并且不能被直接导入时，可以使用 `resolveDirective` 函数来解决这个问题。
