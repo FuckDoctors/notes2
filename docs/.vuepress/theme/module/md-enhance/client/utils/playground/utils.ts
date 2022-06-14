@@ -26,6 +26,11 @@ export const DEFAULT_PLAYGROUND_SETTINGS: PlaygroundOptions = {
     showCompileOutput: false,
     showImportMap: true,
     clearConsole: false,
+    sfcOptions: {
+      script: {
+        reactivityTransform: true,
+      },
+    },
   },
 }
 
