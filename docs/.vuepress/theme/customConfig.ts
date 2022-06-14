@@ -16,6 +16,9 @@ export const customConfig: CustomConfig = {
         // defaultImportsMap: 'import-map.json',
         base: 'https://vue-sfc-playground.vercel.app/', // 使用 vue sfc playground.
         defaultImportsMap: 'user-imports.json',
+        options: {
+          showOutput: 'true',
+        },
       },
       internal: {
         defaultImportsMap: 'import-map.json',
