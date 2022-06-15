@@ -9,7 +9,7 @@ tag:
   - vue3
 ---
 
-# Render Functions & JSX
+# 渲染函数 & JSX
 
 在绝大多数情况下，Vue 推荐使用模板语法来搭建 HTML。然而在某些使用场景下，我们真的需要用到 JavaScript 完全的编程能力。这时渲染函数就派上用场了。
 

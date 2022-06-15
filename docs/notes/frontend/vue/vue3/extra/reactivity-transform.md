@@ -9,7 +9,7 @@ tag:
   - vue3
 ---
 
-# Reactivity Transform
+# 响应性语法糖
 
 响应性语法糖目前是一个实验性功能，默认是禁用的，需要显式选择使用。
 
@@ -155,7 +155,7 @@ const {
   count = 1,
   // 解构时命别名
   // 这里我们将 props.foo 命名未 bar
-  foo: bar
+  foo: bar,
 } = defineProps<Props>()
 
 watchEffect(() => {
@@ -184,7 +184,7 @@ watchEffect(() => {
 
 ## 保持在函数间的响应性
 
-虽然响应式变量使我们可以不再受 `.value` 的困扰，但它也使得我们在函数间传递响应式变量时可能造成**“响应性丢失”***的问题。
+虽然响应式变量使我们可以不再受 `.value` 的困扰，但它也使得我们在函数间传递响应式变量时可能造成**“响应性丢失”\***的问题。
 这可能在以下两种场景中出现：
 
 ### 以参数形式传入函数
@@ -241,7 +241,7 @@ function useMouse() {
   // 不起效！
   return {
     x,
-    y
+    y,
   }
 }
 ```
@@ -251,7 +251,7 @@ function useMouse() {
 ```js
 return {
   x: x.value,
-  y: y.value
+  y: y.value,
 }
 ```
 
@@ -271,7 +271,7 @@ function useMouse() {
   // 修改后起效
   return $$({
     x,
-    y
+    y,
   })
 }
 ```

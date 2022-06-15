@@ -9,7 +9,7 @@ tag:
   - vue3
 ---
 
-# Composition API
+# 组合式 API FAQ
 
 ## 什么是组合式 API？
 

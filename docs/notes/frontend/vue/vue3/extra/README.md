@@ -16,4 +16,5 @@ tag:
 
 - [Composition API FAQ](./composition-api.md)
 - [Render Function & JSX](./render-and-jsx.md)
+- [Animation Techniques](./animation.md)
 - [Reactivity Transform](./reactivity-transform.md)
