@@ -35,6 +35,13 @@ export default defineUserConfig({
         href: '//at.alicdn.com/t/font_3294373_aaebeoej8c7.css',
       },
     ],
+    [
+      'script',
+      {
+        // 百度统计
+        src: '//hm.baidu.com/hm.js?85e80625eddf91d81d9535565850722b',
+      },
+    ],
   ],
 
   locales: {
