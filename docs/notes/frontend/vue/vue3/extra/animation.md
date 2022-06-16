@@ -93,7 +93,7 @@ import { ref } from 'vue'
 const x = ref(0)
 
 function onMousemove(e) {
-  x.value = e.clientX;
+  x.value = e.clientX
 }
 </script>
 
@@ -145,12 +145,12 @@ import gsap from 'gsap'
 
 const number = ref(0)
 const tweened = reactive({
-  number: 0
+  number: 0,
 })
 watch(number, (n) => {
   gsap.to(tweened, {
     duration: 0.5,
-    number: Number(n) || 0
+    number: Number(n) || 0,
   })
 })
 </script>

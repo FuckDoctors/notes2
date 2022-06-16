@@ -38,10 +38,10 @@ export const useCounterStore = defineStore('counter', {
     }
   },
   // could also be defined as
-  // state: () => ({ counter: 0 })
+  // state: () => ({ count: 0 })
   actions: {
     increment() {
-      this.counter++
+      this.count++
     },
   },
 })
@@ -58,12 +58,55 @@ export default {
     counter.count++
 
     // with autocompletion
-    counter.$path({ count: counter.count + 1 })
+    counter.$patch({ count: counter.count + 1 })
     // or using a action instead
     counter.increment()
   },
 }
 ```
+
+::: playground Basic example
+
+@file App.vue
+
+```vue
+<script setup>
+import { useCounterStore } from './counterStore.js'
+
+const counter = useCounterStore()
+counter.count++
+
+counter.$patch({
+  count: counter.count + 1
+})
+counter.increment()
+</script>
+
+<template>
+  <div>Count: {{ counter.count }}</div>
+</template>
+```
+
+@file counterStore.js
+
+```js
+import { defineStore } from 'pinia'
+
+export const useCounterStore = defineStore('counter', {
+  state: () => {
+    return {
+      count: 0
+    }
+  },
+  actions: {
+    increment() {
+      this.count++
+    }
+  }
+})
+```
+
+:::
 
 You can even use a function (similar to a component `setup()`) to define a Store for more advanced use cases:
 
@@ -80,6 +123,49 @@ export const useCounterStore = defineStore('counter', () => {
   }
 })
 ```
+
+::: playground setup example
+
+@file App.vue
+
+```vue
+<script setup>
+import { useCounterStore } from './counterStore.js'
+
+const counter = useCounterStore()
+counter.count++
+
+counter.$patch({
+  count: counter.count + 1
+})
+counter.increment()
+</script>
+
+<template>
+  <div>Count: {{ counter.count }}</div>
+</template>
+```
+
+@file counterStore.js
+
+```js
+import { ref } from 'vue'
+import { defineStore } from 'pinia'
+
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0)
+  function increment() {
+    count.value++
+  }
+
+  return {
+    count,
+    increment
+  }
+})
+```
+
+:::
 
 If you are still not into `setup()` and Composition API,
 don't worry, Pinia also support a similar set of map helpers like Vuex.
@@ -117,6 +203,82 @@ export default {
   },
 }
 ```
+
+::: playground Option API example
+
+@file App.vue
+
+```vue
+<script>
+import { mapStores, mapState, mapActions } from 'pinia'
+
+import { useCounterStore } from './counterStore.js'
+import { useUserStore } from './userStore.js'
+
+export default {
+  computed: {
+    ...mapStores(useCounterStore, useUserStore),
+    ...mapState(useCounterStore, ['count', 'double'])
+  },
+  methods: {
+    ...mapActions(useCounterStore, ['increment'])
+  }
+}
+</script>
+
+<template>
+  <div>
+    <div>Hi {{ userStore.name }}, age: {{ userStore.age }}</div>
+    <div>Count: {{ count }}, double: {{ double }}</div>
+    <button @click="increment">increment</button>
+  </div>
+</template>
+```
+
+@file counterStore.js
+
+```js
+import { defineStore } from 'pinia'
+
+export const useCounterStore = defineStore('counter', {
+  state: () => ({
+    count: 0
+  }),
+  getters: {
+    double: (state) => state.count * 2
+  },
+  actions: {
+    increment() {
+      this.count++
+    }
+  }
+})
+```
+
+@file userStore.js
+
+```js
+import { defineStore } from 'pinia'
+
+export const useUserStore = defineStore('user', {
+  state: () => ({
+    name: 'zhaobc',
+    age: 18,
+    isLogin: false,
+    roles: []
+  }),
+  getters: {
+    isAdmin: (state) => state.roles.includes('admin')
+  },
+  actions: {
+    login() {
+      this.isLogin = true
+    }
+  }
+})
+```
+
+:::
 
 ## A more realistic example
 

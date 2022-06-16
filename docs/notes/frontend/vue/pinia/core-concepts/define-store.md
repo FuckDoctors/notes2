@@ -72,6 +72,54 @@ export default defineComponent({
 })
 ```
 
+::: playground Destructure example
+
+@file App.vue
+
+```vue
+<script setup>
+import { computed } from 'vue'
+import { useStore } from './store.js'
+
+const store = useStore()
+
+let { name, doubleCount } = store
+const { increment } = store
+const doubleValue = computed(() => store.doubleCount)
+</script>
+
+<template>
+  <div>Name: {{ name }} &lt;- not reactive </div>
+  <div>Double count: {{ doubleCount }} &lt;- not reactive</div>
+  <div>Double value: {{ doubleValue }} &lt;- reactive</div>
+  <button @click="name = 'bin'">change name</button>
+  <button @click="increment">increment</button>
+</template>
+```
+
+@file store.js
+
+```js
+import { defineStore } from 'pinia'
+
+export const useStore = defineStore('test', {
+  state: () => ({
+    name: 'zhaobc',
+    count: 0,
+  }),
+  getters: {
+    doubleCount: (state) => state.count * 2
+  },
+  actions: {
+    increment() {
+      this.count++
+    }
+  }
+})
+```
+
+:::
+
 In order to extract properties from the store while keeping its reactivity, you need to use `storeToRefs()`.
 It will create refs for every reactive property.
 Note you can destructure actions directly from the store as they are bound to the store itself too:
@@ -98,3 +146,52 @@ export default defineComponent({
   },
 })
 ```
+
+::: playground Destructure example using storeToRefs
+
+@file App.vue
+
+```vue
+<script setup>
+import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useStore } from './store.js'
+
+const store = useStore()
+
+const { name, doubleCount } = storeToRefs(store)
+const { increment } = store
+const doubleValue = computed(() => store.doubleCount)
+</script>
+
+<template>
+  <div>Name: {{ name }} &lt;- reactive </div>
+  <div>Double count: {{ doubleCount }} &lt;- reactive</div>
+  <div>Double value: {{ doubleValue }} &lt;- reactive</div>
+  <button @click="name = 'bin'">change name</button>
+  <button @click="increment">increment</button>
+</template>
+```
+
+@file store.js
+
+```js
+import { defineStore } from 'pinia'
+
+export const useStore = defineStore('test', {
+  state: () => ({
+    name: 'zhaobc',
+    count: 0,
+  }),
+  getters: {
+    doubleCount: (state) => state.count * 2
+  },
+  actions: {
+    increment() {
+      this.count++
+    }
+  }
+})
+```
+
+:::
