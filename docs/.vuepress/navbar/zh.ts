@@ -20,6 +20,7 @@ export const zh = navbar([
           { text: 'JavaScript', link: 'js/' },
           { text: 'TypeScript', link: 'ts/' },
           { text: 'Vue', link: 'vue/' },
+          { text: 'Pinia', link: 'vue/pinia/' },
           { text: '更多', link: '' },
         ],
       },

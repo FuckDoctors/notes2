@@ -31,4 +31,8 @@ Vue 学习笔记
 
   本书源代码: <https://github.com/HcySunYang/code-for-vue-3-book>
 
+- [Pinia 学习笔记](./pinia/)
+
+  只是照着官方指南敲了敲代码
+
 <!-- more -->

@@ -20,6 +20,7 @@ export const en = navbar([
           { text: 'JavaScript', link: 'js/' },
           { text: 'TypeScript', link: 'ts/' },
           { text: 'Vue', link: 'vue/' },
+          { text: 'Pinia', link: 'vue/pinia/' },
           { text: 'more', link: '' },
         ],
       },
