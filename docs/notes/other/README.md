@@ -132,7 +132,9 @@ import {
 
 ```json
 {
-  "base": "https://element-plus.run/"
+  "external": {
+    "base": "https://element-plus.run/"
+  }
 }
 ```
 
