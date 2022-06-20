@@ -146,3 +146,173 @@ pinia.use((store) => {
   store.router = markRaw(router)
 })
 ```
+
+## Calling `$subscribe` inside plugins
+
+You can use [`store.$subscribe`](https://pinia.vuejs.org/core-concepts/state.html#subscribing-to-the-state) and [`store.$onAction`](https://pinia.vuejs.org/core-concepts/actions.html#subscribing-to-actions) inside plugins too:
+
+```js
+pinia.use(({ store }) => {
+  store.$subscribe(() => {
+    // react to store changes
+  })
+  store.$onAction(() => {
+    // react to store anctions
+  })
+})
+```
+
+## Adding new options
+
+It is possible to create new options when defining stores to later on consume them from plugins.
+
+For example, you could create a `debounce` option that allows you to debounce any action:
+
+```js
+const useSearchStore = defineStore('search', {
+  actions: {
+    searchContacts() {
+      // ...
+    }
+  }
+  // this will be read by a plugin later on
+  debounce: {
+    // debounce the action searchContacts by 300ms
+    searchContacts: 300
+  }
+})
+```
+
+The plugin can then read that option to wrap actions and replace the original ones:
+
+```js
+// use any debounce library
+import debounce from 'loadash/debounce'
+
+pinia.use(({ options, store }) => {
+  if (options.debounce) {
+    // we are overriding the actions with new ones
+    return Object.keys(options.debounce).reduce((debounceActions, action) => {
+      debounceActions[action] = debounce(
+        store[action],
+        options.debounce[action]
+      )
+    })
+  }
+})
+```
+
+Note that custom options are passed as the 3rd argument when using the setup syntax:
+
+```js
+defineStore(
+  'search',
+  () => {
+    // ...
+  },
+  {
+    // this will be read by a plugin later on
+    debounce: {
+      searchContacts: 300
+    }
+  }
+)
+```
+
+## TypeScript
+
+### A Pinia plugin can be typed as follows
+
+```ts
+import { PiniaPluginContext } from 'pinia'
+
+export function myPiniaPlugin(context: PiniaPluginContext) {
+  // ...
+}
+```
+
+### Typing new store properties
+
+When adding new properties to stores, you should also extend the `PiniaCustomProperties` interface.
+
+```ts
+import 'pinia'
+
+declare module 'pinia' {
+  export interface PiniaCustomProperties {
+    // by using a setter we can allow string and refs
+    set hello(value: string | Ref<string>)
+    get hello(): string
+
+    // you can define simpler value too
+    simpleNumber: number
+  }
+}
+```
+
+It can then be written and read safely:
+
+```ts
+pinia.use(({ store }) => {
+  store.hello = 'hola'
+  store.hello = ref('hola')
+
+  store.simpleNumber = Math.random()
+  // @ts-expect-error: we haven't typed this correctlly
+  sotre.simpleNumber = ref<Math.random>
+})
+```
+
+`PiniaCustomProperties` is a generic type that allows you to reference properties of a store.
+
+```ts
+pinia.use(({ options }) => ({ $options options }))
+```
+
+We can properly type this by using the 4 generic types of `PiniaCustomProperties:`
+
+```ts
+import 'pinia'
+
+declare module 'pinia' {
+  export interface PiniaCustomProperties<Id, S, G, A) {
+    $options: {
+      id: Id,
+      state?: () => s
+      options? A
+    }
+
+  }
+}
+```
+
+### Typing new state
+
+When adding new state properties (to both, the `store` and `store.$state`), you need to add the type to `PiniaCustomStateProperties` instead. Differently from `PiniaCustomProperties`, it only receives the State generic:
+
+```ts
+import 'pinia'
+
+declare module 'pinia' {
+  export interface DefineCustomStateProperties<S> {
+    hello: string
+  }
+}
+```
+
+### Typing new creation options
+
+When creating new options for `defineStore()`, you should extend the `DefineStoreOptionsBase`.
+Differently from `PiniaCustomProperties`, it only exposes two generics: the State and the Store type, allowing you to limit what can be defined.
+For example, you can use the names of the actions:
+
+```ts
+import 'pinia'
+
+define module 'pinia' {
+  export interface DefineStoreOptionsBase<S, Store> {
+    // allow defining a number of ms for any of the actions
+    debounce?: Partial<Record<keyof StoreActions<Store>, number>>
+  }
+}
+```
