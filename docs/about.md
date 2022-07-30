@@ -19,7 +19,7 @@ head:
 
 网络用名：`zhbchwin`，`UJN-Bin`。~~`FuckDoctors`（确实痛恨无良医生，请见谅，请忽略）~~
 
-真实名称`Zhao Binchen`，所以才用了此域名[zhaobc.site](https://zhaobc.site)。
+真实名称`Zhao Binchen`，所以才用了此域名[zhaobc.site](https://www.zhaobc.site)。
 
 <div style="display: flex;justify-content: center;">
   <iframe :src="$withBase('/zhaobc.site/index.html')" style="border:none;height:auto;width:305px;height:115px;" />

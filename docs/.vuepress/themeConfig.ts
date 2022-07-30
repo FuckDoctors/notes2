@@ -5,14 +5,14 @@ import * as navbar from './navbar'
 import * as sidebar from './sidebar'
 import { pwa } from './plugin-config'
 
-const hostname = process.env.HOSTNAME || 'https://zhaobc.site'
+const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
 export const themeOptions: HopeThemeOptions = {
   hostname,
 
   author: {
     name: 'Zhao Bin',
-    url: 'https://zhaobc.site',
+    url: 'https://www.zhaobc.site',
   },
 
   iconPrefix: 'iconfont icon-',
