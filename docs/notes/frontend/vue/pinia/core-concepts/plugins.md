@@ -30,7 +30,7 @@ import { createPinia } from 'pinia'
 // this could be a different file
 function SecretPiniaPlugin() {
   return {
-    secret: 'the cake is a lie'
+    secret: 'the cake is a lie',
   }
 }
 
@@ -69,7 +69,7 @@ You can add properties to every store by simply returning an object of them in a
 
 ```js
 pinia.use(() => ({
-  hello: 'world'
+  hello: 'world',
 }))
 ```
 
@@ -213,8 +213,8 @@ defineStore(
   {
     // this will be read by a plugin later on
     debounce: {
-      searchContacts: 300
-    }
+      searchContacts: 300,
+    },
   }
 )
 ```

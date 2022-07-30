@@ -23,9 +23,9 @@ const useStore = defineStore('storeId', {
       // all these properties will have their type inferred automatically
       counter: 0,
       name: 'Eduardo',
-      isAdmin: true
+      isAdmin: true,
     }
-  }
+  },
 })
 ```
 
@@ -46,7 +46,7 @@ store.counter++
 
 ## Resetting the state
 
-You can *reset* the state to its initial value by calling the `$reset()` method on the store:
+You can _reset_ the state to its initial value by calling the `$reset()` method on the store:
 
 ```js
 const store = useStore()
@@ -57,12 +57,12 @@ store.$reset()
 
 ```js
 // src/stores/counterStore.js
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 const useCounterStore = defineStore('counterStore', {
   state: () => ({
-    counter: 0
-  })
+    counter: 0,
+  }),
 })
 ```
 
@@ -70,8 +70,8 @@ If you are not using the Composition API, and you are using `computed`, `methods
 you can use the `mapState()` helper to map state properties as readonly computed properties:
 
 ```js
-import { mapState } from 'pinia';
-import { useCounterStore } from '@/stores/counterStore';
+import { mapState } from 'pinia'
+import { useCounterStore } from '@/stores/counterStore'
 
 export default {
   computed: {
@@ -82,13 +82,13 @@ export default {
     ...mapState(useCounterStore, {
       myOwnName: 'counter',
       // you can also write a function that gets access to the store
-      double: store => store.counter * 2,
+      double: (store) => store.counter * 2,
       // it can have access to `this` but it won't be typed correctlly
       magicValue(store) {
         return store.someGetter + this.counter + this.double
-      }
-    })
-  }
+      },
+    }),
+  },
 }
 ```
 
@@ -136,12 +136,12 @@ export default {
     ...mapWritableState(useCounterStore, ['count']),
     ...mapState(useCounterStore, ['doubleCount']),
     ...mapWritableState(useCounterStore, {
-      myCounter: 'count'
-    })
+      myCounter: 'count',
+    }),
   },
   methods: {
-    ...mapActions(useCounterStore, ['increment'])
-  }
+    ...mapActions(useCounterStore, ['increment']),
+  },
 }
 </script>
 
@@ -162,16 +162,16 @@ import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
-    count: 0
+    count: 0,
   }),
   getters: {
-    doubleCount: (state) => state.count * 2
+    doubleCount: (state) => state.count * 2,
   },
   actions: {
     increment() {
       this.count++
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -185,7 +185,7 @@ It allows you to apply multiple changes at the same time with a partial state ob
 ```js
 store.$patch({
   counter: store.counter + 1,
-  name: 'zhaobc'
+  name: 'zhaobc',
 })
 ```
 
@@ -197,7 +197,7 @@ Because of this, the `$patch` method also accepts a function to group this kind 
 cartStore.$patch((state) => {
   state.items.push({
     name: 'shoes',
-    quantity: 1
+    quantity: 1,
   })
   state.hasChanged = true
 })
@@ -210,7 +210,7 @@ You can replace the whole state of a store by setting its `$state` property to a
 ```js
 store.$state = {
   counter: 666,
-  name: 'zhaobc'
+  name: 'zhaobc',
 }
 ```
 
@@ -251,17 +251,21 @@ export default {
 
     // this subscription will be kept after the component is unmounted
     someStore.$subscribe(callback, { detached: true })
-  }
+  },
 }
 ```
 
 You can watch the whole state on the pinia instance:
 
 ```js
-watch(pinia.state, (state) => {
-  // persist the whole state to the local storage whenever it changes
-  localStorage.setItem('piniaState', JSON.stringify(state))
-}, {
-  deep: true
-})
+watch(
+  pinia.state,
+  (state) => {
+    // persist the whole state to the local storage whenever it changes
+    localStorage.setItem('piniaState', JSON.stringify(state))
+  },
+  {
+    deep: true,
+  }
+)
 ```

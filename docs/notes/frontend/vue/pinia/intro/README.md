@@ -77,7 +77,7 @@ const counter = useCounterStore()
 counter.count++
 
 counter.$patch({
-  count: counter.count + 1
+  count: counter.count + 1,
 })
 counter.increment()
 </script>
@@ -95,14 +95,14 @@ import { defineStore } from 'pinia'
 export const useCounterStore = defineStore('counter', {
   state: () => {
     return {
-      count: 0
+      count: 0,
     }
   },
   actions: {
     increment() {
       this.count++
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -136,7 +136,7 @@ const counter = useCounterStore()
 counter.count++
 
 counter.$patch({
-  count: counter.count + 1
+  count: counter.count + 1,
 })
 counter.increment()
 </script>
@@ -160,7 +160,7 @@ export const useCounterStore = defineStore('counter', () => {
 
   return {
     count,
-    increment
+    increment,
   }
 })
 ```
@@ -218,11 +218,11 @@ import { useUserStore } from './userStore.js'
 export default {
   computed: {
     ...mapStores(useCounterStore, useUserStore),
-    ...mapState(useCounterStore, ['count', 'double'])
+    ...mapState(useCounterStore, ['count', 'double']),
   },
   methods: {
-    ...mapActions(useCounterStore, ['increment'])
-  }
+    ...mapActions(useCounterStore, ['increment']),
+  },
 }
 </script>
 
@@ -242,16 +242,16 @@ import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
-    count: 0
+    count: 0,
   }),
   getters: {
-    double: (state) => state.count * 2
+    double: (state) => state.count * 2,
   },
   actions: {
     increment() {
       this.count++
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -265,16 +265,16 @@ export const useUserStore = defineStore('user', {
     name: 'zhaobc',
     age: 18,
     isLogin: false,
-    roles: []
+    roles: [],
   }),
   getters: {
-    isAdmin: (state) => state.roles.includes('admin')
+    isAdmin: (state) => state.roles.includes('admin'),
   },
   actions: {
     login() {
       this.isLogin = true
-    }
-  }
+    },
+  },
 })
 ```
 

@@ -27,7 +27,7 @@ const api = mande('/api/users')
 export const useUsers = defineStore('users', {
   state: () => ({
     userData: null,
-    preferences: null
+    preferences: null,
   }),
 
   actions: {
@@ -41,8 +41,8 @@ export const useUsers = defineStore('users', {
       if (auth.isAuthenticated) {
         this.preferences = await fetchPreferences()
       }
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -80,7 +80,7 @@ const unsubscribe = someStore.$onAction(
     store, // store instance, same as 'someStore'
     args, // array of parameters passed to the action
     after, // hook after the action returns or resolves
-    onError // hook if the action throws or reject
+    onError, // hook if the action throws or reject
   }) => {
     // a shared variable for this specific action call
     const startTime = Date.now()
@@ -90,12 +90,18 @@ const unsubscribe = someStore.$onAction(
     // this will trigger if the action succeeds and after it has fully run.
     // it waits for any returned promised
     after((result) => {
-      console.log(`Finished "${name}" after ${Date.now() - startTime}ms.\nResult: ${result}`)
+      console.log(
+        `Finished "${name}" after ${
+          Date.now() - startTime
+        }ms.\nResult: ${result}`
+      )
     })
 
     // this will trigger if the action throws or returns a promise that rejects
     onError((error) => {
-      console.warn(`Failed "${name}" after ${Date.now() - startTime}ms.\nError: ${error}.`)
+      console.warn(
+        `Failed "${name}" after ${Date.now() - startTime}ms.\nError: ${error}.`
+      )
     })
   }
 )
@@ -116,6 +122,6 @@ export default {
 
     // this subscription will be kept after the component is unmounted
     someStore.$onAction(callback, true)
-  }
+  },
 }
 ```
