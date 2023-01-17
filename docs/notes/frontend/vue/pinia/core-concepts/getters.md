@@ -20,7 +20,7 @@ but it is necessary to define the type of the return type (in TypeScript).
 ```js
 export const useStore = defineStore('main', {
   state: () => ({
-    counter: 0
+    counter: 0,
   }),
   getters: {
     // Passing arguments to getters
@@ -28,12 +28,12 @@ export const useStore = defineStore('main', {
       return state.counter * 2
     },
     // the return **must** be explicitly set
-    doublePlusOne() :number {
+    doublePlusOne(): number {
       // autocompletion and typings for the whole store
       // Accessing other getters
       return this.doubleCount + 1
-    }
-  }
+    },
+  },
 })
 ```
 

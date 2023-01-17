@@ -7,7 +7,7 @@ Vitesse<sup><em>快速</em></sup> + VuePress
 <br>
 
 <p align='center'>
-<a href="https://zhaobc.site">在线 Demo</a>
+<a href="https://www.zhaobc.site">在线 Demo</a>
 </p>
 
 <br>

@@ -89,7 +89,7 @@ const doubleValue = computed(() => store.doubleCount)
 </script>
 
 <template>
-  <div>Name: {{ name }} &lt;- not reactive </div>
+  <div>Name: {{ name }} &lt;- not reactive</div>
   <div>Double count: {{ doubleCount }} &lt;- not reactive</div>
   <div>Double value: {{ doubleValue }} &lt;- reactive</div>
   <button @click="name = 'bin'">change name</button>
@@ -108,13 +108,13 @@ export const useStore = defineStore('test', {
     count: 0,
   }),
   getters: {
-    doubleCount: (state) => state.count * 2
+    doubleCount: (state) => state.count * 2,
   },
   actions: {
     increment() {
       this.count++
-    }
-  }
+    },
+  },
 })
 ```
 
@@ -165,7 +165,7 @@ const doubleValue = computed(() => store.doubleCount)
 </script>
 
 <template>
-  <div>Name: {{ name }} &lt;- reactive </div>
+  <div>Name: {{ name }} &lt;- reactive</div>
   <div>Double count: {{ doubleCount }} &lt;- reactive</div>
   <div>Double value: {{ doubleValue }} &lt;- reactive</div>
   <button @click="name = 'bin'">change name</button>
@@ -184,13 +184,13 @@ export const useStore = defineStore('test', {
     count: 0,
   }),
   getters: {
-    doubleCount: (state) => state.count * 2
+    doubleCount: (state) => state.count * 2,
   },
   actions: {
     increment() {
       this.count++
-    }
-  }
+    },
+  },
 })
 ```
 
