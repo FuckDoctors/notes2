@@ -138,7 +138,7 @@ module.exports = {
 
 #### 基本用法
 
-::: playground 基础用法
+::: playground-zhaobc 基础用法
 
 @file App.vue
 
@@ -160,7 +160,7 @@ const msg = ref('Hello World!')
 :::: details 代码
 
 ````md
-::: playground 基础用法
+::: playground-zhaobc 基础用法
 
 @file App.vue
 
@@ -190,7 +190,7 @@ const msg = ref('Hello World!')
 - 使用你自己的 import map
 - 应用额外的配置到你的 playground
 
-::: playground 高级用法
+::: playground-zhaobc 高级用法
 @file App.vue
 
 ```vue
@@ -255,7 +255,7 @@ const msg = ref('Hello Playground!')
 :::: details 代码
 
 ````md
-::: playground 高级用法
+::: playground-zhaobc 高级用法
 @file App.vue
 
 ```vue
@@ -324,7 +324,7 @@ const msg = ref('Hello Playground!')
 
 #### 内置模式 基本用法
 
-::: playground 基础用法
+::: playground-zhaobc 基础用法
 @file App.vue
 
 ```vue
@@ -353,7 +353,7 @@ const msg = ref('Hello Playground!')
 :::: details 代码
 
 ````md
-::: playground 基础用法
+::: playground-zhaobc 基础用法
 @file App.vue
 
 ```vue

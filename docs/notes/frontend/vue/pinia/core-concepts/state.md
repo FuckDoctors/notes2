@@ -121,7 +121,7 @@ You don't need `mapWritableState()` for collections like arrays unless you are r
 `mapState()` still allows you to call methods on your collections.
 :::
 
-::: playground Usage with the Options API
+::: playground-zhaobc Usage with the Options API
 
 @file App.vue
 

@@ -17,7 +17,7 @@ Vue 的响应性语法糖是一个编译时的转换过程，使我们可以像�
 
 ## ref vs. 响应式变量
 
-::: playground 响应性语法糖
+::: playground-zhaobc 响应性语法糖
 
 @file App.vue
 
@@ -72,7 +72,7 @@ let count = $ref(0)
 
 我们常常会让一个组合函数返回一个含数个 `ref` 的对象，然后解构得到这些 `ref`。对于这种场景，响应性语法糖提供了一个 `$()` 宏：
 
-::: playground 通过 `$()` 结构
+::: playground-zhaobc 通过 `$()` 结构
 
 @file App.vue
 
@@ -134,7 +134,7 @@ console.log('count', count)
 
 有了响应式语法糖，我们就可以在 `defineProps` 时，使用响应式变量相同的结构写法了：
 
-::: playground 响应式 props 解构
+::: playground-zhaobc 响应式 props 解构
 
 @file App.vue
 

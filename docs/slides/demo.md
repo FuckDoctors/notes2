@@ -4,7 +4,7 @@ icon: slides
 layout: Slide
 ---
 
-<!-- markdownlint-disable MD024 MD033 -->
+<!-- markdownlint-disable MD024 MD033 MD051 -->
 
 @slidestart
 
@@ -376,9 +376,9 @@ Transition 可以通过配置中的 `transition` 选项全局设置，也可以�
 你可以使用 `[a-b|c-d]` 语法来分布高亮特定行。
 
 ```js [1-2|3|4]
-let a = 1
-let b = 2
-let c = (x) => 1 + 2 + x
+const a = 1
+const b = 2
+const c = (x) => 1 + 2 + x
 c(3)
 ```
 

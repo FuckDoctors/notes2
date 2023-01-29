@@ -65,7 +65,7 @@ export default {
 }
 ```
 
-::: playground Basic example
+::: playground-zhaobc Basic example
 
 @file App.vue
 
@@ -124,7 +124,7 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-::: playground setup example
+::: playground-zhaobc setup example
 
 @file App.vue
 
@@ -204,7 +204,7 @@ export default {
 }
 ```
 
-::: playground Option API example
+::: playground-zhaobc Option API example
 
 @file App.vue
 

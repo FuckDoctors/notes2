@@ -138,7 +138,7 @@ module.exports = {
 #### 基本用法
 
 ````md
-:::: playground 基础用法
+:::: playground-zhaobc 基础用法
 
 ::: file App.vue
 
@@ -168,7 +168,7 @@ const msg = ref('Hello World!')
 - 应用额外的配置到你的 playground
 
 ````md
-:::: playground 高级用法
+:::: playground-zhaobc 高级用法
 ::: file App.vue
 
 ```vue
@@ -239,7 +239,7 @@ const msg = ref('Hello Playground!')
 #### 内置模式 基本用法
 
 ````md
-:::: playground 基础用法
+:::: playground-zhaobc 基础用法
 ::: file App.vue
 
 ```vue
@@ -273,7 +273,7 @@ const msg = ref('Hello Playground!')
 显示 playground 的 JS, CSS, SSR 面板，并显示代码编辑器。
 
 ````md
-:::: playground 高级用法
+:::: playground-zhaobc 高级用法
 ::: file App.vue
 
 ```vue

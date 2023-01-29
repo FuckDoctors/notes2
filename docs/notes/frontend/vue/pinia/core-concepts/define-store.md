@@ -72,7 +72,7 @@ export default defineComponent({
 })
 ```
 
-::: playground Destructure example
+::: playground-zhaobc Destructure example
 
 @file App.vue
 
@@ -147,7 +147,7 @@ export default defineComponent({
 })
 ```
 
-::: playground Destructure example using storeToRefs
+::: playground-zhaobc Destructure example using storeToRefs
 
 @file App.vue
 

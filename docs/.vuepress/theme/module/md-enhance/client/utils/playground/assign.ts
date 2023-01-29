@@ -10,7 +10,7 @@ export const deepAssign = <
   originObject: T,
   ...assignObjects: U[]
 ): V => {
-  if (assignObjects.length === 0) return originObject as V
+  if (assignObjects.length === 0) return originObject as unknown as V
 
   /** Object being merged */
   const assignObject = (assignObjects.shift() as IAnyObject) || {}

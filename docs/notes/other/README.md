@@ -38,7 +38,7 @@ category:
 
 ## Playground 示例
 
-::: playground Playground demo
+::: playground-zhaobc Playground demo
 
 @file App.vue
 
@@ -81,7 +81,7 @@ const msg = ref('Hello World!')
 
 ## Element-Plus 示例
 
-::: playground Element-Plus demo
+::: playground-zhaobc Element-Plus demo
 
 @file App.vue
 

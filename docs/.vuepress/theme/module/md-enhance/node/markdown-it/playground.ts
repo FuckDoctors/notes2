@@ -42,8 +42,8 @@ const VALID_MARKERS = ['file', 'imports', 'settings']
 export const playground: PluginWithOptions<PlaygroundPluginOptions> = (
   md,
   { name, component, playgroundOptions, getter } = {
-    name: 'playground',
-    component: 'Playground',
+    name: 'playground-zhaobc',
+    component: 'PlaygroundZhaobc',
     getter: () => [],
     playgroundOptions: {},
   }
@@ -299,7 +299,7 @@ export const playground: PluginWithOptions<PlaygroundPluginOptions> = (
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { meta, info } = tokens[index]
     const hashKey = `${index}-${info}`
-    const key = `playground-${hash(hashKey)}`
+    const key = `playground-zhaobc-${hash(hashKey)}`
 
     const playgroundData: PlaygroundData = {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

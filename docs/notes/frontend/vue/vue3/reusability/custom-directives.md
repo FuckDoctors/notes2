@@ -19,7 +19,7 @@ tag:
 
 一个自定义指令被定义为一个包含类似于组件的生命周期钩子的对象。钩子接收指令绑定到的元素。下面是一个自定义指令的例子，当一个 input 元素被 Vue 插入到 DOM 中后，它将被聚焦：
 
-::: playground v-focus 指令
+::: playground-zhaobc v-focus 指令
 @file App.vue
 
 ```vue
@@ -43,7 +43,7 @@ export default {
 
 :::
 
-::: playground 组合式 API v-focus 指令
+::: playground-zhaobc 组合式 API v-focus 指令
 @file App.vue
 
 ```vue

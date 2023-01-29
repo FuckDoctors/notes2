@@ -39,8 +39,9 @@ tag:
 `+`隐式转为字符串，`-`隐式转换为数字。
 
 ```js
-'37' - 7 // 30
-'37' + 7 // 377
+'37' -
+  7 // 30
+  `37${7}` // 377
 ```
 
 因此可以巧用`+`和`-`转换数据类型，比如使用`- 0`（减 0），转换为数字，使用`+ ''`（加空字符串）转换为字符串。
@@ -49,7 +50,7 @@ tag:
 
 ## 1-4 包装对象
 
-[1-2 六种数据类型](#_1-2-六种数据类型) 中介绍的 5 种基本类型和一种对象类型，其中 5 中基本类型都有其对应的包装类型。
+[1-2 六种数据类型](#1-2-六种数据类型) 中介绍的 5 种基本类型和一种对象类型，其中 5 中基本类型都有其对应的包装类型。
 
 当把一个基本类型作为对象使用时，JavaScript 会尝试将基本类型转换为包装对象，想定于 new 了一个临时对象，对象的值为基本类型的值。
 
@@ -125,9 +126,9 @@ function Person() {}
 function Student() {}
 Student.prototype = new Person()
 Student.prototype.constructor = Student
-var bosn = new Student()
+const bosn = new Student()
 console.log(bosn instanceof Student)
-var one = new Person()
+const one = new Person()
 console.log(one instanceof Person)
 
 console.log(one instanceof Student)

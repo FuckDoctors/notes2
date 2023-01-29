@@ -27,6 +27,13 @@ export default defineConfig({
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
+
+  // define: {
+  //   'process.cwd': process.cwd,
+  //   'process.env': process.env,
+  //   'process.platform': process.platform,
+  // },
+
   css: {
     postcss: {
       syntax: postcssScss,

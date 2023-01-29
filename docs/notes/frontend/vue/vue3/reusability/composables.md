@@ -21,7 +21,7 @@ tag:
 
 如果我们想在多个组件中复用这个相同的逻辑，我们可以把这个逻辑以一个组合式函数的形式提取到外部文件中。
 
-::: playground 鼠标跟踪器示例
+::: playground-zhaobc 鼠标跟踪器示例
 @file App.vue
 
 ```vue
@@ -74,7 +74,7 @@ export function useMouse() {
 
 举个例子，我们可以将添加和清除 DOM 事件监听器的逻辑放入一个组合式函数中：
 
-::: playground 鼠标跟踪器示例 嵌套调用
+::: playground-zhaobc 鼠标跟踪器示例 嵌套调用
 @file App.vue
 
 ```vue
@@ -127,7 +127,7 @@ export function useEventListener(target, event, callback) {
 `useMouse()` 组合式函数没有接收任何参数，因此让我们再来看一个需要接收一个参数的组合式函数示例。
 在做异步数据请求时，我们常常需要处理不同的状态：加载中、加载成功和加载失败。
 
-::: playground 异步状态示例
+::: playground-zhaobc 异步状态示例
 @file App.vue
 
 ```vue

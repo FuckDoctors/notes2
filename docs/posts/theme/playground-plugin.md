@@ -58,7 +58,7 @@ export const customConfig: CustomConfig = {
 ### 使用主题默认配置
 
 ````md
-:::: playground Playground demo
+:::: playground-zhaobc Playground demo
 ::: code-tabs
 @tab App.vue
 
@@ -85,7 +85,7 @@ export const customConfig: CustomConfig = {
 使用个别配置的 `base` 和 `imports`，以 Element Plus 为例。
 
 ````md
-:::: playground Customize playground demo
+:::: playground-zhaobc Customize playground demo
 ::: code-tabs
 @tab App.vue
 
@@ -135,7 +135,7 @@ export const customConfig: CustomConfig = {
 ### 使用主题默认配置的案例
 
 ````md
-:::: playground Playground demo
+:::: playground-zhaobc Playground demo
 ::: code-tabs
 @tab App.vue
 
@@ -173,7 +173,7 @@ const msg = ref('Hello World!')
 使用个别配置的 `base` 和 `imports`。
 
 ````md
-:::: playground Element-Plus demo
+:::: playground-zhaobc Element-Plus demo
 ::: code-tabs
 @tab App.vue
 

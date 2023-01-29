@@ -10,7 +10,7 @@ import { LOADING_SVG } from './icons'
 
 // import * as echarts from "echarts";
 
-import type { EChartsOption } from 'echarts/export/option'
+import type { EChartsOption } from 'echarts'
 import type { VNode } from 'vue'
 
 import '../styles/echarts.scss'
