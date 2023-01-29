@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { useUserStore } from '~/stores/user'
-
+defineOptions({
+  name: 'IndexPage',
+})
 const user = useUserStore()
-const name = ref(user.savedName)
+const name = $ref(user.savedName)
 
 const router = useRouter()
 const go = () => {
-  if (name.value) router.push(`/hi/${encodeURIComponent(name.value)}`)
+  if (name) {
+    router.push(`/hi/${encodeURIComponent(name)}`)
+  }
 }
 
 const { t } = useI18n()
@@ -14,9 +17,9 @@ const { t } = useI18n()
 
 <template>
   <div>
-    <p class="text-4xl">
-      <carbon-campsite class="inline-block" />
-    </p>
+    <div text-4xl>
+      <div i-carbon-campsite inline-block />
+    </div>
     <p>
       <a
         rel="noreferrer"
@@ -27,30 +30,21 @@ const { t } = useI18n()
       </a>
     </p>
     <p>
-      <em class="text-sm opacity-75">{{ t('intro.desc') }}</em>
+      <em text-sm opacity-75>{{ t('intro.desc') }}</em>
     </p>
 
-    <div class="py-4" />
+    <div py-4 />
 
-    <input
-      id="input"
+    <TheInput
       v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
-      type="text"
+      placeholder="What's your name?"
       autocomplete="false"
-      p="x-4 y-2"
-      w="250px"
-      text="center"
-      bg="transparent"
-      border="~ rounded gray-200 dark:gray-700"
-      outline="none active:none"
       @keydown.enter="go"
     />
     <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
 
     <div>
-      <button class="m-3 text-sm btn" :disabled="!name" @click="go">
+      <button btn m-3 text-sm :disabled="!name" @click="go">
         {{ t('button.go') }}
       </button>
     </div>

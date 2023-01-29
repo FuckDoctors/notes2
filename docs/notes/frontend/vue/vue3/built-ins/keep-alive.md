@@ -32,7 +32,7 @@ tag:
 </KeepAlive>
 ```
 
-::: playground KeepAlive 基本用法
+::: playground#vue KeepAlive 基本用法
 @file App.vue
 
 ```vue

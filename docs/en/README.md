@@ -1,6 +1,6 @@
 ---
 home: true
-layout: Blog
+layout: BlogHome
 icon: home
 title: Home
 heroImage: /logo.svg
@@ -14,8 +14,24 @@ containerClass: fancy-hero-text
 head:
   - - meta
     - name: keywords
-      content: zhaobc, zhao bin, 赵斌
+      content: zhaobc, zhao bin, ZhaoBin, 赵斌
   - - meta
     - name: description
       content: ZhaoBin's blog and notes
+
+projects:
+  - icon: redis
+    name: rdm-builder
+    desc: Redis Desktop Manager Builder
+    link: https://github.com/FuckDoctors/rdm-builder
+
+  - icon: macOS
+    name: Hackintosh
+    desc: ideapad-720s-13ikb Hackintosh
+    link: https://github.com/FuckDoctors/ideapad-720s-13ikb-oc
+
+  - icon: note
+    name: Notes
+    desc: Notes and others
+    link: https://github.com/FuckDoctors/notes2
 ---

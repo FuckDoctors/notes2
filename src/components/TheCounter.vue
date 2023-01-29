@@ -8,8 +8,8 @@ const { count, inc, dec } = useCounter(props.initial)
 
 <template>
   <div>
-    <button class="dec btn" @click="dec()">-</button>
     {{ count }}
-    <button class="inc btn" @click="inc()">+</button>
+    <button class="inc" @click="inc()">+</button>
+    <button class="dec" @click="dec()">-</button>
   </div>
 </template>

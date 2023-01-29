@@ -1,5 +1,6 @@
 // https://github.com/textlint/textlint/wiki/Collection-of-textlint-rule#rule-list
-module.exports = {
+// module.exports = {
+export default {
   rules: {
     // https://github.com/textlint/textlint/blob/master/docs/configuring.md#severity-config-of-rules
     'no-todo': {

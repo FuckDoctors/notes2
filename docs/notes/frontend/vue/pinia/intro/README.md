@@ -65,7 +65,7 @@ export default {
 }
 ```
 
-::: playground Basic example
+::: playground#vue Basic example
 
 @file App.vue
 
@@ -106,6 +106,14 @@ export const useCounterStore = defineStore('counter', {
 })
 ```
 
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
+```
+
 :::
 
 You can even use a function (similar to a component `setup()`) to define a Store for more advanced use cases:
@@ -124,7 +132,7 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-::: playground setup example
+::: playground#vue setup example
 
 @file App.vue
 
@@ -165,6 +173,14 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
+```
+
 :::
 
 If you are still not into `setup()` and Composition API,
@@ -175,7 +191,7 @@ You define stores the same way but then use `mapStores()`, `mapState()`, or `map
 const useCounterStore = defineStore('counter', {
   state: () => ({ count: 0 }),
   getters: {
-    double: (state) => state.count * 2,
+    double: state => state.count * 2,
   },
   actions: {
     increment() {
@@ -204,7 +220,7 @@ export default {
 }
 ```
 
-::: playground Option API example
+::: playground#vue Option API example
 
 @file App.vue
 
@@ -245,7 +261,7 @@ export const useCounterStore = defineStore('counter', {
     count: 0,
   }),
   getters: {
-    double: (state) => state.count * 2,
+    double: state => state.count * 2,
   },
   actions: {
     increment() {
@@ -268,7 +284,7 @@ export const useUserStore = defineStore('user', {
     roles: [],
   }),
   getters: {
-    isAdmin: (state) => state.roles.includes('admin'),
+    isAdmin: state => state.roles.includes('admin'),
   },
   actions: {
     login() {
@@ -276,6 +292,14 @@ export const useUserStore = defineStore('user', {
     },
   },
 })
+```
+
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
 ```
 
 :::
@@ -299,10 +323,10 @@ export const todos = defineStore('todos', {
   getters: {
     finishedTodos(state) {
       // autocompletion
-      return state.todos.filter((todo) => todo.isFinished)
+      return state.todos.filter(todo => todo.isFinished)
     },
     unfinishedTodos(state) {
-      return state.todos.filter((todo) => !todo.isFinished)
+      return state.todos.filter(todo => !todo.isFinished)
     },
     /**
      * @returns  {{ text: string, id: number, isFinished: boolean }[]}

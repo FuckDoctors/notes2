@@ -17,7 +17,7 @@ Vue 的响应性语法糖是一个编译时的转换过程，使我们可以像�
 
 ## ref vs. 响应式变量
 
-::: playground 响应性语法糖
+::: playground#vue 响应性语法糖
 
 @file App.vue
 
@@ -31,18 +31,17 @@ function increment() {
 </script>
 
 <template>
-  <button @click="increment">{{ count }}</button>
+  <button @click="increment">
+    {{ count }}
+  </button>
 </template>
 ```
 
-@settings
+@setting
 
 ```json
 {
-  "mode": "internal",
-  "internal": {
-    "showCode": "true"
-  }
+  "showCompileOutput": true
 }
 ```
 
@@ -65,14 +64,14 @@ function increment() {
 ```js
 import { $ref } from 'vue/macros'
 
-let count = $ref(0)
+const count = $ref(0)
 ```
 
 ## 通过 `$()` 结构
 
 我们常常会让一个组合函数返回一个含数个 `ref` 的对象，然后解构得到这些 `ref`。对于这种场景，响应性语法糖提供了一个 `$()` 宏：
 
-::: playground 通过 `$()` 结构
+::: playground#vue 通过 `$()` 结构
 
 @file App.vue
 
@@ -90,7 +89,7 @@ function myCreateRef(num) {
   return ref(num)
 }
 
-let count = $(myCreateRef(0))
+const count = $(myCreateRef(0))
 console.log('count', count)
 </script>
 
@@ -99,7 +98,7 @@ console.log('count', count)
 </template>
 ```
 
-@imports
+@import
 
 ```json
 {
@@ -109,15 +108,11 @@ console.log('count', count)
 }
 ```
 
-@settings
+@setting
 
 ```json
 {
-  "mode": "internal",
-  "internal": {
-    "showCode": true,
-    "showCompileOutput": true
-  }
+  "showCompileOutput": true
 }
 ```
 
@@ -134,7 +129,7 @@ console.log('count', count)
 
 有了响应式语法糖，我们就可以在 `defineProps` 时，使用响应式变量相同的结构写法了：
 
-::: playground 响应式 props 解构
+::: playground#vue 响应式 props 解构
 
 @file App.vue
 
@@ -168,15 +163,11 @@ watchEffect(() => {
 </template>
 ```
 
-@settings
+@setting
 
 ```json
 {
-  "mode": "internal",
-  "internal": {
-    "showCode": true,
-    "showCompileOutput": true
-  }
+  "showCompileOutput": true
 }
 ```
 
@@ -191,19 +182,19 @@ watchEffect(() => {
 
 ```js
 function trackChange(x: Ref<number>) {
-  watch(x, (x) => {
+  watch(x, x => {
     console.log('x 改变了！')
   })
 }
 
-let count = $ref(0)
+const count = $ref(0)
 trackChange(count) // 无效！
 ```
 
 上面的例子不会正常工作，因为代码被编译成了这样：
 
 ```js
-let count = ref(0)
+const count = ref(0)
 trackChange(count.value)
 ```
 
@@ -221,7 +212,7 @@ let count = $ref(0)
 ```js
 import { ref } from 'vue'
 
-let count = ref(0)
+const count = ref(0)
 trackChange(count)
 ```
 
@@ -233,8 +224,8 @@ trackChange(count)
 
 ```js
 function useMouse() {
-  let x = $ref(0)
-  let y = $ref(0)
+  const x = $ref(0)
+  const y = $ref(0)
 
   // 监听 mousemove 事件
 
@@ -263,8 +254,8 @@ return {
 
 ```js
 function useMouse() {
-  let x = $ref(0)
-  let y = $ref(0)
+  const x = $ref(0)
+  const y = $ref(0)
 
   // 监听 mousemove 事件
 

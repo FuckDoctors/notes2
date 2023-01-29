@@ -10,7 +10,7 @@ import { LOADING_SVG } from './icons'
 
 // import * as echarts from "echarts";
 
-import type { EChartsOption } from 'echarts/export/option'
+import type { EChartsOption } from 'echarts'
 import type { VNode } from 'vue'
 
 import '../styles/echarts.scss'
@@ -64,7 +64,7 @@ export default defineComponent({
       void Promise.all([
         import(/* webpackChunkName: "echarts" */ 'echarts'),
         // delay
-        new Promise((resolve) => setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)),
+        new Promise(resolve => setTimeout(resolve, MARKDOWN_ENHANCE_DELAY)),
       ]).then(([echarts]) => {
         const options = parseEChartsConfig(decodeURIComponent(props.config))
         // vue3+echart5 遇到Cannot read properties of undefined (reading 'type')
@@ -83,7 +83,7 @@ export default defineComponent({
       // // resize
       // window.addEventListener('resize', resizeChart)
 
-      useResizeObserver(echartsWrapper, (entries) => {
+      useResizeObserver(echartsWrapper, entries => {
         resizeChart()
       })
     })

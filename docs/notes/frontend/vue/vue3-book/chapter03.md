@@ -121,7 +121,7 @@ function renderer(vnode, container) {
     el.appendChild(document.createTextNode(vnode.children))
   } else if (Array.isArray(vnode.children)) {
     // 递归调用 renderer 函数，渲染子节点
-    node.children.forEach((child) => renderer(child, el))
+    node.children.forEach(child => renderer(child, el))
   }
 
   // 将元素添加到挂载点下
@@ -175,7 +175,7 @@ function renderer(vnode, container) {
     el.appendChild(window.document.createTextNode(vnode.children))
   } else if (Array.isArray(vnode.children)) {
     // 递归调用 renderer 函数，渲染子节点
-    node.children.forEach((child) => renderer(child, el))
+    node.children.forEach(child => renderer(child, el))
   }
 
   // 将元素添加到挂载点下
@@ -384,7 +384,7 @@ function mountElement(vnode, container) {
     el.appendChild(window.document.createTextNode(vnode.children))
   } else if (Array.isArray(vnode.children)) {
     // 递归调用 renderer 函数，渲染子节点
-    node.children.forEach((child) => renderer(child, el))
+    node.children.forEach(child => renderer(child, el))
   }
 
   // 将元素添加到挂载点下

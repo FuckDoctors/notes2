@@ -324,7 +324,7 @@ const extensions = ['html', 'js', 'ts', 'vue', 'jsx', 'tsx', 'json']
 // export const playground: PluginSimple = (md) => {
 export const playground =
   (defaultImportMap?: string): PluginSimple =>
-  (md) =>
+  md =>
     container(md, {
       name: 'playground',
       openRender: (tokens: Token[], index: number): string => {
@@ -417,7 +417,7 @@ export const playground =
 
 const getPlugin =
   (name: string, component: string): PluginSimple =>
-  (md) =>
+  md =>
     container(md, {
       name,
       openRender: (tokens: Token[], index: number): string => {

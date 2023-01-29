@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useUserStore } from '~/stores/user'
-
 const props = defineProps<{ name: string }>()
 const router = useRouter()
 const user = useUserStore()
@@ -13,39 +11,32 @@ watchEffect(() => {
 
 <template>
   <div>
-    <p class="text-4xl">
-      <carbon-pedestrian class="inline-block" />
-    </p>
+    <div text-4xl>
+      <div i-carbon-pedestrian inline-block />
+    </div>
     <p>
       {{ t('intro.hi', { name: props.name }) }}
     </p>
 
-    <p class="text-sm opacity-50">
+    <p text-sm opacity-75>
       <em>{{ t('intro.dynamic-route') }}</em>
     </p>
 
     <template v-if="user.otherNames.length">
-      <div class="text-sm mt-4">
-        <span class="opacity-75">{{ t('intro.aka') }}:</span>
+      <div text-sm mt-4>
+        <span opacity-75>{{ t('intro.aka') }}:</span>
         <ul>
           <li v-for="otherName in user.otherNames" :key="otherName">
-            <router-link :to="`/hi/${otherName}`" replace>
+            <RouterLink :to="`/hi/${otherName}`" replace>
               {{ otherName }}
-            </router-link>
+            </RouterLink>
           </li>
         </ul>
       </div>
     </template>
 
     <div>
-      <Counter :initial="35" />
-    </div>
-    <div>
-      <CounterRefSugar :initial="35" />
-    </div>
-
-    <div>
-      <button class="btn m-3 text-sm mt-6" @click="router.back()">
+      <button btn m="3 t6" text-sm @click="router.back()">
         {{ t('button.back') }}
       </button>
     </div>

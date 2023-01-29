@@ -1,5 +1,5 @@
-// import { deepAssign } from "vuepress-shared";
-import { deepAssign } from './assign'
+import { deepAssign } from 'vuepress-shared'
+// import { deepAssign } from './assign'
 
 import { IMPORT_MAP_KEY, importKey } from '../../../shared/playground'
 

@@ -25,7 +25,9 @@ export const mdEnhancePlugin =
 
         PLAYGROUND_OPTIONS: {
           ...PLAYGROUND_DEFAULT_SETTING,
-          ...(typeof options.playground === 'object' ? options.playground : {}),
+          ...(typeof options.playgroundZhaobc === 'object'
+            ? options.playgroundZhaobc
+            : {}),
         },
       }),
 
@@ -35,15 +37,15 @@ export const mdEnhancePlugin =
         //   addViteSsrExternal({ app, config }, 'echarts')
         // }
 
-        if (options.playground) {
-          addViteOptimizeDepsInclude({ app, config }, '@vue/repl')
-          addViteSsrExternal({ app, config }, '@vue/repl')
+        if (options.playgroundZhaobc) {
+          addViteOptimizeDepsInclude(config, app, '@vue/repl')
+          addViteSsrExternal(config, app, '@vue/repl')
         }
       },
 
       // 扩展markdown
       extendsMarkdown: (md): void => {
-        if (options.playground) {
+        if (options.playgroundZhaobc) {
           md.use(playground)
         }
       },

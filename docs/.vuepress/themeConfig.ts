@@ -1,5 +1,5 @@
 import { hopeTheme } from 'vuepress-theme-hope'
-import type { HopeThemeOptions } from 'vuepress-theme-hope'
+import type { ThemeOptions } from 'vuepress-theme-hope'
 
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
@@ -7,7 +7,7 @@ import { pwa } from './plugin-config'
 
 const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
-export const themeOptions: HopeThemeOptions = {
+export const themeOptions: ThemeOptions = {
   hostname,
 
   author: {
@@ -82,9 +82,7 @@ export const themeOptions: HopeThemeOptions = {
   },
 
   plugins: {
-    blog: {
-      autoExcerpt: true,
-    },
+    blog: true,
 
     // you can also use Waline
     comment: {
@@ -96,7 +94,32 @@ export const themeOptions: HopeThemeOptions = {
     },
 
     mdEnhance: {
-      enableAll: true,
+      gfm: true,
+      container: true,
+      tabs: true,
+      codetabs: true,
+      vPre: true,
+      align: true,
+      sup: true,
+      sub: true,
+      footnote: true,
+      mark: true,
+      imgLazyload: true,
+      imgMark: true,
+      imgSize: true,
+      tasklist: true,
+      katex: true,
+      mathjax: true,
+      include: true,
+      chart: true,
+      echarts: true,
+      flowchart: true,
+      mermaid: true,
+      demo: true,
+      playground: {
+        presets: ['ts', 'vue'],
+      },
+      vuePlayground: true,
       presentation: {
         plugins: ['highlight', 'math', 'search', 'notes', 'zoom'],
       },

@@ -82,7 +82,7 @@ export default {
     ...mapState(useCounterStore, {
       myOwnName: 'counter',
       // you can also write a function that gets access to the store
-      double: (store) => store.counter * 2,
+      double: store => store.counter * 2,
       // it can have access to `this` but it won't be typed correctlly
       magicValue(store) {
         return store.someGetter + this.counter + this.double
@@ -121,7 +121,7 @@ You don't need `mapWritableState()` for collections like arrays unless you are r
 `mapState()` still allows you to call methods on your collections.
 :::
 
-::: playground Usage with the Options API
+::: playground#vue Usage with the Options API
 
 @file App.vue
 
@@ -165,7 +165,7 @@ export const useCounterStore = defineStore('counter', {
     count: 0,
   }),
   getters: {
-    doubleCount: (state) => state.count * 2,
+    doubleCount: state => state.count * 2,
   },
   actions: {
     increment() {
@@ -173,6 +173,14 @@ export const useCounterStore = defineStore('counter', {
     },
   },
 })
+```
+
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
 ```
 
 :::
@@ -194,7 +202,7 @@ However, some mutations are really hard or costly to apply with this syntax: any
 Because of this, the `$patch` method also accepts a function to group this kind of mutations that are difficult to apply with a patch object:
 
 ```js
-cartStore.$patch((state) => {
+cartStore.$patch(state => {
   state.items.push({
     name: 'shoes',
     quantity: 1,
@@ -260,7 +268,7 @@ You can watch the whole state on the pinia instance:
 ```js
 watch(
   pinia.state,
-  (state) => {
+  state => {
     // persist the whole state to the local storage whenever it changes
     localStorage.setItem('piniaState', JSON.stringify(state))
   },

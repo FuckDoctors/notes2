@@ -1,4 +1,6 @@
-export const docsearch = {
+import { DocsearchPluginOptions } from '@vuepress/plugin-docsearch'
+
+export const docsearch: DocsearchPluginOptions = {
   // apiKey: '42aa919526e1dad9c0e214772fe71289',
   // indexName: 'prod_zhaobc',
   // appId: '7MMW9TO1EI',
@@ -42,8 +44,8 @@ export const docsearch = {
           noResultsScreen: {
             noResultsText: '无法找到相关结果',
             suggestedQueryText: '你可以尝试查询',
-            openIssueText: '你认为该查询应该有结果？',
-            openIssueLinkText: '点击反馈',
+            reportMissingResultsText: '你认为该查询应该有结果？',
+            reportMissingResultsLinkText: '点击反馈',
           },
         },
       },

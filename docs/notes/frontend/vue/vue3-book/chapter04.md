@@ -75,7 +75,7 @@ const obj = new Proxy(data, {
     // 设置属性值
     target[key] = newVal
     // 把副作用函数从桶中取出来并执行
-    bucket.forEach((fn) => fn())
+    bucket.forEach(fn => fn())
     // 返回 true 代表 设置成功
     return true
   },
@@ -154,7 +154,7 @@ const obj = new Proxy(data, {
     // 设置属性值
     target[key] = newVal
     // 把副作用函数从桶中取出来并执行
-    bucket.forEach((fn) => fn())
+    bucket.forEach(fn => fn())
     // 返回 true 代表 设置成功
     return true
   },
@@ -253,7 +253,7 @@ function trigger(target, key) {
   // 根据 key 取得所有副作用函数
   const effects = depsMap.get(key)
   // 执行副作用函数
-  effects && effects.forEach((fn) => fn())
+  effects && effects.forEach(fn => fn())
 }
 
 // effect 函数用于注册副作用函数
@@ -408,7 +408,7 @@ function trigger(target, key) {
 
   // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
   const effectToRun = new Set(effects)
-  effectToRun.forEach((effectFn) => effectFn())
+  effectToRun.forEach(effectFn => effectFn())
 }
 ```
 
@@ -420,7 +420,7 @@ function trigger(target, key) {
 ```js
 const set = new Set([1])
 
-set.forEach((item) => {
+set.forEach(item => {
   set.delete(1)
   set.add(1)
   console.log('遍历中')
@@ -436,7 +436,7 @@ set.forEach((item) => {
 const set = new Set([1])
 
 const newSet = new Set(set)
-newSet.forEach((item) => {
+newSet.forEach(item => {
   set.delete(1)
   set.add(1)
   console.log('遍历中')
@@ -525,7 +525,7 @@ function trigger(target, key) {
 
   // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
   const effectToRun = new Set(effects)
-  effectToRun.forEach((effectFn) => effectFn())
+  effectToRun.forEach(effectFn => effectFn())
 }
 
 // 元素数据
@@ -654,13 +654,13 @@ function trigger(target, key) {
   // 构造一个新的集合 effectToRun 然后变量它，用来遍历删除，避免死循环
   const effectsToRun = new Set()
   effects &&
-    effects.forEach((effectFn) => {
+    effects.forEach(effectFn => {
       if (effectFn !== activeEffectFn) {
         // 如果 trigger 执行的副作用函数与当前正在执行的副作用函数相同，则不触发执行
         effectsToRun.add(effectFn)
       }
     })
-  effectsToRun.forEach((effectFn) => effectFn())
+  effectsToRun.forEach(effectFn => effectFn())
 }
 ```
 

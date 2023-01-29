@@ -44,25 +44,10 @@ tag:
 }
 ```
 
-::: playground 简单列表过渡
+::: playground#vue 简单列表过渡
 @file App.vue
 
 ```vue
-<template>
-  <div class="actions">
-    <button @click="insert">随机插入</button>
-    <button @click="reset">重置</button>
-    <button @click="shuffle">打乱</button>
-  </div>
-
-  <TransitionGroup tag="ul" name="fade" class="container">
-    <li v-for="item in items" class="item" :key="item">
-      {{ item }}
-      <button @click="remove(item)" class="btn">x</button>
-    </li>
-  </TransitionGroup>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 import { shuffle as _shuffle } from 'lodash-es'
@@ -84,13 +69,26 @@ const shuffle = () => {
   items.value = _shuffle(items.value)
 }
 
-const remove = (item) => {
+const remove = item => {
   const i = items.value.indexOf(item)
-  if (i > -1) {
-    items.value.splice(i, 1)
-  }
+  if (i > -1) items.value.splice(i, 1)
 }
 </script>
+
+<template>
+  <div class="actions">
+    <button @click="insert">随机插入</button>
+    <button @click="reset">重置</button>
+    <button @click="shuffle">打乱</button>
+  </div>
+
+  <TransitionGroup tag="ul" name="fade" class="container">
+    <li v-for="item in items" :key="item" class="item">
+      {{ item }}
+      <button class="btn" @click="remove(item)">x</button>
+    </li>
+  </TransitionGroup>
+</template>
 
 <style scoped>
 .container {
@@ -138,7 +136,7 @@ const remove = (item) => {
 </style>
 ```
 
-@imports
+@import
 
 ```json
 {
@@ -183,12 +181,12 @@ function onEnter(el, done) {
 }
 ```
 
-::: playground 交错的列表过渡
+::: playground#vue 交错的列表过渡
 @file App.vue
 
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import gsap from 'gsap'
 
 const list = [
@@ -202,10 +200,10 @@ const list = [
 const query = ref('')
 
 const computedList = computed(() => {
-  return list.filter((item) => item.msg.toLowerCase().includes(query.value))
+  return list.filter(item => item.msg.toLowerCase().includes(query.value))
 })
 
-const onBeforeEnter = (el) => {
+const onBeforeEnter = el => {
   el.style.opacity = 0
   el.style.height = 0
 }
@@ -249,7 +247,7 @@ const onLeave = (el, done) => {
 </template>
 ```
 
-@imports user-imports.json
+@import
 
 ```json
 {

@@ -15,7 +15,8 @@
       "IconDisplay",
       "Icon",
       "div",
-      "iframe"
+      "iframe",
+      "h3"
     ]
   }
 }

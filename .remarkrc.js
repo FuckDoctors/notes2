@@ -1,5 +1,6 @@
 // https://github.com/remarkjs/remark-lint/blob/main/.remarkrc.js
-module.exports = {
+// module.exports = {
+export default {
   plugins: [
     'remark-preset-lint-recommended',
     'remark-preset-lint-consistent',

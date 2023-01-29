@@ -234,7 +234,7 @@ function callWithErrorHandling(fn) {
 ```js
 import utils from 'utils'
 // 注册错误处理程序
-utils.registerErrorHandler((e) => {
+utils.registerErrorHandler(e => {
   console.log(e)
 })
 utils.foo(() => {

@@ -72,7 +72,7 @@ export default defineComponent({
 })
 ```
 
-::: playground Destructure example
+::: playground#vue Destructure example
 
 @file App.vue
 
@@ -108,7 +108,7 @@ export const useStore = defineStore('test', {
     count: 0,
   }),
   getters: {
-    doubleCount: (state) => state.count * 2,
+    doubleCount: state => state.count * 2,
   },
   actions: {
     increment() {
@@ -116,6 +116,14 @@ export const useStore = defineStore('test', {
     },
   },
 })
+```
+
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
 ```
 
 :::
@@ -147,7 +155,7 @@ export default defineComponent({
 })
 ```
 
-::: playground Destructure example using storeToRefs
+::: playground#vue Destructure example using storeToRefs
 
 @file App.vue
 
@@ -184,7 +192,7 @@ export const useStore = defineStore('test', {
     count: 0,
   }),
   getters: {
-    doubleCount: (state) => state.count * 2,
+    doubleCount: state => state.count * 2,
   },
   actions: {
     increment() {
@@ -192,6 +200,14 @@ export const useStore = defineStore('test', {
     },
   },
 })
+```
+
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
 ```
 
 :::

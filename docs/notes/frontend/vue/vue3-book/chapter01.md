@@ -122,7 +122,7 @@ function Render(obj, root) {
     el.appendChild(text)
   } else if (obj.children) {
     // 数组，递归调用Render，使用el作为root参数
-    obj.children.forEach((child) => Render(child, el))
+    obj.children.forEach(child => Render(child, el))
   }
 
   //  将元素添加到root
@@ -165,7 +165,7 @@ function Render(obj, root) {
     el.appendChild(text)
   } else if (obj.children) {
     // 数组，递归调用Render，使用el作为root参数
-    obj.children.forEach((child) => Render(child, el))
+    obj.children.forEach(child => Render(child, el))
   }
 
   //  将元素添加到root

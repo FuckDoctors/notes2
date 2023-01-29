@@ -1,7 +1,7 @@
 import { MdEnhanceOptions } from './module/md-enhance'
 
 export interface CustomConfig {
-  mdEnhance?: MdEnhanceOptions
+  mdEnhance: MdEnhanceOptions
 }
 
 export const customConfig: CustomConfig = {
@@ -9,7 +9,9 @@ export const customConfig: CustomConfig = {
     // 关闭自定义主题的echarts，使用 hope 的 echarts （已PR）
     echarts: false,
     // playground: true,
-    playground: {
+    // hope里已经PR过playground，并且hope已经重构了，
+    // 为了避免冲突，保留自己已有的playground，这里重命名了。
+    playgroundZhaobc: {
       mode: 'external', // 使用外置模式
       external: {
         // base: 'https://sfc.vuejs.org/', // 使用 vue sfc playground.

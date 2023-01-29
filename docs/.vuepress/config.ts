@@ -1,17 +1,15 @@
 import { defineUserConfig } from 'vuepress'
-const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
-
-const { path } = require('@vuepress/utils')
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 
 import { themeOptions } from './themeConfig'
 import { docsearch } from './plugin-config'
-import themeZhaobc from './theme'
+import { hopeTheme } from 'vuepress-theme-hope'
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
 
 export default defineUserConfig({
   // 使用自定义主题
-  theme: themeZhaobc(themeOptions),
+  theme: hopeTheme(themeOptions),
 
   // debug: true,
 
@@ -43,6 +41,10 @@ export default defineUserConfig({
       },
     ],
   ],
+
+  // vuepress-plugin-pwa2:  ⚠ The plugin will register service worker to handle assets,
+  // so we recommend you to set "shouldPrefetch: false" in VuePress config file.
+  shouldPrefetch: false,
 
   locales: {
     '/': {

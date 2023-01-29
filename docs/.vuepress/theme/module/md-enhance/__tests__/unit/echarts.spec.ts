@@ -1,5 +1,5 @@
-import MarkdownIt = require('markdown-it')
-import MarkdownContainer = require('markdown-it-container')
+import MarkdownIt from 'markdown-it'
+import MarkdownContainer from 'markdown-it-container'
 
 import { echartsRender } from '../../node/markdown-it/echarts'
 

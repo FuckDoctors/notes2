@@ -89,7 +89,7 @@ const unsubscribe = someStore.$onAction(
 
     // this will trigger if the action succeeds and after it has fully run.
     // it waits for any returned promised
-    after((result) => {
+    after(result => {
       console.log(
         `Finished "${name}" after ${
           Date.now() - startTime
@@ -98,7 +98,7 @@ const unsubscribe = someStore.$onAction(
     })
 
     // this will trigger if the action throws or returns a promise that rejects
-    onError((error) => {
+    onError(error => {
       console.warn(
         `Failed "${name}" after ${Date.now() - startTime}ms.\nError: ${error}.`
       )

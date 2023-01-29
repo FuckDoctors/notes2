@@ -16,7 +16,7 @@ const AsyncInternalPlayground = defineAsyncComponent({
 
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Playground',
+  name: 'PlaygroundZhaobc',
 
   props: {
     id: { type: String, required: true },

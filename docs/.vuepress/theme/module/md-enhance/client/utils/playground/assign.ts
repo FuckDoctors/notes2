@@ -10,12 +10,12 @@ export const deepAssign = <
   originObject: T,
   ...assignObjects: U[]
 ): V => {
-  if (assignObjects.length === 0) return originObject as V
+  if (assignObjects.length === 0) return originObject as unknown as V
 
   /** Object being merged */
   const assignObject = (assignObjects.shift() as IAnyObject) || {}
 
-  Object.keys(assignObject).forEach((property) => {
+  Object.keys(assignObject).forEach(property => {
     if (
       typeof originObject[property] === 'object' &&
       !Array.isArray(originObject[property]) &&
@@ -49,7 +49,7 @@ export const deepAssignReverse = (
   const assignObject = assignObjects.pop() as IAnyObject
   const originObject = assignObjects.pop() as IAnyObject
 
-  Object.keys(originObject).forEach((property) => {
+  Object.keys(originObject).forEach(property => {
     if (assignObject[property] === undefined)
       if (typeof originObject[property] === 'object')
         if (Array.isArray(originObject[property]))

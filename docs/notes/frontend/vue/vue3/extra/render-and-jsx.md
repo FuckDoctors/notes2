@@ -212,7 +212,7 @@ h(
 
 ```jsx
 <button
-  onClick={(event) => {
+  onClick={event => {
     // ...
   }}
 >
@@ -413,7 +413,7 @@ export default {
     return () =>
       h(SomeComponent, {
         modelValue: props.modelValue,
-        'onUpdate:modelValue': (value) => emit('update:modelValue', value),
+        'onUpdate:modelValue': value => emit('update:modelValue', value),
       })
   },
 }

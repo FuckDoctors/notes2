@@ -2,6 +2,6 @@ import type { PlaygroundOptions } from './playground'
 
 export interface MdEnhanceOptions {
   echarts?: boolean
-  playground?: boolean | PlaygroundOptions
+  playgroundZhaobc?: boolean | PlaygroundOptions
   delay?: number
 }

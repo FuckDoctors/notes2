@@ -4,7 +4,7 @@ icon: slides
 layout: Slide
 ---
 
-<!-- markdownlint-disable MD024 MD033 -->
+<!-- markdownlint-disable MD024 MD033 MD051 -->
 
 @slidestart
 
@@ -382,7 +382,7 @@ You can use `[a-b|c-d]` syntax to highlight lines by steps.
 ```js [1-2|3|4]
 let a = 1
 let b = 2
-let c = (x) => 1 + 2 + x
+let c = x => 1 + 2 + x
 c(3)
 ```
 

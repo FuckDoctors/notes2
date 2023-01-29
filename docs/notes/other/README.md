@@ -38,7 +38,7 @@ category:
 
 ## Playground 示例
 
-::: playground Playground demo
+::: playground#vue Playground demo
 
 @file App.vue
 
@@ -67,7 +67,7 @@ const msg = ref('Hello World!')
 </template>
 ```
 
-@imports
+@import
 
 ```json
 {
@@ -81,19 +81,30 @@ const msg = ref('Hello World!')
 
 ## Element-Plus 示例
 
-::: playground Element-Plus demo
+::: playground#vue Element-Plus demo
 
 @file App.vue
 
 ```vue
+<script lang="ts" setup>
+import {
+  Check,
+  Delete,
+  Edit,
+  Message,
+  Search,
+  Star,
+} from '@element-plus/icons-vue'
+</script>
+
 <template>
   <el-row class="mb-4">
     <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
+    <el-button type="primary"> Primary </el-button>
+    <el-button type="success"> Success </el-button>
+    <el-button type="info"> Info </el-button>
+    <el-button type="warning"> Warning </el-button>
+    <el-button type="danger"> Danger </el-button>
     <el-button>中文</el-button>
   </el-row>
   <el-row>
@@ -105,20 +116,9 @@ const msg = ref('Hello World!')
     <el-button type="danger" :icon="Delete" circle />
   </el-row>
 </template>
-
-<script lang="ts" setup>
-import {
-  Check,
-  Delete,
-  Edit,
-  Message,
-  Search,
-  Star,
-} from '@element-plus/icons-vue'
-</script>
 ```
 
-@imports import_map.json
+@import import_map.json
 
 ```json
 {
@@ -128,13 +128,11 @@ import {
 }
 ```
 
-@settings
+@setting
 
 ```json
 {
-  "external": {
-    "base": "https://element-plus.run/"
-  }
+  "service": "https://element-plus.run/"
 }
 ```
 

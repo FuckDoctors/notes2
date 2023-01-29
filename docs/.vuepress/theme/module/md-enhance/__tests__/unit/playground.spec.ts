@@ -10,7 +10,7 @@ describe('playground', () => {
     expect(
       markdownIt.render(
         `
-::: playground Playground demo
+::: playground-zhaobc Playground demo
 @file App.vue
 \`\`\`vue
 <script setup>
@@ -47,7 +47,7 @@ const msg = ref('Hello World!')
     expect(
       markdownIt.render(
         `
-::: playground Playground demo2
+::: playground-zhaobc Playground demo2
 @file App.vue
 \`\`\`vue
 <script setup>
@@ -85,7 +85,7 @@ const msg = ref('Hello World!')
     expect(
       markdownIt.render(
         `
-::: playground#customId Playground demo2
+::: playground-zhaobc#customId Playground demo2
 @file App.vue
 \`\`\`vue
 <script setup>

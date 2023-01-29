@@ -1,6 +1,6 @@
 ---
 home: true
-layout: Blog
+layout: BlogHome
 icon: home
 title: 主页
 heroImage: /logo.svg
@@ -18,4 +18,20 @@ head:
   - - meta
     - name: description
       content: 赵斌的博客，随笔和笔记
+
+projects:
+  - icon: redis
+    name: rdm-builder
+    desc: Redis Desktop Manager编译，下载
+    link: https://github.com/FuckDoctors/rdm-builder
+
+  - icon: macOS
+    name: 我的黑苹果
+    desc: ideapad-720s-13ikb 黑苹果
+    link: https://github.com/FuckDoctors/ideapad-720s-13ikb-oc
+
+  - icon: note
+    name: 笔记
+    desc: 笔记，琐事
+    link: https://github.com/FuckDoctors/notes2
 ---
