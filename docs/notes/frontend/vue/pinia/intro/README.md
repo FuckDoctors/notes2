@@ -65,7 +65,7 @@ export default {
 }
 ```
 
-::: playground-zhaobc Basic example
+::: playground#vue Basic example
 
 @file App.vue
 
@@ -124,7 +124,7 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-::: playground-zhaobc setup example
+::: playground#vue setup example
 
 @file App.vue
 
@@ -163,6 +163,14 @@ export const useCounterStore = defineStore('counter', () => {
     increment,
   }
 })
+```
+
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
 ```
 
 :::
@@ -204,13 +212,13 @@ export default {
 }
 ```
 
-::: playground-zhaobc Option API example
+::: playground#vue Option API example
 
 @file App.vue
 
 ```vue
 <script>
-import { mapStores, mapState, mapActions } from 'pinia'
+import { mapActions, mapState, mapStores } from 'pinia'
 
 import { useCounterStore } from './counterStore.js'
 import { useUserStore } from './userStore.js'
@@ -276,6 +284,14 @@ export const useUserStore = defineStore('user', {
     },
   },
 })
+```
+
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
 ```
 
 :::

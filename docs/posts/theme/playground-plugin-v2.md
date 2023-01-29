@@ -138,7 +138,7 @@ module.exports = {
 #### 基本用法
 
 ````md
-:::: playground-zhaobc 基础用法
+:::: playground 基础用法
 
 ::: file App.vue
 
@@ -168,7 +168,7 @@ const msg = ref('Hello World!')
 - 应用额外的配置到你的 playground
 
 ````md
-:::: playground-zhaobc 高级用法
+:::: playground 高级用法
 ::: file App.vue
 
 ```vue
@@ -194,11 +194,11 @@ const msg = ref('Hello Playground!')
   <div>Comp</div>
   <el-row class="mb-4">
     <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
+    <el-button type="primary"> Primary </el-button>
+    <el-button type="success"> Success </el-button>
+    <el-button type="info"> Info </el-button>
+    <el-button type="warning"> Warning </el-button>
+    <el-button type="danger"> Danger </el-button>
     <el-button>中文</el-button>
   </el-row>
 </template>
@@ -239,7 +239,7 @@ const msg = ref('Hello Playground!')
 #### 内置模式 基本用法
 
 ````md
-:::: playground-zhaobc 基础用法
+:::: playground 基础用法
 ::: file App.vue
 
 ```vue
@@ -273,7 +273,7 @@ const msg = ref('Hello Playground!')
 显示 playground 的 JS, CSS, SSR 面板，并显示代码编辑器。
 
 ````md
-:::: playground-zhaobc 高级用法
+:::: playground 高级用法
 ::: file App.vue
 
 ```vue
@@ -312,12 +312,11 @@ const msg = ref('Hello Playground!')
 // playground.ts
 import { hash } from '@vuepress/utils'
 
-import { container } from './container'
-
 import type { PluginSimple } from 'markdown-it'
 import type { default as Token } from 'markdown-it/lib/token'
 import type { PlaygroundFiles } from '../../shared/playground'
 import { IMPORT_MAP_KEY } from '../../shared/playground'
+import { container } from './container'
 
 const extensions = ['html', 'js', 'ts', 'vue', 'jsx', 'tsx', 'json']
 
@@ -357,9 +356,8 @@ export const playground =
               .slice(4)
               .trim()
 
-            if (!fileName || fileName.length === 0) {
-              continue
-            }
+            if (!fileName || fileName.length === 0) continue
+
             configKey = fileName
           } else if (type === 'container_imports_open') {
             const fileName = info
@@ -368,11 +366,8 @@ export const playground =
               .slice(7)
               .trim()
 
-            if (fileName && fileName.length > 0) {
-              configKey = fileName
-            } else {
-              configKey = defaultImportMap || IMPORT_MAP_KEY
-            }
+            if (fileName && fileName.length > 0) configKey = fileName
+            else configKey = defaultImportMap || IMPORT_MAP_KEY
           } else if (type === 'container_settings_open') {
             isSettings = true
           } else if (type === 'inline') {
@@ -382,14 +377,13 @@ export const playground =
           if (!content) continue
 
           if (isSettings) {
-            if (type === 'fence' && info === 'json') {
+            if (type === 'fence' && info === 'json')
               settings = content.replace(/^\s+|\s+$/g, '').replace(/\/+$/, '')
-            }
           } else {
             if (type === 'fence' && extensions.includes(info) && configKey) {
               codeConfigs[configKey] = {
                 lang: info,
-                content: content,
+                content,
               }
             }
           }
@@ -412,7 +406,7 @@ export const playground =
       config="${config}"
       >`
       },
-      closeRender: () => `</Playground>`,
+      closeRender: () => '</Playground>',
     })
 
 const getPlugin =

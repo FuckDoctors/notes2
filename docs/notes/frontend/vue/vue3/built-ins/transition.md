@@ -28,22 +28,22 @@ Vue 提供了两个内置组件，可以帮助你制作基于状态变化的过�
 
 最基本的示例：
 
-::: playground-zhaobc transistion 示例
+::: playground#vue transistion 示例
 @file App.vue
 
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const show = ref(true)
+</script>
+
 <template>
   <button @click="show = !show">Toggle</button>
   <Transition>
     <p v-if="show">hello</p>
   </Transition>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const show = ref(true)
-</script>
 
 <style>
 .v-enter-active,
@@ -140,22 +140,22 @@ Because semicolons can be used instead of line breaks to define the markup, you 
 
 下面是一个更高级的例子，它使用了不同的持续时间和速度曲线来过渡多个 property：
 
-::: playground-zhaobc CSS Transition
+::: playground#vue CSS Transition
 @file App.vue
 
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const show = ref(true)
+</script>
+
 <template>
   <button @click="show = !show">Toggle Slide + Fade</button>
   <Transition name="slide-fade">
     <p v-if="show">hello</p>
   </Transition>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const show = ref(true)
-</script>
 
 <style scoped>
 .slide-fade-enter-active {
@@ -180,10 +180,16 @@ const show = ref(true)
 
 对于大多数的 CSS 动画，我们可以简单地在 `*-enter-active` 和 `*-leave-active` class 下声明它们。下面是一个示例：
 
-::: playground-zhaobc CSS animation
+::: playground#vue CSS animation
 @file App.vue
 
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const show = ref(true)
+</script>
+
 <template>
   <button @click="show = !show">Toggle</button>
   <Transition name="bounce">
@@ -192,12 +198,6 @@ const show = ref(true)
     </p>
   </Transition>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const show = ref(true)
-</script>
 
 <style scoped>
 .bounce-enter-active {
@@ -235,10 +235,16 @@ const show = ref(true)
 
 你传入的这些 class 会覆盖相应阶段的默认 class 名。这个功能在你想要在 Vue 的动画机制下集成其他的第三方 CSS 动画库时非常有用，比如 [Animate.css](https://daneden.github.io/animate.css/)：
 
-::: playground-zhaobc 自定义过渡 class
+::: playground#vue 自定义过渡 class
 @file App.vue
 
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const show = ref(true)
+</script>
+
 <template>
   <button @click="show = !show">Toggle</button>
   <Transition
@@ -249,12 +255,6 @@ const show = ref(true)
     <p v-if="show">hello</p>
   </Transition>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const show = ref(true)
-</script>
 
 <style scoped>
 @import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
@@ -328,10 +328,16 @@ Vue 需要附加事件侦听器，以便知道过渡何时结束。可以是 `tr
 <Transition :duration="{ enter: 500, leave: 800 }">...</Transition>
 ```
 
-::: playground-zhaobc 深层级过渡与显式过渡时间
+::: playground#vue 深层级过渡与显式过渡时间
 @file App.vue
 
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const show = ref(true)
+</script>
+
 <template>
   <button @click="show = !show">Toggle</button>
   <Transition :duration="550" name="nested">
@@ -340,12 +346,6 @@ Vue 需要附加事件侦听器，以便知道过渡何时结束。可以是 `tr
     </div>
   </Transition>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const show = ref(true)
-</script>
 
 <style scoped>
 .outer,
@@ -480,7 +480,7 @@ function leaveCancelled(el) {}
 
 可以使用 [GreenSock](https://greensock.com/), [Anime.js](https://animejs.com/), 或者 [Motion One](https://motion.dev/) 等库来执行动画。
 
-::: playground-zhaobc JavaScript 钩子
+::: playground#vue JavaScript 钩子
 @file App.vue
 
 ```vue
@@ -530,12 +530,12 @@ function onLeave(el, done) {
   <button @click="show = !show">Toggle</button>
 
   <Transition
+    :css="false"
     @before-enter="onBeforeEnter"
     @enter="onEnter"
     @leave="onLeave"
-    :css="false"
   >
-    <div class="gsap-box" v-if="show"></div>
+    <div v-if="show" class="gsap-box" />
   </Transition>
 </template>
 
@@ -550,7 +550,7 @@ function onLeave(el, done) {
 </style>
 ```
 
-@imports user-imports.json
+@import
 
 ```json
 {
@@ -628,27 +628,37 @@ function onLeave(el, done) {
 </Transition>
 ```
 
-::: playground-zhaobc 组件间过渡 & 动态过渡
+::: playground#vue 组件间过渡 & 动态过渡
 @file App.vue
 
 ```vue
+<script setup>
+import { ref, shallowRef } from 'vue'
+
+import CompA from './CompA.vue'
+import CompB from './CompB.vue'
+
+const activeComponent = shallowRef(CompA)
+const transitionName = ref('fade')
+</script>
+
 <template>
   <div>
     <div class="selector">
       <label>
         <input
+          v-model="activeComponent"
           type="radio"
           name="comp"
-          v-model="activeComponent"
           :value="CompA"
         />
         A
       </label>
       <label>
         <input
+          v-model="activeComponent"
           type="radio"
           name="comp"
-          v-model="activeComponent"
           :value="CompB"
         />
         B
@@ -662,18 +672,18 @@ function onLeave(el, done) {
     <div class="effect">
       <label>
         <input
+          v-model="transitionName"
           type="radio"
           name="transition"
-          v-model="transitionName"
           value="fade"
         />
         fade
       </label>
       <label>
         <input
+          v-model="transitionName"
           type="radio"
           name="transition"
-          v-model="transitionName"
           value="slide"
         />
         slide
@@ -681,16 +691,6 @@ function onLeave(el, done) {
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref, shallowRef } from 'vue'
-
-import CompA from './CompA.vue'
-import CompB from './CompB.vue'
-
-const activeComponent = shallowRef(CompA)
-const transitionName = ref('fade')
-</script>
 
 <style>
 .fade-enter-active,

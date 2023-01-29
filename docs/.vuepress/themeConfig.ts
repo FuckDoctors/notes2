@@ -116,6 +116,9 @@ export const themeOptions: ThemeOptions = {
       flowchart: true,
       mermaid: true,
       demo: true,
+      playground: {
+        presets: ['ts', 'vue'],
+      },
       vuePlayground: true,
       presentation: {
         plugins: ['highlight', 'math', 'search', 'notes', 'zoom'],

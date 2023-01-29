@@ -15,7 +15,7 @@ tag:
 
 对于那些不是正在进入或离开 DOM 的元素，我们可以通过给它们动态添加 CSS class 来触发动画：
 
-::: playground-zhaobc 基于 CSS class 的动画
+::: vue-playground 基于 CSS class 的动画
 
 @file App.vue
 
@@ -68,21 +68,13 @@ function warnDisabled() {
 </style>
 ```
 
-@settings
-
-```json
-{
-  "mode": "internal"
-}
-```
-
 :::
 
 ## 状态驱动的动画
 
 有些过渡效果可以通过动态地插值来实现，例如，在交互时动态地绑定样式到元素，以这个例子为例：
 
-::: playground-zhaobc 状态驱动的动画
+::: vue-playground 状态驱动的动画
 
 @file App.vue
 
@@ -99,9 +91,9 @@ function onMousemove(e) {
 
 <template>
   <div
-    @mousemove="onMousemove"
     :style="{ backgroundColor: `hsl(${x}, 80%, 50%)` }"
     class="movearea"
+    @mousemove="onMousemove"
   >
     <p>Move your mouse across the div...</p>
     <p>x: {{ x }}</p>
@@ -120,27 +112,19 @@ function onMousemove(e) {
 </style>
 ```
 
-@settings
-
-```json
-{
-  "mode": "internal"
-}
-```
-
 :::
 
 ## 带侦听器的动画
 
 在一些动画创意里，我们可以根据一些数字状态，使用侦听器将任何东西做成动画。例如，我们可以将数字本身变成动画：
 
-::: playground-zhaobc 带侦听器的动画
+::: vue-playground 带侦听器的动画
 
 @file App.vue
 
 ```vue
 <script setup>
-import { ref, reactive, watch } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import gsap from 'gsap'
 
 const number = ref(0)
@@ -163,21 +147,13 @@ watch(number, (n) => {
 </template>
 ```
 
-@imports
+@import
 
 ```json
 {
   "imports": {
     "gsap": "https://unpkg.com/gsap?module"
   }
-}
-```
-
-@settings
-
-```json
-{
-  "mode": "internal"
 }
 ```
 

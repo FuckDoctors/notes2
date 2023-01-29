@@ -138,29 +138,8 @@ module.exports = {
 
 #### 基本用法
 
-::: playground-zhaobc 基础用法
-
-@file App.vue
-
-```vue
-<script setup>
-import { ref } from 'vue'
-
-const msg = ref('Hello World!')
-</script>
-
-<template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg" />
-</template>
-```
-
-:::
-
-:::: details 代码
-
 ````md
-::: playground-zhaobc 基础用法
+::: playground 基础用法
 
 @file App.vue
 
@@ -179,8 +158,6 @@ const msg = ref('Hello World!')
 
 :::
 ````
-
-::::
 
 #### 高级用法
 
@@ -190,72 +167,8 @@ const msg = ref('Hello World!')
 - 使用你自己的 import map
 - 应用额外的配置到你的 playground
 
-::: playground-zhaobc 高级用法
-@file App.vue
-
-```vue
-<script setup>
-import { ref } from 'vue'
-import Comp from './Comp.vue'
-
-const msg = ref('Hello Playground!')
-</script>
-
-<template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg" />
-
-  <Comp />
-</template>
-```
-
-@file Comp.vue
-
-```vue
-<template>
-  <div>Comp</div>
-  <el-row class="mb-4">
-    <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
-    <el-button>中文</el-button>
-  </el-row>
-</template>
-```
-
-@imports user-imports.json
-
-```json
-{
-  "imports": {
-    "lodash-es": "https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/lodash.min.js"
-  }
-}
-```
-
-@settings
-
-```json
-{
-  "mode": "external",
-  "external": {
-    "base": "https://vue-sfc-playground.vercel.app/",
-    "options": {
-      "showOutput": "true"
-    }
-  }
-}
-```
-
-:::
-
-:::: details 代码
-
 ````md
-::: playground-zhaobc 高级用法
+::: playground 高级用法
 @file App.vue
 
 ```vue
@@ -281,11 +194,11 @@ const msg = ref('Hello Playground!')
   <div>Comp</div>
   <el-row class="mb-4">
     <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
+    <el-button type="primary"> Primary </el-button>
+    <el-button type="success"> Success </el-button>
+    <el-button type="info"> Info </el-button>
+    <el-button type="warning"> Warning </el-button>
+    <el-button type="danger"> Danger </el-button>
     <el-button>中文</el-button>
   </el-row>
 </template>
@@ -317,43 +230,13 @@ const msg = ref('Hello Playground!')
 
 :::
 ````
-
-::::
 
 ### 内置模式
 
 #### 内置模式 基本用法
 
-::: playground-zhaobc 基础用法
-@file App.vue
-
-```vue
-<script setup>
-import { ref } from 'vue'
-
-const msg = ref('Hello Playground!')
-</script>
-
-<template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg" />
-</template>
-```
-
-@settings
-
-```json
-{
-  "mode": "internal"
-}
-```
-
-:::
-
-:::: details 代码
-
 ````md
-::: playground-zhaobc 基础用法
+::: playground 基础用法
 @file App.vue
 
 ```vue
@@ -379,8 +262,6 @@ const msg = ref('Hello Playground!')
 
 :::
 ````
-
-::::
 
 #### 内置模式 高级用法
 
@@ -389,38 +270,6 @@ const msg = ref('Hello Playground!')
 Playground 的 `key` 是自动产生的。它是基于标题计算的。
 你也可以自己指定它，使用 `playground#customId` 形式。
 
-::: playground#customId 高级用法
-@file App.vue
-
-```vue
-<script setup>
-import { ref } from 'vue'
-
-const msg = ref('Hello Playground!')
-</script>
-
-<template>
-  <h1>{{ msg }}</h1>
-  <input v-model="msg" />
-</template>
-```
-
-@settings
-
-```json
-{
-  "mode": "internal",
-  "internal": {
-    "showCode": "true",
-    "showCompileOutput": "true"
-  }
-}
-```
-
-:::
-
-:::: details 代码
-
 ````md
 ::: playground#customId 高级用法
 @file App.vue
@@ -452,5 +301,3 @@ const msg = ref('Hello Playground!')
 
 :::
 ````
-
-::::

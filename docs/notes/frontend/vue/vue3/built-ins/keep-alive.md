@@ -32,7 +32,7 @@ tag:
 </KeepAlive>
 ```
 
-::: playground-zhaobc KeepAlive 基本用法
+::: playground#vue KeepAlive 基本用法
 @file App.vue
 
 ```vue
@@ -46,8 +46,8 @@ const current = shallowRef(CompA)
 
 <template>
   <div class="demo">
-    <label><input type="radio" v-model="current" :value="CompA" /> A</label>
-    <label><input type="radio" v-model="current" :value="CompB" /> B</label>
+    <label><input v-model="current" type="radio" :value="CompA" /> A</label>
+    <label><input v-model="current" type="radio" :value="CompB" /> B</label>
     <KeepAlive>
       <component :is="current" />
     </KeepAlive>

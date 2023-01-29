@@ -58,7 +58,7 @@ export const customConfig: CustomConfig = {
 ### 使用主题默认配置
 
 ````md
-:::: playground-zhaobc Playground demo
+:::: playground Playground demo
 ::: code-tabs
 @tab App.vue
 
@@ -85,7 +85,7 @@ export const customConfig: CustomConfig = {
 使用个别配置的 `base` 和 `imports`，以 Element Plus 为例。
 
 ````md
-:::: playground-zhaobc Customize playground demo
+:::: playground Customize playground demo
 ::: code-tabs
 @tab App.vue
 
@@ -135,7 +135,7 @@ export const customConfig: CustomConfig = {
 ### 使用主题默认配置的案例
 
 ````md
-:::: playground-zhaobc Playground demo
+:::: playground Playground demo
 ::: code-tabs
 @tab App.vue
 
@@ -173,19 +173,30 @@ const msg = ref('Hello World!')
 使用个别配置的 `base` 和 `imports`。
 
 ````md
-:::: playground-zhaobc Element-Plus demo
+:::: playground Element-Plus demo
 ::: code-tabs
 @tab App.vue
 
 ```vue
+<script lang="ts" setup>
+import {
+  Check,
+  Delete,
+  Edit,
+  Message,
+  Search,
+  Star,
+} from '@element-plus/icons-vue'
+</script>
+
 <template>
   <el-row class="mb-4">
     <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
+    <el-button type="primary"> Primary </el-button>
+    <el-button type="success"> Success </el-button>
+    <el-button type="info"> Info </el-button>
+    <el-button type="warning"> Warning </el-button>
+    <el-button type="danger"> Danger </el-button>
     <el-button>中文</el-button>
   </el-row>
   <el-row>
@@ -197,17 +208,6 @@ const msg = ref('Hello World!')
     <el-button type="danger" :icon="Delete" circle />
   </el-row>
 </template>
-
-<script lang="ts" setup>
-import {
-  Check,
-  Delete,
-  Edit,
-  Message,
-  Search,
-  Star,
-} from '@element-plus/icons-vue'
-</script>
 ```
 
 :::

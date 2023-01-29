@@ -121,13 +121,13 @@ You don't need `mapWritableState()` for collections like arrays unless you are r
 `mapState()` still allows you to call methods on your collections.
 :::
 
-::: playground-zhaobc Usage with the Options API
+::: playground#vue Usage with the Options API
 
 @file App.vue
 
 ```vue
 <script>
-import { mapState, mapStores, mapActions, mapWritableState } from 'pinia'
+import { mapActions, mapState, mapStores, mapWritableState } from 'pinia'
 import { useCounterStore } from './counterStore.js'
 
 export default {
@@ -149,7 +149,7 @@ export default {
   <div>Counter: {{ count }}</div>
   <div>MyCounter: {{ myCounter }}</div>
   <div>Double count: {{ doubleCount }}</div>
-  <div>Change counter: <input type="number" v-model.number="count" /></div>
+  <div>Change counter: <input v-model.number="count" type="number" /></div>
   <button @click="increment">increment</button>
   <button @click="counterStore.$reset()">reset</button>
 </template>
@@ -173,6 +173,14 @@ export const useCounterStore = defineStore('counter', {
     },
   },
 })
+```
+
+@setting
+
+```json
+{
+  "service": "https://vue-sfc-playground.vercel.app"
+}
 ```
 
 :::
