@@ -179,7 +179,7 @@ export const useCounterStore = defineStore('counter', {
 
 ```json
 {
-  "service": "https://vue-sfc-playground.vercel.app"
+  "service": "http://sfc.zhaobc.site"
 }
 ```
 

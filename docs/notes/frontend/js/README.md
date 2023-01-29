@@ -1,6 +1,5 @@
 ---
 index: true
-sidebarText: 概述
 icon: javascript
 category:
   - 笔记

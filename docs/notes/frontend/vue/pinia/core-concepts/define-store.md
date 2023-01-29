@@ -122,7 +122,7 @@ export const useStore = defineStore('test', {
 
 ```json
 {
-  "service": "https://vue-sfc-playground.vercel.app"
+  "service": "http://sfc.zhaobc.site"
 }
 ```
 
@@ -206,7 +206,7 @@ export const useStore = defineStore('test', {
 
 ```json
 {
-  "service": "https://vue-sfc-playground.vercel.app"
+  "service": "http://sfc.zhaobc.site"
 }
 ```
 

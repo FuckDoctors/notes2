@@ -1,6 +1,5 @@
 ---
 index: true
-sidebarText: 目录
 dir:
   index: 20
 category:

@@ -1,6 +1,5 @@
 ---
 index: true
-sidebarText: 前言
 category:
   - 笔记
   - frontend

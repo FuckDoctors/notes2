@@ -1,7 +1,6 @@
 ---
 index: 20
 icon: backend
-sidebarText: 概述
 dir:
   text: 后端笔记
   index: 20

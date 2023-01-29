@@ -3,7 +3,6 @@ index: true
 dir:
   text: 可重用性
   index: 401
-sidebarText: 目录
 icon: vue
 category:
   - 笔记

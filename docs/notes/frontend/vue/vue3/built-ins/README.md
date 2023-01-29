@@ -3,7 +3,6 @@ index: true
 dir:
   text: 内置组件
   index: 501
-sidebarText: 目录
 icon: vue
 category:
   - 笔记

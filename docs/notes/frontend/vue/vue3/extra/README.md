@@ -2,7 +2,6 @@
 index: true
 dir:
   index: 900
-sidebarText: 目录
 icon: vue
 category:
   - 笔记

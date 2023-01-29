@@ -3,7 +3,6 @@ index: 90
 dir:
   text: 其他内容
   index: 90
-sidebarText: 其他
 icon: note
 category:
   - 笔记

@@ -1,6 +1,5 @@
 ---
 index: true
-sidebarText: 前言
 dir:
   index: 200
 icon: vue
