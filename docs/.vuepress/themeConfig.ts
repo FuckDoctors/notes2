@@ -43,7 +43,8 @@ export const themeOptions: ThemeOptions = {
       // sidebar
       sidebar: sidebar.zh,
 
-      footer: '欢迎来到赵斌的小站',
+      footer:
+        '欢迎来到赵斌的小站。 由 <a href="https://theme-hope.vuejs.press" target="_blank">Theme Hope</> 驱动',
 
       displayFooter: true,
 
@@ -63,7 +64,8 @@ export const themeOptions: ThemeOptions = {
       // sidebar
       sidebar: sidebar.en,
 
-      footer: "Welcome to ZhaoBin's site",
+      footer:
+        "Welcome to ZhaoBin's site. Powered by <a href='https://theme-hope.vuejs.press' target='_blank'>Theme Hope</>",
 
       displayFooter: true,
 
