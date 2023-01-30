@@ -55,7 +55,7 @@ export default defineUserConfig({
     '/en/': {
       lang: 'en-US',
       title: "ZhaoBin's site",
-      description: "ZhaoBin 's blogs and notes",
+      description: "ZhaoBin's blogs and notes",
     },
   },
 
