@@ -25,7 +25,7 @@
     "typecheck": "vue-tsc --noEmit",
     "prepare": "husky install",
     "cm": "cz",
-    "docs:build": "vuepress build docs --clean-cache",
+    "docs:build": "vuepress build docs",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
     "docs:dev": "vuepress dev docs"
   },
