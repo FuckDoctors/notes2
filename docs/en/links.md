@@ -10,7 +10,7 @@ features:
   - title: vuepress-theme-hope
     icon: palette
     details: A vuepress theme with tons of features✨
-    link: https://vuepress-theme-hope.github.io/v2/zh/
+    link: https://theme-hope.vuejs.press/
 
   - title: OKTools
     icon: tool

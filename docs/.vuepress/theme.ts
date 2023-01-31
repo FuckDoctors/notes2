@@ -43,7 +43,7 @@ export default hopeTheme({
       sidebar: sidebar.zh,
 
       footer:
-        '欢迎来到赵斌的小站。 由 <a href="https://theme-hope.vuejs.press" target="_blank">Theme Hope</> 驱动',
+        '欢迎来到赵斌的小站 | 由 <a href="https://theme-hope.vuejs.press" target="_blank">Theme Hope</a> 驱动',
 
       displayFooter: true,
 
@@ -64,7 +64,7 @@ export default hopeTheme({
       sidebar: sidebar.en,
 
       footer:
-        "Welcome to ZhaoBin's site. Powered by <a href='https://theme-hope.vuejs.press' target='_blank'>Theme Hope</>",
+        "Welcome to ZhaoBin's site | Powered by <a href='https://theme-hope.vuejs.press' target='_blank'>Theme Hope</a>",
 
       displayFooter: true,
 

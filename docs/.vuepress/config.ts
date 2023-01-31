@@ -3,7 +3,6 @@ import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 
 import theme from './theme'
 import { docsearch } from './plugin-config'
-import { hopeTheme } from 'vuepress-theme-hope'
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
 
