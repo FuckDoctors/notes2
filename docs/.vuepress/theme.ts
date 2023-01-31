@@ -1,5 +1,4 @@
 import { hopeTheme } from 'vuepress-theme-hope'
-import type { ThemeOptions } from 'vuepress-theme-hope'
 
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
@@ -7,7 +6,7 @@ import { pwa } from './plugin-config'
 
 const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
-export const themeOptions: ThemeOptions = {
+export default hopeTheme({
   hostname,
 
   author: {
@@ -76,13 +75,6 @@ export const themeOptions: ThemeOptions = {
     },
   },
 
-  encrypt: {
-    config: {
-      '/guide/encrypt.html': ['12345'],
-      '/en/guide/encrypt.html': ['12345'],
-    },
-  },
-
   plugins: {
     blog: true,
 
@@ -130,6 +122,4 @@ export const themeOptions: ThemeOptions = {
     // PWA
     pwa,
   },
-}
-
-export default hopeTheme(themeOptions)
+})

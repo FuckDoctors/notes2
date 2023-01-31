@@ -1,15 +1,14 @@
 import { defineUserConfig } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 
-import { themeOptions } from './themeConfig'
+import theme from './theme'
 import { docsearch } from './plugin-config'
 import { hopeTheme } from 'vuepress-theme-hope'
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
 
 export default defineUserConfig({
-  // 使用自定义主题
-  theme: hopeTheme(themeOptions),
+  theme,
 
   // debug: true,
 
