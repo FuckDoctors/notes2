@@ -233,3 +233,9 @@ pnpm run build:docs
 ```
 
 And you will see the generated file in `docs/.vuepress/dist` that ready to be served.
+
+If you need to upgrade your theme and VuePress version, execute the following command:
+
+```bash
+pnpm add @vuepress/client@next vue@latest vuepress@next vuepress-theme-hope@latest  -E && pnpm i && pnpm up
+```

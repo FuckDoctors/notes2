@@ -202,3 +202,9 @@ pnpm run build:docs
 ```
 
 然后你会看到用于发布的 `docs/.vuepress/dist` 文件夹被生成。
+
+如果你需要升级主题和 VuePress 版本，请执行以下命令:
+
+```bash
+pnpm add @vuepress/client@next vue@latest vuepress@next vuepress-theme-hope@latest  -E && pnpm i && pnpm up
+```
