@@ -1,9 +1,9 @@
 ---
-index: 20
+order: 20
 icon: backend
 dir:
   text: 后端笔记
-  index: 20
+  order: 20
 category:
   - 笔记
   - backend

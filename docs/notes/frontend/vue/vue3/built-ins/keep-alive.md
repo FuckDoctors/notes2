@@ -1,5 +1,5 @@
 ---
-index: 30
+order: 30
 icon: vue
 category:
   - 笔记

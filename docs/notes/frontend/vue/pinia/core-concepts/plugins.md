@@ -1,5 +1,5 @@
 ---
-index: 50
+order: 50
 category:
   - 笔记
   - frontend

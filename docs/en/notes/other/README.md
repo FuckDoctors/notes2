@@ -1,8 +1,8 @@
 ---
-index: 90
+order: 90
 dir:
   text: Others
-  index: 90
+  order: 90
 icon: note
 category:
   - notes

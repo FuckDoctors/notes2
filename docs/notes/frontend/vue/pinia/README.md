@@ -1,7 +1,7 @@
 ---
 index: true
 dir:
-  index: 300
+  order: 300
 category:
   - 笔记
   - frontend

@@ -1,8 +1,8 @@
 ---
-index: 90
+order: 90
 dir:
   text: 其他内容
-  index: 90
+  order: 90
 icon: note
 category:
   - 笔记

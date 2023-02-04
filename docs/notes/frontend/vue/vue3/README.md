@@ -2,7 +2,7 @@
 index: true
 icon: vue
 dir:
-  index: 100
+  order: 100
 category:
   - 笔记
   - frontend

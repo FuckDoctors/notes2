@@ -1,7 +1,7 @@
 ---
 index: true
 dir:
-  index: 900
+  order: 900
 icon: vue
 category:
   - 笔记
