@@ -179,7 +179,7 @@ export const useCounterStore = defineStore('counter', {
 
 ```json
 {
-  "service": "http://sfc.zhaobc.site"
+  "service": "https://sfc.zhaobc.site"
 }
 ```
 

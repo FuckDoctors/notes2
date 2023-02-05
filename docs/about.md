@@ -33,4 +33,4 @@ head:
 ## 联系方式
 
 - 邮件：[hi@zhaobc.site](mailto:hi@zhaobc.site)
-- GitHub: [FuckDoctors](http://github.com/FuckDoctors)
+- GitHub: [FuckDoctors](https://github.com/FuckDoctors)

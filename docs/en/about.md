@@ -32,4 +32,4 @@ With no hobbies, but indeed, having interests in something.
 ## Contact
 
 - Mail: [hi@zhaobc.site](mailto:hi@zhaobc.site)
-- GitHub: [FuckDoctors](http://github.com/FuckDoctors)
+- GitHub: [FuckDoctors](https://github.com/FuckDoctors)
