@@ -16,12 +16,6 @@ tag:
 
 # 前端笔记
 
-## 概述
-
 记录前端相关的学习笔记。
 
-- [JavaScript](./js/)
-- [TypeScript](./ts/)
-- [Vue](./vue/)
-
-<!-- more -->
+<AutoCatalog />

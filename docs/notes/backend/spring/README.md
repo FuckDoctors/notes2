@@ -14,6 +14,4 @@ tag:
 
 # Spring 笔记
 
-## 概述
-
 Spring 相关的学习笔记
