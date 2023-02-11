@@ -136,3 +136,11 @@ import {
 ```
 
 :::
+
+## Replit Demo
+
+<Replit user="FuckDoctors" repl="Java-Test" />
+
+```md
+<Replit user="FuckDoctors" repl="Java-Test" />
+```

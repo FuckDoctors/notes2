@@ -1,6 +1,8 @@
 import { defineUserConfig } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 
+import { componentsPlugin } from 'vuepress-plugin-components'
+
 import theme from './theme'
 import { docsearch } from './plugin-config'
 
@@ -57,5 +59,10 @@ export default defineUserConfig({
     },
   },
 
-  plugins: [docsearchPlugin(docsearch)],
+  plugins: [
+    docsearchPlugin(docsearch),
+    componentsPlugin({
+      components: ['CodePen', 'StackBlitz', 'Replit'],
+    }),
+  ],
 })
