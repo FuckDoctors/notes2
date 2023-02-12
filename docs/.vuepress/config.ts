@@ -59,10 +59,15 @@ export default defineUserConfig({
     },
   },
 
+  pagePatterns: ['**/*.md', '!**/*.snippet.md', '!.vuepress', '!node_modules'],
+
   plugins: [
+    // components 使用这种方式的话，会覆盖掉主题自带的组件，导致 fonticon 无法显示
+    // componentsPlugin({
+    //   components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo'],
+    // }),
+
+    // DocSearch
     docsearchPlugin(docsearch),
-    componentsPlugin({
-      components: ['CodePen', 'StackBlitz', 'Replit'],
-    }),
   ],
 })

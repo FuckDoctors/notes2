@@ -78,6 +78,11 @@ export default hopeTheme({
   plugins: {
     blog: true,
 
+    // 组件插件
+    components: {
+      components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo'],
+    },
+
     // you can also use Waline
     comment: {
       provider: 'Giscus',
