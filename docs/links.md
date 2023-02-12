@@ -6,24 +6,57 @@ heroImage: /logo.svg
 heroText: 链接
 tagline: 工具链接，友情链接
 
-features:
-  - title: vuepress-theme-hope
-    icon: palette
-    details: 一个具有强大功能的 vuepress 主题✨
-    link: https://theme-hope.vuejs.press/zh/
+containerClass: zhaobc links
 
-  - title: OKTools
-    icon: tool
-    details: 在线工具
-    link: https://oktools.net
+tools:
+  - name: vuepress-theme-hope
+    desc: 一个具有强大功能的 vuepress 主题✨
+    logo: https://theme-hope.vuejs.press/logo.svg
+    url: https://theme-hope.vuejs.press/zh/
+    repo: https://github.com/vuepress-theme-hope/vuepress-theme-hope
+    preview: /assets/image/preview/theme-hope.jpg
 
-  - title: Regexper
-    icon: tool
-    details: 正则表达式可视化
-    link: https://regexper.com/
+  - name: OKTools
+    desc: 在线工具
+    url: https://oktools.net
+    preview: /assets/image/preview/oktools.jpg
 
-  - title: photopea
-    icon: tool
-    details: 在线Photoshop
-    link: https://www.photopea.com/
+  - name: Regexper
+    desc: 正则表达式可视化
+    url: https://regexper.com/
+    preview: /assets/image/preview/regexper.jpg
+
+  - name: Photopea
+    desc: 在线Photoshop
+    logo: https://theme-hope.vuejs.press/logo.svg
+    url: https://www.photopea.com/
+    preview: /assets/image/preview/photopea.jpg
+
+  - name: Squoosh
+    desc: 图片压缩对比工具
+    url: https://squoosh.app/
+    preview: /assets/image/preview/squoosh.jpg
+
+links:
+  - name: Mr.Hope 的博客
+    desc: Mr.Hope 的博客
+    logo: https://mrhope.site/logo.svg
+    url: https://mrhope.site/
+    preview: https://theme-hope.vuejs.press/assets/image/mrhope.jpg
 ---
+
+## 工具
+
+<SiteInfo
+  v-for="item in $frontmatter.tools"
+  :key="item.link"
+  v-bind="item"
+/>
+
+## 友情链接
+
+<SiteInfo
+  v-for="item in $frontmatter.links"
+  :key="item.link"
+  v-bind="item"
+/>
