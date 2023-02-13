@@ -26,9 +26,13 @@ tools:
     url: https://regexper.com/
     preview: /assets/image/preview/regexper.jpg
 
+  - name: Regexr
+    desc: Learn, Build, & Test RegEx
+    url: https://regexr.com/
+    preview: /assets/image/preview/regexr.jpg
+
   - name: Photopea
     desc: Online Photoshop
-    logo: https://theme-hope.vuejs.press/logo.svg
     url: https://www.photopea.com/
     preview: /assets/image/preview/photopea.jpg
 
@@ -37,12 +41,22 @@ tools:
     url: https://squoosh.app/
     preview: /assets/image/preview/squoosh.jpg
 
+  - name: 67tool
+    desc: online tools
+    url: https://www.67tool.com/
+    preview: /assets/image/preview/67tool.jpg
+
 links:
   - name: Mr.Hope's blog
     desc: Mr.Hope's blog
     logo: https://mrhope.site/logo.svg
     url: https://mrhope.site/
     preview: https://theme-hope.vuejs.press/assets/image/mrhope.jpg
+
+  - name: Your link
+    desc: Your link is welcomed via PR.
+    url: https://github.com/FuckDoctors/notes2/edit/main/docs/en/links.md
+    preview: /assets/image/preview/no-preview.jpg
 ---
 
 ## Tools

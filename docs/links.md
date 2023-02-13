@@ -26,9 +26,13 @@ tools:
     url: https://regexper.com/
     preview: /assets/image/preview/regexper.jpg
 
+  - name: Regexr
+    desc: 学习，构建，测试正则表达式
+    url: https://regexr.com/
+    preview: /assets/image/preview/regexr.jpg
+
   - name: Photopea
     desc: 在线Photoshop
-    logo: https://theme-hope.vuejs.press/logo.svg
     url: https://www.photopea.com/
     preview: /assets/image/preview/photopea.jpg
 
@@ -37,12 +41,22 @@ tools:
     url: https://squoosh.app/
     preview: /assets/image/preview/squoosh.jpg
 
+  - name: 67tool
+    desc: 在线工具
+    url: https://www.67tool.com/
+    preview: /assets/image/preview/67tool.jpg
+
 links:
   - name: Mr.Hope 的博客
     desc: Mr.Hope 的博客
     logo: https://mrhope.site/logo.svg
     url: https://mrhope.site/
     preview: https://theme-hope.vuejs.press/assets/image/mrhope.jpg
+
+  - name: 你的链接
+    desc: 通过 PR 提交你的链接
+    url: https://github.com/FuckDoctors/notes2/edit/main/docs/links.md
+    preview: /assets/image/preview/no-preview.jpg
 ---
 
 ## 工具
