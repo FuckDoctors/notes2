@@ -38,6 +38,10 @@ export const zh = navbar([
             link: 'spring/',
           },
           {
+            text: 'Python',
+            link: 'python/',
+          },
+          {
             text: '更多',
             link: '',
           },

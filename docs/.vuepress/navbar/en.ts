@@ -38,6 +38,10 @@ export const en = navbar([
             link: 'spring/',
           },
           {
+            text: 'Python',
+            link: 'python/',
+          },
+          {
             text: 'more',
             link: '',
           },
