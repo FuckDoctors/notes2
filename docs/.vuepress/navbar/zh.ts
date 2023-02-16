@@ -21,7 +21,7 @@ export const zh = navbar([
           { text: 'TypeScript', link: 'ts/' },
           { text: 'Vue', link: 'vue/' },
           { text: 'Pinia', link: 'vue/pinia/' },
-          { text: '更多', link: '' },
+          { text: '更多', link: '', activeMatch: '^/notes/frontend/$' },
         ],
       },
       {
@@ -44,6 +44,7 @@ export const zh = navbar([
           {
             text: '更多',
             link: '',
+            activeMatch: '^/notes/backend/$',
           },
         ],
       },

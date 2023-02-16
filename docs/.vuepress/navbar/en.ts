@@ -21,7 +21,7 @@ export const en = navbar([
           { text: 'TypeScript', link: 'ts/' },
           { text: 'Vue', link: 'vue/' },
           { text: 'Pinia', link: 'vue/pinia/' },
-          { text: 'more', link: '' },
+          { text: 'more', link: '', activeMatch: '^/notes/frontend/$' },
         ],
       },
       {
@@ -44,6 +44,7 @@ export const en = navbar([
           {
             text: 'more',
             link: '',
+            activeMatch: '^/notes/backend/$',
           },
         ],
       },

@@ -1,5 +1,6 @@
 ---
 index: true
+icon: javascript
 category:
   - 笔记
   - frontend
