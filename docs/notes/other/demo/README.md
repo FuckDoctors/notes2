@@ -51,7 +51,7 @@ const msg = ref('Hello World!')
 
 <template>
   <h1>{{ msg }}</h1>
-  <input v-model="msg" />
+  <input v-model="msg">
   <div>
     <Comp />
   </div>
@@ -78,6 +78,55 @@ const msg = ref('Hello World!')
 
 :::
 
+::: vue-playground Vue Playground demo
+
+@file App.vue
+
+```vue
+<script setup>
+import { ref } from 'vue'
+import Comp from './Comp.vue'
+
+const msg = ref('Hello World!')
+</script>
+
+<template>
+  <h1>{{ msg }}</h1>
+  <input v-model="msg">
+  <div>
+    <Comp />
+  </div>
+</template>
+```
+
+@file Comp.vue
+
+```vue
+<template>
+  <div>Comp</div>
+</template>
+```
+
+@import
+
+```json
+{
+  "imports": {
+    "lodash-es": "https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/lodash.min.js"
+  }
+}
+```
+
+@setting
+
+```json
+{
+  "service": "https://sfc.zhaobc.site"
+}
+```
+
+:::
+
 ## Element-Plus 示例
 
 ::: playground#vue Element-Plus demo
@@ -99,11 +148,21 @@ import {
 <template>
   <el-row class="mb-4">
     <el-button>Default</el-button>
-    <el-button type="primary"> Primary </el-button>
-    <el-button type="success"> Success </el-button>
-    <el-button type="info"> Info </el-button>
-    <el-button type="warning"> Warning </el-button>
-    <el-button type="danger"> Danger </el-button>
+    <el-button type="primary">
+      Primary
+    </el-button>
+    <el-button type="success">
+      Success
+    </el-button>
+    <el-button type="info">
+      Info
+    </el-button>
+    <el-button type="warning">
+      Warning
+    </el-button>
+    <el-button type="danger">
+      Danger
+    </el-button>
     <el-button>中文</el-button>
   </el-row>
   <el-row>
@@ -139,8 +198,8 @@ import {
 
 ## Replit Demo
 
-<Replit user="FuckDoctors" repl="Java-Test" />
+<Replit user="FuckDoctors" repl="Java-Test" file="Main.java" />
 
 ```md
-<Replit user="FuckDoctors" repl="Java-Test" />
+<Replit user="FuckDoctors" repl="Java-Test" file="Main.java" />
 ```
