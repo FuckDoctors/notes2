@@ -1,6 +1,7 @@
 ---
 index: true
-order: 200
+dir:
+  order: 200
 icon: spring
 category:
   - 笔记

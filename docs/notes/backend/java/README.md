@@ -1,6 +1,7 @@
 ---
 index: true
-order: 100
+dir:
+  order: 100
 icon: java
 category:
   - 笔记
