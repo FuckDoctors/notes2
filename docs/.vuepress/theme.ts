@@ -20,6 +20,15 @@ export default hopeTheme({
 
   repo: 'https://github.com/FuckDoctors/notes2',
 
+  themeColor: {
+    blue: '#2196f3',
+    red: '#f26d6d',
+    green: '#3eaf7c',
+    orange: '#fb9b5f',
+  },
+
+  fullscreen: true,
+
   docsDir: 'docs',
 
   pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag', 'ReadingTime'],
