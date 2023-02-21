@@ -1,7 +1,13 @@
 import { navbar } from 'vuepress-theme-hope'
 
 export const en = navbar([
-  '/en/',
+  // '/en/',
+  {
+    text: 'Home',
+    icon: 'home',
+    link: '/en/',
+    activeMatch: '^/en/$|^/en/posts/',
+  },
   {
     text: 'Notes',
     icon: 'note',
@@ -50,7 +56,7 @@ export const en = navbar([
       },
       { text: 'Other', link: 'other/' },
     ],
-    activeMatch: '^/en/notes',
+    activeMatch: '^/en/notes/',
   },
   {
     text: 'Category',
@@ -68,7 +74,8 @@ export const en = navbar([
       },
       {
         text: 'Timeline',
-        icon: 'time',
+        // icon: 'time',
+        icon: 'flow',
         link: '/en/timeline/',
       },
     ],

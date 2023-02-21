@@ -5,7 +5,7 @@ export const pwa: PWAOptions = {
   favicon: '/favicon.ico',
   themeColor: '#46bd87',
   appendBase: true,
-  cacheHTML: false,
+  cacheHTML: true,
   cachePic: true,
   apple: {
     icon: '/assets/icon/apple-icon-152.png',

@@ -1,7 +1,8 @@
 import { navbar } from 'vuepress-theme-hope'
 
 export const zh = navbar([
-  '/',
+  // '/',
+  { text: '主页', icon: 'home', link: '/', activeMatch: '^/$|^/posts/' },
   {
     text: '笔记',
     icon: 'note',
@@ -50,7 +51,7 @@ export const zh = navbar([
       },
       { text: '其他', link: 'other/' },
     ],
-    activeMatch: '^/notes',
+    activeMatch: '^/notes/',
   },
   {
     text: '分类',
@@ -68,7 +69,8 @@ export const zh = navbar([
       },
       {
         text: '时间线',
-        icon: 'time',
+        // icon: 'time',
+        icon: 'flow',
         link: '/timeline/',
       },
     ],
