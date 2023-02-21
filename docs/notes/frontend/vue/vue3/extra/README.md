@@ -2,7 +2,6 @@
 index: true
 dir:
   order: 900
-icon: vue
 category:
   - 笔记
   - frontend

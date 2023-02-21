@@ -1,5 +1,4 @@
 ---
-icon: python
 category:
   - 笔记
   - backend

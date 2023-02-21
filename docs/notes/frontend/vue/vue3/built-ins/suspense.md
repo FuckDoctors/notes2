@@ -1,6 +1,5 @@
 ---
 order: 50
-icon: vue
 category:
   - 笔记
   - frontend

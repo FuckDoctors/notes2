@@ -1,6 +1,5 @@
 ---
 index: true
-icon: vue
 dir:
   order: 100
 category:

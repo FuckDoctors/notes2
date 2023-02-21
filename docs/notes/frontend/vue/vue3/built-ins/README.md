@@ -3,7 +3,6 @@ index: true
 dir:
   text: 内置组件
   order: 501
-icon: vue
 category:
   - 笔记
   - frontend
