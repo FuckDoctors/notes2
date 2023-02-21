@@ -85,7 +85,11 @@ export default hopeTheme({
   },
 
   plugins: {
-    blog: true,
+    // blog: true,
+    blog: {
+      article: '/posts/',
+      excerpt: true,
+    },
 
     // 组件插件
     components: {
