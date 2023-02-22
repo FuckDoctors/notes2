@@ -12,7 +12,7 @@ head:
       content: 赵斌的笔记
 ---
 
-# 笔记内容
+# 笔记
 
 ## 初衷
 
@@ -55,6 +55,8 @@ head:
   - 待定
 - SpringBoot
   - 待定
+- [Python](backend/python/)
+  - [Python 100 天从新手到大师](https://github.com/jackfrued/Python-100-Days)
 
 ## [其他](other/)
 
