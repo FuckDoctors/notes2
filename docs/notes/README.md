@@ -56,6 +56,8 @@ head:
 - SpringBoot
   - 待定
 - [Python](backend/python/)
+  - [Python 教程](https://docs.python.org/zh-cn/3/tutorial/index.html)
+    Python 官方教程
   - [Python 100 天从新手到大师](https://github.com/jackfrued/Python-100-Days)
 
 ## [其他](other/)
