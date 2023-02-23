@@ -93,7 +93,25 @@ export default hopeTheme({
 
     // 组件插件
     components: {
+      rootComponents: {
+        backToTop: true,
+        addThis: 'ra-573c860d3e983e59',
+      },
       components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo'],
+
+      componentOptions: {
+        share: {
+          services: [
+            'qrcode',
+            'qq',
+            'weibo',
+            'evernote',
+            'email',
+            'facebook',
+            'twitter',
+          ],
+        },
+      },
     },
 
     // you can also use Waline
