@@ -1,15 +1,15 @@
 import { defineUserConfig } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 
-import { componentsPlugin } from 'vuepress-plugin-components'
+import { themeOptions } from './theme.js'
+import themeZhaobc from './theme/index'
 
-import theme from './theme'
 import { docsearch } from './plugin-config'
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
 
 export default defineUserConfig({
-  theme,
+  theme: themeZhaobc(themeOptions),
 
   // debug: true,
 

@@ -1,4 +1,4 @@
-import { hopeTheme } from 'vuepress-theme-hope'
+import { hopeTheme, ThemeOptions } from 'vuepress-theme-hope'
 
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
@@ -6,7 +6,7 @@ import { pwa } from './plugin-config'
 
 const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
-export default hopeTheme({
+export const themeOptions: ThemeOptions = {
   hostname,
 
   author: {
@@ -97,7 +97,7 @@ export default hopeTheme({
         backToTop: true,
         addThis: 'ra-573c860d3e983e59',
       },
-      components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo'],
+      components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo', 'Share'],
 
       componentOptions: {
         share: {
@@ -158,4 +158,6 @@ export default hopeTheme({
     // PWA
     pwa,
   },
-})
+}
+
+export default hopeTheme(themeOptions)
