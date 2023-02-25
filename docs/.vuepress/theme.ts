@@ -95,7 +95,7 @@ export const themeOptions: ThemeOptions = {
     components: {
       rootComponents: {
         backToTop: true,
-        addThis: 'ra-573c860d3e983e59',
+        // addThis: 'ra-573c860d3e983e59',
       },
       components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo', 'Share'],
 
