@@ -5,6 +5,7 @@ title: 项目
 heroImage: /logo.svg
 heroText: 我的项目
 tagline: 折腾过的项目
+description: 我的项目
 
 features:
   - title: rdm-builder

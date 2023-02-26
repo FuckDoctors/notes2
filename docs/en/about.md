@@ -5,6 +5,7 @@ title: About Me
 heroImage: /logo.svg
 heroText: About Me
 tagline: A programmer
+description: About ZhaoBin
 
 head:
   - - meta

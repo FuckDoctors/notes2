@@ -8,6 +8,7 @@ heroText: ZhaoBin's site
 tagline: Cease to the struggle and cease to the life.
 heroFullScreen: true
 bgImage: /bg.jpg
+description: ZhaoBin's blog and notes
 
 containerClass: fancy-hero-text
 

@@ -5,6 +5,7 @@ title: Projects
 heroImage: /logo.svg
 heroText: Projects
 tagline: Created Projects.
+description: ZhaoBin's projects
 
 features:
   - title: rdm-builder

@@ -5,6 +5,7 @@ title: 链接
 heroImage: /logo.svg
 heroText: 链接
 tagline: 工具链接，友情链接
+description: 链接
 
 containerClass: zhaobc links
 

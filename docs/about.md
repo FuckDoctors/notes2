@@ -5,6 +5,7 @@ title: 关于我
 heroImage: /logo.svg
 heroText: 关于我
 tagline: 爱瞎折腾的码农
+description: 关于赵斌
 
 head:
   - - meta
