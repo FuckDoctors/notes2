@@ -40,6 +40,13 @@ export default defineUserConfig({
         src: '//hm.baidu.com/hm.js?85e80625eddf91d81d9535565850722b',
       },
     ],
+    [
+      'script',
+      {
+        // Clarity
+        src: '/assets/js/clarity.js',
+      },
+    ],
   ],
 
   // vuepress-plugin-pwa2:  ⚠ The plugin will register service worker to handle assets,
