@@ -22,6 +22,10 @@ head:
 
 <!-- more -->
 
+::: warning
+`playground` 插件已经提交 PR，不需要自己实现，使用 `vuepress-theme-hope` 主题内置即可，这里仅保留记录。
+:::
+
 ## 配置
 
 ```ts {4-10}
@@ -149,7 +153,7 @@ const msg = ref('Hello World!')
 
 <template>
   <h1>{{ msg }}</h1>
-  <input v-model="msg" />
+  <input v-model="msg">
   <div>
     <Comp />
   </div>
@@ -178,14 +182,35 @@ const msg = ref('Hello World!')
 @tab App.vue
 
 ```vue
+<script lang="ts" setup>
+import {
+  Check,
+  Delete,
+  Edit,
+  Message,
+  Search,
+  Star,
+} from '@element-plus/icons-vue'
+</script>
+
 <template>
   <el-row class="mb-4">
     <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
+    <el-button type="primary">
+      Primary
+    </el-button>
+    <el-button type="success">
+      Success
+    </el-button>
+    <el-button type="info">
+      Info
+    </el-button>
+    <el-button type="warning">
+      Warning
+    </el-button>
+    <el-button type="danger">
+      Danger
+    </el-button>
     <el-button>中文</el-button>
   </el-row>
   <el-row>
@@ -197,17 +222,6 @@ const msg = ref('Hello World!')
     <el-button type="danger" :icon="Delete" circle />
   </el-row>
 </template>
-
-<script lang="ts" setup>
-import {
-  Check,
-  Delete,
-  Edit,
-  Message,
-  Search,
-  Star,
-} from '@element-plus/icons-vue'
-</script>
 ```
 
 :::
