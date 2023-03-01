@@ -153,7 +153,7 @@ const msg = ref('Hello World!')
 
 <template>
   <h1>{{ msg }}</h1>
-  <input v-model="msg">
+  <input v-model="msg" />
   <div>
     <Comp />
   </div>
@@ -196,21 +196,11 @@ import {
 <template>
   <el-row class="mb-4">
     <el-button>Default</el-button>
-    <el-button type="primary">
-      Primary
-    </el-button>
-    <el-button type="success">
-      Success
-    </el-button>
-    <el-button type="info">
-      Info
-    </el-button>
-    <el-button type="warning">
-      Warning
-    </el-button>
-    <el-button type="danger">
-      Danger
-    </el-button>
+    <el-button type="primary"> Primary </el-button>
+    <el-button type="success"> Success </el-button>
+    <el-button type="info"> Info </el-button>
+    <el-button type="warning"> Warning </el-button>
+    <el-button type="danger"> Danger </el-button>
     <el-button>中文</el-button>
   </el-row>
   <el-row>

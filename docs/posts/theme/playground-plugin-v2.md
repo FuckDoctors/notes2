@@ -155,7 +155,7 @@ const msg = ref('Hello World!')
 
 <template>
   <h1>{{ msg }}</h1>
-  <input v-model="msg">
+  <input v-model="msg" />
 </template>
 ```
 
@@ -185,7 +185,7 @@ const msg = ref('Hello Playground!')
 
 <template>
   <h1>{{ msg }}</h1>
-  <input v-model="msg">
+  <input v-model="msg" />
 
   <Comp />
 </template>
@@ -198,21 +198,11 @@ const msg = ref('Hello Playground!')
   <div>Comp</div>
   <el-row class="mb-4">
     <el-button>Default</el-button>
-    <el-button type="primary">
-      Primary
-    </el-button>
-    <el-button type="success">
-      Success
-    </el-button>
-    <el-button type="info">
-      Info
-    </el-button>
-    <el-button type="warning">
-      Warning
-    </el-button>
-    <el-button type="danger">
-      Danger
-    </el-button>
+    <el-button type="primary"> Primary </el-button>
+    <el-button type="success"> Success </el-button>
+    <el-button type="info"> Info </el-button>
+    <el-button type="warning"> Warning </el-button>
+    <el-button type="danger"> Danger </el-button>
     <el-button>中文</el-button>
   </el-row>
 </template>
@@ -265,7 +255,7 @@ const msg = ref('Hello Playground!')
 
 <template>
   <h1>{{ msg }}</h1>
-  <input v-model="msg">
+  <input v-model="msg" />
 </template>
 ```
 
@@ -299,7 +289,7 @@ const msg = ref('Hello Playground!')
 
 <template>
   <h1>{{ msg }}</h1>
-  <input v-model="msg">
+  <input v-model="msg" />
 </template>
 ```
 
@@ -335,140 +325,144 @@ import { container } from './container'
 const extensions = ['html', 'js', 'ts', 'vue', 'jsx', 'tsx', 'json']
 
 // export const playground: PluginSimple = (md) => {
-export const playground
-  = (defaultImportMap?: string): PluginSimple =>
-    md =>
-      container(md, {
-        name: 'playground',
-        openRender: (tokens: Token[], index: number): string => {
-          const { info } = tokens[index]
-          const title = info
-            .trimStart()
+export const playground =
+  (defaultImportMap?: string): PluginSimple =>
+  md =>
+    container(md, {
+      name: 'playground',
+      openRender: (tokens: Token[], index: number): string => {
+        const { info } = tokens[index]
+        const title = info
+          .trimStart()
           // 'playground' length
-            .slice(10)
-            .trim()
+          .slice(10)
+          .trim()
 
-          const hashKey = `${index}-${title}`
-          const key = `playground-${hash(hashKey)}`
+        const hashKey = `${index}-${title}`
+        const key = `playground-${hash(hashKey)}`
 
-          const codeConfigs: PlaygroundFiles = {}
-          let settings: string | null = null
+        const codeConfigs: PlaygroundFiles = {}
+        let settings: string | null = null
 
-          let configKey: string | null = null
-          let isSettings = false
+        let configKey: string | null = null
+        let isSettings = false
 
-          for (let i = index; i < tokens.length; i++) {
+        for (let i = index; i < tokens.length; i++) {
           // console.log(i, tokens[i])
-            const { type, content, info } = tokens[i]
+          const { type, content, info } = tokens[i]
 
-            if (type === 'container_playground_close')
-            { break }
-
-            if (type === 'container_file_open') {
-              const fileName = info
-                .trimStart()
-              // 'file' length
-                .slice(4)
-                .trim()
-
-              if (!fileName || fileName.length === 0) {
-                continue
-              }
-              configKey = fileName
-            } else if (type === 'container_imports_open') {
-              const fileName = info
-                .trimStart()
-              // 'imports' length
-                .slice(7)
-                .trim()
-
-              if (fileName && fileName.length > 0) {
-                configKey = fileName
-              } else {
-                configKey = defaultImportMap || IMPORT_MAP_KEY
-              }
-            } else if (type === 'container_settings_open') {
-              isSettings = true
-            } else if (type === 'inline') {
-              continue
-            }
-
-            if (!content)
-            { continue }
-
-            if (isSettings) {
-              if (type === 'fence' && info === 'json') {
-                settings = content.replace(/^\s+|\s+$/g, '').replace(/\/+$/, '')
-              }
-            } else {
-              if (type === 'fence' && extensions.includes(info) && configKey) {
-                codeConfigs[configKey] = {
-                  lang: info,
-                  content,
-                }
-              }
-            }
-
-            // set to an unexisit token type
-            tokens[i].type = 'playground_empty'
-            // hide token
-            tokens[i].hidden = true
+          if (type === 'container_playground_close') {
+            break
           }
 
-          const config = encodeURIComponent(JSON.stringify(codeConfigs))
-          const settingString = settings
-            ? encodeURIComponent(settings)
-            : encodeURIComponent('{}')
+          if (type === 'container_file_open') {
+            const fileName = info
+              .trimStart()
+              // 'file' length
+              .slice(4)
+              .trim()
 
-          return `<Playground id="${key}" ${
+            if (!fileName || fileName.length === 0) {
+              continue
+            }
+            configKey = fileName
+          } else if (type === 'container_imports_open') {
+            const fileName = info
+              .trimStart()
+              // 'imports' length
+              .slice(7)
+              .trim()
+
+            if (fileName && fileName.length > 0) {
+              configKey = fileName
+            } else {
+              configKey = defaultImportMap || IMPORT_MAP_KEY
+            }
+          } else if (type === 'container_settings_open') {
+            isSettings = true
+          } else if (type === 'inline') {
+            continue
+          }
+
+          if (!content) {
+            continue
+          }
+
+          if (isSettings) {
+            if (type === 'fence' && info === 'json') {
+              settings = content.replace(/^\s+|\s+$/g, '').replace(/\/+$/, '')
+            }
+          } else {
+            if (type === 'fence' && extensions.includes(info) && configKey) {
+              codeConfigs[configKey] = {
+                lang: info,
+                content,
+              }
+            }
+          }
+
+          // set to an unexisit token type
+          tokens[i].type = 'playground_empty'
+          // hide token
+          tokens[i].hidden = true
+        }
+
+        const config = encodeURIComponent(JSON.stringify(codeConfigs))
+        const settingString = settings
+          ? encodeURIComponent(settings)
+          : encodeURIComponent('{}')
+
+        return `<Playground id="${key}" ${
           title ? `title="${encodeURIComponent(title)}" ` : ''
         }
       settings="${settingString}"
       config="${config}"
       >`
-        },
-        closeRender: () => '</Playground>',
-      })
+      },
+      closeRender: () => '</Playground>',
+    })
 
-const getPlugin
-  = (name: string, component: string): PluginSimple =>
-    md =>
-      container(md, {
-        name,
-        openRender: (tokens: Token[], index: number): string => {
-          const { info } = tokens[index]
-          const title = info.trimStart().slice(name.length).trim()
+const getPlugin =
+  (name: string, component: string): PluginSimple =>
+  md =>
+    container(md, {
+      name,
+      openRender: (tokens: Token[], index: number): string => {
+        const { info } = tokens[index]
+        const title = info.trimStart().slice(name.length).trim()
 
-          let config = ''
-          let lang = ''
+        let config = ''
+        let lang = ''
 
-          for (let i = index; i < tokens.length; i++) {
-            const { type, content, info } = tokens[i]
+        for (let i = index; i < tokens.length; i++) {
+          const { type, content, info } = tokens[i]
 
-            if (type === `container_${name}_close`)
-            { break }
-            if (!content)
-            { continue }
-            if (type === 'fence' && extensions.includes(info)) {
-              lang = info
-              config = encodeURIComponent(content)
+          if (type === `container_${name}_close`) {
+            break
+          }
+          if (!content) {
+            continue
+          }
+          if (type === 'fence' && extensions.includes(info)) {
+            lang = info
+            config = encodeURIComponent(content)
             // break;
-            }
-
-            // set to an unexisit token type
-            tokens[i].type = `${name}_empty`
-            // hide token
-            tokens[i].hidden = true
           }
 
-          return `<${component} id="${name}-${hash(
+          // set to an unexisit token type
+          tokens[i].type = `${name}_empty`
+          // hide token
+          tokens[i].hidden = true
+        }
+
+        return `<${component} id="${name}-${hash(
           `${name}${index}${title}${config}`
         )}" ${title ? ` title="${encodeURIComponent(title)}"` : ''}${
           config ? ` config="${config}"` : ''
         } ${lang ? ` lang="${lang}"` : ''}>`
-        },
-        closeRender: () => `</${component}>`,
-      })
+      },
+      closeRender: () => `</${component}>`,
+    })
 
 export const playFile: PluginSimple = getPlugin('file', 'PlayFile')
 export const playSettings: PluginSimple = getPlugin('settings', 'PlaySettings')
