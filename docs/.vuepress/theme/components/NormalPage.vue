@@ -4,7 +4,7 @@ import HopeNormalPage from 'vuepress-theme-hope/components/NormalPage'
 
 <template>
   <HopeNormalPage>
-    <template #content-after>
+    <template #contentAfter>
       <div class="content-after-container">
         <div class="share-container">
           <Share colorful />
