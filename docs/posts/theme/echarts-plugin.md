@@ -1,5 +1,5 @@
 ---
-original: true
+isOriginal: true
 sticky: 91
 star: 91
 article: true

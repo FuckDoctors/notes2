@@ -1,5 +1,5 @@
 ---
-original: true
+isOriginal: true
 article: true
 date: 2022-06-06
 category:
