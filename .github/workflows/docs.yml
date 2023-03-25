@@ -35,6 +35,7 @@ jobs:
 
       - name: Build GitHub Pages
         env:
+          NODE_OPTIONS: --max_old_space_size=8192
           BASE: /
           # HOSTNAME: https://fuckdoctors.github.io/
         run: pnpm run docs:build
