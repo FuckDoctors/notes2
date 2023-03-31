@@ -27,7 +27,8 @@
     "cm": "cz",
     "docs:build": "vuepress build docs",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
-    "docs:dev": "vuepress dev docs"
+    "docs:dev": "vuepress dev docs",
+    "docs:update": "pnpm dlx vp-update"
   },
   "dependencies": {
     "@unocss/reset": "^0.48.5",
@@ -43,7 +44,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.34.2",
-    "@commitlint/cli": "^17.5.0",
+    "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
     "@commitlint/cz-commitlint": "^17.5.0",
     "@iconify-json/carbon": "^1.1.16",
@@ -62,11 +63,11 @@
     "commitizen": "^4.3.0",
     "critters": "^0.0.16",
     "cross-env": "^7.0.3",
-    "cypress": "^12.8.1",
+    "cypress": "^12.9.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.36.0",
+    "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-cypress": "^2.13.2",
     "https-localhost": "^4.7.1",
     "husky": "^8.0.3",
     "inquirer": "^8.2.5",
@@ -115,7 +116,7 @@
     "vite": "^4.2.1",
     "vite-plugin-inspect": "^0.7.18",
     "vite-plugin-pages": "^0.28.0",
-    "vite-plugin-pwa": "^0.14.6",
+    "vite-plugin-pwa": "^0.14.7",
     "vite-plugin-vue-component-preview": "^0.3.4",
     "vite-plugin-vue-inspector": "^3.4.0",
     "vite-plugin-vue-layouts": "^0.7.0",
@@ -125,7 +126,7 @@
     "vitest": "^0.27.3",
     "vue-tsc": "^1.2.0",
     "vuepress": "2.0.0-beta.61",
-    "vuepress-theme-hope": "2.0.0-beta.199"
+    "vuepress-theme-hope": "2.0.0-beta.200"
   },
   "pnpm": {
     "peerDependencyRules": {
