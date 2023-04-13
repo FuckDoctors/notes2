@@ -166,7 +166,7 @@ onMounted(() => {
             class="contributor"
             :title="c.name"
           >
-            <img v-if="c.avatar_url" :src="c.avatar_url" class="avatar">
+            <img v-if="c.avatar_url" :src="c.avatar_url" class="avatar" />
             <span v-else class="name">{{ c.name }}</span>
           </a>
         </template>
@@ -249,7 +249,9 @@ usePageContributors()
 <template>
   <div class="page-contributors-container">
     <h2 id="page-contributors" class="page-contributors-title" tabindex="-1">
-      <a class="header-anchor" href="#page-contributors" aria-hidden="true">#</a>
+      <a class="header-anchor" href="#page-contributors" aria-hidden="true"
+        >#</a
+      >
       {{ locale.title }}
     </h2>
 
@@ -400,8 +402,8 @@ export const useContributors = (projectId: string, path: string) => {
                 }
                 const user = users.find(
                   u =>
-                    u.username === groupedCommits[k][0].committer_name
-                    && u.email === k
+                    u.username === groupedCommits[k][0].committer_name &&
+                    u.email === k
                 )
                 if (user) {
                   tmpContri.name = user.name
@@ -553,48 +555,48 @@ import { type ContributorOptions } from './options'
 
 const __dirname = getDirname(import.meta.url)
 
-export const contributorPlugin
-  = (options: ContributorOptions): PluginFunction =>
-    app => {
-      const locales = getLocales({
-        app,
-        name: PLUGIN_NAME,
-        default: contributorLocales,
-        config: options.locales,
-      })
+export const contributorPlugin =
+  (options: ContributorOptions): PluginFunction =>
+  app => {
+    const locales = getLocales({
+      app,
+      name: PLUGIN_NAME,
+      default: contributorLocales,
+      config: options.locales,
+    })
 
-      return {
-        name: PLUGIN_NAME,
+    return {
+      name: PLUGIN_NAME,
 
-        define: (): Record<string, unknown> => ({
-          CONTRIBUTOR_PROJECT_ID: options.projectId,
-          CONTRIBUTOR_HOST: options.host,
-          CONTRIBUTOR_API: options.apiBase,
-          CONTRIBUTOR_ACCESS_TOKEN: options.accessToken,
-          CONTRIBUTOR_PAGE_COUNT: options.pageCount || 100,
-          CONTRIBUTOR_LOCALES: locales,
-        }),
+      define: (): Record<string, unknown> => ({
+        CONTRIBUTOR_PROJECT_ID: options.projectId,
+        CONTRIBUTOR_HOST: options.host,
+        CONTRIBUTOR_API: options.apiBase,
+        CONTRIBUTOR_ACCESS_TOKEN: options.accessToken,
+        CONTRIBUTOR_PAGE_COUNT: options.pageCount || 100,
+        CONTRIBUTOR_LOCALES: locales,
+      }),
 
-        extendsPage: (page: Page): void => {
-          const langPath = lang2Path(page.lang)
-          const headerTitle = locales[langPath]
-            ? locales[langPath].title
-            : locales['/'].title
+      extendsPage: (page: Page): void => {
+        const langPath = lang2Path(page.lang)
+        const headerTitle = locales[langPath]
+          ? locales[langPath].title
+          : locales['/'].title
 
-          if (page.headers) {
-            page.headers.push({
-              level: 2,
-              title: headerTitle,
-              slug: 'page-contributors',
-              link: '#page-contributors',
-              children: [],
-            })
-          }
-        },
+        if (page.headers) {
+          page.headers.push({
+            level: 2,
+            title: headerTitle,
+            slug: 'page-contributors',
+            link: '#page-contributors',
+            children: [],
+          })
+        }
+      },
 
-        clientConfigFile: path.resolve(__dirname, '../client/config.ts'),
-      }
+      clientConfigFile: path.resolve(__dirname, '../client/config.ts'),
     }
+  }
 ```
 
 @tab locales.ts

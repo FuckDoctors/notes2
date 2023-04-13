@@ -153,6 +153,7 @@ export const themeOptions: ThemeOptions = {
       presentation: {
         plugins: ['highlight', 'math', 'search', 'notes', 'zoom'],
       },
+      card: true,
     },
 
     // PWA

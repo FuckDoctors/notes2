@@ -8,7 +8,9 @@ const __dirname = getDirname(import.meta.url)
 export default (options: ThemeOptions) => ({
   name: 'vuepress-theme-zhaobc',
 
-  extends: hopeTheme(options),
+  extends: hopeTheme(options, {
+    custom: true,
+  }),
 
   alias: {
     // You can override or add aliases here
