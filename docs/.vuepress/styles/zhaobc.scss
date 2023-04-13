@@ -84,4 +84,19 @@
       }
     }
   }
+
+  // 鼠标放上后变大
+  .site-info {
+    overflow: hidden;
+
+    .site-info-preview {
+      transition: transform 0.3s;
+    }
+
+    &:hover {
+      .site-info-preview {
+        transform: scale(1.15);
+      }
+    }
+  }
 }
