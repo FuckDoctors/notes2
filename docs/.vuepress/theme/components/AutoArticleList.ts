@@ -8,6 +8,7 @@ import { useArticles } from '@theme-hope/modules/blog/composables/index'
 
 import '../styles/auto-article-list.scss'
 import { useRouter } from 'vue-router'
+import { usePageData } from '@vuepress/client'
 
 export default defineComponent({
   name: 'AutoArticleList',
@@ -15,6 +16,7 @@ export default defineComponent({
   setup() {
     const articles = useArticles()
     const router = useRouter()
+    const page = usePageData()
 
     const currRoute = router.currentRoute
 
