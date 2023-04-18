@@ -22,6 +22,7 @@ export default defineComponent({
 
     const currArticles = computed(() => {
       return articles.value.items.filter(
+        // 需要去掉本身的路径，不然多渲染一个空的列表
         item =>
           item.path.startsWith(currRoute.value.path) &&
           item.path !== currRoute.value.path
