@@ -78,8 +78,8 @@
     "markdown-it-shiki": "^0.7.2",
     "markdownlint": "^0.27.0",
     "markdownlint-cli": "^0.33.0",
-    "pnpm": "^8.3.0",
-    "postcss": "^8.4.22",
+    "pnpm": "^8.3.1",
+    "postcss": "^8.4.23",
     "postcss-html": "^1.5.0",
     "postcss-import": "^15.1.0",
     "postcss-scss": "^4.0.6",
@@ -114,7 +114,7 @@
     "unplugin-vue-components": "^0.22.12",
     "unplugin-vue-macros": "^1.11.2",
     "vite": "^4.2.2",
-    "vite-plugin-inspect": "^0.7.22",
+    "vite-plugin-inspect": "^0.7.23",
     "vite-plugin-pages": "^0.28.0",
     "vite-plugin-pwa": "^0.14.7",
     "vite-plugin-vue-component-preview": "^0.3.4",
@@ -126,7 +126,7 @@
     "vitest": "^0.27.3",
     "vue-tsc": "^1.2.0",
     "vuepress": "2.0.0-beta.61",
-    "vuepress-theme-hope": "2.0.0-beta.204"
+    "vuepress-theme-hope": "2.0.0-beta.205"
   },
   "pnpm": {
     "peerDependencyRules": {

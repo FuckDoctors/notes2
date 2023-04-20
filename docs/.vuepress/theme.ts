@@ -31,7 +31,8 @@ export const themeOptions: ThemeOptions = {
 
   docsDir: 'docs',
 
-  pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag', 'ReadingTime'],
+  // pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag', 'ReadingTime'],
+  pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag'],
 
   blog: {
     medias: {
