@@ -1,0 +1,26 @@
+---
+category:
+  - 笔记
+  - backend
+  - code-snippets
+tag:
+  - java
+---
+
+# Group by 使用
+
+## 多个字段的 Group By
+
+```java
+list.stream()
+  .filter(item -> item.getDate() <= curDate)
+  .collect(Collectors.groupingBy(item -> item.getClass() + "_" + item.getName(),
+    Collectors.maxBy(Comparator.comparing(ADto::getScore)))
+  .values()
+  .stream()
+  .collect(Collectors.toList())
+  .stream()
+  .filter(item -> item.isPresent())
+  .map(item -> item.get())
+  .collect(Collectors.toList());
+```
