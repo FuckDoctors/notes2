@@ -17,7 +17,7 @@ tag:
 
 示例：
 
-文字1、（文字2、文字3）、文字4
+文字 1、（文字 2、文字 3）、文字 4
 
 分隔完上面的文字后，就可以对 `（`, `）`, `、`以外的文字加链接了。
 
@@ -29,37 +29,35 @@ function reduceText(val) {
     return []
   }
 
-  const arr = val
-    .split('、')
-    .reduce((pre, cur) => {
-      if (cur.includes('（') && cur.includes('）')) {
-        // 同时包含左右括号
-        let tmp = cur.split('（')
-        pre.push(tmp[0])
-        pre.push('（')
-        tmp = tmp[1].split('）')
-        pre.push(tmp[0])
-        pre.push('）')
-        pre.push(tmp[1])
-      } else if (cur.includes('（')) {
-        const tmp = cur.split('（')
-        pre.push(tmp[0])
-        pre.push('（')
-        pre.push(tmp[1])
-      } else if (cur.includes('）')) {
-        const tmp = cur.split('）')
-        pre.push(tmp[0])
-        pre.push('）')
-        pre.push(tmp[1])
-      } else {
-        pre.push(cur)
-      }
+  const arr = val.split('、').reduce((pre, cur) => {
+    if (cur.includes('（') && cur.includes('）')) {
+      // 同时包含左右括号
+      let tmp = cur.split('（')
+      pre.push(tmp[0])
+      pre.push('（')
+      tmp = tmp[1].split('）')
+      pre.push(tmp[0])
+      pre.push('）')
+      pre.push(tmp[1])
+    } else if (cur.includes('（')) {
+      const tmp = cur.split('（')
+      pre.push(tmp[0])
+      pre.push('（')
+      pre.push(tmp[1])
+    } else if (cur.includes('）')) {
+      const tmp = cur.split('）')
+      pre.push(tmp[0])
+      pre.push('）')
+      pre.push(tmp[1])
+    } else {
+      pre.push(cur)
+    }
 
-      // 按原来的顺序，把顿号也加上
-      pre.push('、')
+    // 按原来的顺序，把顿号也加上
+    pre.push('、')
 
-      return pre
-    }, [])
+    return pre
+  }, [])
 
   // 删除最后一个顿号
   arr.splice(arr.length - 1, 1)
@@ -79,37 +77,35 @@ function reduceText(val) {
     return []
   }
 
-  const arr = val
-    .split('、')
-    .reduce((pre, cur) => {
-      if (cur.includes('（') && cur.includes('）')) {
-        // 同时包含左右括号
-        let tmp = cur.split('（')
-        pre.push(tmp[0])
-        pre.push('（')
-        tmp = tmp[1].split('）')
-        pre.push(tmp[0])
-        pre.push('）')
-        pre.push(tmp[1])
-      } else if (cur.includes('（')) {
-        const tmp = cur.split('（')
-        pre.push(tmp[0])
-        pre.push('（')
-        pre.push(tmp[1])
-      } else if (cur.includes('）')) {
-        const tmp = cur.split('）')
-        pre.push(tmp[0])
-        pre.push('）')
-        pre.push(tmp[1])
-      } else {
-        pre.push(cur)
-      }
+  const arr = val.split('、').reduce((pre, cur) => {
+    if (cur.includes('（') && cur.includes('）')) {
+      // 同时包含左右括号
+      let tmp = cur.split('（')
+      pre.push(tmp[0])
+      pre.push('（')
+      tmp = tmp[1].split('）')
+      pre.push(tmp[0])
+      pre.push('）')
+      pre.push(tmp[1])
+    } else if (cur.includes('（')) {
+      const tmp = cur.split('（')
+      pre.push(tmp[0])
+      pre.push('（')
+      pre.push(tmp[1])
+    } else if (cur.includes('）')) {
+      const tmp = cur.split('）')
+      pre.push(tmp[0])
+      pre.push('）')
+      pre.push(tmp[1])
+    } else {
+      pre.push(cur)
+    }
 
-      // 按原来的顺序，把顿号也加上
-      pre.push('、')
+    // 按原来的顺序，把顿号也加上
+    pre.push('、')
 
-      return pre
-    }, [])
+    return pre
+  }, [])
 
   // 删除最后一个顿号
   arr.splice(arr.length - 1, 1)

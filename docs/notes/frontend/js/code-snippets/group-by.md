@@ -58,16 +58,16 @@ const groupBy = (arr: any[], key: string): any[] | null => {
 const arr = [
   {
     name: 'zhaobc',
-    commit: 'test1'
+    commit: 'test1',
   },
   {
     name: 'zhaobc2',
-    commit: 'test1'
+    commit: 'test1',
   },
   {
     name: 'zhaobc',
-    commit: 'test2'
-  }
+    commit: 'test2',
+  },
 ]
 
 console.log(arr)
