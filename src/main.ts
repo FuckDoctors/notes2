@@ -1,6 +1,6 @@
 import { ViteSSG } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
-import Previewer from 'virtual:vue-component-preview'
+// import Previewer from 'virtual:vue-component-preview'
 import App from './App.vue'
 import type { UserModule } from './types'
 import generatedRoutes from '~pages'
@@ -22,6 +22,6 @@ export const createApp = ViteSSG(
         eager: true,
       })
     ).forEach(i => i.install?.(ctx))
-    ctx.app.use(Previewer)
+    // ctx.app.use(Previewer)
   }
 )

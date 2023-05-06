@@ -3,12 +3,12 @@ defineOptions({
   name: 'IndexPage',
 })
 const user = useUserStore()
-const name = $ref(user.savedName)
+const name = ref(user.savedName)
 
 const router = useRouter()
 const go = () => {
-  if (name) {
-    router.push(`/hi/${encodeURIComponent(name)}`)
+  if (name.value) {
+    router.push(`/hi/${encodeURIComponent(name.value)}`)
   }
 }
 

@@ -1,8 +1,14 @@
 {
-  "extends": "@antfu",
+  "extends": [
+    "@antfu",
+    "@unocss"
+  ],
   "rules": {
     // override default options for rules from base configurations
-    "quote-props": ["warn", "as-needed"],
+    "quote-props": [
+      "warn",
+      "as-needed"
+    ],
     // "comma-dangle": ["warn", "only-multiline"],
     "comma-dangle": [
       "error",
@@ -16,7 +22,13 @@
     ],
     "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/brace-style": "off",
-    "arrow-parens": ["warn", "as-needed"],
-    "curly": ["error", "all"]
+    "arrow-parens": [
+      "warn",
+      "as-needed"
+    ],
+    "curly": [
+      "error",
+      "all"
+    ]
   }
 }
