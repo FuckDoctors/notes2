@@ -125,6 +125,7 @@ export const themeOptions: ThemeOptions = {
     },
 
     mdEnhance: {
+      attrs: true,
       gfm: true,
       container: true,
       tabs: true,
