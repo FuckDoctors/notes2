@@ -24,3 +24,10 @@ list.stream()
   .map(item -> item.get())
   .collect(Collectors.toList());
 ```
+
+```java
+Map<String, List<AClass>> groupedMap = list.stream()
+  .collect(Collectors.groupingBy(a -> a.getClass() + "," + a.getName() + "," + a.getType()),
+              LinkedHashMap::new,
+              Collectors.toList()));
+```

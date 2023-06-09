@@ -2,8 +2,8 @@
 
 // 使用vuejs.org的彩色文字样式
 .fancy-hero-text {
-  .blog-hero {
-    h1 {
+  .vp-blog-hero {
+    .vp-blog-hero-title {
       // background: -webkit-linear-gradient(315deg,#42d392 25%,#647eff);
       background: -webkit-linear-gradient(315deg, #647eff 25%, #42d392);
       background-clip: text;
@@ -11,39 +11,33 @@
       -webkit-text-fill-color: transparent;
     }
 
-    p {
-      &.description {
-        background: -webkit-linear-gradient(315deg, #647eff 25%, #42d392);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+    .vp-blog-hero-description {
+      background: -webkit-linear-gradient(315deg, #647eff 25%, #42d392);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
 
-// 调整下余白
 .theme-container {
-  main {
-    &.home {
-      header {
-        &.hero {
-          margin-bottom: 15px;
-        }
-      }
+  // 调整下余白
+  .vp-project-home {
+    .vp-hero-info-wrapper {
+      margin-bottom: 15px;
     }
   }
 
   // 调整giscus下余白
-  .page .giscus-wrapper.input-top {
+  .vp-page .giscus-wrapper.input-top {
     padding-bottom: 0;
   }
 
-  .page .giscus-wrapper.input-top .giscus {
+  .vp-page .giscus-wrapper.input-top .giscus {
     margin-bottom: auto;
   }
 
-  .page:not(.not-found) + .footer-wrapper {
+  .vp-page:not(.not-found) + .vp-footer-wrapper {
     margin-top: auto;
   }
 }
@@ -72,13 +66,13 @@
 
 .zhaobc {
   &.links {
-    .site-info {
+    .vp-site-info {
       width: calc(33% - 24px);
 
       @media (max-width: hope-config.$pad) {
         width: calc(50% - 24px);
 
-        .site-info-name {
+        .vp-site-info-name {
           font-size: 14px;
         }
       }
@@ -86,15 +80,15 @@
   }
 
   // 鼠标放上后变大
-  .site-info {
+  .vp-site-info {
     overflow: hidden;
 
-    .site-info-preview {
+    .vp-site-info-preview {
       transition: transform 0.3s;
     }
 
     &:hover {
-      .site-info-preview {
+      .vp-site-info-preview {
         transform: scale(1.15);
       }
     }
