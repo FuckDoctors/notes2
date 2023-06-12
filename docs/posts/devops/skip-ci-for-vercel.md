@@ -25,6 +25,8 @@ head:
 
 ```bash
 bash -c 'echo "$VERCEL_GIT_COMMIT_MESSAGE" | grep -iE "\[skip ci\]|\[ci skip\]"'
+# 单独忽略 docs-ci
+# bash -c 'echo "$VERCEL_GIT_COMMIT_MESSAGE" | grep -iE "\[skip (?:docs-)*ci\]|\[(?:docs-)*ci skip\]"'
 ```
 
 <!-- more -->
@@ -51,6 +53,7 @@ echo "VERCEL_GIT_COMMIT_MESSAGE: $VERCEL_GIT_COMMIT_MESSAGE"
 # echo "$VERCEL_GIT_COMMIT_MESSAGE" | head -n 1 | grep -iE "\[skip ci\]|\[ci skip\]"
 
 echo "$VERCEL_GIT_COMMIT_MESSAGE" | grep -iE "\[skip ci\]|\[ci skip\]"
+# echo "$VERCEL_GIT_COMMIT_MESSAGE" | grep -iE "\[skip (?:docs-)*ci\]|\[(?:docs-)*ci skip\]"
 
 if [[ "$?" == "0" ]] ; then
   # Don't build
