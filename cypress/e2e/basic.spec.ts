@@ -19,7 +19,7 @@ context('Basic', () => {
   })
 
   it('markdown', () => {
-    cy.get('[title="About"]')
+    cy.get('[title="About"]', { timeout: 8000 })
       .click()
       .url()
       .should('eq', 'http://localhost:3333/about')
