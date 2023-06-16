@@ -1,8 +1,10 @@
 .auto-article-list {
+  margin-top: calc(0.5rem + var(--navbar-height));
+
   width: 100%;
   max-width: 780px;
 
-  .breadcrumb {
+  .vp-breadcrumb {
     margin-bottom: 10px;
   }
 }
