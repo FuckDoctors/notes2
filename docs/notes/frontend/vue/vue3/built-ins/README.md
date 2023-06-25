@@ -1,5 +1,5 @@
 ---
-index: true
+index: false
 dir:
   text: 内置组件
   order: 501

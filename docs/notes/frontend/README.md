@@ -1,4 +1,5 @@
 ---
+index: false
 dir:
   text: 前端笔记
   order: 10

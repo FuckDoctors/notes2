@@ -1,5 +1,5 @@
 ---
-index: true
+index: false
 icon: javascript
 category:
   - 笔记

@@ -1,4 +1,5 @@
 ---
+index: false
 order: 90
 dir:
   text: 其他内容

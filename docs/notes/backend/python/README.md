@@ -1,4 +1,5 @@
 ---
+index: false
 icon: python
 dir:
   order: 300

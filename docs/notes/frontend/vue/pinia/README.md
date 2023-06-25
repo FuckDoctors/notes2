@@ -1,5 +1,5 @@
 ---
-index: true
+index: false
 dir:
   order: 300
 category:

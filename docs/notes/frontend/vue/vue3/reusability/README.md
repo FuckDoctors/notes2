@@ -1,5 +1,5 @@
 ---
-index: true
+index: false
 dir:
   text: 可重用性
   order: 401
