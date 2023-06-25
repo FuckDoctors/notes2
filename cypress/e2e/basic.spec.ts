@@ -21,7 +21,7 @@ context('Basic', () => {
   it('markdown', () => {
     cy.get('[title="About"]', { timeout: 8000 })
       .click()
-      .url()
+      .url({ timeout: 8000 })
       .should('eq', 'http://localhost:3333/about')
 
     cy.get('.shiki').should('exist')
