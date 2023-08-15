@@ -19,7 +19,7 @@ tag:
 
 ```vue
 <script>
-import { reactive } from "vue"
+import { reactive } from 'vue'
 
 export default {
   setup() {
@@ -32,14 +32,14 @@ export default {
     // 不要忘记同时暴露 increment 函数
     return {
       state,
-      increment
+      increment,
     }
-  }
+  },
 }
 </script>
 
 <template>
-  <button @click="increment"> {{ state.count }} </button>
+  <button @click="increment">{{ state.count }}</button>
 </template>
 ```
 
@@ -56,7 +56,7 @@ export default {
 
 ```vue
 <script setup>
-import { reactive } from "vue"
+import { reactive } from 'vue'
 
 const state = reactive({ count: 0 })
 
@@ -66,7 +66,7 @@ function increment() {
 </script>
 
 <template>
-  <button @click="increment"> {{ state.count }} </button>
+  <button @click="increment">{{ state.count }}</button>
 </template>
 ```
 
@@ -106,7 +106,7 @@ function increment() {
 
 ```vue
 <script setup>
-import { ref } from "vue"
+import { ref } from 'vue'
 
 const count = ref(0)
 
@@ -116,7 +116,7 @@ function increment() {
 </script>
 
 <template>
-  <button @click="increment"> {{ count }} </button>
+  <button @click="increment">{{ count }}</button>
 </template>
 ```
 
@@ -149,7 +149,7 @@ objectRef.value = { count: 1 }
 ```js
 const obj = {
   foo: ref(1),
-  bar: ref(2)
+  bar: ref(2),
 }
 
 // 该函数接收一个 ref
@@ -163,7 +163,7 @@ const { foo, bar } = obj
 
 简言之，`ref()` 让我们能创造一种对任意值的 “引用”，并能够在不丢失响应性的前提下传递这些引用。
 
-这个功能很重要，因为它经常用于将逻辑提取到 __组合函数__ 中。
+这个功能很重要，因为它经常用于将逻辑提取到 **组合函数** 中。
 
 ### ref 在模板中的解包
 

@@ -43,7 +43,7 @@ tag:
 ```js
 const objectOfAttrs = {
   id: 'container',
-  class: 'wrapper'
+  class: 'wrapper',
 }
 ```
 
