@@ -209,7 +209,7 @@ const msg = ref('Hello Playground!')
 ```
 
 :::
-::: imports user-imports.json
+::: imports import-map.json
 
 ```json
 {

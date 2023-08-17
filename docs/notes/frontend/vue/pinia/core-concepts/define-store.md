@@ -122,7 +122,7 @@ export const useStore = defineStore('test', {
 
 ```json
 {
-  "service": "https://sfc.zhaobc.site"
+  "service": "https://play.zhaobc.site"
 }
 ```
 
@@ -206,7 +206,7 @@ export const useStore = defineStore('test', {
 
 ```json
 {
-  "service": "https://sfc.zhaobc.site"
+  "service": "https://play.zhaobc.site"
 }
 ```
 

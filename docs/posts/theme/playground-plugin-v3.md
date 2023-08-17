@@ -208,7 +208,7 @@ const msg = ref('Hello Playground!')
 </template>
 ```
 
-@imports user-imports.json
+@imports import-map.json
 
 ```json
 {

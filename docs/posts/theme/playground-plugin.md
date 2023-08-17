@@ -216,7 +216,7 @@ import {
 
 :::
 
-::: imports user-imports.json
+::: imports import-map.json
 
 ```json
 {
