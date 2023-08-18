@@ -6,6 +6,7 @@ import {
   presetUno,
   presetWebFonts,
   transformerDirectives,
+  transformerVariantGroup,
 } from 'unocss'
 
 export default defineConfig({
@@ -35,6 +36,6 @@ export default defineConfig({
       },
     }),
   ],
-  transformers: [transformerDirectives()],
-  safelist: 'prose prose-sm m-auto text-left'.split(' '),
+  transformers: [transformerDirectives(), transformerVariantGroup()],
+  safelist: 'prose m-auto text-left'.split(' '),
 })

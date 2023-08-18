@@ -19,9 +19,9 @@ context('Basic', () => {
   })
 
   it('markdown', () => {
-    cy.get('[title="About"]', { timeout: 8000 })
+    cy.get('[data-test-id="about"]')
       .click()
-      .url({ timeout: 8000 })
+      .url()
       .should('eq', 'http://localhost:3333/about')
 
     cy.get('.shiki').should('exist')
