@@ -75,7 +75,7 @@ const msg = ref('Hello Playground!')
 
 <template>
   <h1>{{ msg }}</h1>
-  <input v-model="msg">
+  <input v-model="msg" />
   <Comp />
 </template>
 ```

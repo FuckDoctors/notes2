@@ -41,7 +41,7 @@ head:
 
 上式中，`Rv` 为屏幕垂直方向分辨率，4K 屏幕为 2160，8K 屏幕为 4320；`H` 为屏幕有效显示区域高度，单位为米。
 
-临场感观看距离: $Lop2=H \times \frac{8}{9 \times \tan (18°)}$ (屏幕宽高比为16:9)
+临场感观看距离: $Lop2=H \times \frac{8}{9 \times \tan (18°)}$ (屏幕宽高比为 16:9)
 推荐观看距离: $Lop1<Lop<Lop2$
 最佳观看距离: $Lop=\max (Lop1, Lop2)$
 
@@ -52,13 +52,13 @@ head:
 客厅的建筑开间尺寸 `L` 是相对两面墙体中心的间隔距离，装修后的净开间尺寸必须减去一面墙体的厚度以及抹灰厚度。即，
 
 $$
-客厅净开间=客厅建筑开间-2 \times \frac{1}{2} 墙体厚度-2 \times 抹灰厚度
+\text{客厅净开间}=\text{客厅建筑开间}-2 \times \frac{1}{2} \text{墙体厚度}-2 \times \text{抹灰厚度}
 $$
 
 通常的墙体厚度为 200mm，抹灰厚度约 25mm。
 
 $$
-客厅净开间=客厅建筑开间-250mm
+\text{客厅净开间}=\text{客厅建筑开间}-250mm
 $$
 
 ### 客厅平均观看距离
@@ -82,13 +82,13 @@ $$
 综上所述，对于普通的客厅，可以选用的观看距离为：
 
 $$
-Lop=客厅建筑开间L - (墙体厚度 + 抹灰厚度 + 电视与电视墙间距 + 平均观看距离)
+Lop=\text{客厅建筑开间L} - (\text{墙体厚度} + \text{抹灰厚度} + \text{电视与电视墙间距} + \text{平均观看距离})
 $$
 
 即
 
 $$
-Lop=客厅建筑开间L-1.2(m)
+Lop=\text{客厅建筑开间L}-1.2(m)
 $$
 
 对于装修和家具摆放有特殊要求的客厅，用户可以实测其观看距离 Lop。
@@ -127,15 +127,15 @@ ______
 
 1. 水平视角 36 度，单侧 18 度
 2. 已知观看距离 L - 1.2
-3. 根据三角函数，$\tan (18°) = \frac{\frac{1}{2} \times 电视宽度}{L-1.2}$
+3. 根据三角函数，$\tan (18°) = \frac{\frac{1}{2} \times \text{电视宽度}}{L-1.2}$
 4. 电视宽度:电视高度=16:9
 
 综上可得：
 
 $$
-\tan (18°)=\frac{\frac{1}{2} \times (\frac{16}{9} \times 电视高度) }{L-1.2}
+\tan (18°)=\frac{\frac{1}{2} \times (\frac{16}{9} \times \text{电视高度}) }{L-1.2}
 \newline
-电视高度=(L-1.2) \times \frac{9}{8} \times \tan (18°)
+\text{电视高度}=(L-1.2) \times \frac{9}{8} \times \tan (18°)
 $$
 
 平板电视的推荐尺寸计算公式：
@@ -268,7 +268,7 @@ function generateDataset() {
     data.push([
       d.toFixed(1), // 开间大小
       d4kBest(d), // 最佳观感
-      d4kMax(d) // 最大尺寸
+      d4kMax(d), // 最大尺寸
     ])
     d = d + stepSize
   }
@@ -278,31 +278,31 @@ function generateDataset() {
 
 const option = {
   title: {
-    text: '电视尺寸推荐'
+    text: '电视尺寸推荐',
   },
   tooltip: {
-    trigger: 'axis'
+    trigger: 'axis',
   },
   legend: {
-    show: true
+    show: true,
   },
   grid: {
     left: '3%',
     right: '4%',
     bottom: '3%',
-    containLabel: true
+    containLabel: true,
   },
   toolbox: {
     feature: {
-      saveAsImage: {}
-    }
+      saveAsImage: {},
+    },
   },
   xAxis: {
     name: '客厅建筑开间（米）',
     nameLocation: 'middle',
     nameGap: 18,
     nameTextStyle: {
-      fontSize: 14
+      fontSize: 14,
     },
     type: 'category',
     boundaryGap: false,
@@ -315,7 +315,7 @@ const option = {
     nameLocation: 'middle',
     nameGap: 35,
     nameTextStyle: {
-      fontSize: 14
+      fontSize: 14,
     },
     type: 'value',
     // axisLabel: {
@@ -324,18 +324,18 @@ const option = {
   },
   dataset: {
     dimensions: ['L', '最佳观感尺寸', '最大可视尺寸'],
-    source: generateDataset()
+    source: generateDataset(),
   },
   series: [
     {
       name: '4K 最佳观感',
-      type: 'line'
+      type: 'line',
     },
     {
       name: '4K 最大尺寸',
-      type: 'line'
+      type: 'line',
     },
-  ]
+  ],
 }
 ```
 
@@ -345,12 +345,12 @@ const option = {
 
 中国电子视像行业推荐大小：
 
-|客厅建筑开间距离（米）|推荐屏幕尺寸 （4K）|推荐屏幕尺寸 （8K）|
-|---|---|---|
-|2.5-3.0|**55**, 65|65|
-|3.0-3.5|**65**, 75, 78, 85|75|
-|3.5-4.0|**75**, 78, 85, 98|98|
-|4.0-4.5|**85**, 98, 110|110|
-|>5.0|**98**, **110**, 130及以上||
+| 客厅建筑开间距离（米） | 推荐屏幕尺寸 （4K）         | 推荐屏幕尺寸 （8K） |
+| ---------------------- | --------------------------- | ------------------- |
+| 2.5-3.0                | **55**, 65                  | 65                  |
+| 3.0-3.5                | **65**, 75, 78, 85          | 75                  |
+| 3.5-4.0                | **75**, 78, 85, 98          | 98                  |
+| 4.0-4.5                | **85**, 98, 110             | 110                 |
+| >5.0                   | **98**, **110**, 130 及以上 |                     |
 
 注：粗体为最优推荐尺寸。
