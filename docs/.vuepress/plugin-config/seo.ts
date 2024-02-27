@@ -1,6 +1,6 @@
-import type { SeoOptions } from 'vuepress-plugin-seo2'
+import type { SeoPluginOptions } from '@vuepress/plugin-seo'
 
-export const seo: SeoOptions = {
+export const seo: SeoPluginOptions = {
   hostname: 'www.zhaobc.site',
   author: {
     name: 'Zhao Bin',

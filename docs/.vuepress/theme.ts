@@ -2,7 +2,6 @@ import { hopeTheme, ThemeOptions } from 'vuepress-theme-hope'
 
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
-import { pwa } from './plugin-config'
 
 const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
@@ -120,7 +119,6 @@ export const themeOptions: ThemeOptions = {
     mdEnhance: {
       attrs: true,
       gfm: true,
-      container: true,
       tabs: true,
       codetabs: true,
       vPre: true,
@@ -136,7 +134,7 @@ export const themeOptions: ThemeOptions = {
       katex: true,
       mathjax: true,
       include: true,
-      chart: true,
+      // chart: true,
       echarts: true,
       flowchart: true,
       mermaid: true,
@@ -145,14 +143,11 @@ export const themeOptions: ThemeOptions = {
         presets: ['ts', 'vue'],
       },
       vuePlayground: true,
-      presentation: {
+      revealJs: {
         plugins: ['highlight', 'math', 'search', 'notes', 'zoom'],
       },
-      card: true,
+      hint: true,
     },
-
-    // PWA
-    pwa,
   },
 }
 

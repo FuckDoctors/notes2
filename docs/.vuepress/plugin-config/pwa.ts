@@ -1,12 +1,12 @@
-import type { PWAOptions } from 'vuepress-plugin-pwa2'
+import type { PwaPluginOptions } from '@vuepress/plugin-pwa'
 
-export const pwa: PWAOptions = {
+export const pwa: PwaPluginOptions = {
   update: 'hint',
   favicon: '/favicon.ico',
   themeColor: '#46bd87',
   appendBase: true,
-  cacheHTML: false,
-  cachePic: true,
+  cacheHTML: true,
+  cacheImage: true,
   apple: {
     icon: '/assets/icon/apple-icon-152.png',
     statusBarColor: 'black',

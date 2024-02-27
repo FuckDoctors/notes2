@@ -1,10 +1,13 @@
 import { defineUserConfig } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import { seoPlugin } from '@vuepress/plugin-seo'
+import { pwaPlugin } from '@vuepress/plugin-pwa'
+import { sitemapPlugin } from '@vuepress/plugin-sitemap'
 
 import { themeOptions } from './theme.js'
 import themeZhaobc from './theme/index'
 
-import { docsearch } from './plugin-config'
+import { docsearch, seo, pwa } from './plugin-config'
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
 
@@ -76,5 +79,10 @@ export default defineUserConfig({
 
     // DocSearch
     docsearchPlugin(docsearch),
+    seoPlugin(seo),
+    pwaPlugin(pwa),
+    sitemapPlugin({
+      hostname: 'www.zhaobc.site',
+    }),
   ],
 })
