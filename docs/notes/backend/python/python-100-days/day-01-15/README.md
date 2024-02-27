@@ -9,4 +9,4 @@ tag:
 
 # Day 01-15
 
-<AutoCatalog />
+<Catalog />

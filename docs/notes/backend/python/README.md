@@ -12,4 +12,4 @@ tag:
 
 # Python
 
-<AutoCatalog />
+<Catalog />

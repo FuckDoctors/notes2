@@ -8,4 +8,4 @@ category:
 
 记录一些 linux 相关的东西。
 
-<AutoCatalog />
+<Catalog />

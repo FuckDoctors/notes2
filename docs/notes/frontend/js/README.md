@@ -11,4 +11,4 @@ tag:
 
 # JavaScript 笔记
 
-<AutoCatalog />
+<Catalog />

@@ -19,4 +19,4 @@ tag:
 
 记录后端相关的学习笔记
 
-<AutoCatalog />
+<Catalog />

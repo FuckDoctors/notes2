@@ -13,4 +13,4 @@ tag:
 
 # 基础
 
-<AutoCatalog />
+<Catalog />

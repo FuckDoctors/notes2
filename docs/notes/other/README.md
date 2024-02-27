@@ -11,4 +11,4 @@ category:
 
 # 其他内容
 
-<AutoCatalog />
+<Catalog />
