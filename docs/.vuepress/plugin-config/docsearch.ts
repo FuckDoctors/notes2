@@ -1,4 +1,4 @@
-import { DocsearchPluginOptions } from '@vuepress/plugin-docsearch'
+import type { DocsearchPluginOptions } from '@vuepress/plugin-docsearch'
 
 export const docsearch: DocsearchPluginOptions = {
   // apiKey: '42aa919526e1dad9c0e214772fe71289',

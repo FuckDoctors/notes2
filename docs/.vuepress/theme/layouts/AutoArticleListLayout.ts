@@ -1,6 +1,6 @@
 import { type VNode, defineComponent, h } from 'vue'
 
-import { usePageData } from '@vuepress/client'
+// import { usePageData } from '@vuepress/client'
 
 import CommonWrapper from '@theme-hope/components/CommonWrapper'
 import SkipLink from '@theme-hope/components/SkipLink'
@@ -12,7 +12,7 @@ export default defineComponent({
   name: 'AutoArticleListLayout',
 
   setup() {
-    const page = usePageData()
+    // const page = usePageData()
 
     return (): VNode[] => [
       h(SkipLink),

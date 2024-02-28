@@ -1,4 +1,6 @@
-import { hopeTheme, ThemeOptions } from 'vuepress-theme-hope'
+import process from 'node:process'
+import type { ThemeOptions } from 'vuepress-theme-hope'
+import { hopeTheme } from 'vuepress-theme-hope'
 
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'

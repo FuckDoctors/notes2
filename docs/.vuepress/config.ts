@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { defineUserConfig } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { seoPlugin } from '@vuepress/plugin-seo'
@@ -7,7 +8,7 @@ import { sitemapPlugin } from '@vuepress/plugin-sitemap'
 import { themeOptions } from './theme.js'
 import themeZhaobc from './theme/index'
 
-import { docsearch, seo, pwa } from './plugin-config'
+import { docsearch, pwa, seo } from './plugin-config'
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
 

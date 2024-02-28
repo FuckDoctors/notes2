@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, shallowRef } from 'vue'
+import { onMounted, ref, shallowRef } from 'vue'
 
 import cnchar from 'cnchar'
 import draw from 'cnchar-draw'
@@ -8,9 +8,9 @@ import radical from 'cnchar-radical'
 import words from 'cnchar-words'
 import voice from 'cnchar-voice'
 
-cnchar.use(draw, order, radical, words, voice)
-
 import { CARD_WIDTH } from './constants'
+
+import './hanzi.css'
 
 const props = defineProps({
   zi: String,
@@ -34,6 +34,8 @@ const props = defineProps({
     },
   },
 })
+
+cnchar.use(draw, order, radical, words, voice)
 
 const printRef = ref(null)
 const aniRef = ref(null)
@@ -92,11 +94,11 @@ onMounted(() => {
   }
 })
 
-const handleVoice = () => {
+function handleVoice() {
   cnchar.voice(props.zi)
 }
 
-const handlePlay = () => {
+function handlePlay() {
   writingRef.value.style.display = 'none'
   aniRef.value.style.display = 'block'
 
@@ -109,7 +111,7 @@ const handlePlay = () => {
   })
 }
 
-const handleWriting = () => {
+function handleWriting() {
   aniRef.value.style.display = 'none'
   writingRef.value.style.display = 'block'
 
@@ -121,33 +123,19 @@ const handleWriting = () => {
     },
   })
 }
-
-import './hanzi.css'
 </script>
 
 <template>
   <div class="hanzi-main-container">
     <div class="hanzi-main">
       <div class="hanzi-main__left">
-        <div class="hanzi-card print" ref="printRef"></div>
-        <div class="hanzi-card animation" ref="aniRef"></div>
-        <div class="hanzi-card writing" ref="writingRef"></div>
+        <div ref="printRef" class="hanzi-card print" />
+        <div ref="aniRef" class="hanzi-card animation" />
+        <div ref="writingRef" class="hanzi-card writing" />
         <div class="hanzi-controls">
-          <button
-            class="btn btn-voice"
-            title="发音"
-            @click="handleVoice"
-          ></button>
-          <button
-            class="btn btn-play"
-            title="笔划"
-            @click="handlePlay"
-          ></button>
-          <button
-            class="btn btn-write"
-            title="书写"
-            @click="handleWriting"
-          ></button>
+          <button class="btn-voice btn" title="发音" @click="handleVoice" />
+          <button class="btn-play btn" title="笔划" @click="handlePlay" />
+          <button class="btn-write btn" title="书写" @click="handleWriting" />
         </div>
       </div>
       <div class="hanzi-main__right">
@@ -155,36 +143,36 @@ import './hanzi.css'
           <div class="hanzi-detail__top">
             <div class="info pinyin">
               <span class="tag">拼音</span>
-              <span class="content" ref="pinyinRef">{{
+              <span ref="pinyinRef" class="content">{{
                 props.pinyin || pinyinRet
               }}</span>
             </div>
             <div class="info bushou">
               <span class="tag">部首</span>
-              <span class="content" ref="bushouRef">{{
+              <span ref="bushouRef" class="content">{{
                 props.bushou || bushouRet[0].radical
               }}</span>
             </div>
             <div class="info jiegou">
               <span class="tag">结构</span>
-              <span class="content" ref="jiegouRef">{{
+              <span ref="jiegouRef" class="content">{{
                 props.jiegou || bushouRet[0].struct
               }}</span>
             </div>
             <div class="info bihuashu">
               <span class="tag">笔划数</span>
-              <span class="content" ref="bihuaRef">{{
+              <span ref="bihuaRef" class="content">{{
                 props.bihuashu || bihuaCountRet[0]
               }}</span>
             </div>
             <div class="info bihua">
               <span class="tag">笔划</span>
-              <span class="content" ref="bihuaRef">{{
+              <span ref="bihuaRef" class="content">{{
                 bihuaNameRet[0].join('-')
               }}</span>
             </div>
           </div>
-          <div class="hanzi-detail__strokes" ref="strokesRef"></div>
+          <div ref="strokesRef" class="hanzi-detail__strokes" />
           <div class="words-container">
             {{ zuciRet.slice(0, 5).join(' ') }}&nbsp;
           </div>

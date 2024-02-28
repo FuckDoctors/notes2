@@ -704,7 +704,9 @@ const transitionName = ref('fade')
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: opacity, transform 0.5s ease;
+  transition:
+    opacity,
+    transform 0.5s ease;
 }
 
 .slide-enter-from {

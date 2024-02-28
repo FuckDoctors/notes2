@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ name: string }>()
+// const props = defineProps<{ name: string }>()
 const router = useRouter()
 const route = useRoute('/hi/[name]')
 const user = useUserStore()

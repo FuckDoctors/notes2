@@ -64,7 +64,9 @@ head:
       background: var(--bg-color);
       width: 2rem;
       text-align: center;
-      transition: color, background var(--color-transition);
+      transition:
+        color,
+        background var(--color-transition);
     }
   }
 
