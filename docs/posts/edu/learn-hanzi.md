@@ -33,4 +33,4 @@ head:
 
 <Hanzi zi="春" :zuci="['春风', '春雨', '春天', '春日']" />
 <Hanzi zi="冬" />
-<Hanzi zi="风" jiegou="独体字" :zuci="['风雨', '风云', '大风', '东风']" />
+<Hanzi zi="风" pinyin="fēng" jiegou="独体字" :zuci="['风雨', '风云', '大风', '东风']" />
