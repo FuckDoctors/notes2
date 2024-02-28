@@ -95,7 +95,12 @@ onMounted(() => {
 })
 
 function handleVoice() {
-  cnchar.voice(props.zi)
+  // cnchar.voice(props.zi)
+  cnchar.voice.speak(props.zi, {
+    onerror: () => {
+      cnchar.voice(props.zi)
+    },
+  })
 }
 
 function handlePlay() {
