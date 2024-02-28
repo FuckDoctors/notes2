@@ -17,6 +17,27 @@ dependencies:
   '@vueuse/head':
     specifier: ^2.0.0
     version: 2.0.0(vue@3.4.20)
+  cnchar:
+    specifier: ^3.2.5
+    version: 3.2.5
+  cnchar-draw:
+    specifier: ^3.2.5
+    version: 3.2.5
+  cnchar-explain:
+    specifier: ^3.2.5
+    version: 3.2.5
+  cnchar-order:
+    specifier: ^3.2.5
+    version: 3.2.5
+  cnchar-radical:
+    specifier: ^3.2.5
+    version: 3.2.5
+  cnchar-voice:
+    specifier: ^3.2.5
+    version: 3.2.5
+  cnchar-words:
+    specifier: ^3.2.5
+    version: 3.2.5
   nprogress:
     specifier: ^0.2.0
     version: 0.2.0
@@ -7190,6 +7211,52 @@ packages:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
     dev: true
+
+  /cnchar-draw@3.2.5:
+    resolution: {integrity: sha512-DT3f5AP8Rl4kFt+BpBTdQr0qPHdEYsaHgOm9CeSQX2W7ju/JaHc8rkASKa+JHEz3RlO+492bLmlZnVS4nAbN1Q==}
+    dependencies:
+      cnchar-types: 3.2.5
+    dev: false
+
+  /cnchar-explain@3.2.5:
+    resolution: {integrity: sha512-qbJ+wiVKK3VND52dKmtuMtgXiiM8eBlIahP/Jq7vAahBsB3AAo8cZu7wDlv9paseSAhQmN/b5TGv3UdNvlEiOw==}
+    dependencies:
+      cnchar-types: 3.2.5
+    dev: false
+
+  /cnchar-order@3.2.5:
+    resolution: {integrity: sha512-tBwCDlfawiFaufTLRXpp9rqT96Votmt+J0BJyB0zzNNEaRF+yVbyZFAKVGGF0a90vB0woZiai+/Vg2ZhRuLG4w==}
+    dependencies:
+      cnchar-types: 3.2.5
+    dev: false
+
+  /cnchar-radical@3.2.5:
+    resolution: {integrity: sha512-Rh0FbSk1cOlvPIFiy8MIhwCOgOGZLOvnPjr8Ba3ZWe/2225fetdN/6RiMndQvj+VGewCcAaEPCpMonuxzUPKNw==}
+    dependencies:
+      cnchar-types: 3.2.5
+    dev: false
+
+  /cnchar-types@3.2.5:
+    resolution: {integrity: sha512-E4QhUYzCmlZB5EcEXnz9ZrTWl/Cf+Asat6DcMH4TzlmC73NLA/SoEef8Z+IrO7pWKjUA7ZALzERlgVUfC0Wg3A==}
+    dev: false
+
+  /cnchar-voice@3.2.5:
+    resolution: {integrity: sha512-800nPHipgxJXMasSGvl6bl1NeKWGU1ZAJy8FkRkpQFLngMu1PcDJ8Ayhver6Ix3C4FsD3+QME5eQUU6iVydASw==}
+    dependencies:
+      cnchar-types: 3.2.5
+    dev: false
+
+  /cnchar-words@3.2.5:
+    resolution: {integrity: sha512-m6l3f/5COetOkcuzbrkKfQTwtwAsHMI3nPQuG9bRX6YFC8P7BlUyVu4R+OHSyIUUtYYLjGPl88BhKNtfoA87hg==}
+    dependencies:
+      cnchar-types: 3.2.5
+    dev: false
+
+  /cnchar@3.2.5:
+    resolution: {integrity: sha512-VJaF9FRjabzP2lIBAoffFVlAp7kbO/HJfmBttJIyoA16GSwT9jNwTm7Dh8AIIuppcnGYXs/LnrwDIaC7qExzpQ==}
+    dependencies:
+      cnchar-types: 3.2.5
+    dev: false
 
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
