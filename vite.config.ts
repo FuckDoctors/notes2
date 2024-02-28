@@ -1,7 +1,6 @@
 import path from 'node:path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
 import generateSitemap from 'vite-ssg-sitemap'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
@@ -13,8 +12,10 @@ import { VitePWA } from 'vite-plugin-pwa'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
-import Shiki from 'markdown-it-shiki'
+import Shikiji from 'markdown-it-shikiji'
 import WebfontDownload from 'vite-plugin-webfont-dl'
+import VueRouter from 'unplugin-vue-router/vite'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
 
 export default defineConfig({
   resolve: {
@@ -33,12 +34,13 @@ export default defineConfig({
       },
     }),
 
-    // https://github.com/hannoeru/vite-plugin-pages
-    Pages({
+    // https://github.com/posva/unplugin-vue-router
+    VueRouter({
       extensions: ['vue', 'md'],
-      dirs: [
-        { dir: 'src/pages', baseRoute: '' },
-        { dir: 'src/demo/pages', baseRoute: 'demo' },
+      dts: 'src/typed-router.d.ts',
+      routesFolder: [
+        { src: 'src/pages', path: '' },
+        { src: 'src/demo/pages', path: 'demo' },
       ],
     }),
 
@@ -56,6 +58,11 @@ export default defineConfig({
         'vue-i18n',
         '@vueuse/head',
         '@vueuse/core',
+        VueRouterAutoImports,
+        {
+          // add any other imports you were relying on
+          'vue-router/auto': ['useLink'],
+        },
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: ['src/composables', 'src/stores'],
@@ -84,14 +91,17 @@ export default defineConfig({
     Markdown({
       wrapperClasses: 'prose prose-sm m-auto text-left',
       headEnabled: true,
-      markdownItSetup(md) {
+      async markdownItSetup(md) {
         // https://prismjs.com/
-        md.use(Shiki, {
-          theme: {
-            light: 'vitesse-light',
-            dark: 'vitesse-dark',
-          },
-        })
+        md.use(
+          await Shikiji({
+            defaultColor: false,
+            themes: {
+              light: 'vitesse-light',
+              dark: 'vitesse-dark',
+            },
+          })
+        )
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
@@ -155,7 +165,11 @@ export default defineConfig({
     ],
     environment: 'jsdom',
     deps: {
-      inline: ['@vue', '@vueuse', 'vue-demi'],
+      optimizer: {
+        web: {
+          include: ['@vue', '@vueuse', 'vue-demi'],
+        },
+      },
     },
   },
 
