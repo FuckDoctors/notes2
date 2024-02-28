@@ -36,7 +36,7 @@ export default defineConfig({
 
     // https://github.com/posva/unplugin-vue-router
     VueRouter({
-      extensions: ['vue', 'md'],
+      extensions: ['.vue', '.md'],
       dts: 'src/typed-router.d.ts',
       routesFolder: [
         { src: 'src/pages', path: '' },
@@ -54,7 +54,6 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        'vue-router',
         'vue-i18n',
         '@vueuse/head',
         '@vueuse/core',
