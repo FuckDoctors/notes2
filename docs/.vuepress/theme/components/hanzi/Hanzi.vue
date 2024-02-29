@@ -81,12 +81,14 @@ onMounted(() => {
     },
   })
 
-  speehTxt.value.push(props.zi)
   if (!props.pinyin) {
     pinyinRet.value = cnchar.spell(props.zi, 'low', 'tone', 'poly')
+    speehTxt.value.push(pinyinRet.value)
+  } else {
+    speehTxt.value.push(props.pinyin)
   }
   bushouRet.value = cnchar.radical(props.zi)
-  speehTxt.value.push(props.bushou || bushouRet.value[0].struct)
+  speehTxt.value.push(props.jiegou || bushouRet.value[0].struct)
   speehTxt.value.push('笔画数')
   if (!props.bihuashu) {
     bihuaCountRet.value = cnchar.stroke(props.zi, 'order', 'count')
@@ -113,6 +115,7 @@ onMounted(() => {
 function handleVoice() {
   // cnchar.voice(props.zi)
   cnchar.voice.speak(props.zi, {
+    rate: 0.5,
     onerror: () => {
       cnchar.voice(props.zi)
     },
