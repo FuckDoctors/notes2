@@ -98,7 +98,9 @@
 .btn.btn-voice {
   background-image: url('/assets/hanzi/voice.svg');
 }
-
+.btn.btn-human-voice {
+  background-image: url('/assets/hanzi/human-voice.svg');
+}
 .btn.btn-play {
   background-image: url('/assets/hanzi/play.svg');
 }
