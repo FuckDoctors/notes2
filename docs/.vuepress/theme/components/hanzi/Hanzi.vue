@@ -105,8 +105,8 @@ onMounted(() => {
   }
   speehTxt.value.push('组词')
   if (props.zuci === null || props.zuci.length === 0) {
-    zuciRet.value = cnchar.words(props.zi)
-    speehTxt.value.push(...zuciRet.value.slice(0, 5))
+    zuciRet.value = cnchar.words(props.zi).slice(0, 5)
+    speehTxt.value.push(...zuciRet.value)
   } else {
     speehTxt.value.push(...props.zuci)
   }
@@ -206,9 +206,7 @@ function handleRead() {
             </div>
           </div>
           <div ref="strokesRef" class="hanzi-detail__strokes" />
-          <div class="words-container">
-            {{ zuciRet.slice(0, 5).join(' ') }}&nbsp;
-          </div>
+          <div class="words-container">{{ zuciRet.join(' ') }}&nbsp;</div>
         </div>
       </div>
     </div>
