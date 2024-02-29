@@ -47,6 +47,8 @@ const bihuaCountRet = shallowRef([props.bihuashu])
 const bihuaNameRet = shallowRef([props.bihua])
 const zuciRet = shallowRef(props.zuci)
 
+const speehTxt = ref([])
+
 onMounted(() => {
   cnchar.draw(props.zi, {
     el: printRef.value,
@@ -79,18 +81,32 @@ onMounted(() => {
     },
   })
 
+  speehTxt.value.push(props.zi)
   if (!props.pinyin) {
     pinyinRet.value = cnchar.spell(props.zi, 'low', 'tone', 'poly')
   }
   bushouRet.value = cnchar.radical(props.zi)
+  speehTxt.value.push(props.bushou || bushouRet.value[0].struct)
+  speehTxt.value.push('笔画数')
   if (!props.bihuashu) {
     bihuaCountRet.value = cnchar.stroke(props.zi, 'order', 'count')
+    speehTxt.value.push(bihuaCountRet.value)
+  } else {
+    speehTxt.value.push(props.bihuashu)
   }
+  speehTxt.value.push('笔划')
   if (props.bihua === null || props.bihua.length === 0) {
     bihuaNameRet.value = cnchar.stroke(props.zi, 'order', 'name')
+    speehTxt.value.push(...bihuaNameRet.value[0])
+  } else {
+    speehTxt.value.push(...props.bihua)
   }
+  speehTxt.value.push('组词')
   if (props.zuci === null || props.zuci.length === 0) {
     zuciRet.value = cnchar.words(props.zi)
+    speehTxt.value.push(...zuciRet.value.slice(0, 5))
+  } else {
+    speehTxt.value.push(...props.zuci)
   }
 })
 
@@ -128,6 +144,10 @@ function handleWriting() {
     },
   })
 }
+
+function handleRead() {
+  cnchar.voice.speak(speehTxt.value)
+}
 </script>
 
 <template>
@@ -141,6 +161,11 @@ function handleWriting() {
           <button class="btn-voice btn" title="发音" @click="handleVoice" />
           <button class="btn-play btn" title="笔划" @click="handlePlay" />
           <button class="btn-write btn" title="书写" @click="handleWriting" />
+          <button
+            class="btn-human-voice btn"
+            title="朗读"
+            @click="handleRead"
+          />
         </div>
       </div>
       <div class="hanzi-main__right">

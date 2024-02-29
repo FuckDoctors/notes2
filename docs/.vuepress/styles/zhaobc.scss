@@ -94,3 +94,16 @@
     }
   }
 }
+
+.page-break-always {
+  break-after: always !important;
+}
+.page-break-avoid {
+  page-break-inside: avoid !important;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
