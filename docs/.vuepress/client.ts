@@ -4,6 +4,7 @@ import type { ClientConfig } from '@vuepress/client'
 import AutoArticleListLayout from './theme/layouts/AutoArticleListLayout'
 import AutoArticleList from './theme/components/AutoArticleList'
 import Hanzi from './theme/components/hanzi/Hanzi.vue'
+import Chazi from './theme/components/hanzi/Chazi.vue'
 
 // 为项目主页的特性添加闪光效果
 import 'vuepress-theme-hope/presets/shinning-feature-panel.scss'
@@ -24,5 +25,6 @@ export default defineClientConfig({
   enhance: ({ app }) => {
     app.component('AutoArticleList', AutoArticleList)
     app.component('Hanzi', Hanzi)
+    app.component('Chazi', Chazi)
   },
 })
