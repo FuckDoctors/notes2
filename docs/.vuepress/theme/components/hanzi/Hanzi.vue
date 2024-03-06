@@ -8,7 +8,7 @@ import radical from 'cnchar-radical'
 import words from 'cnchar-words'
 import voice from 'cnchar-voice'
 
-import { CARD_WIDTH } from './constants'
+import { CARD_WIDTH, LANG, SPEAK_RATE } from './constants'
 
 import './hanzi.css'
 
@@ -54,6 +54,10 @@ onMounted(() => {
     el: printRef.value,
     style: {
       length: CARD_WIDTH,
+      radicalColor: '#b44',
+    },
+    line: {
+      lineCross: false,
     },
   })
 
@@ -63,21 +67,19 @@ onMounted(() => {
     style: {
       length: CARD_WIDTH,
     },
+    line: {
+      lineCross: false,
+    },
   })
-
-  //  cnchar.draw(props.zi, {
-  //    el: writingRef.value,
-  //    type: cnchar.draw.TYPE.TEST,
-  //    style: {
-  //      length: CARD_WIDTH,
-  //    },
-  //  });
 
   cnchar.draw(props.zi, {
     el: strokesRef.value,
     type: cnchar.draw.TYPE.STROKE,
     style: {
       length: 60,
+    },
+    line: {
+      lineCross: false,
     },
   })
 
@@ -96,18 +98,21 @@ onMounted(() => {
   } else {
     speehTxt.value.push(props.bihuashu)
   }
-  speehTxt.value.push('笔划')
+  speehTxt.value.push('笔画')
   if (props.bihua === null || props.bihua.length === 0) {
     bihuaNameRet.value = cnchar.stroke(props.zi, 'order', 'name')
     speehTxt.value.push(...bihuaNameRet.value[0])
   } else {
     speehTxt.value.push(...props.bihua)
   }
-  speehTxt.value.push('组词')
   if (props.zuci === null || props.zuci.length === 0) {
     zuciRet.value = cnchar.words(props.zi).slice(0, 5)
-    speehTxt.value.push(...zuciRet.value)
+    if (zuciRet.value.length > 0) {
+      speehTxt.value.push('组词')
+      speehTxt.value.push(...zuciRet.value)
+    }
   } else {
+    speehTxt.value.push('组词')
     speehTxt.value.push(...props.zuci)
   }
 })
@@ -116,6 +121,7 @@ function handleVoice() {
   // cnchar.voice(props.zi)
   cnchar.voice.speak(props.zi, {
     rate: 0.5,
+    lang: LANG,
     onerror: () => {
       cnchar.voice(props.zi)
     },
@@ -131,6 +137,9 @@ function handlePlay() {
     type: cnchar.draw.TYPE.ANIMATION,
     style: {
       length: CARD_WIDTH,
+    },
+    line: {
+      lineCross: false,
     },
   })
 }
@@ -149,7 +158,10 @@ function handleWriting() {
 }
 
 function handleRead() {
-  cnchar.voice.speak(speehTxt.value)
+  cnchar.voice.speak(speehTxt.value, {
+    rate: SPEAK_RATE,
+    lang: LANG,
+  })
 }
 </script>
 
@@ -162,7 +174,7 @@ function handleRead() {
         <div ref="writingRef" class="hanzi-card writing" />
         <div class="hanzi-controls">
           <button class="btn-voice btn" title="发音" @click="handleVoice" />
-          <button class="btn-play btn" title="笔划" @click="handlePlay" />
+          <button class="btn-play btn" title="笔画" @click="handlePlay" />
           <button class="btn-write btn" title="书写" @click="handleWriting" />
           <button
             class="btn-human-voice btn"
@@ -193,13 +205,13 @@ function handleRead() {
               }}</span>
             </div>
             <div class="info bihuashu">
-              <span class="tag">笔划数</span>
+              <span class="tag">笔画数</span>
               <span ref="bihuaRef" class="content">{{
                 props.bihuashu || bihuaCountRet[0]
               }}</span>
             </div>
             <div class="info bihua">
-              <span class="tag">笔划</span>
+              <span class="tag">笔画</span>
               <span ref="bihuaRef" class="content">{{
                 bihuaNameRet[0].join('-')
               }}</span>
