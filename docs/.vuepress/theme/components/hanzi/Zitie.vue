@@ -7,14 +7,17 @@ import { PRINT_STROKE_WIDTH, WRITING_WIDTH } from './constants'
 
 const props = defineProps({
   zi: String,
+  /** 黑色字体个数 */
   hei: {
     type: Number,
     default: 1,
   },
+  /** 灰色字体个数 */
   hui: {
     type: Number,
     default: 1,
   },
+  /** 空白田字格个数 */
   kong: {
     type: Number,
     default: 5,

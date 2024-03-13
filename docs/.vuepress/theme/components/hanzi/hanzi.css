@@ -113,6 +113,10 @@
 }
 
 @media print {
+  .hanzi-main__left {
+    /* display: none !important; */
+  }
+
   .hanzi-card.print {
     display: block !important;
   }

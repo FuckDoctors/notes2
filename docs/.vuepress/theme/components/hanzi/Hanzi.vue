@@ -59,6 +59,7 @@ const zuciRet = shallowRef(props.zuci)
 const speehTxt = ref([])
 
 onMounted(() => {
+  // 卡片大字3
   cnchar.draw(props.zi, {
     el: printRef.value,
     style: {
@@ -70,6 +71,7 @@ onMounted(() => {
     },
   })
 
+  // 笔顺动画
   cnchar.draw(props.zi, {
     el: aniRef.value,
     type: cnchar.draw.TYPE.ANIMATION,
@@ -81,6 +83,7 @@ onMounted(() => {
     },
   })
 
+  // 笔顺
   cnchar.draw(props.zi, {
     el: strokesRef.value,
     type: cnchar.draw.TYPE.STROKE,
