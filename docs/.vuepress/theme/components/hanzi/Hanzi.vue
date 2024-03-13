@@ -8,7 +8,16 @@ import radical from 'cnchar-radical'
 import words from 'cnchar-words'
 import voice from 'cnchar-voice'
 
-import { CARD_WIDTH, LANG, SPEAK_RATE } from './constants'
+import {
+  CARD_WIDTH,
+  LANG,
+  SPEAK_RATE,
+  TIAN_HEI,
+  TIAN_HUI,
+  TIAN_KONG,
+} from './constants'
+
+import Zitie from './Zitie.vue'
 
 import './hanzi.css'
 
@@ -218,6 +227,14 @@ function handleRead() {
             </div>
           </div>
           <div ref="strokesRef" class="hanzi-detail__strokes" />
+          <div class="zitie-print">
+            <Zitie
+              :zi="props.zi"
+              :hei="TIAN_HEI"
+              :hui="TIAN_HUI"
+              :kong="TIAN_KONG"
+            />
+          </div>
           <div class="words-container">{{ zuciRet.join(' ') }}&nbsp;</div>
         </div>
       </div>

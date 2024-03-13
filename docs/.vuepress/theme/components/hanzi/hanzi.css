@@ -108,6 +108,10 @@
   background-image: url('/assets/hanzi/write.svg');
 }
 
+.zitie-print {
+  display: none;
+}
+
 @media print {
   .hanzi-card.print {
     display: block !important;
@@ -118,5 +122,13 @@
   }
   .hanzi-controls {
     display: none !important;
+  }
+
+  .hanzi-detail__strokes {
+    display: none !important;
+  }
+
+  .zitie-print {
+    display: block !important;
   }
 }
