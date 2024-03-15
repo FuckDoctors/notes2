@@ -108,8 +108,13 @@
   }
 }
 
+/* 调整评论框宽度 */
 #vp-comment {
   max-width: var(--content-width, 740px);
   margin: 0 auto;
   padding: 0 2.5rem;
+
+  @media (max-width: hope-config.$mobile) {
+    padding: 0 0.5rem;
+  }
 }
