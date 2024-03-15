@@ -107,3 +107,9 @@
     display: none !important;
   }
 }
+
+#vp-comment {
+  max-width: var(--content-width, 740px);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}

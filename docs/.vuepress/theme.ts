@@ -52,7 +52,7 @@ export const themeOptions: ThemeOptions = {
       displayFooter: true,
 
       blog: {
-        description: '一个码农，热爱Vue/Java',
+        description: '一个码农，热爱 Vue/Java',
         intro: '/about.html',
       },
     },
