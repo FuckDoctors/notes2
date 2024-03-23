@@ -15,7 +15,12 @@ function handleClick() {
   <div class="container">
     <label>
       汉字
-      <input v-model="input" type="text" maxlength="1" />
+      <input
+        v-model="input"
+        type="text"
+        maxlength="1"
+        @keyup.enter="handleClick"
+      />
     </label>
     <button @click="handleClick">查</button>
   </div>
