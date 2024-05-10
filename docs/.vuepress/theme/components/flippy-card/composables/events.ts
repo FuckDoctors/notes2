@@ -4,19 +4,24 @@
  * https://juejin.cn/post/7244077531607941179
  */
 
-export function toggleFlipped(el: HTMLDivElement) {
-  el.classList.toggle('flipped')
+export function toggleFlipped(wrapper: HTMLDivElement) {
+  wrapper.classList.toggle('flipped')
+  const glare = wrapper.querySelector('.glare') as HTMLDivElement
+  if (glare) {
+    glare.style.opacity = '0'
+  }
 }
 
-export function isFlipped(el: HTMLDivElement) {
-  return el.classList.contains('flipped')
+export function isFlipped(wrapper: HTMLDivElement) {
+  return wrapper.classList.contains('flipped')
 }
 
 export function calculateAngle(
   e: MouseEvent,
   wrapper: HTMLDivElement,
   dropShadowColor: string,
-  glareColor: string
+  glareColor: string,
+  glareOpacity: number
 ) {
   const front = wrapper.querySelector('.flippy-card__front') as HTMLDivElement
   const backface = wrapper.querySelector('.flippy-card__back') as HTMLDivElement
@@ -44,11 +49,13 @@ export function calculateAngle(
 
   const glare = wrapper.querySelector('.glare') as HTMLDivElement
   if (glare) {
+    glare.style.opacity = `${glareOpacity}`
+
     glare.style.background = `radial-gradient(circle at ${gX}% ${gY}%, ${glareColor}, transparent)`
     glare.style.perspective = `${halfWidth * 6}px`
 
     if (isFlipped(wrapper)) {
-      glare.style.transform = `rotateY(${180 + calcAngleX}deg) rotateX(${calcAngleY}deg) scale(1.04)`
+      glare.style.transform = `rotateY(${-180 - calcAngleX}deg) rotateX(${calcAngleY}deg) scale(1.04)`
     } else {
       glare.style.transform = `rotateY(${calcAngleX}deg) rotateX(${-calcAngleY}deg) scale(1.04)`
     }
@@ -57,10 +64,11 @@ export function calculateAngle(
   // 并设置其容器的视角。
   wrapper.style.perspective = `${halfWidth * 6}px`
   front.style.perspective = `${halfWidth * 6}px`
+  backface.style.perspective = `${halfWidth * 6}px`
 
   // 设置项目转换CSS属性
   front.style.transform = `rotateY(${calcAngleX}deg) rotateX(${-calcAngleY}deg) scale(1.04)`
-  backface.style.transform = `rotateY(${180 + calcAngleX}deg) rotateX(${calcAngleY}deg) scale(1.04)`
+  backface.style.transform = `rotateY(${-180 - calcAngleX}deg) rotateX(${calcAngleY}deg) scale(1.04)`
 
   // 重新应用到阴影上，使用不同的分割线
   const calcShadowX = (x - halfWidth) / 3
@@ -68,7 +76,7 @@ export function calculateAngle(
 
   // 添加一个滤镜阴影——这比普通的框阴影更能表现动画效果。
   front.style.filter = `drop-shadow(${-calcShadowX}px ${-calcShadowY}px 15px ${dropShadowColor})`
-  backface.style.filter = `drop-shadow(${calcShadowX}px ${-calcShadowY}px 15px ${dropShadowColor})`
+  backface.style.filter = `drop-shadow(${-calcShadowX}px ${-calcShadowY}px 15px ${dropShadowColor})`
 }
 
 export function resetCard(wrapper: HTMLDivElement) {

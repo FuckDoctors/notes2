@@ -18,6 +18,10 @@ const props = defineProps({
     type: String,
     default: 'rgb(199 198 243)',
   },
+  glareOpacity: {
+    type: Number,
+    default: 0.3,
+  },
 })
 
 const wrapper = ref(null)
@@ -25,11 +29,23 @@ const wrapper = ref(null)
 const toggle = () => toggleFlipped(wrapper.value)
 
 function handleMouseEnter(e) {
-  calculateAngle(e, wrapper.value, props.dropShadowColor, props.glareColor)
+  calculateAngle(
+    e,
+    wrapper.value,
+    props.dropShadowColor,
+    props.glareColor,
+    props.glareOpacity
+  )
 }
 
 function handleMouseMove(e) {
-  calculateAngle(e, wrapper.value, props.dropShadowColor, props.glareColor)
+  calculateAngle(
+    e,
+    wrapper.value,
+    props.dropShadowColor,
+    props.glareColor,
+    props.glareOpacity
+  )
 }
 
 function handleMouseLeave() {
