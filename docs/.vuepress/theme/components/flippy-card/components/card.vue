@@ -6,6 +6,10 @@ import { calculateAngle, resetCard, toggleFlipped } from '../composables'
 import '../styles/card.scss'
 
 const props = defineProps({
+  flipped: {
+    type: Boolean,
+    default: false,
+  },
   dropShadowColor: {
     type: String,
     default: 'rgba(0, 0, 0, 0.3)',
@@ -36,6 +40,7 @@ function handleMouseLeave() {
 <template>
   <div
     ref="wrapper"
+    :class="{ flipped: props.flipped }"
     class="flippy-card—wrapper"
     @mouseenter="handleMouseEnter"
     @mousemove="handleMouseMove"

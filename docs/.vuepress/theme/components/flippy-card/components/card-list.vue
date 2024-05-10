@@ -16,7 +16,7 @@ onMounted(() => {})
       </template>
     </FlippyCard>
 
-    <FlippyCard>
+    <FlippyCard :flipped="true">
       <template #front>
         <div>Front2</div>
       </template>
