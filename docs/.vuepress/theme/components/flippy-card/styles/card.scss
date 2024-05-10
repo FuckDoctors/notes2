@@ -1,0 +1,127 @@
+.flippy-card—wrapper {
+  box-shadow: none;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  width: 18rem;
+  height: 25rem;
+  margin: 1rem;
+  transition: all 0.2s ease-out;
+  // backface-visibility: visible;
+  transform-style: preserve-3d;
+  perspective-origin: 0 0;
+  border: none;
+  z-index: 1;
+  border-radius: 14px;
+
+  .flippy-card {
+    will-change: transform, filter;
+    background: #f6f8fa;
+    background-size: calc(100% + 6px) auto;
+    background-position: -3px -3px;
+    margin: 0;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+    backface-visibility: hidden;
+    filter: unset;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .flippy-card__front {
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+    // background-color: black;
+    z-index: 10;
+  }
+
+  .flippy-card__back {
+    transform: rotateY(180deg) rotateX(0deg) scale(1);
+    // background: linear-gradient(45deg, #0b0b2a, #0b0b2a);
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .glare {
+    /* 眩光效果 */
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 14px;
+    z-index: 9999;
+    mix-blend-mode: hard-light;
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgb(199 198 243),
+      transparent
+    );
+    transform: rotateY(0deg) rotateX(0deg) scale(1);
+  }
+
+  .flip-button {
+    content: ' ';
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    height: 1rem;
+    line-height: 1rem;
+    width: 2rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 100px;
+    color: white;
+    background-color: #313de2;
+    background-image: url('../images/flip.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+
+    &:hover {
+      background-color: #0f1cc5;
+      box-shadow: 0 2px 5px #0b1485;
+    }
+  }
+
+  &.animated {
+    .glare {
+      opacity: 0.3;
+    }
+  }
+
+  &.flipped {
+    transform: rotateY(180deg);
+
+    // .flippy-card__front {
+    //   z-index: 5 !important;
+    // }
+    // .flippy-card__back {
+    //   z-index: 10 !important;
+    // }
+  }
+}
+
+.flippy-card-list {
+  display: flex;
+  flex-direction: row;
+  transform-style: preserve-3d;
+  z-index: 1;
+}

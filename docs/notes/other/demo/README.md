@@ -193,3 +193,7 @@ import {
 ```md
 <Replit user="FuckDoctors" repl="Java-Test" file="Main.java" />
 ```
+
+## Flippy Card
+
+<FlippyCardList />
