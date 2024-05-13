@@ -11,3 +11,6 @@ export const LANG = 'zh-CN'
 export const TIAN_HEI = 1
 export const TIAN_HUI = 1
 export const TIAN_KONG = 5
+
+/** 拼音格 宽/高 */
+export const PINYIN_GE_RATIO = 1.57

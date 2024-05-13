@@ -1,0 +1,84 @@
+.hanzi-card {
+  .hanzi-card__front {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+
+    .pinyin-container {
+      width: 220px;
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      background-image: url('./images/pinyinge.svg');
+      background-position: 0 0;
+      background-repeat: repeat-x;
+
+      .pinyin {
+        height: 50px;
+        font-size: 29px;
+      }
+    }
+
+    .zi-container {
+      width: 220px;
+      margin-top: 10px;
+      text-align: center;
+      position: relative;
+      height: 250px;
+
+      .zi {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .zi.animation {
+        display: none;
+      }
+
+      .controls {
+        top: 225px;
+      }
+    }
+  }
+
+  .controls {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+
+    .btn {
+      display: inline-block;
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+    }
+    .btn:hover {
+      scale: 1.2;
+    }
+
+    .btn.btn-voice {
+      background-image: url('./images/voice.svg');
+    }
+    .btn.btn-human-voice {
+      background-image: url('./images/human-voice.svg');
+    }
+    .btn.btn-play {
+      background-image: url('./images/play.svg');
+    }
+    .btn.btn-write {
+      background-image: url('./images/write.svg');
+    }
+  }
+}

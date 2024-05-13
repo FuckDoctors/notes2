@@ -196,4 +196,4 @@ import {
 
 ## Flippy Card
 
-<FlippyCardList />
+<HanziCard zi="赵" />

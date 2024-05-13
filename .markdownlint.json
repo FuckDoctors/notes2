@@ -23,8 +23,8 @@
       "SiteInfo",
       "Hanzi",
       "Chazi",
-      "FlippyCardList",
-      "FlippyCard"
+      "FlippyCard",
+      "HanziCard"
     ]
   }
 }
