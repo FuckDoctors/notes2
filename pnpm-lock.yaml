@@ -26,6 +26,9 @@ dependencies:
   cnchar-explain:
     specifier: ^3.2.5
     version: 3.2.5
+  cnchar-idiom:
+    specifier: ^3.2.6
+    version: 3.2.6
   cnchar-order:
     specifier: ^3.2.5
     version: 3.2.5
@@ -2041,6 +2044,7 @@ packages:
   /@commitlint/config-validator@19.0.3:
     resolution: {integrity: sha512-2D3r4PKjoo59zBc2auodrSCaUnCSALCx54yveOFwwP/i2kfEAQrygwOleFWswLqK0UL/F9r07MFi5ev2ohyM4Q==}
     engines: {node: '>=v18'}
+    requiresBuild: true
     dependencies:
       '@commitlint/types': 19.0.3
       ajv: 8.12.0
@@ -2156,6 +2160,7 @@ packages:
   /@commitlint/resolve-extends@19.1.0:
     resolution: {integrity: sha512-z2riI+8G3CET5CPgXJPlzftH+RiWYLMYv4C9tSLdLXdr6pBNimSKukYP9MS27ejmscqCTVA4almdLh0ODD2KYg==}
     engines: {node: '>=v18'}
+    requiresBuild: true
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/types': 19.0.3
@@ -6858,6 +6863,12 @@ packages:
       cnchar-types: 3.2.5
     dev: false
 
+  /cnchar-idiom@3.2.6:
+    resolution: {integrity: sha512-cBvvfjGHtKMY4Roon+oymvbnGPTZ5zR3sRisR3WPc14f1nsmbHL5LJ53lXNfjNSxeUq4l8yQ6QHIZHk2MdQByg==}
+    dependencies:
+      cnchar-types: 3.2.6
+    dev: false
+
   /cnchar-order@3.2.5:
     resolution: {integrity: sha512-tBwCDlfawiFaufTLRXpp9rqT96Votmt+J0BJyB0zzNNEaRF+yVbyZFAKVGGF0a90vB0woZiai+/Vg2ZhRuLG4w==}
     dependencies:
@@ -6872,6 +6883,10 @@ packages:
 
   /cnchar-types@3.2.5:
     resolution: {integrity: sha512-E4QhUYzCmlZB5EcEXnz9ZrTWl/Cf+Asat6DcMH4TzlmC73NLA/SoEef8Z+IrO7pWKjUA7ZALzERlgVUfC0Wg3A==}
+    dev: false
+
+  /cnchar-types@3.2.6:
+    resolution: {integrity: sha512-LGU2ss7KcsI1Psme73+jffUX0ZDuChr6P9Rj2j8lynJHStklNpoC/+kheKSSUcXQ1u2KNvZt1Shs/5efcihHkg==}
     dev: false
 
   /cnchar-voice@3.2.5:
@@ -7171,6 +7186,7 @@ packages:
   /cosmiconfig-typescript-loader@5.0.0(@types/node@20.11.27)(cosmiconfig@8.3.6)(typescript@5.4.2):
     resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
     engines: {node: '>=v16'}
+    requiresBuild: true
     peerDependencies:
       '@types/node': '*'
       cosmiconfig: '>=8.2'
@@ -7185,6 +7201,7 @@ packages:
   /cosmiconfig@8.3.6(typescript@5.4.2):
     resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
     engines: {node: '>=14'}
+    requiresBuild: true
     peerDependencies:
       typescript: '>=4.9.5'
     peerDependenciesMeta:
@@ -10156,6 +10173,7 @@ packages:
   /ini@4.1.1:
     resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    requiresBuild: true
     dev: true
 
   /ini@4.1.2:

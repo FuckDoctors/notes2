@@ -196,4 +196,6 @@ import {
 
 ## Flippy Card
 
-<HanziCard zi="赵" />
+<HanziCard zi="春" />
+
+<HanziCard zi="皓" hide-pinyin />

@@ -1,0 +1,142 @@
+.hanzi2 {
+  box-sizing: border-box;
+  font-size: 12px;
+
+  .hanzi-main {
+    padding: 0;
+  }
+
+  .hanzi-main__left {
+    width: auto;
+    height: auto;
+
+    .pinyin-hanzi-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+
+      .hanzi-container {
+        position: relative;
+        width: 100px;
+        height: 130px;
+
+        .hanzi-controls {
+          top: unset;
+          bottom: 0;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .hanzi-main__right {
+    padding-left: 10px;
+    padding-top: 3px;
+
+    .hanzi-detail {
+      .info {
+        display: flex;
+        flex-direction: row;
+
+        .tag {
+          min-width: 40px;
+          background-color: #5eaade;
+          text-align: center;
+        }
+
+        .content {
+          display: block;
+          flex: 1;
+        }
+
+        &.jiegou {
+          .content {
+            width: auto;
+            min-width: unset;
+          }
+        }
+      }
+    }
+  }
+
+  .pinyin-container {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-image: url('./images/pinyinge.svg');
+    background-position: 0 0;
+    background-repeat: repeat-x;
+  }
+
+  .extras-container {
+    .extra {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: row;
+      height: 20px;
+      line-height: 20px;
+
+      .tag {
+        width: 55px;
+        padding-left: 5px;
+        color: #fff;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+
+      .content {
+        flex: 1;
+        padding-left: 10px;
+      }
+
+      &:last-of-type {
+        margin-bottom: 10px;
+      }
+    }
+
+    .extra.zuci {
+      background-color: #8cad9a;
+
+      .tag {
+        background-color: #317752;
+      }
+    }
+
+    .extra.chengyu {
+      background-color: #93b4bb;
+
+      .tag {
+        background-color: #2c85a7;
+      }
+    }
+
+    .extra.zaoju {
+      background-color: #bca092;
+
+      .tag {
+        background-color: #a23f44;
+      }
+    }
+  }
+
+  .bishun {
+    .header {
+      .title {
+        color: #fff;
+        padding: 5px;
+        background-color: #2c85a7;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+    }
+
+    .hanzi-detail__strokes {
+      margin: 0 2px 0 0;
+      border: 2px solid #2c85a7;
+    }
+  }
+}

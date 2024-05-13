@@ -39,5 +39,7 @@ export default antfu({
     'vue/no-unused-refs': ['warn'],
     'eslint-comments/no-unlimited-disable': ['warn'],
     'style/max-statements-per-line': ['warn'],
+    'vue/no-irregular-whitespace': ['warn'],
+    'no-irregular-whitespace': ['warn'],
   },
 })

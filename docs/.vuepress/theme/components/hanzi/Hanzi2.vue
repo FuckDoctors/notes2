@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, shallowRef } from 'vue'
+import { computed, onMounted, ref, shallowRef } from 'vue'
 
 import cnchar from 'cnchar'
 import draw from 'cnchar-draw'
@@ -7,13 +7,14 @@ import order from 'cnchar-order'
 import radical from 'cnchar-radical'
 import words from 'cnchar-words'
 import voice from 'cnchar-voice'
+import idiom from 'cnchar-idiom'
 
 import { LANG, SPEAK_RATE } from './constants'
 
 import Pinyin from './Pinyin.vue'
 
 import './hanzi.css'
-import './hanzi2.css'
+import './hanzi2.scss'
 
 const props = defineProps({
   zi: String,
@@ -36,9 +37,16 @@ const props = defineProps({
       return []
     },
   },
+  chengyu: {
+    type: Array,
+    default() {
+      return []
+    },
+  },
+  hidePinyin: Boolean,
 })
 
-cnchar.use(draw, order, radical, words, voice)
+cnchar.use(draw, order, radical, words, voice, idiom)
 
 const printRef = ref(null)
 const aniRef = ref(null)
@@ -48,6 +56,17 @@ const bushouRet = shallowRef([{}])
 const bihuaCountRet = shallowRef([props.bihuashu])
 const bihuaNameRet = shallowRef([props.bihua])
 const zuciRet = shallowRef(props.zuci)
+
+const chengyuRef = computed(() => {
+  if (props.chengyu.length > 0) {
+    return props.chengyu.slice(0, 4)
+  }
+
+  return cnchar
+    .idiom(props.zi)
+    .sort((a, b) => a.length - b.length)
+    .slice(0, 4)
+})
 
 const speehTxt = ref([])
 
@@ -83,10 +102,13 @@ onMounted(() => {
     el: strokesRef.value,
     type: cnchar.draw.TYPE.STROKE,
     style: {
-      length: 60,
+      length: 45,
+      showOutline: false,
     },
     line: {
       lineCross: false,
+      lineStraight: true,
+      // borderWidth: 0,
     },
   })
 
@@ -105,7 +127,7 @@ onMounted(() => {
   } else {
     speehTxt.value.push(props.bihuashu)
   }
-  speehTxt.value.push('笔画')
+  speehTxt.value.push('笔顺')
   if (props.bihua === null || props.bihua.length === 0) {
     bihuaNameRet.value = cnchar.stroke(props.zi, 'order', 'name')
     speehTxt.value.push(...bihuaNameRet.value[0])
@@ -136,7 +158,6 @@ function handleVoice() {
 }
 
 function handlePlay() {
-  writingRef.value.style.display = 'none'
   aniRef.value.style.display = 'block'
 
   cnchar.draw(props.zi, {
@@ -161,41 +182,65 @@ function handleRead() {
 
 <template>
   <div class="hanzi-main-container hanzi2">
-    <Pinyin :pinyin="props.pinyin || pinyinRet" :width="100" :height="32" />
     <div class="hanzi-main">
       <div class="hanzi-main__left">
-        <div ref="printRef" class="hanzi-card print" />
-        <div ref="aniRef" class="hanzi-card animation" />
-        <div class="hanzi-controls">
-          <button class="btn-voice btn" title="发音" @click="handleVoice" />
-          <button class="btn-play btn" title="笔画" @click="handlePlay" />
-          <button
-            class="btn-human-voice btn"
-            title="朗读"
-            @click="handleRead"
+        <div class="pinyin-hanzi-container">
+          <Pinyin
+            :pinyin="props.pinyin || pinyinRet"
+            :width="100"
+            :height="32"
           />
+          <div class="hanzi-container">
+            <div ref="printRef" class="hanzi-card print" />
+            <div ref="aniRef" class="hanzi-card animation" />
+            <div class="hanzi-controls">
+              <button class="btn-voice btn" title="发音" @click="handleVoice" />
+              <button class="btn-play btn" title="笔画" @click="handlePlay" />
+              <button
+                class="btn-human-voice btn"
+                title="朗读"
+                @click="handleRead"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div class="hanzi-main__right">
         <div class="hanzi-detail">
           <div class="hanzi-detail__top">
             <div class="info bushou">
-              <span class="tag">部首</span>
+              <span class="label">
+                <span class="tag">部　首</span>
+              </span>
               <span class="content">{{
                 props.bushou || bushouRet[0].radical
               }}</span>
             </div>
             <div class="info jiegou">
-              <span class="tag">结构</span>
-              <span class="content">{{
-                props.jiegou?.replace('结构', '') ||
-                bushouRet[0].struct?.replace('结构', '')
-              }}</span>
+              <span class="label">
+                <span class="tag">结　构</span>
+              </span>
+              <span class="content">
+                {{
+                  props.jiegou?.replace('结构', '') ||
+                  bushouRet[0].struct?.replace('结构', '')
+                }}
+              </span>
             </div>
             <div class="info bihuashu">
-              <span class="tag">笔画数</span>
+              <span class="label">
+                <span class="tag">笔画数</span>
+              </span>
               <span class="content">{{
                 props.bihuashu || bihuaCountRet[0]
+              }}</span>
+            </div>
+            <div class="info bihua">
+              <span class="label">
+                <span class="tag">笔　顺</span>
+              </span>
+              <span ref="bihuaRef" class="content">{{
+                bihuaNameRet[0].join('-')
               }}</span>
             </div>
           </div>
@@ -203,16 +248,20 @@ function handleRead() {
       </div>
     </div>
 
-    <div class="extras">
-      <div class="info bihua">
-        <span class="tag">笔画</span>
-        <span ref="bihuaRef" class="content">{{
-          bihuaNameRet[0].join('-')
-        }}</span>
+    <div class="extras-container">
+      <div class="extra zuci">
+        <span class="tag">组　词</span>
+        <span class="content">{{ zuciRet.join(' ') }}&nbsp;</span>
       </div>
-
-      <div class="words-container">{{ zuciRet.join(' ') }}&nbsp;</div>
-
+      <div class="extra chengyu">
+        <span class="tag">成　语</span>
+        <span class="content">{{ chengyuRef.join(' ') }}&nbsp;</span>
+      </div>
+    </div>
+    <div class="bishun">
+      <div class="header">
+        <span class="title">笔　顺</span>
+      </div>
       <div ref="strokesRef" class="hanzi-detail__strokes" />
     </div>
   </div>

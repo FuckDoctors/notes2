@@ -31,6 +31,13 @@ const props = defineProps({
       return []
     },
   },
+  chengyu: {
+    type: Array,
+    default() {
+      return []
+    },
+  },
+  hidePinyin: Boolean,
 })
 
 const CARD_WIDTH = 220
@@ -88,7 +95,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <FlippyCard class="hanzi-card">
+  <FlippyCard class="hanzi-card" :class="{ 'hide-pinyin': hidePinyin }">
     <template #front>
       <div class="hanzi-card__front">
         <div class="pinyin-container">

@@ -1,4 +1,7 @@
 .hanzi-card {
+  width: 320px;
+  height: 420px;
+
   .hanzi-card__front {
     display: flex;
     justify-content: center;
@@ -79,6 +82,20 @@
     }
     .btn.btn-write {
       background-image: url('./images/write.svg');
+    }
+  }
+
+  &.hide-pinyin {
+    .pinyin-container {
+      .pinyin {
+        display: none;
+      }
+    }
+
+    .pinyin-wrapper {
+      .pinyin {
+        display: none;
+      }
     }
   }
 }
