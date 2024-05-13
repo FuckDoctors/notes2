@@ -118,3 +118,16 @@
     padding: 0 0.5rem;
   }
 }
+
+.wide-content {
+  &.theme-container {
+    .vp-breadcrumb,
+    .vp-page-title,
+    .theme-hope-content,
+    .content-after-container,
+    .page-meta,
+    #vp-comment {
+      max-width: 1080px;
+    }
+  }
+}

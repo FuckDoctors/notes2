@@ -62,10 +62,14 @@ const chengyuRef = computed(() => {
     return props.chengyu.slice(0, 4)
   }
 
-  return cnchar
-    .idiom(props.zi)
-    .sort((a, b) => a.length - b.length)
-    .slice(0, 4)
+  return (
+    cnchar
+      .idiom(props.zi)
+      // 过滤四字成语
+      .filter(item => item.length === 4)
+      // .sort((a, b) => a.length - b.length)
+      .slice(0, 4)
+  )
 })
 
 const speehTxt = ref([])
