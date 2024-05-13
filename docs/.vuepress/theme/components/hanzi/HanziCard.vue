@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watchEffect } from 'vue'
 
 import cnchar from 'cnchar'
 import draw from 'cnchar-draw'
@@ -48,6 +48,11 @@ const printRef = ref(null)
 const aniRef = ref(null)
 const pinyinRet = ref(props.pinyin)
 
+const hidePinyinRef = ref(true)
+watchEffect(() => {
+  hidePinyinRef.value = props.hidePinyin
+})
+
 function handleVoice() {
   // cnchar.voice(props.zi)
   cnchar.voice.speak(props.zi, {
@@ -75,6 +80,10 @@ function handlePlay() {
   })
 }
 
+function togglePinyin() {
+  hidePinyinRef.value = !hidePinyinRef.value
+}
+
 onMounted(() => {
   // 卡片大字
   cnchar.draw(props.zi, {
@@ -95,7 +104,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <FlippyCard class="hanzi-card" :class="{ 'hide-pinyin': hidePinyin }">
+  <FlippyCard class="hanzi-card" :class="{ 'hide-pinyin': hidePinyinRef }">
     <template #front>
       <div class="hanzi-card__front">
         <div class="pinyin-container">
@@ -109,6 +118,7 @@ onMounted(() => {
           <div class="controls">
             <button class="btn-voice btn" title="发音" @click="handleVoice" />
             <button class="btn-play btn" title="笔画" @click="handlePlay" />
+            <button class="btn-pinyin btn" title="拼音" @click="togglePinyin" />
           </div>
         </div>
       </div>

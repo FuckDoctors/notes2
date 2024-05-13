@@ -96,16 +96,19 @@
 }
 
 .btn.btn-voice {
-  background-image: url('/assets/hanzi/voice.svg');
+  background-image: url('./images/voice.svg');
 }
 .btn.btn-human-voice {
-  background-image: url('/assets/hanzi/human-voice.svg');
+  background-image: url('./images/human-voice.svg');
 }
 .btn.btn-play {
-  background-image: url('/assets/hanzi/play.svg');
+  background-image: url('./images/play.svg');
 }
 .btn.btn-write {
-  background-image: url('/assets/hanzi/write.svg');
+  background-image: url('./images/write.svg');
+}
+.btn.btn-pinyin {
+  background-image: url('./images/a.svg');
 }
 
 .zitie-print {

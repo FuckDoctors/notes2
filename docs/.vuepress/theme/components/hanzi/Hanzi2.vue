@@ -251,11 +251,15 @@ function handleRead() {
     <div class="extras-container">
       <div class="extra zuci">
         <span class="tag">组　词</span>
-        <span class="content">{{ zuciRet.join(' ') }}&nbsp;</span>
+        <span class="content"
+          >{{ zuciRet.length > 0 ? zuciRet.join(' ') : '无' }}&nbsp;</span
+        >
       </div>
       <div class="extra chengyu">
         <span class="tag">成　语</span>
-        <span class="content">{{ chengyuRef.join(' ') }}&nbsp;</span>
+        <span class="content"
+          >{{ chengyuRef.length > 0 ? chengyuRef.join(' ') : '无' }}&nbsp;</span
+        >
       </div>
     </div>
     <div class="bishun">
