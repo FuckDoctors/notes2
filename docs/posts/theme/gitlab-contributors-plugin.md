@@ -515,7 +515,7 @@ export const groupBy = (arr: any[], key: string) => {
 只是将默认的 contributors 隐藏掉。
 
 ```css
-.page-meta .contributors {
+.vp-page-meta .contributors {
   display: none;
 }
 ```
