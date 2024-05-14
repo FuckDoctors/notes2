@@ -6,8 +6,9 @@ export const en = navbar([
     text: 'Home',
     icon: 'home',
     link: '/en/',
-    activeMatch: '^/en/$|^/en/posts/',
+    // activeMatch: '^/en/$|^/en/posts/',
   },
+  { text: 'Blog', icon: 'blog', link: '/en/posts/' },
   {
     text: 'Notes',
     icon: 'note',

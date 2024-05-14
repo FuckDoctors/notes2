@@ -82,7 +82,7 @@ export const themeOptions: ThemeOptions = {
   plugins: {
     // blog: true,
     blog: {
-      article: '/posts/',
+      // article: '/posts/',
       excerpt: true,
     },
 

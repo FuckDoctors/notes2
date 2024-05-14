@@ -2,7 +2,13 @@ import { navbar } from 'vuepress-theme-hope'
 
 export const zh = navbar([
   // '/',
-  { text: '主页', icon: 'home', link: '/', activeMatch: '^/$|^/posts/' },
+  {
+    text: '主页',
+    icon: 'home',
+    link: '/',
+    // activeMatch: '^/$|^/posts/'
+  },
+  { text: '博客', icon: 'blog', link: '/posts/' },
   {
     text: '笔记',
     icon: 'note',
