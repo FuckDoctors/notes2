@@ -148,6 +148,11 @@ onMounted(() => {
     speehTxt.value.push('组词')
     speehTxt.value.push(...props.zuci)
   }
+
+  if (chengyuRef.value.length > 0) {
+    speehTxt.value.push('成语')
+    speehTxt.value.push(...chengyuRef.value)
+  }
 })
 
 function handleVoice() {
