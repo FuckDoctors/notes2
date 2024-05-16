@@ -11,10 +11,10 @@ tag:
 head:
   - - meta
     - name: description
-      content: VuePress 文字排序问题
+      content: VuePress 文章排序问题
 ---
 
-# VuePress 文字排序问题
+# VuePress 文章排序问题
 
 ## 现象
 
