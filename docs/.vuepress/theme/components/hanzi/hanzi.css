@@ -65,8 +65,12 @@
   width: auto;
 }
 
-.words-container {
+.info.words-container {
   text-align: left;
+  display: block;
+}
+.info.chengyu {
+  display: block;
 }
 
 .hanzi-controls {

@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, shallowRef } from 'vue'
+import { computed, onMounted, ref, shallowRef } from 'vue'
 
 import cnchar from 'cnchar'
 import draw from 'cnchar-draw'
@@ -7,6 +7,7 @@ import order from 'cnchar-order'
 import radical from 'cnchar-radical'
 import words from 'cnchar-words'
 import voice from 'cnchar-voice'
+import idiom from 'cnchar-idiom'
 
 import {
   CARD_WIDTH,
@@ -42,9 +43,15 @@ const props = defineProps({
       return []
     },
   },
+  chengyu: {
+    type: Array,
+    default() {
+      return []
+    },
+  },
 })
 
-cnchar.use(draw, order, radical, words, voice)
+cnchar.use(draw, order, radical, words, voice, idiom)
 
 const printRef = ref(null)
 const aniRef = ref(null)
@@ -55,6 +62,20 @@ const bushouRet = shallowRef([{}])
 const bihuaCountRet = shallowRef([props.bihuashu])
 const bihuaNameRet = shallowRef([props.bihua])
 const zuciRet = shallowRef(props.zuci)
+const chengyuRef = computed(() => {
+  if (props.chengyu.length > 0) {
+    return props.chengyu.slice(0, 5)
+  }
+
+  return (
+    cnchar
+      .idiom(props.zi)
+      // 过滤四字成语
+      .filter(item => item.length === 4)
+      // .sort((a, b) => a.length - b.length)
+      .slice(0, 5)
+  )
+})
 
 const speehTxt = ref([])
 
@@ -126,6 +147,11 @@ onMounted(() => {
   } else {
     speehTxt.value.push('组词')
     speehTxt.value.push(...props.zuci)
+  }
+
+  if (chengyuRef.value.length > 0) {
+    speehTxt.value.push('成语')
+    speehTxt.value.push(...chengyuRef.value)
   }
 })
 
@@ -238,7 +264,14 @@ function handleRead() {
               :kong="TIAN_KONG"
             />
           </div>
-          <div class="words-container">{{ zuciRet.join(' ') }}&nbsp;</div>
+          <div class="info words-container">
+            <span class="tag">组词</span>
+            <span class="content">{{ zuciRet.join(' ') }}</span>
+          </div>
+          <div class="info chengyu">
+            <span class="tag">成语</span>
+            <span class="content">{{ chengyuRef.join(' ') }}</span>
+          </div>
         </div>
       </div>
     </div>
