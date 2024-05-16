@@ -1,6 +1,7 @@
 .hanzi-card {
   width: 320px;
   height: 420px;
+  page-break-inside: avoid;
 
   .hanzi-card__front {
     display: flex;
@@ -68,7 +69,8 @@
       transition: all 0.3s ease-out;
     }
     .btn:hover {
-      scale: 1.2;
+      // scale: 1.2;
+      transform: scale(1.2);
     }
 
     .btn.btn-voice {
@@ -95,6 +97,27 @@
     .pinyin-wrapper {
       .pinyin {
         display: none;
+      }
+    }
+  }
+}
+
+@media print {
+  .flippy-card—wrapper {
+    &.hanzi-card {
+      // transform: rotateY(180deg) !important;
+      // transform: scale(0.9);
+
+      .flippy-card__front {
+        display: none !important;
+      }
+
+      .flippy-card__back {
+        transform: rotateY(0deg) !important;
+      }
+
+      &.flipped {
+        transform: rotateY(0deg) !important;
       }
     }
   }

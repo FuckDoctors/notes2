@@ -129,5 +129,12 @@
     #vp-comment {
       max-width: 1080px;
     }
+
+    page: wide;
   }
+}
+
+/* 针对所有设置了 `page: wide;` 选择器的页面 */
+@page wide {
+  size: landscape;
 }

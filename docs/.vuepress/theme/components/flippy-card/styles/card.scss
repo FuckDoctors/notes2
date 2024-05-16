@@ -119,3 +119,19 @@
   transform-style: preserve-3d;
   z-index: 1;
 }
+
+@media print {
+  .flippy-card—wrapper {
+    // transform-style: flat !important;
+
+    .flippy-card {
+      transform: rotateX(0deg) rotateY(0deg) scale(1) !important;
+      filter: none !important;
+    }
+
+    .flip-button,
+    .glare {
+      display: none !important;
+    }
+  }
+}

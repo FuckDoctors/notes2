@@ -140,3 +140,13 @@
     }
   }
 }
+
+@media print {
+  .hanzi2 {
+    .bishun {
+      .hanzi-detail__strokes {
+        display: block !important;
+      }
+    }
+  }
+}
