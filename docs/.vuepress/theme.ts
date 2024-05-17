@@ -92,7 +92,15 @@ export const themeOptions: ThemeOptions = {
         backToTop: true,
         // addThis: 'ra-573c860d3e983e59',
       },
-      components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo', 'Share'],
+      components: [
+        'CodePen',
+        'StackBlitz',
+        'Replit',
+        'SiteInfo',
+        'Share',
+        'VPCard',
+        'Badge',
+      ],
 
       componentOptions: {
         share: {

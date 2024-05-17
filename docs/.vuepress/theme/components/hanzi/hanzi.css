@@ -6,14 +6,14 @@
   page-break-inside: avoid;
 }
 
-.hanzi-card {
+.hanzi {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.hanzi-card.print,
-.hanzi-card.writing {
+.hanzi.print,
+.hanzi.writing {
   display: none;
 }
 
@@ -124,11 +124,11 @@
     /* display: none !important; */
   }
 
-  .hanzi-card.print {
+  .hanzi.print {
     display: block !important;
   }
-  .hanzi-card.animation,
-  .hanzi-card.writing {
+  .hanzi.animation,
+  .hanzi.writing {
     display: none !important;
   }
   .hanzi-controls {

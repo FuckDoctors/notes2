@@ -207,9 +207,9 @@ function handleRead() {
   <div class="hanzi-main-container">
     <div class="hanzi-main">
       <div class="hanzi-main__left">
-        <div ref="printRef" class="hanzi-card print" />
-        <div ref="aniRef" class="hanzi-card animation" />
-        <div ref="writingRef" class="hanzi-card writing" />
+        <div ref="printRef" class="hanzi print" />
+        <div ref="aniRef" class="hanzi animation" />
+        <div ref="writingRef" class="hanzi writing" />
         <div class="hanzi-controls">
           <button class="btn-voice btn" title="发音" @click="handleVoice" />
           <button class="btn-play btn" title="笔画" @click="handlePlay" />
