@@ -86,6 +86,26 @@ export const themeOptions: ThemeOptions = {
       excerpt: true,
     },
 
+    notice: [
+      {
+        // showOnce: true,
+        path: '/posts/edu/xiaoxue-yuwen-1-xia',
+        title: '完善中',
+        content: '本页尚未完成，如要补充请留下您的评论，或通过邮件联系我。',
+        actions: [
+          {
+            text: '关闭',
+            type: 'default',
+          },
+          {
+            text: '如何补充？',
+            type: 'primary',
+            link: '/posts/edu/learn-hanzi.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95',
+          },
+        ],
+      },
+    ],
+
     // 组件插件
     components: {
       rootComponents: {
