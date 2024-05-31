@@ -5,6 +5,8 @@ import { hopeTheme } from 'vuepress-theme-hope'
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
 
+import { waline } from './plugin-config'
+
 const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
 export const themeOptions: ThemeOptions = {
@@ -26,7 +28,7 @@ export const themeOptions: ThemeOptions = {
   docsDir: 'docs',
 
   // pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag', 'ReadingTime'],
-  pageInfo: ['Author', 'Original', 'Date', 'Category', 'Tag'],
+  pageInfo: ['Author', 'Original', 'PageView', 'Date', 'Category', 'Tag'],
 
   blog: {
     medias: {
@@ -138,13 +140,7 @@ export const themeOptions: ThemeOptions = {
     },
 
     // you can also use Waline
-    comment: {
-      provider: 'Giscus',
-      repo: 'FuckDoctors/notes2',
-      repoId: 'R_kgDOHFsMkw',
-      category: 'Announcements',
-      categoryId: 'DIC_kwDOHFsMk84COVMW',
-    },
+    comment: waline,
 
     mdEnhance: {
       attrs: true,

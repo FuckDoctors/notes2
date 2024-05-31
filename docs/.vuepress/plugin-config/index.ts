@@ -1,3 +1,5 @@
 export * from './docsearch'
 export * from './pwa'
 export * from './seo'
+export * from './giscus'
+export * from './waline'

@@ -75,6 +75,7 @@
     "@vuepress/plugin-pwa": "2.0.0-rc.28",
     "@vuepress/plugin-seo": "2.0.0-rc.28",
     "@vuepress/plugin-sitemap": "2.0.0-rc.28",
+    "@waline/client": "^3.2.1",
     "autoprefixer": "^10.4.19",
     "commitizen": "^4.3.0",
     "critters": "^0.0.20",
