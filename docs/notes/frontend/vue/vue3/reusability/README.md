@@ -13,6 +13,4 @@ tag:
 
 # 可重用性
 
-- [composables](./composables.md)
-- [custom-directives](./custom-directives.md)
-- [plugins](./plugins.md)
+<Catalog />

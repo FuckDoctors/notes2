@@ -12,4 +12,6 @@ tag:
 
 # Java 笔记
 
-Java 相关的学习笔记
+Java 相关的学习笔记。
+
+<Catalog />

@@ -12,7 +12,7 @@ tag:
 
 ## 使用 reduce 切分字符串然后重新拼接
 
-业务上有一个需求，后台传过来一个字符串，里面有括号 `（` `）` 和顿号 `、`，但是在前台展示时，要切分之后给每断文字加链接。
+业务上有一个需求，后台传过来一个字符串，里面有括号 `（` `）` 和顿号 `、`，但是在前台展示时，要切分之后给每段文字加链接。
 另外，字符串不确认内容，最多包含包含 4 段文字。
 
 示例：
@@ -20,6 +20,8 @@ tag:
 文字 1、（文字 2、文字 3）、文字 4
 
 分隔完上面的文字后，就可以对 `（`, `）`, `、`以外的文字加链接了。
+
+<!-- more -->
 
 ### 代码
 
@@ -39,17 +41,20 @@ function reduceText(val) {
       pre.push(tmp[0])
       pre.push('）')
       pre.push(tmp[1])
-    } else if (cur.includes('（')) {
+    }
+    else if (cur.includes('（')) {
       const tmp = cur.split('（')
       pre.push(tmp[0])
       pre.push('（')
       pre.push(tmp[1])
-    } else if (cur.includes('）')) {
+    }
+    else if (cur.includes('）')) {
       const tmp = cur.split('）')
       pre.push(tmp[0])
       pre.push('）')
       pre.push(tmp[1])
-    } else {
+    }
+    else {
       pre.push(cur)
     }
 
@@ -87,17 +92,20 @@ function reduceText(val) {
       pre.push(tmp[0])
       pre.push('）')
       pre.push(tmp[1])
-    } else if (cur.includes('（')) {
+    }
+    else if (cur.includes('（')) {
       const tmp = cur.split('（')
       pre.push(tmp[0])
       pre.push('（')
       pre.push(tmp[1])
-    } else if (cur.includes('）')) {
+    }
+    else if (cur.includes('）')) {
       const tmp = cur.split('）')
       pre.push(tmp[0])
       pre.push('）')
       pre.push(tmp[1])
-    } else {
+    }
+    else {
       pre.push(cur)
     }
 
