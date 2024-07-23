@@ -40,6 +40,7 @@ export const themeOptions: ThemeOptions = {
 
   blog: {
     medias: {
+      QQ: 'https://qm.qq.com/q/Shnbvwz3So',
       Email: 'mailto:hi@zhaobc.site',
       GitHub: 'https://github.com/FuckDoctors',
     },
@@ -52,6 +53,12 @@ export const themeOptions: ThemeOptions = {
     '/': {
       // navbar
       navbar: navbar.zh,
+
+      navbarLayout: {
+        start: ['Brand'],
+        center: ['Links'],
+        end: ['Language', 'Repo', 'Outlook', 'PlaygroundIcon', 'Search'],
+      },
 
       // sidebar
       sidebar: sidebar.zh,
@@ -73,6 +80,12 @@ export const themeOptions: ThemeOptions = {
     '/en/': {
       // navbar
       navbar: navbar.en,
+
+      navbarLayout: {
+        start: ['Brand'],
+        center: ['Links'],
+        end: ['Language', 'Repo', 'Outlook', 'PlaygroundIcon', 'Search'],
+      },
 
       // sidebar
       sidebar: sidebar.en,
@@ -174,13 +187,21 @@ export const themeOptions: ThemeOptions = {
       mermaid: true,
       demo: true,
       playground: {
-        presets: ['ts', 'vue'],
+        presets: ['ts', 'vue', 'unocss'],
       },
       vuePlayground: true,
       revealJs: {
         plugins: ['highlight', 'math', 'search', 'notes', 'zoom'],
       },
       hint: true,
+      sandpack: true,
+    },
+
+    shiki: {
+      themes: {
+        light: 'one-light',
+        dark: 'one-dark-pro',
+      },
     },
   },
 }

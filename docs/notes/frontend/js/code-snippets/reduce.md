@@ -41,20 +41,17 @@ function reduceText(val) {
       pre.push(tmp[0])
       pre.push('）')
       pre.push(tmp[1])
-    }
-    else if (cur.includes('（')) {
+    } else if (cur.includes('（')) {
       const tmp = cur.split('（')
       pre.push(tmp[0])
       pre.push('（')
       pre.push(tmp[1])
-    }
-    else if (cur.includes('）')) {
+    } else if (cur.includes('）')) {
       const tmp = cur.split('）')
       pre.push(tmp[0])
       pre.push('）')
       pre.push(tmp[1])
-    }
-    else {
+    } else {
       pre.push(cur)
     }
 
@@ -92,20 +89,17 @@ function reduceText(val) {
       pre.push(tmp[0])
       pre.push('）')
       pre.push(tmp[1])
-    }
-    else if (cur.includes('（')) {
+    } else if (cur.includes('（')) {
       const tmp = cur.split('（')
       pre.push(tmp[0])
       pre.push('（')
       pre.push(tmp[1])
-    }
-    else if (cur.includes('）')) {
+    } else if (cur.includes('）')) {
       const tmp = cur.split('）')
       pre.push(tmp[0])
       pre.push('）')
       pre.push(tmp[1])
-    }
-    else {
+    } else {
       pre.push(cur)
     }
 

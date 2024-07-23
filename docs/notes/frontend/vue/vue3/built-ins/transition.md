@@ -112,7 +112,7 @@ Because semicolons can be used instead of line breaks to define the markup, you 
 
 可以通过一个 `name` 属性来声明一种过渡：
 
-```template
+```vue
 <Transition name="fade">
 ...
 </Transition>
@@ -271,15 +271,17 @@ Vue 需要附加事件侦听器，以便知道过渡何时结束。可以是 `tr
 举个例子，Vue 触发了一个 CSS 动画，同时鼠标悬停触发另一个 CSS 过渡。
 此时你需要显式地传入 type prop 来声明，告诉 Vue 需要关心哪种类型，传入的值是 `animation` 或 `transition`：
 
-```template
-<Transition type="animation">...</Transition>
+```vue
+<Transition type="animation">
+...
+</Transition>
 ```
 
 ### 深层级过渡与显示过渡时间
 
 尽管过渡 class 仅能应用在 `<Transition>` 的直接子元素上，我们还是可以使用深层级的 CSS 选择器，使深层级的元素发生过渡。
 
-```template
+```vue
 <Transition name="nested">
   <div v-if="show" class="outer">
     <div class="inner">
@@ -317,14 +319,18 @@ Vue 需要附加事件侦听器，以便知道过渡何时结束。可以是 `tr
 
 在这种情况下，你可以通过向 `<Transition>` 组件传入 `duration` 属性来显式指定过渡的持续时间 (以毫秒为单位)。总持续时间应该匹配延迟加上内部元素的过渡持续时间：
 
-```template
-<Transition :duration="550">...</Transition>
+```vue
+<Transition :duration="550">
+...
+</Transition>
 ```
 
 如果有必要的话，你也可以用对象的形式传入，分开指定进入和离开所需的时间：
 
-```template
-<Transition :duration="{ enter: 500, leave: 800 }">...</Transition>
+```vue
+<Transition :duration="{ enter: 500, leave: 800 }">
+...
+</Transition>
 ```
 
 ::: playground#vue 深层级过渡与显式过渡时间

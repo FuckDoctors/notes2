@@ -56,7 +56,9 @@ export default {
       // 获取 `options` 对象的深层属性
       // 使用 `key` 作为索引
       return key.split('.').reduce((o, i) => {
-        if (o) return o[i]
+        if (o) {
+          return o[i]
+        }
       }, options)
     }
   },
@@ -75,8 +77,10 @@ app.use(i18nPlugin, {
 })
 ```
 
-```template
-<h1>{{ $translate('greetings.hello') }}</h1>
+```vue
+<h1>
+{{ $translate('greetings.hello') }}
+</h1>
 ```
 
 ### 插件中的 provide / inject
@@ -92,7 +96,9 @@ export default {
       // 获取 `options` 对象的深层属性
       // 使用 `key` 作为索引
       return key.split('.').reduce((o, i) => {
-        if (o) return o[i]
+        if (o) {
+          return o[i]
+        }
       }, options)
     }
 

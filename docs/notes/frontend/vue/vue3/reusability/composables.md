@@ -243,7 +243,7 @@ const mouse = reactive(useMouse())
 console.log(mouse.x)
 ```
 
-```template
+```vue
 Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
 ```
 

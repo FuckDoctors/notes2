@@ -207,7 +207,7 @@ function handleRead() {
   <div class="hanzi-main-container">
     <div class="hanzi-main">
       <div class="hanzi-main__left">
-        <div ref="printRef" class="print hanzi" />
+        <div ref="printRef" class="hanzi print" />
         <div ref="aniRef" class="hanzi animation" />
         <div ref="writingRef" class="hanzi writing" />
         <div class="hanzi-controls">

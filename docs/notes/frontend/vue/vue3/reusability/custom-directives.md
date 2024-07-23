@@ -122,7 +122,7 @@ const myDirective = {
 
 举个例子，像下面这样使用指令：
 
-```template
+```vue
 <div v-example.foo.bar="baz" />
 ```
 
@@ -139,7 +139,7 @@ const myDirective = {
 
 和内置指令类似，自定义指令的参数也可以是动态的：
 
-```template
+```vue
 <div v-example:[arg]="value" />
 ```
 
@@ -153,7 +153,7 @@ const myDirective = {
 
 对于自定义指令来说，需要在 `mounted` 和 `updated` 上实现相同的行为、又并不关心其他钩子的情况很常见。此时我们可以将指令定义成一个下面这样的函数：
 
-```template
+```vue
 <div v-color="color"></div>
 ```
 
@@ -168,7 +168,7 @@ app.directive('color', (el, binding) => {
 
 如果你的指令需要多个值，你可以向它传递一个 JavaScript 对象字面量。请记住，指令也可以接收任何合法的 JavaScript 表达式。
 
-```template
+```vue
 <div v-demo="{ color: 'white', text: 'hello' }"></div>
 ```
 
@@ -183,13 +183,14 @@ app.directive('demo', (el, binding) => {
 
 当在组件上使用自定义指令时，它会始终应用于组件的根节点，和[透传 attributes](https://staging-cn.vuejs.org/guide/components/attrs.html) 类似。
 
-```template
+```vue
 <MyComponent v-demo="test" />
 ```
 
-```template
+```vue
 <!-- MyComponent 模板 -->
-<div> <!-- v-demo 指令会被应用在此处 -->
+<div>
+ <!-- v-demo 指令会被应用在此处 -->
   <span>My Component content</span>
 </div>
 ```
