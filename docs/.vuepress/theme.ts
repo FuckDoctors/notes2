@@ -2,6 +2,9 @@ import process from 'node:process'
 import type { ThemeOptions } from 'vuepress-theme-hope'
 import { hopeTheme } from 'vuepress-theme-hope'
 
+// import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+import { transformerTwoslash } from './theme/components/twoslash/index'
+
 import * as navbar from './navbar'
 import * as sidebar from './sidebar'
 
@@ -103,6 +106,8 @@ export const themeOptions: ThemeOptions = {
   },
 
   plugins: {
+    // backToTop: true,
+
     // blog: true,
     blog: {
       // article: '/posts/',
@@ -131,10 +136,10 @@ export const themeOptions: ThemeOptions = {
 
     // 组件插件
     components: {
-      rootComponents: {
-        backToTop: true,
-        // addThis: 'ra-573c860d3e983e59',
-      },
+      // rootComponents: {
+      //   // backToTop: true,
+      //   // addThis: 'ra-573c860d3e983e59',
+      // },
       components: [
         'CodePen',
         'StackBlitz',
@@ -198,10 +203,12 @@ export const themeOptions: ThemeOptions = {
     },
 
     shiki: {
+      lineNumbers: false,
       themes: {
         light: 'one-light',
         dark: 'one-dark-pro',
       },
+      transformers: [transformerTwoslash()],
     },
   },
 }

@@ -1,5 +1,10 @@
 import { defineClientConfig } from 'vuepress/client'
 
+// import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
+import '@shikijs/vitepress-twoslash/style.css'
+import TwoslashFloatingVue from './theme/components/twoslash/client'
+import './theme/components/twoslash/style.css'
+
 import AutoArticleListLayout from './theme/layouts/AutoArticleListLayout'
 import AutoArticleList from './theme/components/AutoArticleList'
 import Hanzi from './theme/components/hanzi/Hanzi.vue'
@@ -28,5 +33,8 @@ export default defineClientConfig({
     app.component('FlippyCard', FlippyCard)
     app.component('HanziCard', HanziCard)
     app.component('PlaygroundIcon', PlaygroundIcon)
+
+    // twoslash
+    app.use(TwoslashFloatingVue)
   },
 })

@@ -1,11 +1,12 @@
 // .vuepress/theme/index.ts
+import type { Theme } from 'vuepress'
 import { getDirname, path } from '@vuepress/utils'
 import { hopeTheme } from 'vuepress-theme-hope'
 import type { ThemeOptions } from 'vuepress-theme-hope'
 
 const __dirname = getDirname(import.meta.url)
 
-export default (options: ThemeOptions) => ({
+export default (options: ThemeOptions): Theme => ({
   name: 'vuepress-theme-zhaobc',
 
   extends: hopeTheme(options, {

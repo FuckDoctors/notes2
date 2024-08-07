@@ -5,6 +5,8 @@ import { seoPlugin } from '@vuepress/plugin-seo'
 import { pwaPlugin } from '@vuepress/plugin-pwa'
 import { sitemapPlugin } from '@vuepress/plugin-sitemap'
 
+import { viteBundler } from '@vuepress/bundler-vite'
+
 import { themeOptions } from './theme.js'
 import themeZhaobc from './theme/index'
 
@@ -86,4 +88,10 @@ export default defineUserConfig({
       hostname: 'www.zhaobc.site',
     }),
   ],
+
+  bundler: viteBundler({
+    viteOptions: {
+      // something
+    },
+  }),
 })

@@ -12,7 +12,4 @@ tag:
 
 # Pinia 官方资料笔记
 
-The Vue Store that you will enjoy using.
-
-- [Introduction](./intro/)
-- [Core Concepts](./core-concepts/)
+<Catalog />

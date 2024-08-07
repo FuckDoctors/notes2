@@ -12,8 +12,4 @@ tag:
 
 # Core Concepts
 
-- [Defining a Store](./define-store.md)
-- [State](./state.md)
-- [Getters](./getters.md)
-- [Actions](./actions.md)
-- [Plugins](./plugins.md)
+<Catalog />

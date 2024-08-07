@@ -275,11 +275,15 @@ Mouse position is at: {{ mouse.x }}, {{ mouse.y }}
 抽取组合式函数不仅是为了复用，也是为了代码组织。随着组件复杂度的增高，你可能会最终发现组件多得难以查询和理解。
 组合式 API 会给予你足够的灵活性，让你可以基于逻辑问题将组件代码拆分成更小的函数：
 
-```js
+```vue
 <script setup>
-  import {useFeatureA} from './featureA.js' import {useFeatureB} from
-  './featureB.js' import {useFeatureC} from './featureC.js' const {(foo, bar)} =
-  useFeatureA() const {baz} = useFeatureB(foo) const {quz} = useFeatureC(baz)
+import { useFeatureA } from './featureA.js'
+import { useFeatureB } from './featureB.js'
+import { useFeatureC } from './featureC.js'
+
+const { foo, bar } = useFeatureA()
+const { baz } = useFeatureB(foo)
+const { quz } = useFeatureC(baz)
 </script>
 ```
 

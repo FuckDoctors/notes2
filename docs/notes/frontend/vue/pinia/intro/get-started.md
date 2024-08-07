@@ -23,7 +23,7 @@ app.use(createPinia())
 If you are using Vue 2, you also need to install a plugin and inject the created pinia at the root of the app:
 
 ```js
-import { createPinia, PiniaVuePlugin } from 'pinia'
+import { PiniaVuePlugin, createPinia } from 'pinia'
 
 Vue.use(PiniaVuePlugin)
 const pinia = createPinia()
