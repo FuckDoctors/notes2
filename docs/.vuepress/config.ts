@@ -91,7 +91,12 @@ export default defineUserConfig({
 
   bundler: viteBundler({
     viteOptions: {
-      // something
+      ssr: {
+        noExternal: ['floating-vue'],
+      },
+      optimizeDeps: {
+        include: ['floating-vue'],
+      },
     },
   }),
 })
