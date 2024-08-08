@@ -419,7 +419,7 @@ const show = ref(true)
 
 你可以通过监听 `<Transition>` 组件事件的方式在过渡过程中挂上钩子函数：
 
-```html
+```vue
 <Transition
   @before-enter="onBeforeEnter"
   @enter="onEnter"
@@ -476,8 +476,10 @@ function leaveCancelled(el) {}
 在使用仅由 JavaScript 执行的动画时，最好是添加一个 `:css="false"` 属性。
 这显式地向 Vue 表明跳过对 CSS 过渡的自动探测。除了性能稍好一些之外，还可以防止 CSS 规则意外地干扰过渡。
 
-```html {3}
-<Transition ... :css="false"> ... </Transition>
+```vue {3}
+<Transition ... :css="false">
+ ...
+</Transition>
 ```
 
 在有了 `:css="false"` 后，我们就自己全权负责控制什么时候过渡结束了。
@@ -571,17 +573,17 @@ function onLeave(el, done) {
 
 得益于 Vue 的组件系统，过渡是可以被重用的。要创建一个可被重用的过渡，我们需要为 `<Transition>` 组件创建一个包装组件，并向内传入插槽内容:
 
-```html
+```vue
 <template>
   <Transition name="my-transition">
-    <slot></slot>
+    <slot />
   </Transition>
 </template>
 ```
 
 现在 `MyTransition` 可以在导入后像内置组件那样使用了：
 
-```html
+```vue
 <MyTransition>
   <div v-if="show">hello</div>
 </MyTransition>
@@ -591,7 +593,7 @@ function onLeave(el, done) {
 
 如果你想在某个节点初次渲染时应用一个过渡效果，你可以添加 `appear` attribute：
 
-```html
+```vue
 <Transition appear>
   <!-- ... -->
 </Transition>
@@ -601,7 +603,7 @@ function onLeave(el, done) {
 
 除了通过 `v-if` / `v-show` 切换一个元素，我们也可以通过 `v-if` / `v-else` / `v-else-if` 在几个组件间进行切换过：
 
-```html
+```vue
 <Transition>
   <button v-if="docState === 'saved'">Edit</button>
   <button v-if="docState === 'edited'">Save</button>
@@ -617,7 +619,7 @@ function onLeave(el, done) {
 我们可能想要先执行离开动画，然后在其完成**之后**再执行元素的进入动画。
 手动编排这样的动画是非常复杂的，好在我们可以通过向 `<Transition>` 传入一个 `mode` prop 来实现这个行为：
 
-```html
+```vue
 <Transition mode="out-in">
   <!-- ... -->
 </Transition>
@@ -627,7 +629,7 @@ function onLeave(el, done) {
 
 `<Transition>` 也可以用在动态组件之间：
 
-```html
+```vue
 <Transition name="fade" mode="out-in">
   <component :is="activeComponent"></component>
 </Transition>

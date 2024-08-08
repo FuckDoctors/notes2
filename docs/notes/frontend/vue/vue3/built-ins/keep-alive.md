@@ -16,7 +16,7 @@ tag:
 
 在组件基础章节中，我们已经介绍了动态组件的用法，即使用特殊的 `<component>` 元素：
 
-```html
+```vue
 <component :is="activeComponent" />
 ```
 
@@ -24,7 +24,7 @@ tag:
 
 我们是的确想要组件能在非活跃状态时保留它们的状态。要解决这个问题，我们可以用内置的 `<KeepAlive>` 组件将这些动态组件包装起来：
 
-```html
+```vue
 <!-- 非活跃的组件将会被缓存！ -->
 <KeepAlive>
   <component :is="activeComponent" />
@@ -45,8 +45,8 @@ const current = shallowRef(CompA)
 
 <template>
   <div class="demo">
-    <label><input type="radio" v-model="current" :value="CompA" /> A</label>
-    <label><input type="radio" v-model="current" :value="CompB" /> B</label>
+    <label><input v-model="current" type="radio" :value="CompA" /> A</label>
+    <label><input v-model="current" type="radio" :value="CompB" /> B</label>
     <KeepAlive>
       <component :is="current" />
     </KeepAlive>
@@ -93,7 +93,7 @@ const msg = ref('')
 默认情况下，`<KeepAlive>` 会缓存内部的任何组件实例。但我们可以通过 `include` 和 `exclude` prop 来定制该行为。
 这两个 prop 的值都可以是一个以英文逗号分隔的字符串、一个正则表达式，或是包含这两种类型的一个数组：
 
-```html
+```vue
 <!-- 以英文逗号分隔的字符串 -->
 <KeepAlive include="a,b">
   <component :is="view">
@@ -119,7 +119,7 @@ const msg = ref('')
 `<KeepAlive>` 的行为在指定了 `max` 后类似一个 LRU 缓存：
 如果缓存的实例数量即将超过指定的那个最大数量，则最久没有被访问的缓存实例将被销毁，以便为新的实例腾出空间。
 
-```html
+```vue
 <KeepAlive :max="10">
   <component :is="activeComponent" />
 </KeepAlive>

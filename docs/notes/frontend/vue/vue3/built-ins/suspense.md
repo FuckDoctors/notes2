@@ -59,7 +59,7 @@ const posts = await res.json()
 `<Suspense>` 组件有两个插槽：`#default` 和 `#fallback`。
 两个插槽都只允许一个直接子节点。在可能的时候都将显示默认槽中的节点。否则将显示后备槽中的节点。
 
-```html
+```vue
 <Suspense>
   <!-- 具有深层异步依赖的组件 -->
   <Dashboard />
@@ -100,7 +100,7 @@ const posts = await res.json()
 
 另外，这些组件都通常与 Vue Router 中的 `<RouterView>` 组件结合使用。
 
-```html
+```vue
 <RouterView v-slot="{ Component }">
   <template v-if="Component">
     <Transition mode="out-in">

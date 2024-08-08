@@ -1,8 +1,8 @@
 ---
 index: false
 dir:
-  text: 可重用性
-  order: 300
+  text: TypeScript
+  order: 700
 category:
   - 笔记
   - frontend
@@ -11,6 +11,6 @@ tag:
   - vue3
 ---
 
-# 可重用性
+# TypeScript
 
 <Catalog />

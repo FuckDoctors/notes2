@@ -2,7 +2,7 @@
 index: false
 dir:
   text: 内置组件
-  order: 501
+  order: 400
 category:
   - 笔记
   - frontend

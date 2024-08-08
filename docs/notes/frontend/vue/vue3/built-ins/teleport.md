@@ -16,8 +16,10 @@ tag:
 
 为 `<Teleport>` 指定的目标 `to` 期望接收一个 CSS 选择器字符串或者一个真实的 DOM 节点。这里我们其实就是让 Vue 去“传送这部分模板片段到 `body` 标签下”。
 
-```html
-<button @click="open = true">Open Modal</button>
+```vue
+<button @click="open = true">
+Open Modal
+</button>
 
 <Teleport to="body">
   <div v-if="open" class="modal">
@@ -49,7 +51,7 @@ tag:
 举个例子，我们想要在桌面端将一个组件当做浮层来渲染，但在移动端则当作行内组件。
 可以对 `<Teleport>` 动态地传入一个 `disabled` prop 来处理这两种不同情况。
 
-```html
+```vue
 <Teleport :disabled="isMobile">
   <!-- ... -->
 </Teleport>
@@ -61,10 +63,11 @@ tag:
 对于此类场景，多个 `<Teleport>` 组件可以将其内容挂载在同一个目标元素上，
 而顺序就是简单的顺次追加，后挂载的将排在目标元素下更后面的位置上。
 
-```html
+```vue
 <Teleport to="#modals">
   <div>A</div>
 </Teleport>
+
 <Teleport to="#modals">
   <div>B</div>
 </Teleport>

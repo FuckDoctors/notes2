@@ -68,7 +68,7 @@ h('div', ['hello', h('span', 'hello')])
 当组合式 API 与模板一起使用时，`setup()` 钩子的返回值是用于暴露数据给模板。然而当我们使用渲染函数时，可以直接把渲染函数返回：
 
 ```js
-import { ref, h } from 'vue'
+import { h, ref } from 'vue'
 
 export default {
   props: {
@@ -138,7 +138,12 @@ const vnode = <div>hello</div>
 在 JSX 表达式中，使用大括号来嵌入动态值：
 
 ```js
-const vnode = <div id={dynamicId}>Hello, {username}</div>
+const vnode = (
+  <div id={dynamicId}>
+    Hello,
+    {username}
+  </div>
+)
 ```
 
 ### 渲染函数案例
@@ -147,10 +152,14 @@ const vnode = <div id={dynamicId}>Hello, {username}</div>
 
 模板:
 
-```html
+```vue
 <div>
-  <div v-if="ok">yes</div>
-  <span v-else>no</span>
+  <div v-if="ok">yes
+</div>
+
+  <span v-else>
+no
+</span>
 </div>
 ```
 
@@ -168,7 +177,7 @@ h('div', [ok.value ? h('div', 'yes') : h('span', 'no')])
 
 模板：
 
-```html
+```vue
 <ul>
   <li v-for="{ id, text } in items" :key="id">{{ text }}</li>
 </ul>
@@ -391,7 +400,7 @@ h(MyComponent, null, {
 诸如 `KeepAlive`、`Transition`、`TransitionGroup`、`Teleport` 和 `Suspense` 等内置组件在渲染函数中必须导入才能使用：
 
 ```js
-import { h, KeepAlive, Teleport, Transition, TransitionGroup } from 'vue'
+import { KeepAlive, Teleport, Transition, TransitionGroup, h } from 'vue'
 
 export default {
   setup() {

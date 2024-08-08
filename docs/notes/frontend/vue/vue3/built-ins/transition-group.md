@@ -25,7 +25,7 @@ tag:
 
 这里是 `<TransitionGroup>` 对一个 `v-for` 列表应用进入 / 离开过渡的示例：
 
-```html
+```vue
 <TransitionGroup name="list" tag="ul">
   <li v-for="item in list" :key="item">{{ item }}</li>
 </TransitionGroup>
@@ -55,22 +55,24 @@ const getInitialItems = () => [1, 2, 3, 4, 5]
 const items = ref(getInitialItems())
 let id = items.value.length + 1
 
-const insert = () => {
+function insert() {
   const i = Math.round(Math.random() * items.value.length)
   items.value.splice(i, 0, id++)
 }
 
-const reset = () => {
+function reset() {
   items.value = getInitialItems()
 }
 
-const shuffle = () => {
+function shuffle() {
   items.value = _shuffle(items.value)
 }
 
-const remove = item => {
+function remove(item) {
   const i = items.value.indexOf(item)
-  if (i > -1) items.value.splice(i, 1)
+  if (i > -1) {
+    items.value.splice(i, 1)
+  }
 }
 </script>
 
@@ -152,7 +154,7 @@ const remove = item => {
 如果通过 data attribute 用 JavaScript 来执行过渡时，那么我们也可以实现列表中的交错过渡。
 首先，我们把某一项的索引作为 DOM 元素上的一个 data attribute 呈现出来。
 
-```html {11}
+```vue {11}
 <TransitionGroup
   tag="ul"
   :css="false"
@@ -202,12 +204,12 @@ const computedList = computed(() => {
   return list.filter(item => item.msg.toLowerCase().includes(query.value))
 })
 
-const onBeforeEnter = el => {
+function onBeforeEnter(el) {
   el.style.opacity = 0
   el.style.height = 0
 }
 
-const onEnter = (el, done) => {
+function onEnter(el, done) {
   gsap.to(el, {
     opacity: 1,
     height: '1.6em',
@@ -216,7 +218,7 @@ const onEnter = (el, done) => {
   })
 }
 
-const onLeave = (el, done) => {
+function onLeave(el, done) {
   gsap.to(el, {
     opacity: 0,
     height: 0,
