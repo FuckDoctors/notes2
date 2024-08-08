@@ -43,7 +43,6 @@ const LinkIcon: FunctionalComponent<LinkIconProps> = props => {
           icon: props.icon,
           color: props.color,
           size: props.size,
-          class: 'icon',
         })
       )
 }

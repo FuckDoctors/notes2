@@ -39,11 +39,11 @@ export default defineComponent({
         h(LinkIcon, {
           link,
           target: '_blank',
-          // icon: 'code',
-          icon: '/assets/icon/playground.svg',
+          icon: ' icon-console',
           label: label.value,
           size: 20,
           class: 'vp-action-link',
+          color: 'var(--grey-dark)',
         })
       )
   },
