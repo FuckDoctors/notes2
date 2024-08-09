@@ -210,6 +210,10 @@ export const themeOptions: ThemeOptions = {
       },
       transformers: [transformerTwoslash()],
     },
+
+    copyCode: {
+      ignoreSelector: ['.vp-copy-ignore'],
+    },
   },
 }
 

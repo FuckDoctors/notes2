@@ -62,6 +62,10 @@
   background-color: var(--twoslash-popup-bg);
 }
 
+.twoslash-floating .twoslash-popup-code code {
+  background-color: var(--twoslash-popup-bg);
+}
+
 .twoslash-floating .twoslash-popup-docs,
 .twoslash-floating .twoslash-popup-error {
   padding: 12px !important;

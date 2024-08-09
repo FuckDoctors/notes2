@@ -21,9 +21,9 @@ tag:
 const props = defineProps({
   foo: {
     type: String,
-    required: true
+    required: true,
   },
-  bar: Number
+  bar: Number,
 })
 
 props.foo // string
@@ -83,7 +83,7 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   msg: 'hello',
-  labels: () => ['one', 'two']
+  labels: () => ['one', 'two'],
 })
 ```
 
@@ -102,11 +102,11 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
-    message: String
+    message: String,
   },
   setup(props) {
     props.message // <-- 类型：string
-  }
+  },
 })
 ```
 
@@ -134,7 +134,7 @@ const props = defineProps<{
 import type { PropType } from 'vue'
 
 const props = defineProps({
-  book: Object as PropType<Book>
+  book: Object as PropType<Book>,
 })
 ```
 
@@ -146,8 +146,8 @@ import type { PropType } from 'vue'
 
 export default defineComponent({
   props: {
-    book: Object as PropType<Book>
-  }
+    book: Object as PropType<Book>,
+  },
 })
 ```
 
@@ -175,7 +175,7 @@ const emit = defineEmits({
     // 返回 `true` 或 `false`
     // 表明验证通过或失败
     return true
-  }
+  },
 })
 </script>
 ```
@@ -213,7 +213,7 @@ export default defineComponent({
   emits: ['change'],
   setup(props, { emit }) {
     emit('change') // <-- 类型检查 / 自动补全
-  }
+  },
 })
 ```
 
@@ -272,7 +272,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <input ref="el">
+  <input ref="el" />
 </template>
 ```
 
@@ -290,10 +290,10 @@ onMounted(() => {
 import { ref } from 'vue'
 
 const isContentShown = ref(false)
-const open = () => isContentShown.value = true
+const open = () => (isContentShown.value = true)
 
 defineExpose({
-  open
+  open,
 })
 </script>
 ```
