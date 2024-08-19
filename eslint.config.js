@@ -10,6 +10,7 @@ export default antfu({
     'public/',
     'docs/.vuepress/.cache/',
     'docs/.vuepress/.temp/',
+    'docs/.vuepress/public/',
     'docs/.vuepress/public/assets/js/',
     'docs/.vuepress/public/zhaobc.site/',
     '**/*.d.ts',
