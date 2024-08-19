@@ -24,7 +24,8 @@
     "docs:clean-dev": "vuepress-vite dev docs --clean-cache",
     "docs:dev": "vuepress-vite dev docs",
     "docs:update": "pnpm dlx vp-update",
-    "sizecheck": "npx vite-bundle-visualizer"
+    "test": "vitest",
+    "sizecheck": "cross-env SIZE_CHECK=true pnpm docs:build"
   },
   "dependencies": {
     "@shikijs/vitepress-twoslash": "^1.12.1",
@@ -47,7 +48,9 @@
     "@textlint/types": "^14.0.4",
     "@types/postcss-import": "^14.0.3",
     "@unocss/eslint-config": "^0.58.9",
+    "@vitest/coverage-v8": "^2.0.5",
     "@vue/repl": "^4.3.1",
+    "@vue/test-utils": "^2.4.6",
     "@vuepress/bundler-vite": "2.0.0-rc.14",
     "@vuepress/bundler-webpack": "2.0.0-rc.14",
     "@vuepress/plugin-docsearch": "2.0.0-rc.37",
@@ -89,6 +92,7 @@
     "remark-toc": "^9.0.0",
     "remark-validate-links": "^13.0.1",
     "reveal.js": "^5.1.0",
+    "rollup-plugin-visualizer": "^5.12.0",
     "sandpack-vue3": "^3.1.11",
     "sass": "^1.77.6",
     "shikiji": "^0.10.2",
@@ -107,6 +111,7 @@
     "textlint-rule-unexpanded-acronym": "^1.2.4",
     "typescript": "^5.5.3",
     "unocss": "^0.58.9",
+    "vitest": "^2.0.5",
     "vue-tsc": "^1.8.27",
     "vuepress": "2.0.0-rc.14",
     "vuepress-theme-hope": "2.0.0-rc.50"

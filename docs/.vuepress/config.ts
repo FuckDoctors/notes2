@@ -6,6 +6,8 @@ import { pwaPlugin } from '@vuepress/plugin-pwa'
 import { sitemapPlugin } from '@vuepress/plugin-sitemap'
 
 import { viteBundler } from '@vuepress/bundler-vite'
+import type { PluginOption } from 'vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 import { themeOptions } from './theme.js'
 import themeZhaobc from './theme/index'
@@ -13,6 +15,8 @@ import themeZhaobc from './theme/index'
 import { docsearch, pwa, seo } from './plugin-config'
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
+
+const sizeCheck = !!process.env.SIZE_CHECK
 
 export default defineUserConfig({
   theme: themeZhaobc(themeOptions),
@@ -91,6 +95,16 @@ export default defineUserConfig({
 
   bundler: viteBundler({
     viteOptions: {
+      plugins: [
+        sizeCheck
+          ? (visualizer({
+              open: true,
+              title: 'Vite Bundle Visualizer',
+              brotliSize: true,
+              gzipSize: true,
+            }) as PluginOption)
+          : null,
+      ],
       ssr: {
         noExternal: ['floating-vue'],
       },
