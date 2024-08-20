@@ -42,6 +42,10 @@
   display: inline-block;
 }
 
+.twoslash .twoslash-error-line {
+  box-sizing: border-box;
+}
+
 .twoslash-completion-list .twoslash-completions-icon {
   color: var(--twoslash-unmatched-color) !important;
 }

@@ -6,6 +6,7 @@
   "scripts": {
     "build": "pnpm docs:build",
     "dev": "pnpm docs:dev",
+    "clean-dev": "pnpm docs:clean-dev",
     "lint": "eslint .",
     "lint:antfu": "eslint .",
     "lint:antfu-fix": "eslint . --fix",

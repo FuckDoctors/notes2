@@ -140,3 +140,377 @@ function multiplyValue(container: Container, factor: number) {
   }
 }
 ```
+
+### The `in` operator narrowing
+
+TypeScript takes this into account as a way to narrow down potential types.
+
+```ts:no-v-pre twoslash
+type Fish = {
+  swim: () => void
+}
+
+type Bird = {
+  fly: () => void
+}
+
+function move(animal: Fish | Bird) {
+  if ('swim' in animal) {
+    return animal.swim()
+  }
+
+  return animal.fly()
+}
+```
+
+To reiterate, optional properties will exist in both sides for narrowing.
+For example, a human could both swim and fly (with the right equipment) and thus should show up in both sides of the `in` check:
+
+```ts:no-v-pre twoslash
+type Fish = {
+  swim: () => void
+}
+
+type Bird = {
+  fly: () => void
+}
+
+type Human = {
+  swim: () => void
+  fly: () => void
+}
+
+function move(animal: Fish | Bird | Human) {
+  if ('swim' in animal) {
+    return animal.swim()
+    //     ^?
+  }
+
+  return animal.fly()
+  //     ^?
+}
+```
+
+### `instanceof` narrowing
+
+```ts:no-v-pre twoslash
+function logValue(x: Date | string) {
+  if (x instanceof Date) {
+    console.log(x.toUTCString())
+  } else {
+    console.log(x.toUpperCase())
+  }
+}
+```
+
+### Assignments
+
+When we assign to any variable, TypeScript looks at the right side of the assignment and narrows the left side appropriately.
+
+### Control flow analysis
+
+TypeScript narrows within specific branches.
+
+### Using type predicates
+
+Sometimes you want more direct control over how types change throughout your code.
+
+To define a user-defined type guard, we simply need to define a function whose return type is a type _predicate_:
+
+```ts:no-v-pre twoslash
+type Fish = {
+  swim: () => void
+}
+
+type Bird = {
+  fly: () => void
+}
+// ---cut---
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined
+}
+```
+
+`pet is Fish` is our type predicate in this example. A predicate takes the form `parameterName is Type`, where `parameterName` must be the name of a parameter from the current function signature.
+
+Any time `isFish` is called with some variable, TypeScript will _narrow_ that variable to that specific type if the original type is compatible.
+
+```ts:no-v-pre twoslash
+type Fish = {
+  swim: () => void
+}
+
+type Bird = {
+  fly: () => void
+}
+
+declare function getSmallPet(): Fish | Bird
+
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined
+}
+// ---cut---
+// Both calls to 'swim' and 'fly' are now okay.
+let pet = getSmallPet();
+
+if (isFish(pet)) {
+  pet.swim()
+} else {
+  pet.fly()
+}
+```
+
+Notice that TypeScript not only knows that `pet` is a `Fish` in the `if` branch; it also knows that in the `else` branch, you don’t have a `Fish`, so you must have a `Bird`.
+
+You may use the type guard `isFish` to filter an array of `Fish | Bird` and obtain an array of `Fish`:
+
+```ts:no-v-pre twoslash
+type Fish = {
+  name: string
+  swim: () => void
+}
+
+type Bird = {
+  name: string
+  fly: () => void
+}
+
+declare function getSmallPet(): Fish | Bird
+
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined
+}
+// ---cut---
+const zoo: (Fish | Bird)[] = [getSmallPet(), getSmallPet(), getSmallPet()]
+const underWater1: Fish[] = zoo.filter(isFish)
+// or, equivalently
+const underWater2: Fish[] = zoo.filter(isFish) as Fish[]
+
+// The predicate may need repeating for more complex examples
+const underWater3: Fish[] = zoo.filter((pet): pet is Fish => {
+  if (pet.name === 'sharkey') {
+    return false
+  }
+
+  return isFish(pet)
+})
+```
+
+In addition, classes can use `this is Type` to narrow their type.
+
+## Discriminated unions
+
+```ts:no-v-pre twoslash
+interface Shape {
+  kind: 'circle' | 'square'
+  radius?: number
+  sideLength?: number
+}
+```
+
+Notice we're using a union of string literal types: `"circle"` and `"square"` to tell us whether we should treat the shape as a circle or square respectively. By using `"circle" | "square"` instead of `string`, we can avoid misspelling issues.
+
+```ts:no-v-pre twoslash
+// @errors: 2367
+interface Shape {
+  kind: 'circle' | 'square'
+  radius?: number
+  sideLength?: number
+}
+// ---cut---
+function handleShape(shape: Shape) {
+  // oops!
+  if (shape.kind === 'rect') {
+    // ...
+  }
+}
+```
+
+We can write a `getArea` function that applies the right logic based on if it's dealing with a circle or square. We'll first try dealing with circles.
+
+```ts:no-v-pre twoslash
+// @errors: 2532 18048
+interface Shape {
+  kind: 'circle' | 'square'
+  radius?: number
+  sideLength?: number
+}
+// ---cut---
+function getArea(shape: Shape) {
+  return Math.PI * shape.radius ** 2
+}
+```
+
+Under `strictNullChecks` that gives us an error - which is appropriate since `radius` might not be defined.
+But what if we perform the appropriate checks on the kind property?
+
+```ts:no-v-pre twoslash
+// @errors: 2532 18048
+interface Shape {
+  kind: 'circle' | 'square'
+  radius?: number
+  sideLength?: number
+}
+// ---cut---
+function getArea(shape: Shape) {
+  if (shape.kind === 'circle') {
+    return Math.PI * shape.radius ** 2
+  }
+}
+```
+
+Hmm, TypeScript still doesn't know what to do here.
+
+We've hit a point where we know more about our values than the type checker does. We could try to use a non-null assertion (a `!` after `shape.radius`) to say that radius is definitely present.
+
+```ts:no-v-pre twoslash
+interface Shape {
+  kind: 'circle' | 'square'
+  radius?: number
+  sideLength?: number
+}
+// ---cut---
+function getArea(shape: Shape) {
+  if (shape.kind === 'circle') {
+    return Math.PI * shape.radius! ** 2
+  }
+}
+```
+
+But this doesn't feel ideal. We had to shout a bit at the type-checker with those non-null assertions (`!`) to convince it that `shape.radius` was defined, but those assertions are error-prone if we start to move code around.
+
+```ts:no-v-pre twoslash
+interface Circle {
+  kind: 'circle'
+  radius: number
+}
+
+interface Square {
+  kind: 'square'
+  sideLength: number
+}
+
+type Shape = Circle | Square
+```
+
+Here, we've properly separated `Shape` out into two types with different values for the `kind` property, but `radius` and `sideLength` are declared as required properties in their respective types.
+
+Let's see what happens here when we try to access the `radius` of a `Shape`.
+
+```ts:no-v-pre twoslash
+// @errors: 2339
+interface Circle {
+  kind: 'circle'
+  radius: number
+}
+
+interface Square {
+  kind: 'square'
+  sideLength: number
+}
+
+type Shape = Circle | Square
+// ---cut---
+function getArea(shape: Shape) {
+  return Math.PI * shape.radius ** 2
+}
+```
+
+Like with our first definition of Shape, this is still an error.
+because TypeScript couldn't tell whether the property was present.
+
+But what if we tried checking the kind property again?
+
+```ts:no-v-pre twoslash
+interface Circle {
+  kind: 'circle'
+  radius: number
+}
+
+interface Square {
+  kind: 'square'
+  sideLength: number
+}
+
+type Shape = Circle | Square
+// ---cut---
+function getArea(shape: Shape) {
+  if (shape.kind === 'circle') {
+    return Math.PI * shape.radius ** 2
+    //               ^?
+  }
+}
+```
+
+That got rid of the error! When every type in a union contains a common property with literal types, TypeScript considers that to be a _discriminated union_, and can narrow out the members of the union.
+
+In this case, `kind` was that common property (which is what's considered a _discriminant_ property of `Shape`). Checking whether the `kind` property was `"circle"` got rid of every type in `Shape` that didn't have a `kind` property with the type `"circle"`. That narrowed shape down to the type `Circle`.
+
+## The `never` type
+
+When narrowing, you can reduce the options of a union to a point where you have removed all possibilities and have nothing left. In those cases, TypeScript will use a `never` type to represent a state which shouldn't exist.
+
+## Exhaustiveness checking
+
+The `never` type is assignable to every type; however, no type is assignable to `never` (except `never` itself). This means you can use narrowing and rely on `never` turning up to do exhaustive checking in a `switch` statement.
+
+```ts:no-v-pre twoslash
+interface Circle {
+  kind: 'circle'
+  radius: number
+}
+
+interface Square {
+  kind: 'square'
+  sideLength: number
+}
+
+type Shape = Circle | Square
+// ---cut---
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case 'circle':
+      return Math.PI * shape.radius ** 2
+    case 'square':
+      return shape.sideLength ** 2
+    default:
+      const _exhaustiveCheck: never = shape
+      return _exhaustiveCheck
+  }
+}
+```
+
+Adding a new member to the Shape union, will cause a TypeScript error:
+
+```ts:no-v-pre twoslash
+// @errors: 2322
+interface Circle {
+  kind: 'circle'
+  radius: number
+}
+
+interface Square {
+  kind: 'square'
+  sideLength: number
+}
+// ---cut---
+
+interface Triangle {
+  kind: 'triangle'
+  sideLength: number
+}
+
+type Shape = Circle | Square | Triangle
+
+function getArea(shape: Shape) {
+  switch (shape.kind) {
+    case 'circle':
+      return Math.PI * shape.radius ** 2
+    case 'square':
+      return shape.sideLength ** 2
+    default:
+      const _exhaustiveCheck: never = shape
+      return _exhaustiveCheck
+  }
+}
+```
