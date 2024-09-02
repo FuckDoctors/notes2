@@ -3,7 +3,14 @@ import { onMounted, ref } from 'vue'
 
 import cnchar from 'cnchar'
 
-import { PRINT_STROKE_WIDTH, WRITING_WIDTH } from './constants'
+import {
+  BORDER_COLOR,
+  LINE_COLOR,
+  OUTLINE_COLOR,
+  PRINT_STROKE_WIDTH,
+  STROKE_COLOR,
+  WRITING_WIDTH,
+} from './constants'
 
 const props = defineProps({
   zi: String,
@@ -36,11 +43,15 @@ onMounted(() => {
     style: {
       length: PRINT_STROKE_WIDTH,
       showOutline: false,
+      outlineColor: OUTLINE_COLOR,
+      strokeColor: STROKE_COLOR,
     },
     line: {
       lineCross: false,
       lineStraight: false,
       borderWidth: 0,
+      lineColor: LINE_COLOR,
+      borderColor: BORDER_COLOR,
     },
   })
 
@@ -51,9 +62,13 @@ onMounted(() => {
         length: WRITING_WIDTH,
         showCharacter: true,
         showOutline: true,
+        outlineColor: OUTLINE_COLOR,
+        strokeColor: STROKE_COLOR,
       },
       line: {
         lineCross: false,
+        lineColor: LINE_COLOR,
+        borderColor: BORDER_COLOR,
       },
       onComplete: () => cloneElement(heiRef.value, props.hei),
     })
@@ -66,9 +81,13 @@ onMounted(() => {
         length: WRITING_WIDTH,
         showCharacter: false,
         showOutline: true,
+        outlineColor: OUTLINE_COLOR,
+        strokeColor: STROKE_COLOR,
       },
       line: {
         lineCross: false,
+        lineColor: LINE_COLOR,
+        borderColor: BORDER_COLOR,
       },
       onComplete: () => cloneElement(huiRef.value, props.hui),
     })
@@ -81,9 +100,13 @@ onMounted(() => {
         length: WRITING_WIDTH,
         showCharacter: false,
         showOutline: false,
+        outlineColor: OUTLINE_COLOR,
+        strokeColor: STROKE_COLOR,
       },
       line: {
         lineCross: false,
+        lineColor: LINE_COLOR,
+        borderColor: BORDER_COLOR,
       },
       onComplete: () => cloneElement(kongRef.value, props.kong),
     })
