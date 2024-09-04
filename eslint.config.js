@@ -33,6 +33,7 @@ export default antfu({
     ],
     '@typescript-eslint/comma-dangle': 'off',
     '@typescript-eslint/brace-style': 'off',
+    'style/brace-style': ['warn', '1tbs'],
     'arrow-parens': ['warn', 'as-needed'],
     'style/arrow-parens': ['warn', 'as-needed'],
     curly: ['warn', 'all'],

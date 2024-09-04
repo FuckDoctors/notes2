@@ -143,3 +143,21 @@
     display: block !important;
   }
 }
+
+@media screen and (max-width: 576px) {
+  .hanzi-main__right {
+    // .hanzi-detail {
+    //   .span {
+    //     margin-left: -140px;
+    //   }
+
+    //   & :nth-child(-n + 1 of .span) {
+    //     margin-top: 20px;
+    //   }
+    // }
+    .hanzi-extra {
+      margin-left: -140px;
+      // margin-top: attr(data-offset-top px, 20);
+    }
+  }
+}

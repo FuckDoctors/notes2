@@ -13,7 +13,7 @@ import { LANG, SPEAK_RATE } from './constants'
 
 import Pinyin from './Pinyin.vue'
 
-import './hanzi.css'
+import './hanzi.scss'
 import './hanzi2.scss'
 
 const props = defineProps({

@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, shallowRef } from 'vue'
+import { useResizeObserver } from '@vueuse/core'
 
 import cnchar from 'cnchar'
 import draw from 'cnchar-draw'
@@ -20,7 +21,7 @@ import {
 
 import Zitie from './Zitie.vue'
 
-import './hanzi.css'
+import './hanzi.scss'
 
 const props = defineProps({
   zi: String,
@@ -77,7 +78,10 @@ const chengyuRef = computed(() => {
   )
 })
 
-const speehTxt = ref([])
+const speechTxt = ref([])
+
+const detailTopRef = ref(null)
+const detailExtraRef = ref(null)
 
 onMounted(() => {
   // 卡片大字3
@@ -118,41 +122,57 @@ onMounted(() => {
 
   if (!props.pinyin) {
     pinyinRet.value = cnchar.spell(props.zi, 'low', 'tone', 'poly')
-    speehTxt.value.push(pinyinRet.value)
+    speechTxt.value.push(pinyinRet.value)
   } else {
-    speehTxt.value.push(props.pinyin)
+    speechTxt.value.push(props.pinyin)
   }
   bushouRet.value = cnchar.radical(props.zi)
-  speehTxt.value.push(props.jiegou || bushouRet.value[0].struct)
-  speehTxt.value.push('笔画数')
+  speechTxt.value.push(props.jiegou || bushouRet.value[0].struct)
+  speechTxt.value.push('笔画数')
   if (!props.bihuashu) {
     bihuaCountRet.value = cnchar.stroke(props.zi, 'order', 'count')
-    speehTxt.value.push(bihuaCountRet.value)
+    speechTxt.value.push(bihuaCountRet.value)
   } else {
-    speehTxt.value.push(props.bihuashu)
+    speechTxt.value.push(props.bihuashu)
   }
-  speehTxt.value.push('笔画')
+  speechTxt.value.push('笔画')
   if (props.bihua === null || props.bihua.length === 0) {
     bihuaNameRet.value = cnchar.stroke(props.zi, 'order', 'name')
-    speehTxt.value.push(...bihuaNameRet.value[0])
+    speechTxt.value.push(...bihuaNameRet.value[0])
   } else {
-    speehTxt.value.push(...props.bihua)
+    speechTxt.value.push(...props.bihua)
   }
   if (props.zuci === null || props.zuci.length === 0) {
     zuciRet.value = cnchar.words(props.zi).slice(0, 5)
     if (zuciRet.value.length > 0) {
-      speehTxt.value.push('组词')
-      speehTxt.value.push(...zuciRet.value)
+      speechTxt.value.push('组词')
+      speechTxt.value.push(...zuciRet.value)
     }
   } else {
-    speehTxt.value.push('组词')
-    speehTxt.value.push(...props.zuci)
+    speechTxt.value.push('组词')
+    speechTxt.value.push(...props.zuci)
   }
 
   if (chengyuRef.value.length > 0) {
-    speehTxt.value.push('成语')
-    speehTxt.value.push(...chengyuRef.value)
+    speechTxt.value.push('成语')
+    speechTxt.value.push(...chengyuRef.value)
   }
+
+  // 调整移动端 字帖，组词，成语布局时，上部 margin 距离。
+  useResizeObserver(detailTopRef, entries => {
+    const entry = entries[0]
+    const { height } = entry.contentRect
+    if (detailExtraRef.value) {
+      detailExtraRef.value.dataset.offsetTop = Math.abs(
+        Math.min(height, 150) - 150
+      )
+      if (window.innerWidth < 576) {
+        detailExtraRef.value.style.marginTop = `${detailExtraRef.value.dataset.offsetTop}px`
+      } else {
+        detailExtraRef.value.style.marginTop = 'unset'
+      }
+    }
+  })
 })
 
 function handleVoice() {
@@ -196,7 +216,7 @@ function handleWriting() {
 }
 
 function handleRead() {
-  cnchar.voice.speak(speehTxt.value, {
+  cnchar.voice.speak(speechTxt.value, {
     rate: SPEAK_RATE,
     lang: LANG,
   })
@@ -223,7 +243,7 @@ function handleRead() {
       </div>
       <div class="hanzi-main__right">
         <div class="hanzi-detail">
-          <div class="hanzi-detail__top">
+          <div ref="detailTopRef" class="hanzi-detail__top">
             <div class="info pinyin">
               <span class="tag">拼音</span>
               <span ref="pinyinRef" class="content">{{
@@ -255,22 +275,24 @@ function handleRead() {
               }}</span>
             </div>
           </div>
-          <div ref="strokesRef" class="hanzi-detail__strokes" />
-          <div class="zitie-print">
-            <Zitie
-              :zi="props.zi"
-              :hei="TIAN_HEI"
-              :hui="TIAN_HUI"
-              :kong="TIAN_KONG"
-            />
-          </div>
-          <div class="info words-container">
-            <span class="tag">组词</span>
-            <span class="content">{{ zuciRet.join(' ') }}</span>
-          </div>
-          <div class="info chengyu">
-            <span class="tag">成语</span>
-            <span class="content">{{ chengyuRef.join(' ') }}</span>
+          <div ref="detailExtraRef" class="hanzi-extra">
+            <div ref="strokesRef" class="hanzi-detail__strokes span" />
+            <div class="zitie-print span">
+              <Zitie
+                :zi="props.zi"
+                :hei="TIAN_HEI"
+                :hui="TIAN_HUI"
+                :kong="TIAN_KONG"
+              />
+            </div>
+            <div class="info words-container span">
+              <span class="tag">组词</span>
+              <span class="content">{{ zuciRet.join(' ') }}</span>
+            </div>
+            <div class="info chengyu span">
+              <span class="tag">成语</span>
+              <span class="content">{{ chengyuRef.join(' ') }}</span>
+            </div>
           </div>
         </div>
       </div>
