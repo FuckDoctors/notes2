@@ -227,7 +227,7 @@ function handleRead() {
   <div class="hanzi-main-container">
     <div class="hanzi-main">
       <div class="hanzi-main__left">
-        <div ref="printRef" class="print hanzi" />
+        <div ref="printRef" class="hanzi print" />
         <div ref="aniRef" class="hanzi animation" />
         <div ref="writingRef" class="hanzi writing" />
         <div class="hanzi-controls">
@@ -276,8 +276,8 @@ function handleRead() {
             </div>
           </div>
           <div ref="detailExtraRef" class="hanzi-extra">
-            <div ref="strokesRef" class="hanzi-detail__strokes span" />
-            <div class="zitie-print span">
+            <div ref="strokesRef" class="span hanzi-detail__strokes" />
+            <div class="span zitie-print">
               <Zitie
                 :zi="props.zi"
                 :hei="TIAN_HEI"
@@ -285,11 +285,11 @@ function handleRead() {
                 :kong="TIAN_KONG"
               />
             </div>
-            <div class="info words-container span">
+            <div class="info span words-container">
               <span class="tag">组词</span>
               <span class="content">{{ zuciRet.join(' ') }}</span>
             </div>
-            <div class="info chengyu span">
+            <div class="info span chengyu">
               <span class="tag">成语</span>
               <span class="content">{{ chengyuRef.join(' ') }}</span>
             </div>
