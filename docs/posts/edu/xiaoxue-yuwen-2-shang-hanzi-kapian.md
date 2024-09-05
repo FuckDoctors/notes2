@@ -52,6 +52,28 @@ head:
 <HanziCard zi="披" :zuci="['披风', '披着']" />
 <HanziCard zi="鼓" :zuci="['鼓动', '打鼓', '鼓励']" />
 
+## 2. 我是什么
+
+<HanziCard zi="变" :zuci="['变化', '改变', '变换', '变成']" />
+<HanziCard zi="极" :zuci="['极小', '极好', '南极', '北极']" />
+<HanziCard zi="傍" :zuci="['傍晚']" />
+<HanziCard zi="海" :zuci="['大海', '海浪', '海水']" />
+<HanziCard zi="洋" :zuci="['海洋', '洋流', '太平洋']" />
+<HanziCard zi="作" :zuci="['作为', '工作', '看作']" />
+<HanziCard zi="坏" :zuci="['坏人', '坏蛋', '好坏', '坏事', '破坏']" />
+<HanziCard pinyin="gěi" zi="给" />
+<HanziCard zi="带" :zuci="['带来', '带走', '海带']" />
+<HanziCard zi="晒" :zuci="['日晒', '晒太阳']" />
+<HanziCard zi="越" />
+<HanziCard zi="淹" />
+<HanziCard zi="没" pinyin="mò" :zuci="['淹没', '埋没']" />
+<HanziCard zi="冲" pinyin="chōng" />
+<HanziCard zi="毁" />
+<HanziCard zi="屋" />
+<HanziCard zi="灾" />
+<HanziCard zi="种" pinyin="zhǒng" :zuci="['种子', '各种']" />
+<HanziCard zi="猜" />
+
 ## 待补充 <Badge text="待补充" type="tip" />
 
 欢迎有需要的人补充（评论或邮件）~~~
@@ -60,13 +82,13 @@ head:
 
 为了更好的配合教材，请按 `方式 2` 补充，自动生成的拼音（多音字），组词，成语之类的不是特别好。
 
-更多详细信息，请参考 [学习汉字](./learn-HanziCard.md)。
+更多详细信息，请参考 [学习汉字](./learn-hanzi.md)。
 
 ```vue
 <!-- 方式 1 -->
-<HanziCard zi="风" />
+<Hanzi zi="风" />
 <!-- 方式 2 -->
-<HanziCard
+<Hanzi
   zi="风"
   pinyin="fēng"
   jiegou="独体字"

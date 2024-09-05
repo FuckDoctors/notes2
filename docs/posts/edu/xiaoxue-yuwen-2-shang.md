@@ -52,6 +52,28 @@ head:
 <Hanzi zi="披" :zuci="['披风', '披着']" />
 <Hanzi zi="鼓" :zuci="['鼓动', '打鼓', '鼓励']" />
 
+## 2. 我是什么
+
+<Hanzi zi="变" :zuci="['变化', '改变', '变换', '变成']" />
+<Hanzi zi="极" :zuci="['极小', '极好', '南极', '北极']" />
+<Hanzi zi="傍" :zuci="['傍晚']" />
+<Hanzi zi="海" :zuci="['大海', '海浪', '海水']" />
+<Hanzi zi="洋" :zuci="['海洋', '洋流', '太平洋']" />
+<Hanzi zi="作" :zuci="['作为', '工作', '看作']" />
+<Hanzi zi="坏" :zuci="['坏人', '坏蛋', '好坏', '坏事', '破坏']" />
+<Hanzi pinyin="gěi" zi="给" />
+<Hanzi zi="带" :zuci="['带来', '带走', '海带']" />
+<Hanzi zi="晒" :zuci="['日晒', '晒太阳']" />
+<Hanzi zi="越" />
+<Hanzi zi="淹" />
+<Hanzi zi="没" pinyin="mò" :zuci="['淹没', '埋没']" />
+<Hanzi zi="冲" pinyin="chōng" />
+<Hanzi zi="毁" />
+<Hanzi zi="屋" />
+<Hanzi zi="灾" />
+<Hanzi zi="种" pinyin="zhǒng" :zuci="['种子', '各种']" />
+<Hanzi zi="猜" />
+
 ## 待补充 <Badge text="待补充" type="tip" />
 
 欢迎有需要的人补充（评论或邮件）~~~
