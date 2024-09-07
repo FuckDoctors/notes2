@@ -1,6 +1,6 @@
 ---
 isOriginal: true
-sticky: 94
+# sticky: 94
 star: 94
 article: true
 date: 2022-06-06

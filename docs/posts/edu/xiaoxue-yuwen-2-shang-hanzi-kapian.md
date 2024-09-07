@@ -61,18 +61,50 @@ head:
 <HanziCard zi="洋" :zuci="['海洋', '洋流', '太平洋']" />
 <HanziCard zi="作" :zuci="['作为', '工作', '看作']" />
 <HanziCard zi="坏" :zuci="['坏人', '坏蛋', '好坏', '坏事', '破坏']" />
-<HanziCard pinyin="gěi" zi="给" />
-<HanziCard zi="带" :zuci="['带来', '带走', '海带']" />
-<HanziCard zi="晒" :zuci="['日晒', '晒太阳']" />
-<HanziCard zi="越" />
-<HanziCard zi="淹" />
-<HanziCard zi="没" pinyin="mò" :zuci="['淹没', '埋没']" />
-<HanziCard zi="冲" pinyin="chōng" />
-<HanziCard zi="毁" />
-<HanziCard zi="屋" />
-<HanziCard zi="灾" />
+<HanziCard pinyin="gěi" zi="给" :zuci="['交给', '送给']" />
+<HanziCard zi="带" :zuci="['带来', '带走', '海带', '皮带']" />
+
+<HanziCard zi="晒" :zuci="['日晒', '晒太阳', '晒干', '晾干']" />
+<HanziCard zi="越" :zuci="['越界', '超越']" />
+<HanziCard zi="滴" :zuci="['水滴', '点滴']" />
+<HanziCard zi="溪" :zuci="['小溪', '溪水']" />
+<HanziCard zi="奔" pinyin="bēn" :zuci="['奔跑', '奔驰', '狂奔']" />
+<HanziCard zi="淹" :zuci="['淹没', '淹水']" />
+<HanziCard zi="没" pinyin="mò" :zuci="['沉没', '没收', '埋没']" />
+<HanziCard zi="冲" pinyin="chōng" :zuci="['冲洗', '冲刷', '冲毁']" />
+<HanziCard zi="毁" :zuci="['毁坏', '毁灭']" />
+<HanziCard zi="屋" :zuci="['屋子', '房屋']" />
+<HanziCard zi="灾" :zuci="['灾难', '火灾', '天灾']" />
 <HanziCard zi="种" pinyin="zhǒng" :zuci="['种子', '各种']" />
-<HanziCard zi="猜" />
+<HanziCard zi="猜" :zuci="['猜测', '猜谜']" />
+
+## 3. 植物妈妈有办法
+
+<HanziCard zi="法" :zuci="['办法', '方法', '法律']" />
+<HanziCard zi="如" :zuci="['假如', '如果', '比如']" />
+<HanziCard zi="已" :zuci="['已经', '已知']" />
+<HanziCard zi="经" :zuci="['经常', '经典', '经过', '经历']" :chengyu="['久经风霜', '经久不衰']" />
+<HanziCard zi="它" :zuci="['它们', '它的']" />
+<HanziCard zi="娃" :zuci="['娃娃', '女娃']" />
+<HanziCard zi="毛" :zuci="['羊毛', '毛衣', '皮毛']" />
+<HanziCard zi="更" pinyin="gèng" :zuci="['更加', '更好']" />
+<HanziCard zi="知" :zuci="['知晓', '知识', '知道']" />
+<HanziCard zi="识" :zuci="['认识', '识字', '识别']" />
+
+<HanziCard zi="植" :zuci="['植物', '种植', '植树']" />
+<HanziCard zi="为" pinyin="wéi" :zuci="['作为', '成为']" />
+<HanziCard zi="为" pinyin="wèi" :zuci="['因为']" />
+<HanziCard zi="旅" :zuci="['旅游', '旅行']" />
+<HanziCard zi="备" :zuci="['准备', '备份', '戒备']" />
+<HanziCard zi="纷" :zuci="['纷纷', '缤纷']" />
+<HanziCard zi="刺" pinyin="cì" :zuci="['冲刺', '刺耳']" />
+<HanziCard zi="底" pinyin="dǐ" :zuci="['底下', '海底']" />
+<HanziCard zi="啪" :zuci="['啪啦', '啪嚓']" />
+<HanziCard zi="炸" pinyin="zhà" :zuci="['炸弹', '爆炸', '轰炸']" />
+<HanziCard zi="离" :zuci="['离开', '离别', '分离']" />
+<HanziCard zi="粗" :zuci="['粗心', '粗细']" />
+<HanziCard zi="却" :zuci="['忘却', '退却']" />
+<HanziCard zi="得" pinyin="dé" :zuci="['得到', '获得']" />
 
 ## 待补充 <Badge text="待补充" type="tip" />
 

@@ -61,18 +61,50 @@ head:
 <Hanzi zi="洋" :zuci="['海洋', '洋流', '太平洋']" />
 <Hanzi zi="作" :zuci="['作为', '工作', '看作']" />
 <Hanzi zi="坏" :zuci="['坏人', '坏蛋', '好坏', '坏事', '破坏']" />
-<Hanzi pinyin="gěi" zi="给" />
-<Hanzi zi="带" :zuci="['带来', '带走', '海带']" />
-<Hanzi zi="晒" :zuci="['日晒', '晒太阳']" />
-<Hanzi zi="越" />
-<Hanzi zi="淹" />
-<Hanzi zi="没" pinyin="mò" :zuci="['淹没', '埋没']" />
-<Hanzi zi="冲" pinyin="chōng" />
-<Hanzi zi="毁" />
-<Hanzi zi="屋" />
-<Hanzi zi="灾" />
+<Hanzi pinyin="gěi" zi="给" :zuci="['交给', '送给']" />
+<Hanzi zi="带" :zuci="['带来', '带走', '海带', '皮带']" />
+
+<Hanzi zi="晒" :zuci="['日晒', '晒太阳', '晒干', '晾干']" />
+<Hanzi zi="越" :zuci="['越界', '超越']" />
+<Hanzi zi="滴" :zuci="['水滴', '点滴']" />
+<Hanzi zi="溪" :zuci="['小溪', '溪水']" />
+<Hanzi zi="奔" pinyin="bēn" :zuci="['奔跑', '奔驰', '狂奔']" />
+<Hanzi zi="淹" :zuci="['淹没', '淹水']" />
+<Hanzi zi="没" pinyin="mò" :zuci="['沉没', '没收', '埋没']" />
+<Hanzi zi="冲" pinyin="chōng" :zuci="['冲洗', '冲刷', '冲毁']" />
+<Hanzi zi="毁" :zuci="['毁坏', '毁灭']" />
+<Hanzi zi="屋" :zuci="['屋子', '房屋']" />
+<Hanzi zi="灾" :zuci="['灾难', '火灾', '天灾']" />
 <Hanzi zi="种" pinyin="zhǒng" :zuci="['种子', '各种']" />
-<Hanzi zi="猜" />
+<Hanzi zi="猜" :zuci="['猜测', '猜谜']" />
+
+## 3. 植物妈妈有办法
+
+<Hanzi zi="法" :zuci="['办法', '方法', '法律']" />
+<Hanzi zi="如" :zuci="['假如', '如果', '比如']" />
+<Hanzi zi="已" :zuci="['已经', '已知']" />
+<Hanzi zi="经" :zuci="['经常', '经典', '经过', '经历']" :chengyu="['久经风霜', '经久不衰']" />
+<Hanzi zi="它" :zuci="['它们', '它的']" />
+<Hanzi zi="娃" :zuci="['娃娃', '女娃']" />
+<Hanzi zi="毛" :zuci="['羊毛', '毛衣', '皮毛']" />
+<Hanzi zi="更" pinyin="gèng" :zuci="['更加', '更好']" />
+<Hanzi zi="知" :zuci="['知晓', '知识', '知道']" />
+<Hanzi zi="识" :zuci="['认识', '识字', '识别']" />
+
+<Hanzi zi="植" :zuci="['植物', '种植', '植树']" />
+<Hanzi zi="为" pinyin="wéi" :zuci="['作为', '成为']" />
+<Hanzi zi="为" pinyin="wèi" :zuci="['因为']" />
+<Hanzi zi="旅" :zuci="['旅游', '旅行']" />
+<Hanzi zi="备" :zuci="['准备', '备份', '戒备']" />
+<Hanzi zi="纷" :zuci="['纷纷', '缤纷']" />
+<Hanzi zi="刺" pinyin="cì" :zuci="['冲刺', '刺耳']" />
+<Hanzi zi="底" pinyin="dǐ" :zuci="['底下', '海底']" />
+<Hanzi zi="啪" :zuci="['啪啦', '啪嚓']" />
+<Hanzi zi="炸" pinyin="zhà" :zuci="['炸弹', '爆炸', '轰炸']" />
+<Hanzi zi="离" :zuci="['离开', '离别', '分离']" />
+<Hanzi zi="粗" :zuci="['粗心', '粗细']" />
+<Hanzi zi="却" :zuci="['忘却', '退却']" />
+<Hanzi zi="得" pinyin="dé" :zuci="['得到', '获得']" />
 
 ## 待补充 <Badge text="待补充" type="tip" />
 
