@@ -35,4 +35,6 @@ projects:
     name: 笔记
     desc: 笔记，琐事
     link: https://github.com/FuckDoctors/notes2
+
+banner: /logo-cover.svg
 ---

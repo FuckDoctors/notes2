@@ -35,4 +35,6 @@ projects:
     name: Notes
     desc: Notes and others
     link: https://github.com/FuckDoctors/notes2
+
+banner: /logo-cover.svg
 ---
