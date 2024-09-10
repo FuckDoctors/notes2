@@ -17,6 +17,8 @@ head:
   - - meta
     - name: description
       content: 一年级语文下册 识字卡片
+
+cover: /assets/edu/yuwen-1-xia-card.png
 ---
 
 # 一年级语文下册识字卡片 <Badge text="待补充" type="tip" />
@@ -75,6 +77,7 @@ head:
 ```vue
 <!-- 方式 1 -->
 <HanziCard zi="风" />
+
 <!-- 方式 2 -->
 <HanziCard
   zi="风"

@@ -13,7 +13,11 @@ tag:
 head:
   - - meta
     - name: description
-      content: 二年级语文下上册 识字
+      content: 二年级语文上册 识字
+# og:image
+image: /assets/edu/yuwen-2-shang.png
+# 文章封面
+cover: /assets/edu/yuwen-2-shang.png
 ---
 
 # 二年级语文上册
@@ -119,6 +123,7 @@ head:
 ```vue
 <!-- 方式 1 -->
 <Hanzi zi="风" />
+
 <!-- 方式 2 -->
 <Hanzi
   zi="风"

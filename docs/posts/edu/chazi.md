@@ -13,6 +13,11 @@ head:
   - - meta
     - name: description
       content: 汉字学习，查看笔画，笔划，笔顺
+
+# og:image
+image: /assets/edu/chun.png
+# 文章封面
+cover: /assets/edu/chun.png
 ---
 
 # 查字

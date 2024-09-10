@@ -1,5 +1,8 @@
 ---
 article: true
+sidebar: false
+toc: false
+containerClass: 'wide-content'
 date: 2024-09-01
 category:
   - edu
@@ -13,7 +16,9 @@ tag:
 head:
   - - meta
     - name: description
-      content: 二年级语文下上册 识字
+      content: 二年级语文上册 识字
+
+cover: /assets/edu/yuwen-2-shang-card.png
 ---
 
 # 二年级语文上册 卡片
@@ -119,6 +124,7 @@ head:
 ```vue
 <!-- 方式 1 -->
 <Hanzi zi="风" />
+
 <!-- 方式 2 -->
 <Hanzi
   zi="风"

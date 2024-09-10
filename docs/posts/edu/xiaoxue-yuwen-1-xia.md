@@ -14,6 +14,8 @@ head:
   - - meta
     - name: description
       content: 一年级语文下册 识字
+
+cover: /assets/edu/yuwen-1-xia.png
 ---
 
 # 一年级语文下册
@@ -82,6 +84,7 @@ head:
 ```vue
 <!-- 方式 1 -->
 <Hanzi zi="风" />
+
 <!-- 方式 2 -->
 <Hanzi
   zi="风"
