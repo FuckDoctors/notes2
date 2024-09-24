@@ -14,6 +14,8 @@ head:
   - - meta
     - name: description
       content: 关于赵斌
+
+banner: /logo-cover.svg
 ---
 
 ## 个人介绍

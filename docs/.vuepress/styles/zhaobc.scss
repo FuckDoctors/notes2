@@ -138,3 +138,25 @@
 @page wide {
   size: landscape;
 }
+
+// playground
+@media (max-width: hope-config.$mobile) {
+  .vp-playground,
+  .vue-playground-wrapper,
+  .vp-md-demo,
+  .sandpack-wrapper {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    border-radius: 0;
+  }
+
+  .vp-md-demo {
+    .vp-playground,
+    .vue-playground-wrapper,
+    .vp-md-demo,
+    .sandpack-wrapper {
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+  }
+}

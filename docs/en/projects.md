@@ -45,4 +45,6 @@ head:
   - - meta
     - name: description
       content: ZhaoBin's projects
+
+banner: /logo-cover.svg
 ---

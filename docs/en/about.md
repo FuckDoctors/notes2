@@ -14,6 +14,8 @@ head:
   - - meta
     - name: description
       content: About ZhaoBin
+
+banner: /logo-cover.svg
 ---
 
 ## Intro

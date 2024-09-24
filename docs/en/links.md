@@ -58,6 +58,8 @@ links:
     desc: Your link is welcomed via PR.
     url: https://github.com/FuckDoctors/notes2/edit/main/docs/en/links.md
     preview: /assets/image/preview/no-preview.jpg
+
+banner: /logo-cover.svg
 ---
 
 ## Tools

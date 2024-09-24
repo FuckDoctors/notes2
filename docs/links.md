@@ -58,6 +58,8 @@ links:
     desc: 通过 PR 提交你的链接
     url: https://github.com/FuckDoctors/notes2/edit/main/docs/links.md
     preview: /assets/image/preview/no-preview.jpg
+
+banner: /logo-cover.svg
 ---
 
 ## 工具

@@ -15,7 +15,8 @@ head:
     - name: description
       content: 二年级语文上册 识字
 # og:image
-image: /assets/edu/yuwen-2-shang.png
+# rc.50 未读取 frontmatter.image，暂时不支持
+# image: /assets/edu/yuwen-2-shang.png
 # 文章封面
 cover: /assets/edu/yuwen-2-shang.png
 ---
@@ -109,6 +110,22 @@ cover: /assets/edu/yuwen-2-shang.png
 <Hanzi zi="粗" :zuci="['粗心', '粗细']" />
 <Hanzi zi="却" :zuci="['忘却', '退却']" />
 <Hanzi zi="得" pinyin="dé" :zuci="['得到', '获得']" />
+
+## 语文园地一
+
+<Hanzi zi="套" :zuci="['手套', '外套', '圈套', '套圈']" />
+<Hanzi zi="帽" :zuci="['帽子', '衣帽', '小黄帽', '安全帽']" />
+<Hanzi zi="登" :zuci="['登山', '登上', '登高', '登记', '登天']" />
+<Hanzi zi="鞋" :zuci="['鞋子', '皮鞋', '凉鞋', '球鞋']" />
+<Hanzi zi="裤" :zuci="['裤子', '内裤', '短裤', '长裤']" />
+<Hanzi zi="图" :zuci="['地图', '画图', '图片', '图书', '图形']" />
+<Hanzi zi="壶" :zuci="['水壶', '茶壶', '酒壶']" />
+<Hanzi zi="帐" :zuci="['帐篷', '蚊帐', '营帐']" />
+<Hanzi zi="篷" :zuci="['帐篷', '斗篷', '车篷']" />
+<Hanzi zi="指" :zuci="['指针', '指向', '手指', '指甲']" />
+<Hanzi zi="针" :zuci="['打针', '针对', '针线', '针眼']" />
+
+<Hanzi zi="都" pinyin="dōu" :zuci="['炸弹', '爆炸', '轰炸']" />
 
 ## 待补充 <Badge text="待补充" type="tip" />
 

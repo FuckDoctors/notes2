@@ -45,4 +45,6 @@ head:
   - - meta
     - name: description
       content: 赵斌的项目
+
+banner: /logo-cover.svg
 ---
