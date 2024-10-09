@@ -1,13 +1,13 @@
 <script setup>
-import { computed, onMounted, ref, shallowRef } from 'vue'
-
 import cnchar from 'cnchar'
+
 import draw from 'cnchar-draw'
+import idiom from 'cnchar-idiom'
 import order from 'cnchar-order'
 import radical from 'cnchar-radical'
-import words from 'cnchar-words'
 import voice from 'cnchar-voice'
-import idiom from 'cnchar-idiom'
+import words from 'cnchar-words'
+import { computed, onMounted, ref, shallowRef } from 'vue'
 
 import { LANG, SPEAK_RATE } from './constants'
 

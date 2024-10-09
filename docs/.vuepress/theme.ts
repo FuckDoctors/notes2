@@ -1,14 +1,14 @@
-import process from 'node:process'
 import type { ThemeOptions } from 'vuepress-theme-hope'
+import process from 'node:process'
 import { hopeTheme } from 'vuepress-theme-hope'
+
+import * as navbar from './navbar'
+
+import { waline } from './plugin-config'
+import * as sidebar from './sidebar'
 
 // import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { transformerTwoslash } from './theme/components/twoslash/index'
-
-import * as navbar from './navbar'
-import * as sidebar from './sidebar'
-
-import { waline } from './plugin-config'
 
 const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
@@ -143,7 +143,6 @@ export const themeOptions: ThemeOptions = {
       components: [
         'CodePen',
         'StackBlitz',
-        'Replit',
         'SiteInfo',
         'Share',
         'VPCard',
@@ -168,23 +167,33 @@ export const themeOptions: ThemeOptions = {
     // you can also use Waline
     comment: waline,
 
+    markdownHint: true,
+
+    markdownImage: {
+      lazyload: true,
+      mark: true,
+      size: true,
+    },
+
+    markdownMath: {
+      type: 'mathjax',
+    },
+
+    markdownTab: {
+      tabs: true,
+      codeTabs: true,
+    },
+
     mdEnhance: {
       attrs: true,
       gfm: true,
-      tabs: true,
-      codetabs: true,
       vPre: true,
       align: true,
       sup: true,
       sub: true,
       footnote: true,
       mark: true,
-      imgLazyload: true,
-      imgMark: true,
-      imgSize: true,
       tasklist: true,
-      katex: true,
-      mathjax: true,
       include: true,
       // chart: true,
       echarts: true,
@@ -195,10 +204,6 @@ export const themeOptions: ThemeOptions = {
         presets: ['ts', 'vue', 'unocss'],
       },
       vuePlayground: true,
-      revealJs: {
-        plugins: ['highlight', 'math', 'search', 'notes', 'zoom'],
-      },
-      hint: true,
       sandpack: true,
     },
 

@@ -1,18 +1,18 @@
 import { defineClientConfig } from 'vuepress/client'
 
+import AutoArticleList from './theme/components/AutoArticleList'
+import FlippyCard from './theme/components/flippy-card/components/card.vue'
+import Chazi from './theme/components/hanzi/Chazi.vue'
+
+import Hanzi from './theme/components/hanzi/Hanzi.vue'
+import HanziCard from './theme/components/hanzi/HanziCard.vue'
+import PlaygroundIcon from './theme/components/icons/PlaygroundIcon'
+import TwoslashFloatingVue from './theme/components/twoslash/client'
+import AutoArticleListLayout from './theme/layouts/AutoArticleListLayout'
 // import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import '@shikijs/vitepress-twoslash/style.css'
-import TwoslashFloatingVue from './theme/components/twoslash/client'
+
 import './theme/components/twoslash/style.css'
-
-import AutoArticleListLayout from './theme/layouts/AutoArticleListLayout'
-import AutoArticleList from './theme/components/AutoArticleList'
-import Hanzi from './theme/components/hanzi/Hanzi.vue'
-import Chazi from './theme/components/hanzi/Chazi.vue'
-import FlippyCard from './theme/components/flippy-card/components/card.vue'
-import HanziCard from './theme/components/hanzi/HanziCard.vue'
-
-import PlaygroundIcon from './theme/components/icons/PlaygroundIcon'
 
 // 为项目主页的特性添加闪光效果
 import 'vuepress-theme-hope/presets/shinning-feature-panel.scss'

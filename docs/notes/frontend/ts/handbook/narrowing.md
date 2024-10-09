@@ -88,6 +88,7 @@ You can always coerce values to `boolean`s by running them through the `Boolean`
 It's fairly popular to leverage this behavior, <mark>especially for guarding against values like `null` or `undefined`</mark>.
 
 ```ts:no-v-pre twoslash
+// @errors: 2872
 // both of these result in 'true'
 Boolean('hello')
 !!'world'

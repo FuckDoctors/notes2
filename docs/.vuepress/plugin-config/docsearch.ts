@@ -1,6 +1,6 @@
-import type { DocsearchPluginOptions } from '@vuepress/plugin-docsearch'
+import type { DocSearchPluginOptions } from '@vuepress/plugin-docsearch'
 
-export const docsearch: DocsearchPluginOptions = {
+export const docSearch: DocSearchPluginOptions = {
   // apiKey: '42aa919526e1dad9c0e214772fe71289',
   // indexName: 'prod_zhaobc',
   // appId: '7MMW9TO1EI',

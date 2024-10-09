@@ -1,7 +1,7 @@
 import type { FunctionalComponent } from 'vue'
-import { h } from 'vue'
-
 import HopeIcon from '@theme-hope/components/HopeIcon'
+
+import { h } from 'vue'
 
 export interface LinkIconProps {
   link?: string | undefined

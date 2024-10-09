@@ -1,18 +1,20 @@
+import type { PluginOption } from 'vite'
 import process from 'node:process'
-import { defineUserConfig } from 'vuepress'
+import { viteBundler } from '@vuepress/bundler-vite'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-import { seoPlugin } from '@vuepress/plugin-seo'
+import { linksCheckPlugin } from '@vuepress/plugin-links-check'
 import { pwaPlugin } from '@vuepress/plugin-pwa'
+
+import { revealJsPlugin } from '@vuepress/plugin-revealjs'
+import { seoPlugin } from '@vuepress/plugin-seo'
 import { sitemapPlugin } from '@vuepress/plugin-sitemap'
 
-import { viteBundler } from '@vuepress/bundler-vite'
-import type { PluginOption } from 'vite'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { defineUserConfig } from 'vuepress'
 
+import { docSearch, linksCheck, pwa, revealjs, seo } from './plugin-config'
 import { themeOptions } from './theme.js'
 import themeZhaobc from './theme/index'
-
-import { docsearch, pwa, seo } from './plugin-config'
 
 const base = (process.env.BASE as '/' | `/${string}/`) || '/'
 
@@ -85,12 +87,14 @@ export default defineUserConfig({
     // }),
 
     // DocSearch
-    docsearchPlugin(docsearch),
+    docsearchPlugin(docSearch),
     seoPlugin(seo),
     pwaPlugin(pwa),
     sitemapPlugin({
       hostname: 'www.zhaobc.site',
     }),
+    revealJsPlugin(revealjs),
+    linksCheckPlugin(linksCheck),
   ],
 
   bundler: viteBundler({

@@ -1,12 +1,12 @@
 <script setup>
+import cnchar from 'cnchar'
+
+import draw from 'cnchar-draw'
 import { onMounted, ref, watchEffect } from 'vue'
 
-import cnchar from 'cnchar'
-import draw from 'cnchar-draw'
-
 import FlippyCard from '../flippy-card/components/card.vue'
-import Hanzi2 from './Hanzi2.vue'
 import { LANG } from './constants'
+import Hanzi2 from './Hanzi2.vue'
 
 import './hanzi-card.scss'
 

@@ -1,7 +1,7 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-
 import cnchar from 'cnchar'
+
+import { onMounted, ref } from 'vue'
 
 import {
   BORDER_COLOR,

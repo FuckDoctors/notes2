@@ -1,4 +1,4 @@
-import { type VNode, defineComponent, h } from 'vue'
+import { defineComponent, h, type VNode } from 'vue'
 
 // import { usePageData } from '@vuepress/client'
 

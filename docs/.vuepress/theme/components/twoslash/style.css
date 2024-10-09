@@ -1,15 +1,15 @@
 :root {
-  --twoslash-popup-bg: var(--vp-bg, inherit);
-  --twoslash-popup-color: var(--vp-c);
-  --twoslash-docs-color: var(--vp-c);
-  --twoslash-docs-font: var(--font-family);
-  --twoslash-code-font: var(--font-family-mono);
+  --twoslash-popup-bg: var(--vp-c-bg, inherit);
+  --twoslash-popup-color: var(--vp-c-text);
+  --twoslash-docs-color: var(--vp-c-text);
+  --twoslash-docs-font: var(--vp-font);
+  --twoslash-code-font: var(--vp-font-heading);
   --twoslash-code-size: 1rem;
   --twoslash-underline-color: #8888;
-  --twoslash-border-color: var(--vp-brc);
-  --twoslash-cursor-color: var(--vp-tc);
-  --twoslash-matched-color: var(--vp-tc);
-  --twoslash-unmatched-color: var(--vp-cl);
+  --twoslash-border-color: var(--vp-c-border);
+  --twoslash-cursor-color: var(--vp-c-text);
+  --twoslash-matched-color: var(--vp-c-text);
+  --twoslash-unmatched-color: var(--vp-c-text-mute);
 }
 
 .v-popper--theme-twoslash {

@@ -21,8 +21,8 @@
     display: block;
     height: 1px;
     margin: 1rem;
-    border-bottom: 1px var(--border-color) solid;
-    transition: border-bottom-color var(--color-transition);
+    border-bottom: 1px var(--vp-c-border) solid;
+    transition: border-bottom-color var(--vp-t-color);
 
     &::before {
       content: '·';
@@ -31,13 +31,13 @@
       transform: translate(-50%) translateY(-50%);
       height: 1rem;
       line-height: 1rem;
-      color: var(--text-color);
-      background: var(--bg-color);
+      color: var(--vp-c-text);
+      background: var(--vp-c-bg);
       width: 2rem;
       text-align: center;
       transition:
         color,
-        background var(--color-transition);
+        background var(--vp-t-color);
     }
   }
 
