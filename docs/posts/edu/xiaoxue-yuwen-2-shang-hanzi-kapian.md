@@ -110,6 +110,8 @@ cover: /assets/edu/yuwen-2-shang-card.png
 <HanziCard zi="粗" :zuci="['粗心', '粗细']" />
 <HanziCard zi="却" :zuci="['忘却', '退却']" />
 <HanziCard zi="得" pinyin="dé" :zuci="['得到', '获得']" />
+<HanziCard zi="都" pinyin="dōu" :zuci="['都对', '都好']" />
+<HanziCard zi="别" :zuci="['分别', '离别', '道别', '告别', '别人']" />
 
 ## 待补充 <Badge text="待补充" type="tip" />
 

@@ -124,8 +124,8 @@ cover: /assets/edu/yuwen-2-shang.png
 <Hanzi zi="篷" :zuci="['帐篷', '斗篷', '车篷']" />
 <Hanzi zi="指" :zuci="['指针', '指向', '手指', '指甲']" />
 <Hanzi zi="针" :zuci="['打针', '针对', '针线', '针眼']" />
-
 <Hanzi zi="都" pinyin="dōu" :zuci="['都对', '都好']" />
+<Hanzi zi="别" :zuci="['分别', '离别', '道别', '告别', '别人']" />
 
 ## 待补充 <Badge text="待补充" type="tip" />
 
