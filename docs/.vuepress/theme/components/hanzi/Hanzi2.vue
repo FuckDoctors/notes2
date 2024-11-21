@@ -55,9 +55,10 @@ const aniRef = ref(null)
 const strokesRef = ref(null)
 const pinyinRet = ref(props.pinyin)
 const bushouRet = shallowRef([{}])
-const bihuaCountRet = shallowRef([props.bihuashu])
 const bihuaNameRet = shallowRef([props.bihua])
 const zuciRet = shallowRef(props.zuci)
+
+const bihuaCount = ref(props.bihuashu)
 
 const chengyuRef = computed(() => {
   if (props.chengyu.length > 0) {
@@ -103,12 +104,15 @@ onMounted(() => {
     },
   })
 
+  if (!bihuaCount.value) {
+    bihuaCount.value = cnchar.stroke(props.zi)
+  }
   // 笔顺
   cnchar.draw(props.zi, {
     el: strokesRef.value,
     type: cnchar.draw.TYPE.STROKE,
     style: {
-      length: 45,
+      length: bihuaCount.value <= 18 ? 45 : 35,
       showOutline: false,
     },
     line: {
@@ -127,12 +131,7 @@ onMounted(() => {
   bushouRet.value = cnchar.radical(props.zi)
   speehTxt.value.push(props.jiegou || bushouRet.value[0].struct)
   speehTxt.value.push('笔画数')
-  if (!props.bihuashu) {
-    bihuaCountRet.value = cnchar.stroke(props.zi, 'order', 'count')
-    speehTxt.value.push(bihuaCountRet.value)
-  } else {
-    speehTxt.value.push(props.bihuashu)
-  }
+  speehTxt.value.push(bihuaCount.value)
   speehTxt.value.push('笔顺')
   if (props.bihua === null || props.bihua.length === 0) {
     bihuaNameRet.value = cnchar.stroke(props.zi, 'order', 'name')
@@ -202,7 +201,7 @@ function handleRead() {
             :height="32"
           />
           <div class="hanzi-container">
-            <div ref="printRef" class="print hanzi-card" />
+            <div ref="printRef" class="hanzi-card print" />
             <div ref="aniRef" class="hanzi-card animation" />
             <div class="hanzi-controls">
               <button class="btn-voice btn" title="发音" @click="handleVoice" />
@@ -242,9 +241,7 @@ function handleRead() {
               <span class="label">
                 <span class="tag">笔画数</span>
               </span>
-              <span class="content">{{
-                props.bihuashu || bihuaCountRet[0]
-              }}</span>
+              <span class="content">{{ bihuaCount }}</span>
             </div>
             <div class="info bihua">
               <span class="label">

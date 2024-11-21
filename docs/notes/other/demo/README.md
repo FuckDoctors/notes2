@@ -199,3 +199,7 @@ import {
 <HanziCard zi="春" />
 
 <HanziCard zi="皓" hide-pinyin />
+
+<HanziCard zi="疆" />
+
+<HanziCard zi="赣" />
