@@ -12,6 +12,7 @@ import { computed, onMounted, ref, shallowRef } from 'vue'
 
 import {
   CARD_WIDTH,
+  CNCHAR_DATA_RESOURCE,
   LANG,
   SPEAK_RATE,
   TIAN_HEI,
@@ -51,6 +52,8 @@ const props = defineProps({
     },
   },
 })
+
+cnchar.setResourceBase(CNCHAR_DATA_RESOURCE)
 
 cnchar.use(draw, order, radical, words, voice, idiom)
 

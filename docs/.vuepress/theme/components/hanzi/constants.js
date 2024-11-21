@@ -24,3 +24,7 @@ export const STROKE_COLOR = '#555'
 export const LINE_COLOR = '#bbb'
 /** 田字格 外线颜色 */
 export const BORDER_COLOR = '#bbb'
+
+// export const CNCHAR_DATA_RESOURCE = 'https://unpkg.com/cnchar-data@latest/'
+export const CNCHAR_DATA_RESOURCE =
+  'https://registry.npmmirror.com/cnchar-data/latest/files/'

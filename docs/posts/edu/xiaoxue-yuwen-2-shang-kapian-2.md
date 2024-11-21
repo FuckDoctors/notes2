@@ -1,6 +1,9 @@
 ---
 article: true
 date: 2024-11-02
+sidebar: false
+toc: false
+containerClass: 'wide-content'
 category:
   - edu
   - 小学

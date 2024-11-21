@@ -9,7 +9,7 @@ import voice from 'cnchar-voice'
 import words from 'cnchar-words'
 import { computed, onMounted, ref, shallowRef } from 'vue'
 
-import { LANG, SPEAK_RATE } from './constants'
+import { CNCHAR_DATA_RESOURCE, LANG, SPEAK_RATE } from './constants'
 
 import Pinyin from './Pinyin.vue'
 
@@ -45,6 +45,8 @@ const props = defineProps({
   },
   hidePinyin: Boolean,
 })
+
+cnchar.setResourceBase(CNCHAR_DATA_RESOURCE)
 
 cnchar.use(draw, order, radical, words, voice, idiom)
 

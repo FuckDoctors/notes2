@@ -5,6 +5,7 @@ import { onMounted, ref } from 'vue'
 
 import {
   BORDER_COLOR,
+  CNCHAR_DATA_RESOURCE,
   LINE_COLOR,
   OUTLINE_COLOR,
   PRINT_STROKE_WIDTH,
@@ -30,6 +31,8 @@ const props = defineProps({
     default: 5,
   },
 })
+
+cnchar.setResourceBase(CNCHAR_DATA_RESOURCE)
 
 const strokesRef = ref(null)
 const heiRef = ref(null)

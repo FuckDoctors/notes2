@@ -5,7 +5,7 @@ import draw from 'cnchar-draw'
 import { onMounted, ref, watchEffect } from 'vue'
 
 import FlippyCard from '../flippy-card/components/card.vue'
-import { LANG } from './constants'
+import { CNCHAR_DATA_RESOURCE, LANG } from './constants'
 import Hanzi2 from './Hanzi2.vue'
 
 import './hanzi-card.scss'
@@ -39,6 +39,8 @@ const props = defineProps({
   },
   hidePinyin: Boolean,
 })
+
+cnchar.setResourceBase(CNCHAR_DATA_RESOURCE)
 
 const CARD_WIDTH = 220
 
