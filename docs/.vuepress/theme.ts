@@ -105,6 +105,54 @@ export const themeOptions: ThemeOptions = {
     },
   },
 
+  markdown: {
+    hint: true,
+
+    // image
+    imgLazyload: true,
+    imgMark: true,
+    imgSize: true,
+
+    // math
+    math: {
+      type: 'mathjax',
+    },
+
+    // tabs
+    tabs: true,
+    codeTabs: true,
+
+    attrs: true,
+    gfm: true,
+    vPre: true,
+    align: true,
+    sup: true,
+    sub: true,
+    footnote: true,
+    mark: true,
+    tasklist: true,
+    include: true,
+    echarts: true,
+    flowchart: true,
+    mermaid: true,
+    demo: true,
+    playground: {
+      presets: ['ts', 'vue', 'unocss'],
+    },
+    vuePlayground: true,
+    sandpack: true,
+
+    highlighter: {
+      type: 'shiki',
+      lineNumbers: false,
+      themes: {
+        light: 'one-light',
+        dark: 'one-dark-pro',
+      },
+      transformers: [transformerTwoslash()],
+    },
+  },
+
   plugins: {
     // backToTop: true,
 
@@ -167,57 +215,14 @@ export const themeOptions: ThemeOptions = {
     // you can also use Waline
     comment: waline,
 
-    markdownHint: true,
-
-    markdownImage: {
-      lazyload: true,
-      mark: true,
-      size: true,
-    },
-
-    markdownMath: {
-      type: 'mathjax',
-    },
-
-    markdownTab: {
-      tabs: true,
-      codeTabs: true,
-    },
-
-    mdEnhance: {
-      attrs: true,
-      gfm: true,
-      vPre: true,
-      align: true,
-      sup: true,
-      sub: true,
-      footnote: true,
-      mark: true,
-      tasklist: true,
-      include: true,
-      // chart: true,
-      echarts: true,
-      flowchart: true,
-      mermaid: true,
-      demo: true,
-      playground: {
-        presets: ['ts', 'vue', 'unocss'],
-      },
-      vuePlayground: true,
-      sandpack: true,
-    },
-
-    shiki: {
-      lineNumbers: false,
-      themes: {
-        light: 'one-light',
-        dark: 'one-dark-pro',
-      },
-      transformers: [transformerTwoslash()],
-    },
-
     copyCode: {
       ignoreSelector: ['.vp-copy-ignore'],
+    },
+
+    feed: true,
+
+    watermark: {
+      enabled: false,
     },
   },
 }
