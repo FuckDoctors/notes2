@@ -547,7 +547,7 @@ export interface ContributorOptions {
 import { type Page, type PluginFunction } from '@vuepress/core'
 import { type PageHeader, usePageData } from '@vuepress/client'
 import { getDirname, path } from '@vuepress/utils'
-import { getLocales, lang2Path } from 'vuepress-shared/node'
+import { getLocales, inferLocalePath } from 'vuepress-shared/node'
 
 import { PLUGIN_NAME } from '../shared'
 import { contributorLocales } from './locales'
@@ -578,7 +578,7 @@ export const contributorPlugin =
       }),
 
       extendsPage: (page: Page): void => {
-        const langPath = lang2Path(page.lang)
+        const langPath = inferLocalePath(page.lang)
         const headerTitle = locales[langPath]
           ? locales[langPath].title
           : locales['/'].title

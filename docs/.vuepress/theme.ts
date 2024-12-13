@@ -130,6 +130,8 @@ export const themeOptions: ThemeOptions = {
     sub: true,
     footnote: true,
     mark: true,
+    markmap: true,
+    plantuml: true,
     tasklist: true,
     include: true,
     echarts: true,
