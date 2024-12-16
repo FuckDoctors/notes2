@@ -100,6 +100,97 @@ cover: /assets/edu/yuwen-2-shang.png
 <HanziCard zi="麦" :zuci="['麦子', '小麦', '麦苗', '麦芒']" />
 <HanziCard zi="苗" :zuci="['树苗', '禾苗', '苗条']" />
 <HanziCard zi="桑" :zuci="['桑树', '桑叶', '沧桑']" />
+<HanziCard zi="肥" :zuci="['肥胖', '化肥', '肥料']" />
+<HanziCard zi="农" :zuci="['农民', '农村', '农家']" />
+<HanziCard zi="归" :zuci="['回归', '归来', '归还']" />
+<HanziCard zi="戴" :zuci="['戴帽', '爱戴', '戴上']" />
+<HanziCard zi="场" pinyin="cháng" :zuci="['场院']" />
+<HanziCard zi="场" pinyin="chǎng" :zuci="['农场', '广场', '场地']" />
+<HanziCard zi="谷" :zuci="['谷子', '谷粒', '谷雨']" />
+<HanziCard zi="粒" :zuci="['米粒', '颗粒', '一粒']" />
+<HanziCard zi="虽" :zuci="['虽然']" />
+<HanziCard zi="辛" :zuci="['辛苦', '辛劳', '辛勤']" />
+<HanziCard zi="苦" :zuci="['苦药', '苦瓜']" />
+<HanziCard zi="吹" :zuci="['吹牛', '吹风', '吹奏']" />
+<HanziCard zi="事" :zuci="['事情', '事故', '做事']" />
+<HanziCard zi="忙" :zuci="['繁忙', '忙着', '工作忙']" />
+
+## 4. 曹冲称象
+
+<HanziCard zi="称" :zuci="['称重']" />
+<HanziCard zi="柱" :zuci="['柱子', '石柱', '木柱']" />
+<HanziCard zi="底" :zuci="['海底', '船底']" />
+<HanziCard zi="杆" :zuci="['杆子', '木杆', '秤杆']" />
+<HanziCard zi="秤" :zuci="['秤杆', '电子秤']" />
+<HanziCard zi="做" :zuci="['做饭', '做事']" />
+<HanziCard zi="岁" :zuci="['百岁', '岁月']" />
+<HanziCard zi="站" :zuci="['站立', '站岗']" />
+<HanziCard zi="船" :zuci="['木船', '小船']" />
+<HanziCard zi="然" :zuci="['自然', '然后', '虽然']" />
+
+<HanziCard zi="曹" :zuci="['曹营', '曹操']" />
+<HanziCard zi="员" :zuci="['船员', '职员']" />
+<HanziCard zi="根" :zuci="['树根', '木根']" />
+<HanziCard zi="议" :zuci="['争议', '建议']" />
+<HanziCard zi="论" :zuci="['议论', '理论', '争论']" />
+<HanziCard zi="重" pinyin="zhòng" :zuci="['重要', '重心', '重点']" />
+<HanziCard zi="砍" :zuci="['砍柴', '砍刀']" />
+<HanziCard zi="线" :zuci="['直线', '线头', '线索']" />
+<HanziCard zi="止" :zuci="['终止', '中止']" />
+<HanziCard zi="量" pinyin="liàng" :zuci="['量化', '重量']" />
+
+## 5. 玲玲的画
+
+<HanziCard zi="画" :zuci="['画画', '画图']" />
+<HanziCard zi="幅" :zuci="['一幅画', '篇幅']" />
+<HanziCard zi="评" :zuci="['点评', '评论', '评理']" />
+<HanziCard zi="奖" :zuci="['中奖', '奖励', '奖状']" />
+<HanziCard zi="纸" :zuci="['白纸', '画纸', '纸片']" />
+<HanziCard zi="报" :zuci="['报纸', '报告', '汇报']" />
+<HanziCard zi="另" :zuci="['另外', '另一个']" />
+<HanziCard zi="及" :zuci="['及格', '触及']" />
+<HanziCard zi="拿" :zuci="['拿手', '拿东西', '捉拿']" />
+<HanziCard zi="并" :zuci="['一并', '并且']" />
+
+<HanziCard zi="玲" :zuci="['玲玲']" />
+<HanziCard zi="详" :zuci="['详细', '详谈']" />
+<HanziCard zi="催" :zuci="['催促', '催一催']" />
+<HanziCard zi="脏" :zuci="['肮脏', '脏衣服', '脏东西']" />
+<HanziCard zi="伤" :zuci="['伤口', '受伤', '伤员']" />
+<HanziCard zi="懒" :zuci="['懒人', '懒惰', '懒散']" />
+<HanziCard zi="糟" :zuci="['糟糕', '糟了']" />
+<HanziCard zi="肯" :zuci="['肯定', '中肯']" />
+
+## 6. 一封信
+
+<HanziCard zi="封" :zuci="['封口', '信封', '密封']" />
+<HanziCard zi="信" :zuci="['写信', '书信', '相信']" />
+<HanziCard zi="支" :zuci="['一支', '支柱', '支撑']" />
+<HanziCard zi="圆" :zuci="['圆润', '圆球']" />
+<HanziCard zi="珠" :zuci="['珍珠', '珠子']" />
+<HanziCard zi="笔" :zuci="['毛笔', '铅笔', '笔尖']" />
+<HanziCard zi="灯" :zuci="['电灯', '灯光', '灯管']" />
+<HanziCard zi="句" :zuci="['句号', '句子', '语句']" />
+<HanziCard zi="电" :zuci="['电灯', '电话', '发电']" />
+<HanziCard zi="影" :zuci="['电影', '影子', '身影']" />
+
+<HanziCard zi="削" :zuci="['削铅笔', '削笔刀']" />
+<HanziCard zi="锅" :zuci="['铁锅', '锅炉', '炒锅']" />
+<HanziCard zi="朝" pinyin="cháo" :zuci="['朝向', '朝着']" />
+<HanziCard zi="始" :zuci="['开始', '始发']" />
+<HanziCard zi="刮" :zuci="['刮目', '刮骨']" />
+<HanziCard zi="修" :zuci="['修理', '修车']" />
+<HanziCard zi="冷" :zuci="['冷冻', '冷水', '冰冷']" />
+<HanziCard zi="肩" :zuci="['肩膀', '肩负']" />
+<HanziCard zi="团" :zuci="['团圆', '团聚', '纸团']" />
+<HanziCard zi="重" pinyin="chóng" :zuci="['重复', '重围']" />
+<HanziCard zi="接" :zuci="['接收', '接手', '直接']" />
+<HanziCard zi="完" :zuci="['完了', '完全', '完结']" />
+<HanziCard zi="希" :zuci="['希望']" />
+<HanziCard zi="期" :zuci="['期末', '期中', '日期']" />
+<HanziCard zi="结" pinyin="jié" :zuci="['完结', '结尾', '结束']" />
+<HanziCard zi="束" :zuci="['一束', '花束']" />
+<HanziCard zi="鲜" :zuci="['鲜花', '鲜艳', '鲜明']" />
 
 ## 待补充 <Badge text="待补充" type="tip" />
 
