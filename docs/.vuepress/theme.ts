@@ -155,6 +155,9 @@ export const themeOptions: ThemeOptions = {
     },
   },
 
+  // 专注模式
+  focus: true,
+
   plugins: {
     // backToTop: true,
 
