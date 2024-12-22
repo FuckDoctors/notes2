@@ -191,6 +191,26 @@ cover: /assets/edu/yuwen-2-shang.png
 
 ## 7. 妈妈睡了
 
+<Hanzi zi="哄" :zuci="['哄小孩', '哄睡']" />
+<Hanzi zi="先" :zuci="['先生', '先后', '先辈']" />
+<Hanzi zi="闭" :zuci="['关闭', '闭嘴', '闭门']" />
+<Hanzi zi="脸" :zuci="['笑脸', '脸蛋', '洗脸']" />
+<Hanzi zi="沉" :zuci="['沉重', '下沉', '阴沉']" />
+<Hanzi zi="发" pinyin="fà" :zuci="['头发', '发卡', '毛发']" />
+<Hanzi zi="窗" :zuci="['窗户', '窗前', '开窗']" />
+<Hanzi zi="沙" :zuci="['沙子', '沙滩', '沙发']" />
+
+<Hanzi zi="梦" :zuci="['美梦', '做梦', '梦想']" />
+<Hanzi zi="紧" :zuci="['紧跟', '紧张', '紧俏']" />
+<Hanzi zi="润" :zuci="['滋润', '润滑', '水润']" />
+<Hanzi zi="等" :zuci="['等等', '等一下', '一等']" />
+<Hanzi zi="累" :zuci="['劳累', '累死']" />
+<Hanzi zi="吸" :zuci="['呼吸', '吸气', '吸收']" />
+<Hanzi zi="粘" :zuci="['粘贴', '粘住']" />
+<Hanzi zi="汗" :zuci="['汗水', '流汗', '出汗']" />
+<Hanzi zi="额" :zuci="['额头', '额外']" />
+<Hanzi zi="乏" :zuci="['缺乏', '乏味', '乏了']" />
+
 ## 待补充 <Badge text="待补充" type="tip" />
 
 欢迎有需要的人补充（评论或邮件）~~~

@@ -192,6 +192,28 @@ cover: /assets/edu/yuwen-2-shang.png
 <HanziCard zi="束" :zuci="['一束', '花束']" />
 <HanziCard zi="鲜" :zuci="['鲜花', '鲜艳', '鲜明']" />
 
+## 7. 妈妈睡了
+
+<HanziCard zi="哄" :zuci="['哄小孩', '哄睡']" />
+<HanziCard zi="先" :zuci="['先生', '先后', '先辈']" />
+<HanziCard zi="闭" :zuci="['关闭', '闭嘴', '闭门']" />
+<HanziCard zi="脸" :zuci="['笑脸', '脸蛋', '洗脸']" />
+<HanziCard zi="沉" :zuci="['沉重', '下沉', '阴沉']" />
+<HanziCard zi="发" pinyin="fà" :zuci="['头发', '发卡', '毛发']" />
+<HanziCard zi="窗" :zuci="['窗户', '窗前', '开窗']" />
+<HanziCard zi="沙" :zuci="['沙子', '沙滩', '沙发']" />
+
+<HanziCard zi="梦" :zuci="['美梦', '做梦', '梦想']" />
+<HanziCard zi="紧" :zuci="['紧跟', '紧张', '紧俏']" />
+<HanziCard zi="润" :zuci="['滋润', '润滑', '水润']" />
+<HanziCard zi="等" :zuci="['等等', '等一下', '一等']" />
+<HanziCard zi="累" :zuci="['劳累', '累死']" />
+<HanziCard zi="吸" :zuci="['呼吸', '吸气', '吸收']" />
+<HanziCard zi="粘" :zuci="['粘贴', '粘住']" />
+<HanziCard zi="汗" :zuci="['汗水', '流汗', '出汗']" />
+<HanziCard zi="额" :zuci="['额头', '额外']" />
+<HanziCard zi="乏" :zuci="['缺乏', '乏味', '乏了']" />
+
 ## 待补充 <Badge text="待补充" type="tip" />
 
 欢迎有需要的人补充（评论或邮件）~~~
