@@ -1,7 +1,6 @@
 import type { FunctionalComponent } from 'vue'
-import HopeIcon from '@theme-hope/components/HopeIcon'
 
-import { h } from 'vue'
+import { h, resolveComponent } from 'vue'
 
 export interface LinkIconProps {
   link?: string | undefined
@@ -28,7 +27,7 @@ const LinkIcon: FunctionalComponent<LinkIconProps> = props => {
             rel: 'noopener noreferrer',
             'aria-label': label,
           },
-          h(HopeIcon, {
+          h(resolveComponent('VPIcon'), {
             icon: props.icon,
             color: props.color,
             size: props.size,
@@ -39,7 +38,7 @@ const LinkIcon: FunctionalComponent<LinkIconProps> = props => {
     : h(
         'div',
         { class: 'link-icon' },
-        h(HopeIcon, {
+        h(resolveComponent('VPIcon'), {
           icon: props.icon,
           color: props.color,
           size: props.size,

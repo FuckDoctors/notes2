@@ -1,18 +1,10 @@
 import type { PluginOption } from 'vite'
 import process from 'node:process'
 import { viteBundler } from '@vuepress/bundler-vite'
-import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-import { linksCheckPlugin } from '@vuepress/plugin-links-check'
-import { pwaPlugin } from '@vuepress/plugin-pwa'
-
-import { revealJsPlugin } from '@vuepress/plugin-revealjs'
-import { seoPlugin } from '@vuepress/plugin-seo'
-import { sitemapPlugin } from '@vuepress/plugin-sitemap'
 
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineUserConfig } from 'vuepress'
 
-import { docSearch, linksCheck, pwa, revealjs, seo } from './plugin-config'
 import { themeOptions } from './theme.js'
 import themeZhaobc from './theme/index'
 
@@ -85,16 +77,6 @@ export default defineUserConfig({
     // componentsPlugin({
     //   components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo'],
     // }),
-
-    // DocSearch
-    docsearchPlugin(docSearch),
-    seoPlugin(seo),
-    pwaPlugin(pwa),
-    sitemapPlugin({
-      hostname: 'www.zhaobc.site',
-    }),
-    revealJsPlugin(revealjs),
-    linksCheckPlugin(linksCheck),
   ],
 
   bundler: viteBundler({
@@ -114,6 +96,10 @@ export default defineUserConfig({
       },
       optimizeDeps: {
         include: ['floating-vue'],
+      },
+
+      server: {
+        allowedHosts: ['localhost', '.mcprev.cn'],
       },
     },
   }),

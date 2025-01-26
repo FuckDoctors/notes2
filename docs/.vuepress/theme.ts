@@ -4,7 +4,14 @@ import { hopeTheme } from 'vuepress-theme-hope'
 
 import * as navbar from './navbar'
 
-import { waline } from './plugin-config'
+import {
+  docSearch,
+  linksCheck,
+  pwa,
+  revealjs,
+  seo,
+  waline,
+} from './plugin-config'
 import * as sidebar from './sidebar'
 
 // import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
@@ -19,8 +26,6 @@ export const themeOptions: ThemeOptions = {
     name: 'Zhao Bin',
     url: 'https://www.zhaobc.site',
   },
-
-  iconPrefix: 'iconfont icon-',
 
   logo: '/logo.svg',
 
@@ -153,6 +158,9 @@ export const themeOptions: ThemeOptions = {
       },
       transformers: [transformerTwoslash()],
     },
+
+    linksCheck,
+    revealjs,
   },
 
   // 专注模式
@@ -186,6 +194,11 @@ export const themeOptions: ThemeOptions = {
         ],
       },
     ],
+
+    icon: {
+      prefix: 'iconfont icon-',
+      assets: ['iconify', 'fontawesome-with-brands'],
+    },
 
     // 组件插件
     components: {
@@ -229,6 +242,11 @@ export const themeOptions: ThemeOptions = {
     watermark: {
       enabled: false,
     },
+
+    // 其他插件
+    docsearch: docSearch,
+    seo,
+    pwa,
   },
 }
 
