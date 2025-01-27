@@ -156,6 +156,10 @@ export const themeOptions: ThemeOptions = {
         light: 'one-light',
         dark: 'one-dark-pro',
       },
+      // 设置别名，让 vscode 和 vuepress 都能正常解析语法高亮
+      langAlias: {
+        conf: 'apache', // shiki 中使用 apache 高亮
+      },
       transformers: [transformerTwoslash()],
     },
 

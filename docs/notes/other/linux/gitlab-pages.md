@@ -12,7 +12,7 @@ tag:
 
 `/etc/gitlab/gitlab.rb` :
 
-```conf
+```ruby
 ##! Define to enable GitLab Pages
 #pages_external_url 'http://192.168.201.16'
 pages_external_url 'http://dev.bhh'
