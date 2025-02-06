@@ -15,6 +15,10 @@
   border-radius: 14px;
   display: inline-block;
 
+  &:hover {
+    z-index: 100;
+  }
+
   .flippy-card {
     will-change: transform, filter;
     background: #f6f8fa;
