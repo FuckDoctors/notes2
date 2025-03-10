@@ -12,7 +12,7 @@ tag:
 
 Imagine we have a function called `padLeft`.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function padLeft(padding: number | string, input: string): string {
   throw new Error('Not implemented yet!')
 }
@@ -23,7 +23,7 @@ If `padding` is a `string`, it should just prepend `padding` to `input`.
 
 Let's try to implement the logic for when `padLeft` is passed a `number` for `padding`.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function padLeft(padding: number | string, input: string): string {
   if (typeof padding === 'number') {
     return ' '.repeat(padding) + input
@@ -53,7 +53,7 @@ In TypeScript, checking against the value returned by `typeof` is a _type guard_
 
 `typeof` doesn't return the string `null`, <mark>`typeof null` is actually `"object"`!</mark>
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 18047
 function printAll(strs: string | string[] | null) {
   if (typeof strs === 'object') {
@@ -87,7 +87,7 @@ You can always coerce values to `boolean`s by running them through the `Boolean`
 
 It's fairly popular to leverage this behavior, <mark>especially for guarding against values like `null` or `undefined`</mark>.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2872
 // both of these result in 'true'
 Boolean('hello')
@@ -99,7 +99,7 @@ Boolean('hello')
 TypeScript also uses `switch` statements and equality checks like `===`, `!==`, `==`, and `!=` to narrow types.
 For example:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function example(x: string | number, y: string | boolean) {
   if (x === y) {
     // We can now call any 'string' method on 'x' or 'y'.
@@ -125,7 +125,7 @@ JavaScript's looser equality checks with `==` and `!=` also get narrowed correct
 If you're unfamiliar, checking whether something `== null` actually not only checks whether it is specifically the value `null` - it also checks whether it's potentially `undefined`.
 The same applies to `== undefined`: it checks whether a value is either `null` or `undefined`.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 interface Container {
   value: number | null | undefined
 }
@@ -146,7 +146,7 @@ function multiplyValue(container: Container, factor: number) {
 
 TypeScript takes this into account as a way to narrow down potential types.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 type Fish = {
   swim: () => void
 }
@@ -167,7 +167,7 @@ function move(animal: Fish | Bird) {
 To reiterate, optional properties will exist in both sides for narrowing.
 For example, a human could both swim and fly (with the right equipment) and thus should show up in both sides of the `in` check:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 type Fish = {
   swim: () => void
 }
@@ -194,7 +194,7 @@ function move(animal: Fish | Bird | Human) {
 
 ### `instanceof` narrowing
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function logValue(x: Date | string) {
   if (x instanceof Date) {
     console.log(x.toUTCString())
@@ -218,7 +218,7 @@ Sometimes you want more direct control over how types change throughout your cod
 
 To define a user-defined type guard, we simply need to define a function whose return type is a type _predicate_:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 type Fish = {
   swim: () => void
 }
@@ -236,7 +236,7 @@ function isFish(pet: Fish | Bird): pet is Fish {
 
 Any time `isFish` is called with some variable, TypeScript will _narrow_ that variable to that specific type if the original type is compatible.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 type Fish = {
   swim: () => void
 }
@@ -252,7 +252,7 @@ function isFish(pet: Fish | Bird): pet is Fish {
 }
 // ---cut---
 // Both calls to 'swim' and 'fly' are now okay.
-let pet = getSmallPet();
+let pet = getSmallPet()
 
 if (isFish(pet)) {
   pet.swim()
@@ -265,7 +265,7 @@ Notice that TypeScript not only knows that `pet` is a `Fish` in the `if` branch;
 
 You may use the type guard `isFish` to filter an array of `Fish | Bird` and obtain an array of `Fish`:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 type Fish = {
   name: string
   swim: () => void
@@ -301,7 +301,7 @@ In addition, classes can use `this is Type` to narrow their type.
 
 ## Discriminated unions
 
-```ts:no-v-pre twoslash
+```ts twoslash
 interface Shape {
   kind: 'circle' | 'square'
   radius?: number
@@ -311,7 +311,7 @@ interface Shape {
 
 Notice we're using a union of string literal types: `"circle"` and `"square"` to tell us whether we should treat the shape as a circle or square respectively. By using `"circle" | "square"` instead of `string`, we can avoid misspelling issues.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2367
 interface Shape {
   kind: 'circle' | 'square'
@@ -329,7 +329,7 @@ function handleShape(shape: Shape) {
 
 We can write a `getArea` function that applies the right logic based on if it's dealing with a circle or square. We'll first try dealing with circles.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2532 18048
 interface Shape {
   kind: 'circle' | 'square'
@@ -345,7 +345,7 @@ function getArea(shape: Shape) {
 Under `strictNullChecks` that gives us an error - which is appropriate since `radius` might not be defined.
 But what if we perform the appropriate checks on the kind property?
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2532 18048
 interface Shape {
   kind: 'circle' | 'square'
@@ -364,7 +364,7 @@ Hmm, TypeScript still doesn't know what to do here.
 
 We've hit a point where we know more about our values than the type checker does. We could try to use a non-null assertion (a `!` after `shape.radius`) to say that radius is definitely present.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 interface Shape {
   kind: 'circle' | 'square'
   radius?: number
@@ -380,7 +380,7 @@ function getArea(shape: Shape) {
 
 But this doesn't feel ideal. We had to shout a bit at the type-checker with those non-null assertions (`!`) to convince it that `shape.radius` was defined, but those assertions are error-prone if we start to move code around.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 interface Circle {
   kind: 'circle'
   radius: number
@@ -398,7 +398,7 @@ Here, we've properly separated `Shape` out into two types with different values 
 
 Let's see what happens here when we try to access the `radius` of a `Shape`.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2339
 interface Circle {
   kind: 'circle'
@@ -422,7 +422,7 @@ because TypeScript couldn't tell whether the property was present.
 
 But what if we tried checking the kind property again?
 
-```ts:no-v-pre twoslash
+```ts twoslash
 interface Circle {
   kind: 'circle'
   radius: number
@@ -455,7 +455,7 @@ When narrowing, you can reduce the options of a union to a point where you have 
 
 The `never` type is assignable to every type; however, no type is assignable to `never` (except `never` itself). This means you can use narrowing and rely on `never` turning up to do exhaustive checking in a `switch` statement.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 interface Circle {
   kind: 'circle'
   radius: number
@@ -483,7 +483,7 @@ function getArea(shape: Shape) {
 
 Adding a new member to the Shape union, will cause a TypeScript error:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2322
 interface Circle {
   kind: 'circle'

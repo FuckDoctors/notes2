@@ -6,4 +6,7 @@ $theme-color: #3eaf7c;
   --footer-height: 3.75rem;
   // auto-catalog 背景色丢失
   --bg-color-light: #f8f8f8;
+
+  // 调整 twoslash 层级，防止被 TOC 遮挡
+  --twoslash-z-index: 100;
 }

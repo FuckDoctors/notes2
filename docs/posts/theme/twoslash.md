@@ -16,6 +16,10 @@ head:
 
 # 引入 twoslash 插件
 
+::: warning
+Hope 主题已经支持了 twoslash 功能，本文可以忽略，此处只是记录一下。
+:::
+
 看 `vue-macros` 官网时，看到比较有意思的代码提示功能，才知道是用了 `twoslash` 功能。
 它是用的 `@shikijs/vitepress-twoslash` 插件，但是本主题是 `vuepress` 而不是 `vitepress`，有点遗憾。
 

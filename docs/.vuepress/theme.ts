@@ -14,9 +14,6 @@ import {
 } from './plugin-config'
 import * as sidebar from './sidebar'
 
-// import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
-import { transformerTwoslash } from './theme/components/twoslash/index'
-
 const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
 export const themeOptions: ThemeOptions = {
@@ -160,7 +157,13 @@ export const themeOptions: ThemeOptions = {
       langAlias: {
         conf: 'apache', // shiki 中使用 apache 高亮
       },
-      transformers: [transformerTwoslash()],
+      twoslash: {
+        twoslashOptions: {
+          compilerOptions: {
+            moduleResolution: /* bundler */ 100,
+          },
+        },
+      },
     },
 
     linksCheck,

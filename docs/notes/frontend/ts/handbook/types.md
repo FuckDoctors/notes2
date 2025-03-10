@@ -69,30 +69,30 @@ const myName2 = 'Alice'
 
 When you declare a function, you can add type annotations after each parameter to declare what types of parameters the function accepts. Parameter type annotations go after the parameter name:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function greet(name: string) {
-  console.log("Hello, " + name.toUpperCase() + "!!");
+  console.log('Hello, ' + name.toUpperCase() + '!!')
 }
 ```
 
 When a parameter has a type annotation, arguments to that function will be checked:
 
-```ts:no-v-pre twoslash
-declare function greet(name: string): void;
+```ts twoslash
+declare function greet(name: string): void
 // ---cut---
 // @errors: 2345
 // Would be a runtime error if executed!
-greet(42);
+greet(42)
 ```
 
 ### Return Type Annotations
 
 You can also add return type annotations. Return type annotations appear after the parameter list:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function getFavoriteNumber(): number {
   //                          ^^^^^^
-  return 26;
+  return 26
 }
 ```
 
@@ -102,9 +102,9 @@ Much like variable type annotations, you usually don't need a return type annota
 
 If you want to annotate the return type of a function which returns a promise, you should use the `Promise` type:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 async function getFavoriteNumber(): Promise<number> {
-  return 26;
+  return 26
 }
 ```
 
@@ -114,31 +114,31 @@ When a function appears in a place where TypeScript can determine how it’s goi
 
 This process is called _contextual typing_ because the _context_ that the function occurred within informs what type it should have.
 
-```ts:no-v-pre twoslash
-const names = ["Alice", "Bob", "Eve"];
+```ts twoslash
+const names = ['Alice', 'Bob', 'Eve']
 
 // Contextual typing for function - parameter s inferred to have type string
 names.forEach(function (s) {
-  console.log(s.toUpperCase());
-});
+  console.log(s.toUpperCase())
+})
 
 // Contextual typing also applies to arrow functions
-names.forEach((s) => {
-  console.log(s.toUpperCase());
-});
+names.forEach(s => {
+  console.log(s.toUpperCase())
+})
 ```
 
 ## Object Types
 
 Apart from primitives, the most common sort of type you’ll encounter is an object type. This refers to any JavaScript value with properties, which is almost all of them! To define an object type, we simply list its properties and their types.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // The parameter's type annotation is an object type
-function printCoord(pt: {x: number, y: number}) {
-  console.log("The coordinate's x value is " + pt.x);
-  console.log("The coordinate's y value is " + pt.y);
+function printCoord(pt: { x: number; y: number }) {
+  console.log("The coordinate's x value is " + pt.x)
+  console.log("The coordinate's y value is " + pt.y)
 }
-printCoord({ x: 3, y: 7 });
+printCoord({ x: 3, y: 7 })
 ```
 
 ### Optional Properties
@@ -148,18 +148,18 @@ Object types can also specify that some or all of their properties are optional.
 In JavaScript, if you access a property that doesn't exist, you'll get the value `undefined` rather than a runtime error.
 Because of this, when you _read_ from an optional property, you'll have to _check_ for `undefined` before using it.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 18048
 function printName(obj: { first: string; last?: string }) {
   // Error - might crash if 'obj.last' wasn't provided!
-  console.log(obj.last.toUpperCase());
+  console.log(obj.last.toUpperCase())
   if (obj.last !== undefined) {
     // OK
-    console.log(obj.last.toUpperCase());
+    console.log(obj.last.toUpperCase())
   }
 
   // A safe alternative using modern JavaScript syntax:
-  console.log(obj.last?.toUpperCase());
+  console.log(obj.last?.toUpperCase())
 }
 ```
 
@@ -172,15 +172,15 @@ Now that we know how to write a few types, it’s time to start combining them i
 
 A union type is a type formed from two or more other types, representing values that may be any one of those types.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2345
 function printId(id: number | string) {
-  console.log("Your ID is: " + id);
+  console.log('Your ID is: ' + id)
 }
 // OK
-printId(101);
+printId(101)
 // OK
-printId("202");
+printId('202')
 // Error
 printId({ myId: 1234 })
 ```
@@ -192,7 +192,7 @@ It's easy to _provide_ a value matching a union type - simply provide a type mat
 TypeScript will only allow an operation if it is valid for _every_ member of the union.
 For example, if you have the union `string | number`, you can't use methods that are only available on `string`:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2339
 function printId(id: number | string) {
   console.log(id.toUpperCase())
@@ -202,10 +202,10 @@ function printId(id: number | string) {
 The solution is to _narrow_ the union with code, the same as you would in JavaScript without type annotations.
 _Narrowing_ occurs when TypeScript can deduce a more specific type for a value based on the structure of the code.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function printId(id: number | string) {
   if (typeof id === 'string') {
-     // In this branch, id is of type 'string'
+    // In this branch, id is of type 'string'
     console.log(id.toUpperCase())
   } else {
     // Here, id is of type 'number'
@@ -216,21 +216,21 @@ function printId(id: number | string) {
 
 Another example is to use a function like `Array.isArray`:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function welcomePeople(x: string[] | string) {
   if (Array.isArray(x)) {
     // Here: 'x' is 'string[]'
     console.log('Hello, ' + x.join(' and '))
   } else {
     // Here: 'x' is 'string'
-    console.log("Welcome lone traveler " + x);
+    console.log('Welcome lone traveler ' + x)
   }
 }
 ```
 
 If every member in a union has a property in common, you can use that property without narrowing:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // Return type is inferred as number[] | string
 function getFirstThree(x: number[] | string) {
   return x.slice(0, 3)
@@ -244,7 +244,7 @@ It's common to want to use the same type more than once and refer to it by a sin
 A _type alias_ is exactly that - a _name_ for any _type_.
 The syntax for a type alias is:
 
-```ts:no-v-pre twoslash {1}
+```ts twoslash {1}
 type Point = {
   x: number
   y: number
@@ -261,14 +261,13 @@ printCoord({ x: 100, y: 200 })
 You can actually use a type alias to give a name to any type at all, not just an object type.
 For example, a type alias can name a union type:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 type ID = number | string
 ```
 
 When you use the alias, it's exactly as if you had written the aliased type.
 
-```ts:no-v-pre twoslash
-
+```ts twoslash
 type UserInputSanitizedString = string
 declare function getInput(): string
 declare function sanitize(str: string): string
@@ -288,7 +287,7 @@ userInput = 'new input'
 
 An _interface declaration_ is another way to name an object type:
 
-```ts:no-v-pre twoslash {1}
+```ts twoslash {1}
 interface Point {
   x: number
   y: number
@@ -313,20 +312,20 @@ Almost all features of an `interface` are available in `type`, the key distincti
 
 Extending an interface
 
-```ts:no-v-pre twoslash {5}
+```ts twoslash {5}
 declare function getBear(): Bear
 // ---cut---
 interface Animal {
-  name: string;
+  name: string
 }
 
 interface Bear extends Animal {
-  honey: boolean;
+  honey: boolean
 }
 
-const bear = getBear();
-bear.name;
-bear.honey;
+const bear = getBear()
+bear.name
+bear.honey
 ```
 
 Adding new fields to an existing interface
@@ -348,20 +347,20 @@ window.ts.transpileModule(src, {})
 
 Extending a type via intersections
 
-```ts:no-v-pre twoslash {5}
+```ts twoslash {5}
 declare function getBear(): Bear
 // ---cut---
 type Animal = {
-  name: string;
+  name: string
 }
 
 type Bear = Animal & {
-  honey: boolean;
+  honey: boolean
 }
 
-const bear = getBear();
-bear.name;
-bear.honey;
+const bear = getBear()
+bear.name
+bear.honey
 ```
 
 A type cannot be changed after being created
@@ -385,30 +384,30 @@ Sometimes you will have information about the type of a value that TypeScript ca
 
 In this situation, you can use a _type assertion_ to specify a more specific type:
 
-```ts:no-v-pre twoslash
-const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;
+```ts twoslash
+const myCanvas = document.getElementById('main_canvas') as HTMLCanvasElement
 ```
 
 You can also use the angle-bracket syntax (except if the code is in a `.tsx` file), which is equivalent:
 
-```ts:no-v-pre twoslash
-const myCanvas = <HTMLCanvasElement>document.getElementById("main_canvas");
+```ts twoslash
+const myCanvas = <HTMLCanvasElement>document.getElementById('main_canvas')
 ```
 
 TypeScript only allows type assertions which convert to a _more specific_ or _less specific_ version of a type.
 This rule prevents "impossible" coercions like:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2352
-const x = "hello" as number
+const x = 'hello' as number
 ```
 
 Sometimes this rule can be too conservative and will disallow more complex coercions that might be valid.
 If this happens, you can use two assertions, first to `any` (or `unknown`, which we'll introduce later), then to the desired type:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 declare const expr: any
-type T = { a: 1; b: 2; c: 3; }
+type T = { a: 1; b: 2; c: 3 }
 // ---cut---
 const a = expr as any as T
 ```
@@ -418,26 +417,25 @@ const a = expr as any as T
 Both `var` and `let` allow for changing what is held inside the variable, and `const` does not.
 This is reflected in how TypeScript creates types for literals.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 let changingString = 'Hello World'
-changingString = 'zhaobc';
+changingString = 'zhaobc'
 
 // Because `changingString` can represent any possible string, that
 // is how TypeScript describes it in the type system
-changingString;
+changingString
 // ^?
 
 const constantString = 'Hello World'
 // Because `constantString` can only represent 1 possible string, it
 // has a literal type representation
-constantString;
+constantString
 // ^?
-
 ```
 
 By themselves, literal types aren't very valuable:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2322
 let x: 'hello' = 'hello'
 // OK
@@ -450,7 +448,7 @@ It's not much use to have a variable that can only have one value!
 
 But by _combining_ literals into unions, you can express a much more useful concept - for example, functions that only accept a certain set of known values:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2345
 function printText(s: string, alignment: 'left' | 'center' | 'right') {
   // ...
@@ -462,7 +460,7 @@ printText('World', 'centre')
 
 Numeric literal types work the same way:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function compare(a: string, b: string): -1 | 0 | 1 {
   return a === b ? 0 : a > b ? 1 : -1
 }
@@ -470,7 +468,7 @@ function compare(a: string, b: string): -1 | 0 | 1 {
 
 Of course, you can combine these with non-literal types:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2345
 interface Options {
   width: number | string
@@ -489,11 +487,11 @@ configure('automatic')
 
 When you initialize a variable with an object, TypeScript assumes that the properties of that object might change values later. For example, if you wrote code like this:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 declare const someCondition = true
 // ---cut---
 const obj = {
-  counter: 0
+  counter: 0,
   // ^?
 }
 
@@ -506,13 +504,13 @@ TypeScript _doesn’t_ assume the assignment of `1` to a field which previously 
 
 The same applies to strings:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2345
 declare function handleRequest(url: string, method: 'GET' | 'POST'): void
 
 const req = {
   url: 'http://example.com',
-  method: 'GET'
+  method: 'GET',
 }
 handleRequest(req.url, req.method)
 ```
@@ -523,13 +521,13 @@ There are two ways to work around this.
 
 1. You can change the inference by adding a <mark>type assertion</mark> in either location:
 
-   ```ts:no-v-pre twoslash
-   declare function handleRequest(url: string, method: "GET" | "POST"): void;
+   ```ts twoslash
+   declare function handleRequest(url: string, method: 'GET' | 'POST'): void
    // ---cut---
    // Change 1:
-   const req = { url: "https://example.com", method: "GET" as "GET" };
+   const req = { url: 'https://example.com', method: 'GET' as 'GET' }
    // Change 2
-   handleRequest(req.url, req.method as "GET");
+   handleRequest(req.url, req.method as 'GET')
    ```
 
    Change 1 means "I intend for `req.method` to always have the _literal type_ `"GET"`", preventing the possible assignment of `"GUESS"` to that field after.
@@ -537,11 +535,11 @@ There are two ways to work around this.
 
 2. You can use <mark>`as const`</mark> to convert the entire object to be type literals:
 
-   ```ts:no-v-pre twoslash
-   declare function handleRequest(url: string, method: "GET" | "POST"): void;
+   ```ts twoslash
+   declare function handleRequest(url: string, method: 'GET' | 'POST'): void
    // ---cut---
-   const req = { url: "https://example.com", method: "GET" } as const;
-   handleRequest(req.url, req.method);
+   const req = { url: 'https://example.com', method: 'GET' } as const
+   handleRequest(req.url, req.method)
    ```
 
 The `as const` suffix acts like `const` but for the type system, ensuring that <mark>all properties are assigned the literal type</mark> instead of a more general version like `string` or `number`.
@@ -562,7 +560,7 @@ The lack of checking for these values tends to be a major source of bugs; we alw
 With [`strictNullChecks`] _on_, when a value is `null` or `undefined`, you will need to test for those values before using methods or properties on that value.
 Just like checking for `undefined` before using an optional property, we can use _narrowing_ to check for values that might be `null`:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function doSomething(x: string | null) {
   if (x === null) {
     // do nothing
@@ -577,7 +575,7 @@ function doSomething(x: string | null) {
 TypeScript also has a special syntax for removing `null` and `undefined` from a type without doing any explicit checking.
 Writing `!` after any expression is effectively a type assertion that the value isn't `null` or `undefined`:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 function liveDangerously(x?: number | null) {
   // No error
   console.log(x!.toFixed())
@@ -591,12 +589,12 @@ so <mark>it's important to only use `!` when you know that the value _can't_ be 
 
 Enums allow a developer to define a set of named constants.
 
-```ts:no-v-pre twoslash
+```ts twoslash
 enum Direction {
   Up,
   Down,
   Left,
-  Right
+  Right,
 }
 ```
 
@@ -606,7 +604,7 @@ enum Direction {
 
 From ES2020 onwards, there is a primitive in JavaScript used for very large integers, `BigInt`:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @target: es2020
 
 // Creating a bigint via the BigInt function
@@ -619,7 +617,7 @@ const anotherHundred: bigint = 100n
 
 There is a primitive in JavaScript used to create a globally unique reference via the function `Symbol()`:
 
-```ts:no-v-pre twoslash
+```ts twoslash
 // @errors: 2367
 const firstName = Symbol('name')
 const secondName = Symbol('name')

@@ -135,12 +135,11 @@ function Render(obj, root) {
 Render(obj, document.body)
 ```
 
-::: note 下面内容为代码演示结果
+下面内容为代码演示结果
 
 <div id="code-demo-render-basic"></div>
-:::
 
-::: normal-demo 运行时 Render 函数示例
+:::normal-demo 运行时 Render 函数示例
 
 ```html
 <div id="code-demo-render-basic"></div>
