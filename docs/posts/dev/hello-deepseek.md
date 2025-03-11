@@ -39,50 +39,50 @@ head:
 
 ```javascript
 // function splitDOMAtNode(originalNode) {
-  function splitDOMAtNode(root, originalNode) {
+function splitDOMAtNode(root, originalNode) {
   // 深克隆整个DOM树并建立原始节点映射
   function cloneTreeWithMap(root) {
-    const nodeMap = new Map();
+    const nodeMap = new Map()
     function clone(node) {
-      const cloned = node.cloneNode(false);
-      nodeMap.set(node, cloned);
+      const cloned = node.cloneNode(false)
+      nodeMap.set(node, cloned)
       Array.from(node.childNodes).forEach(child => {
-        cloned.appendChild(clone(child));
-      });
-      return cloned;
+        cloned.appendChild(clone(child))
+      })
+      return cloned
     }
-    return { clonedTree: clone(root), nodeMap };
+    return { clonedTree: clone(root), nodeMap }
   }
 
   // 修剪后续兄弟节点
   function pruneSiblingsAfter(node) {
-    let current = node;
+    let current = node
     while (current.parentNode) {
-      const parent = current.parentNode;
-      const siblings = Array.from(parent.childNodes);
-      const idx = siblings.indexOf(current);
-      
+      const parent = current.parentNode
+      const siblings = Array.from(parent.childNodes)
+      const idx = siblings.indexOf(current)
+
       // 移除当前节点之后的所有节点
       for (let i = siblings.length - 1; i > idx; i--) {
-        parent.removeChild(siblings[i]);
+        parent.removeChild(siblings[i])
       }
-      current = parent;
+      current = parent
     }
   }
 
   // 修剪前置兄弟节点
   function pruneSiblingsBefore(node) {
-    let current = node;
+    let current = node
     while (current.parentNode) {
-      const parent = current.parentNode;
-      const siblings = Array.from(parent.childNodes);
-      const idx = siblings.indexOf(current);
-      
+      const parent = current.parentNode
+      const siblings = Array.from(parent.childNodes)
+      const idx = siblings.indexOf(current)
+
       // 移除当前节点之前的所有节点
       for (let i = 0; i < idx; i++) {
-        parent.removeChild(siblings[i]);
+        parent.removeChild(siblings[i])
       }
-      current = parent;
+      current = parent
     }
   }
 
@@ -91,29 +91,29 @@ head:
 
   // 处理前半部分
   // const front = cloneTreeWithMap(docRoot);
-  const front = cloneTreeWithMap(root);
-  const frontNode = front.nodeMap.get(originalNode);
-  pruneSiblingsAfter(frontNode);
+  const front = cloneTreeWithMap(root)
+  const frontNode = front.nodeMap.get(originalNode)
+  pruneSiblingsAfter(frontNode)
 
   // 处理后半部分
   // const back = cloneTreeWithMap(docRoot);
-  const back = cloneTreeWithMap(root);
-  const backNode = back.nodeMap.get(originalNode);
-  pruneSiblingsBefore(backNode);
+  const back = cloneTreeWithMap(root)
+  const backNode = back.nodeMap.get(originalNode)
+  pruneSiblingsBefore(backNode)
 
   return {
     frontFragment: front.clonedTree,
-    backFragment: back.clonedTree
-  };
+    backFragment: back.clonedTree,
+  }
 }
 
 // 使用示例
-const targetNode = document.getElementById('split-target');
-const { frontFragment, backFragment } = splitDOMAtNode(targetNode);
+const targetNode = document.getElementById('split-target')
+const { frontFragment, backFragment } = splitDOMAtNode(targetNode)
 
 // 获取HTML字符串
-console.log('前半部分：\n', frontFragment.outerHTML);
-console.log('后半部分：\n', backFragment.outerHTML);
+console.log('前半部分：\n', frontFragment.outerHTML)
+console.log('后半部分：\n', backFragment.outerHTML)
 ```
 
 ### 实现原理

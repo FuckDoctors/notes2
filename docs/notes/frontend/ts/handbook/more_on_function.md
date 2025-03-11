@@ -471,8 +471,8 @@ function fn(x: string | number) {
   } else if (typeof x === 'number') {
     // do something else
   } else {
-    x // has type 'never'!
-    //  ^?
+    console.log(x) // has type 'never'!
+    //          ^?
   }
 }
 ```

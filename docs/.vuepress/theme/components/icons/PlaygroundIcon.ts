@@ -39,7 +39,7 @@ export default defineComponent({
         h(LinkIcon, {
           link,
           target: '_blank',
-          icon: ' icon-console',
+          icon: ' iconfont icon-console',
           label: label.value,
           size: 20,
           class: 'vp-action-link',
