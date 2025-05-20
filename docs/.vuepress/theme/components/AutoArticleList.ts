@@ -1,9 +1,9 @@
-import BreadCrumb from '@theme-hope/components/BreadCrumb'
+import BreadCrumb from '@theme-hope/components/base/BreadCrumb'
 
-import MarkdownContent from '@theme-hope/components/MarkdownContent'
-import { DropTransition } from '@theme-hope/components/transitions/index'
-import ArticleList from '@theme-hope/modules/blog/components/ArticleList'
-import { useArticles } from '@theme-hope/modules/blog/composables/index'
+import MarkdownContent from '@theme-hope/components/base/MarkdownContent'
+import ArticleList from '@theme-hope/components/blog/ArticleList'
+import DropTransition from '@theme-hope/components/transitions/DropTransition'
+import { useArticles } from '@theme-hope/composables/blog/index'
 import { computed, defineComponent, h, type VNode } from 'vue'
 
 import { useRouter } from 'vue-router'

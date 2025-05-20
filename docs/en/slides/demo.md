@@ -1,7 +1,7 @@
 ---
 title: Slide page
 icon: slides
-layout: SlidePage
+layout: Slides
 ---
 
 <!-- markdownlint-disable MD024 MD033 MD051 -->
