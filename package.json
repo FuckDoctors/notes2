@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.6.1",
+  "packageManager": "pnpm@10.11.0",
   "package-manager-strict": false,
   "scripts": {
     "build": "pnpm docs:build",
