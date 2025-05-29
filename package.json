@@ -54,21 +54,22 @@
     "@vue/test-utils": "^2.4.6",
     "@vuepress/bundler-vite": "2.0.0-rc.23",
     "@vuepress/bundler-webpack": "2.0.0-rc.23",
-    "@vuepress/plugin-comment": "2.0.0-rc.105",
-    "@vuepress/plugin-docsearch": "2.0.0-rc.105",
-    "@vuepress/plugin-feed": "2.0.0-rc.105",
-    "@vuepress/plugin-links-check": "2.0.0-rc.105",
-    "@vuepress/plugin-markdown-hint": "2.0.0-rc.105",
-    "@vuepress/plugin-markdown-image": "2.0.0-rc.105",
-    "@vuepress/plugin-markdown-math": "2.0.0-rc.105",
-    "@vuepress/plugin-markdown-tab": "2.0.0-rc.105",
-    "@vuepress/plugin-pwa": "2.0.0-rc.105",
-    "@vuepress/plugin-revealjs": "2.0.0-rc.105",
-    "@vuepress/plugin-seo": "2.0.0-rc.105",
-    "@vuepress/plugin-shiki": "2.0.0-rc.105",
-    "@vuepress/plugin-sitemap": "2.0.0-rc.105",
-    "@vuepress/plugin-watermark": "2.0.0-rc.105",
-    "@vuepress/shiki-twoslash": "2.0.0-rc.105",
+    "@vuepress/plugin-comment": "2.0.0-rc.106",
+    "@vuepress/plugin-docsearch": "2.0.0-rc.106",
+    "@vuepress/plugin-feed": "2.0.0-rc.106",
+    "@vuepress/plugin-links-check": "2.0.0-rc.106",
+    "@vuepress/plugin-llms": "2.0.0-rc.106",
+    "@vuepress/plugin-markdown-hint": "2.0.0-rc.106",
+    "@vuepress/plugin-markdown-image": "2.0.0-rc.106",
+    "@vuepress/plugin-markdown-math": "2.0.0-rc.106",
+    "@vuepress/plugin-markdown-tab": "2.0.0-rc.106",
+    "@vuepress/plugin-pwa": "2.0.0-rc.106",
+    "@vuepress/plugin-revealjs": "2.0.0-rc.106",
+    "@vuepress/plugin-seo": "2.0.0-rc.106",
+    "@vuepress/plugin-shiki": "2.0.0-rc.106",
+    "@vuepress/plugin-sitemap": "2.0.0-rc.106",
+    "@vuepress/plugin-watermark": "2.0.0-rc.106",
+    "@vuepress/shiki-twoslash": "2.0.0-rc.106",
     "@waline/client": "^3.5.7",
     "autoprefixer": "^10.4.21",
     "commitizen": "^4.3.1",
@@ -127,7 +128,7 @@
     "vitest": "^2.1.9",
     "vue-tsc": "^2.2.10",
     "vuepress": "2.0.0-rc.23",
-    "vuepress-theme-hope": "2.0.0-rc.88"
+    "vuepress-theme-hope": "2.0.0-rc.89"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -138,6 +139,11 @@
         "@types/react",
         "webpack"
       ]
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "unrs-resolver"
+    ]
   }
 }

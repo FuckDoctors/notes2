@@ -1,6 +1,7 @@
 import type { PluginOption } from 'vite'
 import process from 'node:process'
 import { viteBundler } from '@vuepress/bundler-vite'
+import { llmsPlugin } from '@vuepress/plugin-llms'
 
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineUserConfig } from 'vuepress'
@@ -77,6 +78,11 @@ export default defineUserConfig({
     // componentsPlugin({
     //   components: ['CodePen', 'StackBlitz', 'Replit', 'SiteInfo'],
     // }),
+
+    // AI
+    llmsPlugin({
+      domain: 'https://zhaobc.site',
+    }),
   ],
 
   bundler: viteBundler({

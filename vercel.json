@@ -15,5 +15,17 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/llms.md",
+      "destination": "llms.txt",
+      "permanent": true
+    },
+    {
+      "source": "/llms-full.md",
+      "destination": "llms-full.txt",
+      "permanent": true
+    }
   ]
 }
