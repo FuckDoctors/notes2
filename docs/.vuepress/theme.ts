@@ -1,5 +1,9 @@
 import type { ThemeOptions } from 'vuepress-theme-hope'
+import { Buffer } from 'node:buffer'
 import process from 'node:process'
+
+import { entries, fromEntries } from '@vuepress/helper'
+
 import { hopeTheme } from 'vuepress-theme-hope'
 
 import * as navbar from './navbar'
@@ -141,7 +145,38 @@ export const themeOptions: ThemeOptions = {
     mermaid: true,
     demo: true,
     playground: {
-      presets: ['ts', 'vue', 'unocss'],
+      presets: [
+        'ts',
+        'vue',
+        'unocss',
+        {
+          name: 'playground#python',
+          propsGetter: ({
+            title = '',
+            files,
+            settings,
+          }): Record<string, string> => {
+            // filter python files
+            const fileInfo = fromEntries(
+              entries(files)
+                .filter(([, { ext }]) => ext === 'python')
+                .map(([key, { content }]) => [key, content])
+            )
+
+            const domain = settings.service || 'https://play-py.zhaobc.site'
+
+            return {
+              title,
+              link: encodeURIComponent(
+                `${domain}#${
+                  // Code base64
+                  Buffer.from(JSON.stringify(fileInfo)).toString('base64')
+                }`
+              ),
+            }
+          },
+        },
+      ],
     },
     vuePlayground: true,
     sandpack: true,
