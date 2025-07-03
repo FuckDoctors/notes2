@@ -159,16 +159,22 @@ export const themeOptions: ThemeOptions = {
             // filter python files
             const fileInfo = fromEntries(
               entries(files)
-                .filter(([, { ext }]) => ext === 'python')
+                // .filter(([, { ext }]) => ext === 'python')
                 .map(([key, { content }]) => [key, content])
             )
 
-            const domain = settings.service || 'https://play-py.zhaobc.site'
+            const { service, ...params } = settings
+            const domain = service || 'https://play-py.zhaobc.site'
+
+            // 使用 settings 传参
+            const queryString = new URLSearchParams(
+              params as Record<string, string>
+            ).toString()
 
             return {
               title,
               link: encodeURIComponent(
-                `${domain}#${
+                `${domain}${queryString.length > 0 ? `?${queryString}` : ''}#${
                   // Code base64
                   Buffer.from(JSON.stringify(fileInfo)).toString('base64')
                 }`
