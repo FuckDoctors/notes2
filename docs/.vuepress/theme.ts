@@ -144,6 +144,7 @@ export const themeOptions: ThemeOptions = {
     flowchart: true,
     mermaid: true,
     demo: true,
+    preview: true,
     playground: {
       presets: [
         'ts',

@@ -105,7 +105,7 @@ export default defineUserConfig({
       },
 
       server: {
-        port: 8088,
+        port: 8080,
         allowedHosts: ['localhost', '.mcprev.cn'],
       },
     },
