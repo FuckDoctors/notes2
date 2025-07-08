@@ -2,7 +2,7 @@
 
 .column-layout {
   &.two-col {
-    .theme-hope-content {
+    [vp-content] {
       columns: 2;
     }
   }
@@ -47,7 +47,7 @@
 
   @media screen and (max-width: hope-config.$mobile) {
     &.two-col {
-      .theme-hope-content {
+      [vp-content] {
         columns: unset;
       }
     }

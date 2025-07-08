@@ -31,7 +31,7 @@ head:
 
 .column-layout {
   &.two-col {
-    .theme-hope-content {
+    [vp-content] {
       columns: 2;
     }
   }
@@ -50,8 +50,8 @@ head:
     display: block;
     height: 1px;
     margin: 1rem;
-    border-bottom: 1px var(--border-color) solid;
-    transition: border-bottom-color var(--color-transition);
+    border-bottom: 1px var(--vp-c-border) solid;
+    transition: border-bottom-color var(--vp-t-color);
 
     &::before {
       content: '·';
@@ -60,13 +60,13 @@ head:
       transform: translate(-50%) translateY(-50%);
       height: 1rem;
       line-height: 1rem;
-      color: var(--text-color);
-      background: var(--bg-color);
+      color: var(--vp-c-text);
+      background: var(--vp-c-bg);
       width: 2rem;
       text-align: center;
       transition:
         color,
-        background var(--color-transition);
+        background var(--vp-t-color);
     }
   }
 
@@ -76,7 +76,7 @@ head:
 
   @media screen and (max-width: hope-config.$mobile) {
     &.two-col {
-      .theme-hope-content {
+      [vp-content] {
         columns: unset;
       }
     }
