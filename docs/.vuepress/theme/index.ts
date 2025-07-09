@@ -15,7 +15,7 @@ export default (options: ThemeOptions): Theme => ({
 
   alias: {
     // You can override or add aliases here
-    '@theme-hope/components/NormalPage': path.resolve(
+    '@theme-hope/components/base/PageContent': path.resolve(
       __dirname,
       './components/NormalPage.vue'
     ),
