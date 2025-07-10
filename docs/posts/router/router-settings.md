@@ -50,7 +50,6 @@ head:
      ![开启HTTP & HTTPS](./images/http-https-ssh.png)
    - 此处同时开启了 ssh 服务
 3. 使用 frp 实现内网穿透
-
    - [配置链接](http://192.168.123.1/Advanced_Extensions_frp.asp)：`http://192.168.123.1/Advanced_Extensions_frp.asp`
    - 配置脚本`frp_scripts`
      为了简便，这里只说明修改部分。
@@ -106,7 +105,6 @@ head:
    位置：`系统管理 - 服务`
 
    配置项：
-
    - Server Certificate (required)
    - Server Private Key (required)
 

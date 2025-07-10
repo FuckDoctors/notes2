@@ -9,7 +9,5 @@ module.exports = {
     'stylelint-config-hudochenkov/full',
     // Tweaks stylelint rules to accept css modules specific syntax.
     // 'stylelint-config-css-modules',
-    // Turns of all the rules that would interfere with Prettier
-    // 'stylelint-config-prettier',
   ],
 }

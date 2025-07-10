@@ -1,10 +1,11 @@
-import BreadCrumb from '@theme-hope/components/base/BreadCrumb'
+import type { VNode } from 'vue'
 
+import BreadCrumb from '@theme-hope/components/base/BreadCrumb'
 import MarkdownContent from '@theme-hope/components/base/MarkdownContent'
 import ArticleList from '@theme-hope/components/blog/ArticleList'
 import DropTransition from '@theme-hope/components/transitions/DropTransition'
 import { useArticles } from '@theme-hope/composables/blog/index'
-import { computed, defineComponent, h, type VNode } from 'vue'
+import { computed, defineComponent, h } from 'vue'
 
 import { useRouter } from 'vue-router'
 import '../styles/auto-article-list.scss'

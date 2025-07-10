@@ -201,7 +201,7 @@ function handleRead() {
             :height="32"
           />
           <div class="hanzi-container">
-            <div ref="printRef" class="hanzi-card print" />
+            <div ref="printRef" class="print hanzi-card" />
             <div ref="aniRef" class="hanzi-card animation" />
             <div class="hanzi-controls">
               <button class="btn-voice btn" title="发音" @click="handleVoice" />

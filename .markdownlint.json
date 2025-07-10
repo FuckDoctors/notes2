@@ -1,6 +1,7 @@
 {
   "default": true,
   "line-length": false,
+  "descriptive-link-text": false,
   "no-inline-html": {
     "allowed_elements": [
       "a",
