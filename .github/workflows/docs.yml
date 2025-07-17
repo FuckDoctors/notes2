@@ -59,7 +59,11 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=8192
           BASE: /
           # HOSTNAME: https://fuckdoctors.github.io/
-        run: pnpm run docs:build
+
+        # github actions 报错，忽略 jekyll 解析
+        run: |
+            pnpm run docs:build
+            touch docs/.vuepress/dist/.nojekyll
 
       - name: Deploy to github pages
         uses: JamesIves/github-pages-deploy-action@v4
