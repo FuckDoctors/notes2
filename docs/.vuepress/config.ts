@@ -107,6 +107,15 @@ export default defineUserConfig({
       server: {
         port: 8080,
         allowedHosts: ['localhost', '.mcprev.cn'],
+
+        // 关于启用跨域隔离的指南
+        // https://web.developers.google.cn/articles/cross-origin-isolation-guide?hl=zh-cn
+        headers: {
+          'Cross-Origin-Embedder-Policy': 'require-corp',
+          'Cross-Origin-Opener-Policy': 'same-origin',
+          // 'Cross-Origin-Resource-Policy': 'same-site',
+          'Cross-Origin-Resource-Policy': 'cross-origin',
+        },
       },
     },
   }),
