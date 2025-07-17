@@ -152,6 +152,7 @@ export const themeOptions: ThemeOptions = {
         'unocss',
         {
           name: 'playground#python',
+          component: 'PythonPlayground',
           propsGetter: ({
             title = '',
             files,
@@ -180,6 +181,7 @@ export const themeOptions: ThemeOptions = {
                   Buffer.from(JSON.stringify(fileInfo)).toString('base64')
                 }`
               ),
+              allow: 'cross-origin-isolated',
             }
           },
         },

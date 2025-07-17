@@ -7,6 +7,8 @@ import Chazi from './theme/components/hanzi/Chazi.vue'
 import Hanzi from './theme/components/hanzi/Hanzi.vue'
 import HanziCard from './theme/components/hanzi/HanziCard.vue'
 import PlaygroundIcon from './theme/components/icons/PlaygroundIcon'
+import PythonPlayground from './theme/components/python/PythonPlayground'
+
 // import TwoslashFloatingVue from './theme/components/twoslash/client'
 import AutoArticleListLayout from './theme/layouts/AutoArticleListLayout'
 
@@ -29,6 +31,8 @@ export default defineClientConfig({
     app.component('FlippyCard', FlippyCard)
     app.component('HanziCard', HanziCard)
     app.component('PlaygroundIcon', PlaygroundIcon)
+
+    app.component('PythonPlayground', PythonPlayground)
 
     // // twoslash
     // app.use(TwoslashFloatingVue)
