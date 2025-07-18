@@ -12,7 +12,7 @@ containerClass: zhaobc links
 tools:
   - name: vuepress-theme-hope
     desc: 一个具有强大功能的 vuepress 主题✨
-    logo: https://theme-hope.vuejs.press/logo.svg
+    logo: /assets/image/hope-logo.svg
     url: https://theme-hope.vuejs.press/zh/
     repo: https://github.com/vuepress-theme-hope/vuepress-theme-hope
     preview: /assets/image/preview/theme-hope.jpg
@@ -48,12 +48,6 @@ tools:
     preview: /assets/image/preview/67tool.jpg
 
 links:
-  - name: Mr.Hope 的博客
-    desc: Mr.Hope 的博客
-    logo: https://mrhope.site/logo.svg
-    url: https://mrhope.site/
-    preview: https://theme-hope.vuejs.press/assets/image/mrhope.jpg
-
   - name: 你的链接
     desc: 通过 PR 提交你的链接
     url: https://github.com/FuckDoctors/notes2/edit/main/docs/links.md

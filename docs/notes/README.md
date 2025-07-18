@@ -1,7 +1,7 @@
 ---
 index: true
-sticky: 100
-star: 100
+# sticky: 100
+# star: 100
 icon: note
 category:
   - 笔记

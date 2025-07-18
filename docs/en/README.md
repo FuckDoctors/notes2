@@ -31,10 +31,15 @@ projects:
     desc: ideapad-720s-13ikb Hackintosh
     link: https://github.com/FuckDoctors/ideapad-720s-13ikb-oc
 
-  - icon: note
-    name: Notes
-    desc: Notes and others
-    link: https://github.com/FuckDoctors/notes2
+  - icon: vue
+    name: Vue Playground
+    desc: Online Vue + Pinia IDE
+    link: https://play.zhaobc.site
+
+  - icon: python
+    name: Python Playground
+    desc: Online Python IDE
+    link: https://play-py.zhaobc.site
 
 banner: /logo-cover.svg
 ---

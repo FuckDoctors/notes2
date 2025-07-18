@@ -15,8 +15,13 @@ features:
 
   - title: vue-playground
     icon: vue
-    details: Vue Playground
+    details: Vue + Pinia Playground
     link: https://github.com/FuckDoctors/vue-playground
+
+  - title: Python Playground
+    icon: python
+    details: Online Python IDE
+    link: https://play-py.zhaobc.site
 
   - title: hello-vue3
     icon: vue

@@ -31,10 +31,15 @@ projects:
     desc: ideapad-720s-13ikb 黑苹果
     link: https://github.com/FuckDoctors/ideapad-720s-13ikb-oc
 
-  - icon: note
-    name: 笔记
-    desc: 笔记，琐事
-    link: https://github.com/FuckDoctors/notes2
+  - icon: vue
+    name: Vue Playground
+    desc: 在线 Vue + Pinia 演练场
+    link: https://play.zhaobc.site
+
+  - icon: python
+    name: Python Playground
+    desc: 在线 Python 演练场
+    link: https://play-py.zhaobc.site
 
 banner: /logo-cover.svg
 ---

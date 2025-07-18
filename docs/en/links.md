@@ -12,7 +12,7 @@ containerClass: zhaobc links
 tools:
   - name: vuepress-theme-hope
     desc: A vuepress theme with tons of features✨
-    logo: https://theme-hope.vuejs.press/logo.svg
+    logo: /assets/image/hope-logo.svg
     url: https://theme-hope.vuejs.press/zh/
     repo: https://github.com/vuepress-theme-hope/vuepress-theme-hope
     preview: /assets/image/preview/theme-hope.jpg
@@ -48,12 +48,6 @@ tools:
     preview: /assets/image/preview/67tool.jpg
 
 links:
-  - name: Mr.Hope's blog
-    desc: Mr.Hope's blog
-    logo: https://mrhope.site/logo.svg
-    url: https://mrhope.site/
-    preview: https://theme-hope.vuejs.press/assets/image/mrhope.jpg
-
   - name: Your link
     desc: Your link is welcomed via PR.
     url: https://github.com/FuckDoctors/notes2/edit/main/docs/en/links.md

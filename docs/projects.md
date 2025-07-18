@@ -15,8 +15,13 @@ features:
 
   - title: vue-playground
     icon: vue
-    details: Vue 演练场
+    details: Vue + Pinia 演练场
     link: https://github.com/FuckDoctors/vue-playground
+
+  - title: Python Playground
+    icon: python
+    details: 在线 Python 演练场
+    link: https://play-py.zhaobc.site
 
   - title: hello-vue3
     icon: vue
