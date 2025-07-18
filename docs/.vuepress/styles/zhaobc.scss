@@ -109,7 +109,7 @@
 }
 
 /* 调整评论框宽度 */
-#vp-comment {
+.vp-comment {
   max-width: var(--content-width, 740px);
   margin: 0 auto;
   padding: 0 2.5rem;
@@ -123,10 +123,10 @@
   &.theme-container {
     .vp-breadcrumb,
     .vp-page-title,
-    .theme-hope-content,
+    [vp-content],
     .content-after-container,
     .vp-page-meta,
-    #vp-comment {
+    .vp-comment {
       max-width: 1080px;
     }
 
