@@ -100,6 +100,28 @@ export default defineUserConfig({
               gzipSize: true,
             }) as PluginOption)
           : null,
+
+        // Support Cross-Origin-Opener-Policy and Cross-Origin-Embedder-Policy on dev server
+        // https://github.com/vitejs/vite/issues/3909#issuecomment-934044912
+        {
+          name: 'configure-response-headers',
+          configureServer: server => {
+            server.middlewares.use((_req, res, next) => {
+              // Cross-Origin-Embedder-Policy 浏览器兼容性
+              // https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7
+              const userAgent = _req.headers['user-agent']?.toLowerCase() || ''
+              if (/safari/i.test(userAgent) && !/chrome/i.test(userAgent)) {
+                // safari
+                res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp')
+              } else {
+                res.setHeader('Cross-Origin-Embedder-Policy', 'credentialless')
+              }
+              res.setHeader('Cross-Origin-Opener-Policy', 'same-origin')
+              res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+              next()
+            })
+          },
+        },
       ],
       ssr: {
         noExternal: ['floating-vue'],
@@ -112,10 +134,12 @@ export default defineUserConfig({
         port: 8080,
         allowedHosts: ['localhost', '.mcprev.cn'],
 
+        // 下面设置 headers 无效，需要使用上面 plugin 的方式
         // 关于启用跨域隔离的指南
         // https://web.developers.google.cn/articles/cross-origin-isolation-guide?hl=zh-cn
         headers: {
           'Cross-Origin-Embedder-Policy': 'require-corp',
+          // 'Cross-Origin-Embedder-Policy': 'credentialless',
           'Cross-Origin-Opener-Policy': 'same-origin',
           // 'Cross-Origin-Resource-Policy': 'same-site',
           'Cross-Origin-Resource-Policy': 'cross-origin',

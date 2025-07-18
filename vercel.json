@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Cross-Origin-Embedder-Policy",
-          "value": "require-corp"
+          "value": "credentialless"
         },
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -14,6 +14,42 @@
         {
           "key": "Cross-Origin-Resource-Policy",
           "value": "cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "User-Agent",
+          "value": {
+            "re": ".*(iPhone|iPad|iPod|iOS|Android).*"
+          }
+        }
+      ],
+      "headers": [
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "require-corp"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "User-Agent",
+          "value": {
+            "re": "^(?=.*Safari)(?!.*Chrome).*$"
+          }
+        }
+      ],
+      "headers": [
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "require-corp"
         }
       ]
     },
