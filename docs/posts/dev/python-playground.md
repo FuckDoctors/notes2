@@ -1,7 +1,8 @@
 ---
 article: true
 isOriginal: true
-star: 90
+sticky: 80
+star: 94
 date: 2025-07-02
 category:
   - dev
