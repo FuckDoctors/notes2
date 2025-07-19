@@ -28,7 +28,7 @@ export default defineUserConfig({
       {
         rel: 'stylesheet',
         href: '//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css',
-        crossorigin: true,
+        crossOrigin: true,
       },
     ],
     [
@@ -37,15 +37,15 @@ export default defineUserConfig({
         rel: 'stylesheet',
         // zhaobc挑选的图标
         href: '//at.alicdn.com/t/c/font_4647860_t3wvzckeetc.css',
-        crossorigin: true,
+        crossOrigin: true,
       },
     ],
     [
       'script',
       {
         // 百度统计
-        src: 'https://hm.baidu.com/hm.js?85e80625eddf91d81d9535565850722b',
-        crossorigin: true,
+        src: '//hm.baidu.com/hm.js?85e80625eddf91d81d9535565850722b',
+        crossOrigin: true,
       },
     ],
     [
@@ -53,7 +53,7 @@ export default defineUserConfig({
       {
         // Clarity
         src: '/assets/js/clarity.js',
-        crossorigin: true,
+        crossOrigin: true,
       },
     ],
   ],

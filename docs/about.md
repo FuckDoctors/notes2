@@ -25,7 +25,7 @@ banner: /logo-cover.svg
 真实名称`Zhao Binchen`，所以才用了此域名[zhaobc.site](https://www.zhaobc.site)。
 
 <div style="display: flex;justify-content: center;">
-  <iframe :src="$withBase('/zhaobc.site/index.html')" style="border:none;height:auto;width:305px;height:115px;" />
+  <iframe :src="$withBase('/zhaobc.site/index.html')" sandbox="allow-scripts allow-same-origin" credentialless style="border:none;height:auto;width:305px;height:115px;" />
 </div>
 
 ## 兴趣爱好
