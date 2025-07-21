@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": ".*\\/python\\/.+\\.html|.*\\/python-playground\\.html$",
+      "source": "/:path*/python/:sub*/:file.html|/posts/dev/python-playground.html",
       "headers": [
         {
           "key": "Cross-Origin-Embedder-Policy",
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "source": ".*\\/python\\/.+\\.html|.*\\/python-playground\\.html$",
+      "source": "/:path*/python/:sub*/:file.html|/posts/dev/python-playground.html",
       "has": [
         {
           "type": "header",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "source": ".*\\/python\\/.+\\.html|.*\\/python-playground\\.html$",
+      "source": "/:path*/python/:sub*/:file.html|/posts/dev/python-playground.html",
       "has": [
         {
           "type": "header",

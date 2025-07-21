@@ -77,7 +77,7 @@ Safari 和多数移动端浏览器目前不支持 `credentialless`。
   ```
 
 - Safari
-  
+
   ```txt
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Embedder-Policy: require-corp
@@ -121,10 +121,16 @@ export default defineConfig({
       'Cross-Origin-Resource-Policy': 'cross-origin',
     },
   },
-});
+})
 ```
 
 `vercel.json` 设置：
+
+::: warning
+[Invalid route source pattern](https://vercel.com/docs/errors/error-list#invalid-route-source-pattern)
+
+The `source` property follows the syntax from [path-to-regexp](https://github.com/pillarjs/path-to-regexp), not the `RegExp` syntax.
+:::
 
 ```json
 {
@@ -207,7 +213,7 @@ export default defineConfig({
   尤其是 外部的 CDN资源，CSS, 图片，视频，等资源。
 
   ```html
-  <img src="https://example.com/image.jpg" crossorigin="anonymous">
+  <img src="https://example.com/image.jpg" crossorigin="anonymous" />
   ```
 
   但是，一些外部资源动态追加的资源无法控制，导致无法加载。比如，百度统计， clarity 统计。
