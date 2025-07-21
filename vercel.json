@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
+      "source": ".*\\/python\\/.+\\.html|.*\\/python-playground\\.html$",
       "headers": [
         {
           "key": "Cross-Origin-Embedder-Policy",
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "source": "/(.*)",
+      "source": ".*\\/python\\/.+\\.html|.*\\/python-playground\\.html$",
       "has": [
         {
           "type": "header",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "source": "/(.*)",
+      "source": ".*\\/python\\/.+\\.html|.*\\/python-playground\\.html$",
       "has": [
         {
           "type": "header",

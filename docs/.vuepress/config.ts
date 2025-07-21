@@ -107,6 +107,14 @@ export default defineUserConfig({
           name: 'configure-response-headers',
           configureServer: server => {
             server.middlewares.use((_req, res, next) => {
+              // 只给 python 下的资源设置 COEP
+              // if (_req.url) {
+              //   const url = new URL(`http://${process.env.HOST ?? 'localhost'}${_req.url}`)
+              //   if (!/.*\/python\/.+\.html|.*\/python-playground\.html$/i.test(url.pathname)) {
+              //     return next()
+              //   }
+              // }
+
               // Cross-Origin-Embedder-Policy 浏览器兼容性
               // https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7
               const userAgent = _req.headers['user-agent']?.toLowerCase() || ''
