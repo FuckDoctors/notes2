@@ -4,6 +4,8 @@ import process from 'node:process'
 
 import { entries, fromEntries } from '@vuepress/helper'
 
+import dotenv from 'dotenv'
+
 import { hopeTheme } from 'vuepress-theme-hope'
 
 import * as navbar from './navbar'
@@ -17,6 +19,9 @@ import {
   waline,
 } from './plugin-config'
 import * as sidebar from './sidebar'
+
+// 加载 .env 文件
+dotenv.config({ path: ['.env.local', '.env'] })
 
 const hostname = process.env.HOSTNAME || 'https://www.zhaobc.site'
 
@@ -107,6 +112,15 @@ export const themeOptions: ThemeOptions = {
       blog: {
         description: 'A programmer, Vue/Java lover.',
         intro: '/en/about.html',
+      },
+    },
+  },
+
+  encrypt: {
+    config: {
+      '/posts/private/': {
+        password: [process.env.PRIVATE_PASSWORD!],
+        hint: '请联系作者！',
       },
     },
   },

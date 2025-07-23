@@ -1,0 +1,4 @@
+[submodule "docs/posts/private"]
+	path = docs/posts/private
+	url = git@github.com:FuckDoctors/private-notes.git
+	branch = main
