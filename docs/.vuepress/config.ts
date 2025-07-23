@@ -86,12 +86,7 @@ export default defineUserConfig({
     // AI
     llmsPlugin({
       domain: 'https://zhaobc.site',
-      filter: page => {
-        // 排除私有内容
-        return (
-          !page.path.includes('/posts/private/') && !page.frontmatter.article
-        )
-      },
+      filter: page => !page.path.includes('/posts/private/'),
     }),
   ],
 
