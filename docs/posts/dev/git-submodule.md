@@ -108,6 +108,49 @@ git submodule set-url <path> <newurl>
 
 旧版的话，需要删除子模块，然后重新添加。
 
+## 包含私有子模块发布
+
+当仓库中含有私有的子模块时，需要指定一个只读的 `PAT`，然后使用 `HTTPS` 方式来访问。
+
+### Github Action
+
+[actions/checkout](https://github.com/actions/checkout) 本身就支持子模块。
+
+```yaml
+- uses: actions/checkout@v4
+  with:
+    # Personal access token (PAT) used to fetch the repository. The PAT is configured
+    # with the local git config, which enables your scripts to run authenticated git
+    # commands. The post-job step removes the PAT.
+    #
+    # We recommend using a service account with the least permissions necessary. Also
+    # when generating a new PAT, select the least scopes necessary.
+    #
+    # [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+    #
+    # Default: ${{ github.token }}
+    token: ''
+
+    # Whether to checkout submodules: `true` to checkout submodules or `recursive` to
+    # recursively checkout submodules.
+    #
+    # When the `ssh-key` input is not provided, SSH URLs beginning with
+    # `git@github.com:` are converted to HTTPS.
+    #
+    # Default: false
+    submodules: true
+```
+
+### Vercel
+
+Vercel 貌似暂不支持私有子模块。[Build Features for Customizing Deployments](https://vercel.com/docs/builds/build-features#git-submodules)
+
+> On Vercel, you can deploy Git submodules with a Git provider as long as the submodule is publicly accessible through the HTTP protocol. Git submodules that are private or requested over SSH will fail during the Build step. However, you can reference private repositories formatted as npm packages in your package.json file dependencies.
+
+可以在 Vercel Checkout 完了之后，更改子模块的原来的 `SSH` 协议的 url 为 带有 `PAT` 的 `HTTPS`，或者删除子模块重新创建。
+
+可以参考这篇文章：[How to Deploy a Project with Private Git Submodules to Vercel](https://www.ytyng.com/en/blog/how-to-deploy-project-to-vercel-includes-private-submodules)
+
 ## 参考资料
 
 - [Github Actions: submodule 下公私有仓库授权和通信](https://zhuanlan.zhihu.com/p/408319831)
