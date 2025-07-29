@@ -22,3 +22,6 @@ docs/.vuepress/dist/
 
 # rollup-plugin-visualizer
 /stats.html
+
+.eslintcache
+.stylelintcache
