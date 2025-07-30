@@ -188,7 +188,8 @@ import {
 
 ## Replit Demo
 
-<Replit user="FuckDoctors" repl="Java-Test" file="Main.java" />
+已废弃。
+<!-- <Replit user="FuckDoctors" repl="Java-Test" file="Main.java" /> -->
 
 ```md
 <Replit user="FuckDoctors" repl="Java-Test" file="Main.java" />
