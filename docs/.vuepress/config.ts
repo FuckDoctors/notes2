@@ -28,16 +28,16 @@ export default defineUserConfig({
       {
         rel: 'stylesheet',
         href: '//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css',
-        crossOrigin: true,
+        crossOrigin: '',
       },
     ],
     [
       'link',
       {
         rel: 'stylesheet',
-        // zhaobc挑选的图标
+        // zhaobc 挑选的图标
         href: '//at.alicdn.com/t/c/font_4647860_t3wvzckeetc.css',
-        crossOrigin: true,
+        crossOrigin: '',
       },
     ],
     [
@@ -45,7 +45,7 @@ export default defineUserConfig({
       {
         // 百度统计
         src: '//hm.baidu.com/hm.js?85e80625eddf91d81d9535565850722b',
-        crossOrigin: true,
+        crossOrigin: 'anonymous',
       },
     ],
     [
@@ -53,7 +53,7 @@ export default defineUserConfig({
       {
         // Clarity
         src: '/assets/js/clarity.js',
-        crossOrigin: true,
+        crossOrigin: '',
       },
     ],
   ],
@@ -132,12 +132,12 @@ export default defineUserConfig({
           },
         },
       ],
-      ssr: {
-        noExternal: ['floating-vue'],
-      },
-      optimizeDeps: {
-        include: ['floating-vue'],
-      },
+      // ssr: {
+      //   noExternal: ['floating-vue'],
+      // },
+      // optimizeDeps: {
+      //   include: ['floating-vue'],
+      // },
 
       server: {
         port: 8080,
