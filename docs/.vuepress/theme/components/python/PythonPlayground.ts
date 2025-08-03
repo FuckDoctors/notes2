@@ -49,7 +49,7 @@ const PythonPlayground: FunctionalComponent<PythonPlaygroundProps> = ({
   link,
   allow = 'cross-origin-isolated',
   // sandbox = 'allow-downloads allow-forms allow-modals allow-popups allow-same-origin allow-scripts',
-  sandbox = 'allow-scripts allow-same-origin',
+  sandbox = 'allow-downloads allow-modals allow-scripts allow-same-origin',
   credentialless = true,
 }) =>
   h('div', { class: 'vp-container vp-playground' }, [
