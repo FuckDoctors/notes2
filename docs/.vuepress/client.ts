@@ -7,6 +7,7 @@ import Chazi from './theme/components/hanzi/Chazi.vue'
 import Hanzi from './theme/components/hanzi/Hanzi.vue'
 import HanziCard from './theme/components/hanzi/HanziCard.vue'
 import PlaygroundIcon from './theme/components/icons/PlaygroundIcon'
+import PlaygroundDropdown from './theme/components/PlaygroundDropdown'
 import PythonPlayground from './theme/components/python/PythonPlayground'
 
 // import TwoslashFloatingVue from './theme/components/twoslash/client'
@@ -33,6 +34,7 @@ export default defineClientConfig({
     app.component('PlaygroundIcon', PlaygroundIcon)
 
     app.component('PythonPlayground', PythonPlayground)
+    app.component('PlaygroundDropdown', PlaygroundDropdown)
 
     // // twoslash
     // app.use(TwoslashFloatingVue)

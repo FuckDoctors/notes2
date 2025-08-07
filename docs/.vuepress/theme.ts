@@ -71,7 +71,7 @@ export const themeOptions: ThemeOptions = {
       navbarLayout: {
         start: ['Brand'],
         center: ['Links'],
-        end: ['Language', 'Repo', 'Outlook', 'PlaygroundIcon', 'Search'],
+        end: ['Language', 'Repo', 'Outlook', 'PlaygroundDropdown', 'Search'],
       },
 
       // sidebar
@@ -98,7 +98,7 @@ export const themeOptions: ThemeOptions = {
       navbarLayout: {
         start: ['Brand'],
         center: ['Links'],
-        end: ['Language', 'Repo', 'Outlook', 'PlaygroundIcon', 'Search'],
+        end: ['Language', 'Repo', 'Outlook', 'PlaygroundDropdown', 'Search'],
       },
 
       // sidebar
