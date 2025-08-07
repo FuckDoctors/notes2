@@ -62,6 +62,7 @@ export default defineUserConfig({
   // so we recommend you to set "shouldPrefetch: false" in VuePress config file.
   shouldPrefetch: false,
 
+  lang: 'zh-CN',
   locales: {
     '/': {
       lang: 'zh-CN',

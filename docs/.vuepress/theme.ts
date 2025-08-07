@@ -312,6 +312,12 @@ export const themeOptions: ThemeOptions = {
     docsearch: docSearch,
     seo,
     pwa,
+
+    // 由于不是全站多语言，所以去掉跟 locale 相关的自动跳转
+    redirect: {
+      autoLocale: false,
+      switchLocale: false,
+    },
   },
 }
 
