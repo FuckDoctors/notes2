@@ -1,0 +1,8 @@
+diff --git a/lib/client/index.js b/lib/client/index.js
+index 495b31d41ee42989c6bef932c0cdba1e812cce75..f74e8fa04e188a83fd7e04cfe1f1fa476f2d642c 100644
+--- a/lib/client/index.js
++++ b/lib/client/index.js
+@@ -1,2 +1,2 @@
+-const c=({id:r,crossOrigin:i})=>{if("clarity"in window)return;const t=document.createElement("script");t.src=`https://www.clarity.ms/tag/${r}`,t.async=!0,i!==void 0&&(t.crossOrigin=i),document.head.appendChild(t)};export{c as useClarityAnalytics};
++const c=({id:r,crossOrigin:i})=>{if("clarity"in window)return; window['clarity']=window['clarity']||function(){(window['clarity'].q=window['clarity'].q||[]).push(arguments)}; const t=document.createElement("script");t.src=`https://www.clarity.ms/tag/${r}`,t.async=!0,i!==void 0&&(t.crossOrigin=i),document.head.appendChild(t)};export{c as useClarityAnalytics};
+ //# sourceMappingURL=index.js.map

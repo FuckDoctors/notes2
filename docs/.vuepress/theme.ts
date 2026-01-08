@@ -126,6 +126,9 @@ export const themeOptions: ThemeOptions = {
   },
 
   markdown: {
+    DANGEROUS_ALLOW_SCRIPT_EXECUTION: true,
+    DANGEROUS_SCRIPT_EXECUTION_ALLOWLIST: ['posts/home/tv.md'],
+
     hint: true,
 
     // image

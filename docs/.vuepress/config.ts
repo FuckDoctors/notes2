@@ -1,6 +1,7 @@
 import type { PluginOption } from 'vite'
 import process from 'node:process'
 import { viteBundler } from '@vuepress/bundler-vite'
+import { clarityAnalyticsPlugin } from '@vuepress/plugin-clarity-analytics'
 import { llmsPlugin } from '@vuepress/plugin-llms'
 
 import { visualizer } from 'rollup-plugin-visualizer'
@@ -48,14 +49,14 @@ export default defineUserConfig({
         crossOrigin: 'anonymous',
       },
     ],
-    [
-      'script',
-      {
-        // Clarity
-        src: '/assets/js/clarity.js',
-        crossOrigin: '',
-      },
-    ],
+    // [
+    //   'script',
+    //   {
+    //     // Clarity
+    //     src: '/assets/js/clarity.js',
+    //     crossOrigin: '',
+    //   },
+    // ],
   ],
 
   // vuepress-plugin-pwa2:  ⚠ The plugin will register service worker to handle assets,
@@ -88,6 +89,12 @@ export default defineUserConfig({
     llmsPlugin({
       domain: 'https://zhaobc.site',
       filter: page => !page.path.includes('/posts/private/'),
+    }),
+
+    // clarity
+    clarityAnalyticsPlugin({
+      id: 'g1boqnmsaf',
+      crossOrigin: 'anonymous',
     }),
   ],
 
