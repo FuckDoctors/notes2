@@ -18,7 +18,7 @@ head:
 
 # Playground 插件
 
-让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://sfc.vuejs.org/) 类似的代码案例。
+让你的 VuePress 站点中的 Markdown 文件支持 [Vue SFC Playground](https://play.vuejs.org/) 类似的代码案例。
 
 <!-- more -->
 
@@ -114,7 +114,7 @@ export const customConfig: CustomConfig = {
 ```json
 {
   "imports": {
-    "vue": "https://sfc.vuejs.org/vue.runtime.esm-browser.js"
+    "vue": "https://play.vuejs.org/vue.runtime.esm-browser.js"
   }
 }
 ```

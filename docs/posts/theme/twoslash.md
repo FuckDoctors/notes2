@@ -111,7 +111,7 @@ export default (options: ThemeOptions): Theme => ({
 如下所示：
 
 ````md
-```ts:no-v-pre twoslash
+```ts twoslash
 console.log('hello')
 //      ^?
 ```
@@ -121,14 +121,15 @@ console.log('hello')
 
 ### TypeScript 示例
 
-```ts:no-v-pre twoslash
+```ts twoslash
 console.log('hello')
 //      ^?
 ```
 
 ### Vue 单文件组件示例
 
-```vue:no-v-pre twoslash
+```vue twoslash
+// @errors: 2339
 <script setup>
 import { onMounted, ref } from 'vue'
 

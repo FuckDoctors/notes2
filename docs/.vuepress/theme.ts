@@ -17,6 +17,7 @@ import {
   revealjs,
   seo,
   waline,
+  // shikiOptions,
 } from './plugin-config'
 import * as sidebar from './sidebar'
 
