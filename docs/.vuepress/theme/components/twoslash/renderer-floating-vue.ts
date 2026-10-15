@@ -19,8 +19,7 @@ export interface TwoslashFloatingVueOptions {
   floatingVueThemeCompletion?: string
 }
 
-export interface TwoslashFloatingVueRendererOptions
-  extends RendererRichOptions {
+export interface TwoslashFloatingVueRendererOptions extends RendererRichOptions {
   /**
    * Class and themes for floating-vue specific nodes
    */

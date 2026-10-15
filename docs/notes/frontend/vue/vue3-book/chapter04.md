@@ -318,9 +318,7 @@ console.log('weakmap', weakmap)
 
 ```js
 const data = { ok: true, text: 'hello world' }
-const obj = new Proxy(data, {
-  /* ... */
-})
+const obj = new Proxy(data, {/* ... */})
 
 effect(() => {
   document.body.innerText = obj.ok ? obj.text : 'not'
@@ -624,9 +622,7 @@ function effect(fn) {
 
 ```js
 const data = { foo: 1 }
-const obj = new Proxy(data, {
-  /* ... */
-})
+const obj = new Proxy(data, {/* ... */})
 
 effect(() => obj.foo++)
 // 上句相当于

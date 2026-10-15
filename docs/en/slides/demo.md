@@ -205,31 +205,39 @@ Add `fragment` and animation class to element.
 ### Animation class
 
 - `fade-in`
+
 <!-- .element: class="fragment fade-in" -->
 
 - `fade-out`
+
 <!-- .element: class="fragment fade-out" -->
 
 - `fade-up`
+
 <!-- .element: class="fragment fade-up" -->
 
 <!-- list break -->
 
 - `fade-down`
+
 <!-- .element: class="fragment fade-down" -->
 
 - `fade-left`
+
 <!-- .element: class="fragment fade-left" -->
 
 - `fade-right`
+
 <!-- .element: class="fragment fade-right" -->
 
 <!-- list break -->
 
 - `fade-in-then-out`
+
 <!-- .element: class="fragment fade-in-then-out" -->
 
 - `fade-in-then-semi-out`
+
 <!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
@@ -241,34 +249,43 @@ Add `fragment` and animation class to element.
 ### Animation class
 
 - `grow`
+
 <!-- .element: class="fragment grow" -->
 
 - `shrink`
+
 <!-- .element: class="fragment shrink" -->
 
 - `strike`
+
 <!-- .element: class="fragment strike" -->
 
 <!-- list break -->
 
 - `highlight-red`
+
 <!-- .element: class="fragment highlight-red" -->
 
 - `highlight-green`
+
 <!-- .element: class="fragment highlight-green" -->
 
 - `highlight-blue`
+
 <!-- .element: class="fragment highlight-blue" -->
 
 <!-- list break -->
 
 - `highlight-current-red`
+
 <!-- .element: class="fragment highlight-current-red" -->
 
 - `highlight-current-green`
+
 <!-- .element: class="fragment highlight-current-green" -->
 
 - `highlight-current-blue`
+
 <!-- .element: class="fragment highlight-current-blue" -->
 
 --
@@ -302,17 +319,21 @@ Order can be changed using the `data-fragment-index` attribute.
 Multiple elements can appear at the same index.
 
 - Appears last
+
 <!-- .element: class="fragment" data-fragment-index="3"-->
 
 - Appears second
+
 <!-- .element: class="fragment" data-fragment-index="2"-->
 
 <!-- list break -->
 
 - Appears first
+
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 - Appears second
+
 <!-- .element: class="fragment" data-fragment-index="2"-->
 
 ---

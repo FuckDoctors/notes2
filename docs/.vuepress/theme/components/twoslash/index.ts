@@ -17,8 +17,7 @@ interface TransformerTwoslashVueOptions extends TransformerTwoslashOptions {
 }
 
 export interface VitePressPluginTwoslashOptions
-  extends TransformerTwoslashVueOptions,
-    TwoslashFloatingVueRendererOptions {
+  extends TransformerTwoslashVueOptions, TwoslashFloatingVueRendererOptions {
   /**
    * Requires adding `twoslash` to the code block explicitly to run twoslash
    * @default true
