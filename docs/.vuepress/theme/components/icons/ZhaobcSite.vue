@@ -32,34 +32,31 @@ function handleReplay() {
 </script>
 
 <template>
-  <svg width="420" height="220" viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="420"
+    height="220"
+    viewBox="0 0 420 120"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <!-- 透明捕获层，用来接收mouseenter -->
-    <rect id="hoverArea" width="420" height="220" fill="transparent" @mouseenter="handleReplay" />
+    <rect
+      id="hoverArea"
+      width="420"
+      height="220"
+      fill="transparent"
+      @mouseenter="handleReplay"
+    />
     <!-- 上方源文本 -->
     <g>
-      <text class="domain-parts ani-zhao" x="75" y="40">
-        Zhao
-      </text>
-      <text class="domain-parts ani-b" x="150" y="40">
-        B
-      </text>
-      <text x="170" y="40">
-        in
-      </text>
-      <text class="domain-parts ani-c" x="205" y="40">
-        c
-      </text>
-      <text x="220" y="40">
-        hen&apos;s
-      </text>
-      <text class="domain-parts ani-site" x="295" y="40">
-        site
-      </text>
+      <text class="domain-parts ani-zhao" x="75" y="40">Zhao</text>
+      <text class="domain-parts ani-b" x="150" y="40">B</text>
+      <text x="170" y="40">in</text>
+      <text class="domain-parts ani-c" x="205" y="40">c</text>
+      <text x="220" y="40">hen&apos;s</text>
+      <text class="domain-parts ani-site" x="295" y="40">site</text>
     </g>
     <!-- 目标域名：SVG画布水平居中 -->
-    <text class="domain-text ani-domain" x="205" y="100">
-      zhaobc.site
-    </text>
+    <text class="domain-text ani-domain" x="205" y="100">zhaobc.site</text>
   </svg>
 </template>
 
