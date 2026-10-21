@@ -25,7 +25,7 @@ Nickname: `zhbchwin`, `UJN-Bin`. ~~`Fuckdoctors`(I hate the heartless doctors)~~
 My name is `Zhao Binchen`(Pinyin in Chinese, Family name at first), So, I got the domain [zhaobc.site](https://www.zhaobc.site).
 
 <div style="display: flex;justify-content: center;">
-  <img :src="$withBase('/zhaobc.site.svg')" alt="zhaobc.site" />
+  <ZhaobcSite/>
 </div>
 
 ## Hobbies

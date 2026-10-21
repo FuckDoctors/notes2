@@ -2,7 +2,7 @@
   <style>
     text {
       font-size: 26px;
-      fill: #222;
+      fill: currentColor;
     }
     .ani-zhao, .ani-b, .ani-c, .ani-site {
       font-weight: bold;
@@ -137,7 +137,7 @@
   </style>
 <!--上方源文本-->
   <g>
-    <text class="ani-zhao" x="75" y="40">Zhao</text>
+    <text class="ani-zhao" x="70" y="40">Zhao</text>
     <text class="ani-b" x="150" y="40">B</text>
     <text x="170" y="40">in</text>
     <text class="ani-c" x="200" y="40">c</text>
